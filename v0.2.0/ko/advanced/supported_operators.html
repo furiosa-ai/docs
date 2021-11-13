@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NPU 가속 연산자 목록 &mdash; Furiosa SDK 문서 furiosa-docs documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="prev" title="모델 양자화" href="quantization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK 문서
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">SDK 설치</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/prerequisites.html">FuriosaAI SDK 설치 사전 준비</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/driver.html">NPU 커널 드라이버 및 펌웨어 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/runtime.html">NPU Runtime 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/python-sdk.html">FuriosaAI Python SDK 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/apikey.html">API 키 설정</a></li>
+</ul>
+<p class="caption"><span class="caption-text">빠른 시작</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK 빠르게 시작하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">명령 줄 도구 빠르게 시작하기</a></li>
+</ul>
+<p class="caption"><span class="caption-text">고급 주제</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NPU 가속 연산자 목록</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK 문서</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>NPU 가속 연산자 목록</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/advanced/supported_operators.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="npu">
+<h1>NPU 가속 연산자 목록<a class="headerlink" href="#npu" title="제목 주소">¶</a></h1>
+<p>FuriosaAI NPU와 SDK 0.2.1 에서는
+<a class="reference external" href="https://www.tensorflow.org/lite">Tensorflow Lite</a> 모델과 <a class="reference external" href="https://onnx.ai/">ONNX</a> 모델에
+포함된 아래 28개 연산자를 가속할 수 있다. 아래 연산자 이름은 <a class="reference external" href="https://onnx.ai/">ONNX</a> 를 기준으로 한다.</p>
+<ul class="simple">
+<li><p>Add</p></li>
+<li><p>AveragePool</p></li>
+<li><p>Clip</p></li>
+<li><p>Concat</p></li>
+<li><p>Conv</p></li>
+<li><p>ConvTranspose</p></li>
+<li><p>DepthToSpace</p></li>
+<li><p>Exp</p></li>
+<li><p>Expand</p></li>
+<li><p>Flatten</p></li>
+<li><p>Gemm</p></li>
+<li><p>LpNormalization (when p = 2)</p></li>
+<li><p>MatMul</p></li>
+<li><p>MaxPool</p></li>
+<li><p>Mean</p></li>
+<li><p>Mul</p></li>
+<li><p>Pad</p></li>
+<li><p>ReduceL2</p></li>
+<li><p>ReduceSum</p></li>
+<li><p>Relu</p></li>
+<li><p>Reshape</p></li>
+<li><p>Sigmoid</p></li>
+<li><p>Slice</p></li>
+<li><p>Softmax</p></li>
+<li><p>Softplus</p></li>
+<li><p>Split</p></li>
+<li><p>Transpose</p></li>
+<li><p>Unsqueeze</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="quantization.html" class="btn btn-neutral float-left" title="모델 양자화" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, FuriosaAI Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

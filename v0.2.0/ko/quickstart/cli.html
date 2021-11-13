@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>명령 줄 도구 빠르게 시작하기 &mdash; Furiosa SDK 문서 furiosa-docs documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="모델 양자화" href="../advanced/quantization.html" />
+    <link rel="prev" title="Python SDK 빠르게 시작하기" href="python-sdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK 문서
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">SDK 설치</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/prerequisites.html">FuriosaAI SDK 설치 사전 준비</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/driver.html">NPU 커널 드라이버 및 펌웨어 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/runtime.html">NPU Runtime 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/python-sdk.html">FuriosaAI Python SDK 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/apikey.html">API 키 설정</a></li>
+</ul>
+<p class="caption"><span class="caption-text">빠른 시작</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK 빠르게 시작하기</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">명령 줄 도구 빠르게 시작하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">명령어 소개</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">툴체인 버전 확인</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">모델 컴파일</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">모델 적합 여부 검사</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">컴파일 분석 및 최적화 도구</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">고급 주제</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">NPU 가속 연산자 목록</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK 문서</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>명령 줄 도구 빠르게 시작하기</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/quickstart/cli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>명령 줄 도구 빠르게 시작하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>FuriosaAI SDK는 모델 컴파일 및 최적화, 모델 양자화를 돕는
+다양한 명령 줄 도구(command line tools)를 제공한다.</p>
+<p>일부 명령 줄 도구가 FuriosaAI의 웹서비스를 기반으로 동작하기 때문에
+모든 기능을 사용하려면 API 키를 설정해야 한다.
+아직 키 설정을 하지 않았다면 <a class="reference internal" href="../installation/apikey.html"><span class="doc">API 키 설정</span></a> 를 참고한다.</p>
+<div class="section" id="id2">
+<h2>설치<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<p>만약 Python 실행 환경이 준비되어 있지 않다면 <a class="reference internal" href="../installation/prerequisites.html#setuppython"><span class="std std-ref">Python SDK 실행 환경 구성</span></a> 를 참고한다.</p>
+<p>명령 줄 도구 설치</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install furiosa-sdk<span class="o">[</span>cli, validator<span class="o">]</span>
+</pre></div>
+</div>
+<p>설치 확인</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa version
+Server version: <span class="m">0</span>.2.0 <span class="o">(</span>rev: a4bbbb1b4 built_at: <span class="m">2021</span>-03-15T21:20:59Z<span class="o">)</span>
+Client version: <span class="m">0</span>.1.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>명령어 소개<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<div class="section" id="id4">
+<h3>툴체인 버전 확인<a class="headerlink" href="#id4" title="제목 주소">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">toolchain</span></code> 명령은 툴체인과 관련된 부가 기능을 제공한다.
+현재는 제공되는 툴체인들의 버전 출력 기능을 제공한다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa toolchain list
+
+Available Toolchains:
+<span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="m">0</span>.1.0 <span class="o">(</span>rev: 952707e5f built_at: <span class="m">2020</span>-12-15 <span class="m">23</span>:38:22<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>모델 컴파일<a class="headerlink" href="#id5" title="제목 주소">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">compile</span></code> 명령은 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a>, <a class="reference external" href="https://onnx.ai/">ONNX</a>
+형식의 모델을 컴파일하여 FuriosaAI NPU를 사용하는 프로그램을 생성한다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
+  test_data/MNISTnet_uint8_quant_without_softmax.tflite
+
+output.enf has been generated <span class="o">(</span>elapsed: <span class="m">513</span>.661 ms<span class="o">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">-o</span></code> 옵션은 생성하는 프로그램 바이너리가 저장될 위치를 지정한다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
+  MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
+  -o /tmp/mnist.enf
+
+mnist.enf has been generated <span class="o">(</span>elapsed: <span class="m">513</span>.661 ms<span class="o">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--conf</span></code> 옵션을 사용하면 다양한 컴파일러 옵션을 지정할 때 yaml 파일을 사용할 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
+  test_data/MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
+  --config test_data/compiler_config.yml
+
+outout.enf has been generated <span class="o">(</span>elapsed: <span class="m">513</span>.661 ms<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>모델 적합 여부 검사<a class="headerlink" href="#id6" title="제목 주소">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">validate</span></code> 명령은 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a>, <a class="reference external" href="https://onnx.ai/">ONNX</a>
+형식의 모델을 인자로 받아, 자동으로 양자화한 후 최종 바이너리까지 컴파일을 시도한다.
+<code class="docutils literal notranslate"><span class="pre">validate</span></code> 에 성공하면 FuriosaAI NPU에서 실행 가능한 모델이다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa validate yolov4.onxx
+
+Passed!
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa validate efficientnet-lite4-11.onnx
+
+Failed. The result has been written to validation.txt
+
+$ cat validation.txt
+
+  Stdout:
+  <span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Checking <span class="k">if</span> the model can be transformed into a quantized model ...
+  Stderr:
+  /root/miniconda3/envs/furiosa/lib/python3.8/site-packages/onnx/__init__.py:97: RuntimeWarning: Unexpected end-group tag: Not all data was converted
+      <span class="nv">decoded</span> <span class="o">=</span> cast<span class="o">(</span>Optional<span class="o">[</span>int<span class="o">]</span>, proto.ParseFromString<span class="o">(</span>s<span class="o">))</span>
+  <span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Failed
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>컴파일 분석 및 최적화 도구<a class="headerlink" href="#id7" title="제목 주소">¶</a></h3>
+<p>컴파일을 할 때 추가 옵션을 주거나 별도의 명령어를 사용하면,
+컴파일된 모델의 NPU 활용 정도와
+모델 컴파일 과정에 대한 정보를 제공하는
+리포트를 생성할 수 있다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">compile</span></code> 명령어에 <code class="docutils literal notranslate"><span class="pre">--mem-allow-report</span></code> 옵션을 주는 경우
+메모리 할당에 대한 리포트를 HTML 형식으로 출력할 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
+  MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
+  -o /tmp/mnist.enf <span class="se">\</span>
+  --mem-alloc-report ./mem-report.html
+</pre></div>
+</div>
+<p>아래 그림은 메모리 할당 리포트 출력 예제이다.</p>
+<img alt="메모리 할당 리포트" src="../_images/mem_alloc_report.png" />
+<p><code class="docutils literal notranslate"><span class="pre">perfeye</span></code> 명령어는
+컴파일된 모델의 NPU 활용도를
+연산자 단위로 예상하여 출력한다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa perfeye <span class="se">\</span>
+  MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
+  -o output.html
+
+output.html has been generated <span class="o">(</span>elapsed: <span class="m">510</span>.783 ms<span class="o">)</span>
+</pre></div>
+</div>
+<p>아래 그림은 perfeye 리포트의 예제이다.</p>
+<img alt="Perfeye 리포트" src="../_images/perfeye.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../advanced/quantization.html" class="btn btn-neutral float-right" title="모델 양자화" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="python-sdk.html" class="btn btn-neutral float-left" title="Python SDK 빠르게 시작하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, FuriosaAI Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

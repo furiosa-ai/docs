@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>FuriosaAI SDK 설치 사전 준비 &mdash; Furiosa SDK 문서 furiosa-docs documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="NPU 커널 드라이버 및 펌웨어 설치" href="driver.html" />
+    <link rel="prev" title="FuriosaAI SDK 문서" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK 문서
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">SDK 설치</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FuriosaAI SDK 설치 사전 준비</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sdk">SDK 설치를 위한 최소 요구사항</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux에서 필수 패키지 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-sdk">Python SDK 실행 환경 구성</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conda-python">Conda를 이용한 Python 환경 구성</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-python">Linux 패키지를 이용한 Python 환경 구성</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="driver.html">NPU 커널 드라이버 및 펌웨어 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">NPU Runtime 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">FuriosaAI Python SDK 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apikey.html">API 키 설정</a></li>
+</ul>
+<p class="caption"><span class="caption-text">빠른 시작</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK 빠르게 시작하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">명령 줄 도구 빠르게 시작하기</a></li>
+</ul>
+<p class="caption"><span class="caption-text">고급 주제</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">NPU 가속 연산자 목록</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK 문서</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>FuriosaAI SDK 설치 사전 준비</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/installation/prerequisites.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="furiosaai-sdk">
+<h1>FuriosaAI SDK 설치 사전 준비<a class="headerlink" href="#furiosaai-sdk" title="제목 주소">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">주석</p>
+<p>FuriosaAI SDK는 명령어 인터페이스, 런타임 라이브러리,
+Python 라이브러리를 포함한다. FuriosaAI NPU의 커널 드라이버, 펌웨어 및 런타임은
+FuriosaAI의 평가 프로그램 등록과 최종 사용자 라이센스 동의(End User License Agreement)에 따라
+배포되며, <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a> 로 문의하여 프로그램 다운로드 및 평가를 진행 할 수 있다.</p>
+</div>
+<div class="section" id="sdk">
+<h2>SDK 설치를 위한 최소 요구사항<a class="headerlink" href="#sdk" title="제목 주소">¶</a></h2>
+<ul class="simple">
+<li><p>Ubuntu 18.04 LTS (Bionic Beaver) 또는 Debian buster
+또는 상위 버전</p></li>
+<li><p>시스템의 관리자 권한 (root)</p></li>
+<li><p><a class="reference external" href="https://github.com/">GitHub</a> 및 <a class="reference external" href="https://pypi.org/">PyPi</a> 로 연결 가능한 네트워크 환경</p></li>
+</ul>
+</div>
+<div class="section" id="linux">
+<h2>Linux에서 필수 패키지 설치<a class="headerlink" href="#linux" title="제목 주소">¶</a></h2>
+<p>필수 패키지인 <code class="docutils literal notranslate"><span class="pre">build-essential</span></code> 와 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> 를 설치한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get update
+$ apt-get install cmake build-essential
+</pre></div>
+</div>
+<p>onnxruntime 1.6.0을 설치한다.
+onnxruntime은 <a class="reference external" href="https://onnx.ai/">ONNX</a> 모델 형식 지원과 모델 양자화를 위해 사용된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/hyunsik/onnxruntime/releases/download/v1.6.0/libonnxruntime-1.6.0_amd64.deb
+$ apt-get install -y ./libonnxruntime-1.6.0_amd64.deb
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-sdk">
+<span id="setuppython"></span><h2>Python SDK 실행 환경 구성<a class="headerlink" href="#python-sdk" title="제목 주소">¶</a></h2>
+<p>FuriosaAI Python SDK 사용은 Python 3.7 또는 그 상위 버전이 필요하다.</p>
+<div class="admonition note">
+<p class="admonition-title">주석</p>
+<p>FuriosaAI Python SDK를 사용하지 않는다면 이 장을 건너뛰어도 좋다.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Python</span> <span class="mf">3.8</span><span class="o">.</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>위 명령으로 현재 시스템에 준비되어 있는 Python 버전을 확인할 수 있다.
+Python 명령이 존재하지 않거나 하위 버전의 Python을 사용하고 있다면
+아래 방법 중에 하나를 선택하여 Python 환경을 구성할 수 있다.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#condainstall"><span class="std std-ref">Conda를 이용한 Python 환경 구성</span></a> (권장):
+<a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">Conda</a> 는
+특정 Python 어플리케이션만을 위한 전용 Python 환경을 구성할 수 있게 해준다.
+따라서 Conda를 사용하면 Python 어플리케이션을 설치할 때 종종 발생하는 패키지 의존성 문제나 Python 버전 문제를
+피할 수 있다.</p></li>
+<li><p><a class="reference internal" href="#setuppythononubuntu"><span class="std std-ref">Linux 패키지를 이용한 Python 환경 구성</span></a>: Linux 시스템에서 Python 실행환경을 잘 이해하고 있고
+시스템에 직접 Python 환경을 구성하고 싶다면 선택할 수 있다.</p></li>
+</ul>
+<div class="section" id="conda-python">
+<span id="condainstall"></span><h3>Conda를 이용한 Python 환경 구성<a class="headerlink" href="#conda-python" title="제목 주소">¶</a></h3>
+<p>Conda는 특정 Python 어플리케이션만을 위한 전용 Python 환경을 구성할 수 있게 해준다.
+Conda에 대해 자세히 알고 싶다면 <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">Conda</a> 에서 다양한 문서를 참고할 수 있다.</p>
+<p>설치 프로그램을 아래와 같이 다운 받아 설치를 시작할 수 있다.
+<code class="docutils literal notranslate"><span class="pre">./Miniconda3-latest-Linux-x86_64.sh</span></code> 실행 시 물어보는 것은 모두 <cite>yes</cite> 를 선택하면 된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ sh ./Miniconda3-latest-Linux-x86_64.sh
+$ source ~/.bashrc
+$ conda --version
+conda 4.8.3
+</pre></div>
+</div>
+<p>Anaconda 설치 후에는 독립된 Python 실행 환경을 구성하고 필요에 따라 활성화 할 수 있다.
+FuriosaAI Python SDK는 Python 3.7-3.8 버전과 호환된다. 따라서 최신 Python 3.8을 이용하여
+<code class="docutils literal notranslate"><span class="pre">furiosa</span></code> 라는 이름으로 실행 환경을 생성하자.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create -n furiosa python=3.8
+</pre></div>
+</div>
+<p>생성한 Python 3.8 환경은 <code class="docutils literal notranslate"><span class="pre">activate</span></code> 명령으로 활성화된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate furiosa
+$ python --version
+Python 3.8.8
+</pre></div>
+</div>
+<p>그리고 나면 아래처럼 pip 를 이용해 furiosa-sdk를 필요한 extra 패키지와 함께 설치할 수 있다.
+자세한 설치 방법은 <a class="reference internal" href="python-sdk.html"><span class="doc">FuriosaAI Python SDK 설치</span></a> 를 참고한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install furiosa-sdk[cli, runtime]
+</pre></div>
+</div>
+<p>생성한 Python 환경의 사용을 비활성화하고 싶은 경우 <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> 명령을 사용한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda deactivate
+</pre></div>
+</div>
+<p>한번 생성한 환경은 언제든지 다시 <code class="docutils literal notranslate"><span class="pre">activate</span></code> 하여 사용할 수 있다.
+이미 설치했던 패키지는 활성화 후에 다시 설치하지 않아도 된다.</p>
+</div>
+<div class="section" id="linux-python">
+<span id="setuppythononubuntu"></span><h3>Linux 패키지를 이용한 Python 환경 구성<a class="headerlink" href="#linux-python" title="제목 주소">¶</a></h3>
+<p>시스템에서 바로 Python 환경을 구성할 수 있는 경우 아래와 같이
+필요한 패키지를 설치한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="driver.html" class="btn btn-neutral float-right" title="NPU 커널 드라이버 및 펌웨어 설치" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="FuriosaAI SDK 문서" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, FuriosaAI Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

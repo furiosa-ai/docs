@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Python SDK 빠르게 시작하기 &mdash; Furiosa SDK 문서 furiosa-docs documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="명령 줄 도구 빠르게 시작하기" href="cli.html" />
+    <link rel="prev" title="API 키 설정" href="../installation/apikey.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK 문서
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">SDK 설치</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/prerequisites.html">FuriosaAI SDK 설치 사전 준비</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/driver.html">NPU 커널 드라이버 및 펌웨어 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/runtime.html">NPU Runtime 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/python-sdk.html">FuriosaAI Python SDK 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/apikey.html">API 키 설정</a></li>
+</ul>
+<p class="caption"><span class="caption-text">빠른 시작</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python SDK 빠르게 시작하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python">간단한 Python 코드 실행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">관련 문서</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">명령 줄 도구 빠르게 시작하기</a></li>
+</ul>
+<p class="caption"><span class="caption-text">고급 주제</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">NPU 가속 연산자 목록</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK 문서</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Python SDK 빠르게 시작하기</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/quickstart/python-sdk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-sdk">
+<h1>Python SDK 빠르게 시작하기<a class="headerlink" href="#python-sdk" title="제목 주소">¶</a></h1>
+<p>FuriosaAI NPU Python SDK 라이브러리를 사용하면 NPU를 사용하는 프로그램을 Python으로 쉽게 작성할 수 있다.</p>
+<p><strong>요구사항</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../installation/driver.html"><span class="doc">NPU 커널 드라이버 및 펌웨어 설치</span></a></p></li>
+<li><p><a class="reference internal" href="../installation/runtime.html"><span class="doc">NPU Runtime 설치</span></a></p></li>
+<li><p>Python 3.7 또는 상위 버전 (필요시 <a class="reference internal" href="../installation/prerequisites.html#setuppython"><span class="std std-ref">Python SDK 실행 환경 구성</span></a> 참고)</p></li>
+</ul>
+<p>위 요구 사항이 준비된 경우 PyPi를 통해 FuriosaAI NPU Python SDK 라이브러리를 설치할 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install --upgrade furiosa-sdk<span class="o">[</span>runtime<span class="o">]</span>~<span class="o">=</span><span class="m">0</span>.1.0
+</pre></div>
+</div>
+<div class="section" id="python">
+<h2>간단한 Python 코드 실행<a class="headerlink" href="#python" title="제목 주소">¶</a></h2>
+<p>설치가 완료된 후 다음과 같이 Python 코드를 실행하여 버전 정보를 출력하면 패키지가 잘 설치되었는지 확인해볼 수 있다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">furiosa</span> <span class="kn">import</span> <span class="n">runtime</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">furiosa_sdk_runtime</span><span class="o">.</span><span class="n">_api</span><span class="o">.</span><span class="n">v1</span><span class="p">:</span><span class="n">successfully</span> <span class="n">loaded</span> <span class="n">dynamic</span> <span class="n">library</span> <span class="n">libnux</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">runtime</span><span class="o">.</span><span class="n">__full_version__</span>
+<span class="s1">&#39;Furiosa SDK Runtime .release:0.1.1+907338a44e91f176495b3c24fce3d9b1e626a662 (libnux 0.3.0-dev 9418048e4 2021-03-29 02:59:26)&#39;</span>
+</pre></div>
+</div>
+<p>모델을 로딩하여 <code class="docutils literal notranslate"><span class="pre">session</span></code> 객체를 생성하면 추론을 실행할 수 있다.
+모델을 처음 로딩하면 내부적으로 모델을 컴파일하고 최적화하는 과정이 수행된다.
+이 과정은 모델을 최초 로딩할 때만 수행되고 모델에 따라 수 초에서 수십 초 가량이 소요된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sess</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;./MNISTnet_uint8_quant_without_softmax.tflite&#39;</span><span class="p">)</span>
+<span class="go">num_slices: 16</span>
+<span class="go">num_slices: 16</span>
+<span class="go">[1/6] 🔍   Compiling from tflite to dfg</span>
+<span class="go">Done in 0.001876285s</span>
+<span class="go">[2/6] 🔍   Compiling from dfg to ldfg</span>
+<span class="go">▪▪▪▪▪ [1/3] Splitting graph...Done in 1.2222888s</span>
+<span class="go">▪▪▪▪▪ [2/3] Lowering...Done in 0.24661668s</span>
+<span class="go">▪▪▪▪▪ [3/3] Precalculating operators...Done in 0.007146129s</span>
+<span class="go">Done in 1.4769053s</span>
+<span class="go">[3/6] 🔍   Compiling from ldfg to cdfg</span>
+<span class="go">Done in 0.000111313s</span>
+<span class="go">[4/6] 🔍   Compiling from cdfg to gir</span>
+<span class="go">Done in 0.004966648s</span>
+<span class="go">[5/6] 🔍   Compiling from gir to lir</span>
+<span class="go">Done in 0.000273256s</span>
+<span class="go">[6/6] 🔍   Compiling from lir to enf</span>
+<span class="go">Done in 0.003491739s</span>
+<span class="go">✨  Finished in 1.4908016s</span>
+</pre></div>
+</div>
+<p>모델을 로딩하고 난 뒤에는 로딩된 모델 정보를 출력해 볼 수 있다.
+<code class="docutils literal notranslate"><span class="pre">Inputs</span></code>, <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> 에서는 입력/출력 텐서 목록과 각 텐서에 대한 개괄적인 정보를 출력한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sess</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>
+<span class="go">Inputs:</span>
+<span class="go">{0: TensorDesc: shape=(1, 28, 28, 1), dtype=uint8, format=NHWC, size=784, len=784}</span>
+<span class="go">Outputs:</span>
+<span class="go">{0: TensorDesc: shape=(1, 1, 1, 10), dtype=uint8, format=NHWC, size=10, len=10}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">session.run()</span></code> 함수를 호출하여 추론을 실행할 수 있다. <code class="docutils literal notranslate"><span class="pre">run()</span></code> 는
+하나의 <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a> 또는
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a> 리스트를 인자로 받을 수 있다.</p>
+<p>간단한 실행을 위해 <code class="docutils literal notranslate"><span class="pre">numpy</span></code> 를 이용해 입력 텐서에 맞게 랜덤 텐서를 아래와 같이 생성하여
+<code class="docutils literal notranslate"><span class="pre">run</span></code> 을 호출해보자.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">input_meta</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">inputs</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">input_meta</span>
+<span class="go">TensorDesc: shape=(1, 28, 28, 1), dtype=uint8, format=NHWC, size=784, len=784</span>
+
+<span class="go">&gt;&gt; input = np.random.randint(-128, 127, input_meta.shape(), dtype=np.int8)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span>
+<span class="go">{0: &lt;Tensor: shape=(1, 1, 1, 10), dtype=DataType.UINT8, numpy=[[[[255   0 239   0 183   0 209   0 255 255]]]]&gt;}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">session.run(input)</span></code> 호출은 NPU를 이용하여 추론을 실행하고 텐서 리스트를 반환한다.
+반환된 결과가 리스트이므로 첫번째 텐서의 numpy.ndarray을 얻으려면 아래와 같이 실행한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>전체 코드를 담은 예제는 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/furiosa-sdk-runtime/quickstart_example.py">furiosa-sdk-runtime/quickstart_example.py</a>
+에서 찾을 수 있다.</p>
+</div>
+<div class="section" id="id1">
+<h2>관련 문서<a class="headerlink" href="#id1" title="제목 주소">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://furiosa-ai.github.io/renegade-manual/references/python/">Python SDK Reference</a></p></li>
+<li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/examples/furiosa-sdk-runtime">Python SDK Runtime examples</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cli.html" class="btn btn-neutral float-right" title="명령 줄 도구 빠르게 시작하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../installation/apikey.html" class="btn btn-neutral float-left" title="API 키 설정" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, FuriosaAI Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

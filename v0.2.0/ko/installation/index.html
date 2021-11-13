@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>FuriosaAI SDK Installation &mdash; Furiosa SDK Documents furiosa-docs 문서</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="FuriosaAI NPU 커널 드라이버 및 펌웨어 설치" href="driver.html" />
+    <link rel="prev" title="FuriosaAI SDK 문서" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">차례</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FuriosaAI SDK Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="driver.html">FuriosaAI NPU 커널 드라이버 및 펌웨어 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html">FuriosaAI NPU Runtime 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-sdk.html">FuriosaAI NPU Python SDK 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apikey.html">FuriosaAI API 키 설정</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">FuriosaAI SDK References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">FuriosaAI NPU Python SDK 빠르게 시작하기</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>FuriosaAI SDK Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/installation/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="furiosaai-sdk-installation">
+<h1>FuriosaAI SDK Installation<a class="headerlink" href="#furiosaai-sdk-installation" title="제목 주소">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>FuriosaAI SDK의 일부 소프트웨어 (커널 드라이버, 펌웨어, 런타임)는
+FuriosaAI SDK 및 NPU 평가 프로그램을 통해 별도의 채널로 전달 받아야 한다.
+FuriosaAI SDK 및 NPU 평가 프로그램 등록은 <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a> 로 신청할 수 있다.</p>
+</div>
+<p>SDK 설치를 위한 최소 요구사항</p>
+<blockquote>
+<div><ul>
+<li><p>Ubuntu 18.04 LTS (Bionic Beaver) 또는 Debian buster
+또는 상위 버전</p></li>
+<li><p>시스템의 관리자 권한 (root)</p></li>
+<li><p>Python 3.7+ 및 최신 버전의 PIP</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install --upgrade pip
+</pre></div>
+</div>
+</li>
+<li><p>GitHub 및 PyPi 로 연결 가능한 네트워크 환경</p></li>
+<li><p>build-essential 및 cmake 설치</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get update
+$ apt-get install cmake build-essential
+</pre></div>
+</div>
+</li>
+<li><p>onnxruntime 1.6.0 (모델 quantization &amp; calibration, NPU 에서 지원하지 않는 오퍼레이터 처리를 위해 설치 필요)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/hyunsik/onnxruntime/releases/download/v1.6.0/libonnxruntime-1.6.0_amd64.deb
+$ apt-get install -y ./libonnxruntime-1.6.0_amd64.deb
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<p>SDK 구성 요소별 설치 안내</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="driver.html"><span class="doc">FuriosaAI NPU 커널 드라이버 및 펌웨어 설치 [Required]</span></a> : NPU 를 구동하기 위한 커널 드라이버 및 펌웨어</p></li>
+<li><p><a class="reference internal" href="runtime.html"><span class="doc">FuriosaAI NPU Runtime 설치 [Required]</span></a> : NPU 런타임 및 NPU 응용 프로그램 도구</p></li>
+<li><p><a class="reference internal" href="python-sdk.html"><span class="doc">FuriosaAI NPU Python SDK 설치 [Required]</span></a> : NPU 사용을 위한 Python 라이브러리 및 명령도구 (cli)</p>
+<ul>
+<li><p><a class="reference internal" href="python-sdk-setup-python.html"><span class="doc">FuriosaAI NPU Python SDK 설치를 위한 Python 환경 구성 [Optional]</span></a> : FuriosaAI NPU Python SDK 설치를 위한 Python 3.7+ 환경 구성 안내</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="apikey.html"><span class="doc">FuriosaAI API 키 설정 [Optional]</span></a> : FuriosaAI에서 웹 서비스로 제공하는 도구를 사용하기 위한 설정</p></li>
+</ul>
+</div></blockquote>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="driver.html" class="btn btn-neutral float-right" title="FuriosaAI NPU 커널 드라이버 및 펌웨어 설치" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="FuriosaAI SDK 문서" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, FuriosaAI Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
