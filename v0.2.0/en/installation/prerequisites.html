@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuriosaAI SDK Installation + Prerequisites &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPU Kernel Driver and Firmware Installation" href="driver.html" />
+    <link rel="prev" title="FuriosaAI SDK Documentation" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SDK installation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FuriosaAI SDK Installation + Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-requirements">Minimum Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-dependencies-linux">Installing Dependencies (Linux)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-the-python-sdk-runtime-environment">Configuring the Python SDK Runtime Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-the-python-environment-using-conda">Configuring the Python Environment Using Conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-the-python-environment-using-linux-packages">Configuring the Python Environment Using Linux Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="driver.html">NPU Kernel Driver and Firmware Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">NPU Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">FuriosaAI Python SDK Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apikey.html">API Key Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">Command Line Tools Quickstart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">List of NPU Acceleration Operators</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>FuriosaAI SDK Installation + Prerequisites</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/installation/prerequisites.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="furiosaai-sdk-installation-prerequisites">
+<h1>FuriosaAI SDK Installation + Prerequisites<a class="headerlink" href="#furiosaai-sdk-installation-prerequisites" title="Permalink to this headline"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The FuriosaAI SDK is composed of a commmand line interface, runtime library, and Python library.
+The FuriosaAI NPU’s kernel driver, firmware, and runtime are distributed according to
+FuriosaAI’s evaluation tool registration and End User License Agreement.
+For questions about downloading and evaluating the program, please contact us at <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a>.</p>
+</div>
+<section id="minimum-requirements">
+<h2>Minimum Requirements<a class="headerlink" href="#minimum-requirements" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Ubuntu 18.04 LTS (Bionic Beaver), Debian buster, or later</p></li>
+<li><p>System administrator privileges (root)</p></li>
+<li><p>A Network Environment/Internet connection able to connect to <a class="reference external" href="https://github.com/">GitHub</a> and <a class="reference external" href="https://pypi.org/">PyPi</a></p></li>
+</ul>
+</section>
+<section id="installing-dependencies-linux">
+<h2>Installing Dependencies (Linux)<a class="headerlink" href="#installing-dependencies-linux" title="Permalink to this headline"></a></h2>
+<p>To install <code class="docutils literal notranslate"><span class="pre">build-essential</span></code> and <code class="docutils literal notranslate"><span class="pre">cmake</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get update
+$ apt-get install cmake build-essential
+</pre></div>
+</div>
+<p>To install <code class="docutils literal notranslate"><span class="pre">onnxruntime</span></code> 1.8.1:</p>
+<p><code class="docutils literal notranslate"><span class="pre">onnxruntime</span></code> is used for <a class="reference external" href="https://onnx.ai/">ONNX</a> model format support and model quantization.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/hyunsik/onnxruntime/releases/download/v1.8.1/libonnxruntime-1.8.1_amd64.deb
+$ apt-get install -y ./libonnxruntime-1.8.1_amd64.deb
+</pre></div>
+</div>
+</section>
+<section id="configuring-the-python-sdk-runtime-environment">
+<span id="setuppython"></span><h2>Configuring the Python SDK Runtime Environment<a class="headerlink" href="#configuring-the-python-sdk-runtime-environment" title="Permalink to this headline"></a></h2>
+<p>Python 3.7 or later is required to use the FuriosaAI Python SDK.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you aren’t using the FuriosaAI Python SDK, you can skip this section.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Python</span> <span class="mf">3.8.5</span>
+</pre></div>
+</div>
+<p>The above command checks the version of Python available on the current system.
+If your system doesn’t have Python or only has a lower version of it,
+you can configure a Python environment with one of the following methods.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#condainstall"><span class="std std-ref">Configuring the Python Environment Using Conda</span></a> (recommended):
+<a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">Conda</a> can
+be used to configure a dedicated Python environment for specific Python applications.
+Conda helps to prevent package dependency issues and Python version issues
+that can occur when installing complicated Python applications.</p></li>
+<li><p><a class="reference internal" href="#setuppythononubuntu"><span class="std std-ref">Configuring the Python Environment Using Linux Packages</span></a>: This option is for users who have a good understanding
+of the Python execution environment on their Linux system and want to configure
+the Python environment directly on their system.</p></li>
+</ul>
+<section id="configuring-the-python-environment-using-conda">
+<span id="condainstall"></span><h3>Configuring the Python Environment Using Conda<a class="headerlink" href="#configuring-the-python-environment-using-conda" title="Permalink to this headline"></a></h3>
+<p>You can use Conda to configure a dedicated Python environment for specific Python applications.
+Please refer to the documents in <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">Conda</a> for more information on Conda.</p>
+<p>Start the installation process by downloading the installation program as follows:
+Run <code class="docutils literal notranslate"><span class="pre">./Miniconda3-latest-Linux-x86_64.sh</span></code> and select <cite>yes</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ sh ./Miniconda3-latest-Linux-x86_64.sh
+$ source ~/.bashrc
+$ conda --version
+conda 4.8.3
+</pre></div>
+</div>
+<p>After installing Anaconda, you can configure an isolated Python runtime environment
+and activate it as needed. The FuriosaAI Python SDK is compatible with Python 3.7-3.9 versions.
+The following uses Python 3.8 version to create an execution environment named <code class="docutils literal notranslate"><span class="pre">furiosa</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create -n furiosa python=3.8
+</pre></div>
+</div>
+<p>The newly created Python 3.8 environment is activated with the <code class="docutils literal notranslate"><span class="pre">activate</span></code> command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate furiosa
+$ python --version
+Python 3.8.8
+</pre></div>
+</div>
+<p>Now you can install furiosa-sdk with additional dependencies using pip as shown below.
+For more detailed instructions for installation, refer to  <a class="reference internal" href="python-sdk.html"><span class="doc">FuriosaAI Python SDK Installation</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install &#39;furiosa-sdk[cli, runtime]&#39;
+</pre></div>
+</div>
+<p>To deactivate the use of the user created Python environment, use the <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda deactivate
+</pre></div>
+</div>
+<p>Once created, the environment can be reactivated using <code class="docutils literal notranslate"><span class="pre">activate</span></code> and used at any time.
+Packages that have already been installed do not need to be reinstalled after activation.</p>
+</section>
+<section id="configuring-the-python-environment-using-linux-packages">
+<span id="setuppythononubuntu"></span><h3>Configuring the Python Environment Using Linux Packages<a class="headerlink" href="#configuring-the-python-environment-using-linux-packages" title="Permalink to this headline"></a></h3>
+<p>If a Python environment can be configured directly from the system,
+install the following dependencies as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="FuriosaAI SDK Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="driver.html" class="btn btn-neutral float-right" title="NPU Kernel Driver and Firmware Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, FuriosaAI Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
