@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['compiler_5foptions_5fauto_5fbatch_5fsize_191',['compiler_options_auto_batch_size',['../nux_8h.html#a7b303e4a90e41b94b76a858aaa7a24bf',1,'nux.h']]],
+  ['compiler_5foptions_5fbatch_5fsize_192',['compiler_options_batch_size',['../nux_8h.html#a1f4c2e5074339337fcfc155e4b54f4d0',1,'nux.h']]],
+  ['compiler_5foptions_5fcreate_193',['compiler_options_create',['../nux_8h.html#a5b5aee26421c6c16372ce347a5e13ae0',1,'nux.h']]],
+  ['compiler_5foptions_5fdestroy_194',['compiler_options_destroy',['../nux_8h.html#aa35e2271570d94cd4497b8e3ca7b2330',1,'nux.h']]],
+  ['compiler_5foptions_5fdot_5fgraph_195',['compiler_options_dot_graph',['../nux_8h.html#a764dda4b025416e1e73681d83c80d6e3',1,'nux.h']]],
+  ['compiler_5foptions_5fga_5fgeneration_5flimit_196',['compiler_options_ga_generation_limit',['../nux_8h.html#aff616c0f999207136d675ed0f53a6237',1,'nux.h']]],
+  ['compiler_5foptions_5fga_5finit_5ftactic_197',['compiler_options_ga_init_tactic',['../nux_8h.html#abdd81579df91f5764a40470c421f8676',1,'nux.h']]],
+  ['compiler_5foptions_5fga_5fmax_5fprefetch_5fsize_198',['compiler_options_ga_max_prefetch_size',['../nux_8h.html#a2e3bd4f1f82ab39ef7da1993cd7922b4',1,'nux.h']]],
+  ['compiler_5foptions_5fga_5fnondeterministic_199',['compiler_options_ga_nondeterministic',['../nux_8h.html#ab1e3b8566b4070141b53064f230f1581',1,'nux.h']]],
+  ['compiler_5foptions_5fga_5foptimization_200',['compiler_options_ga_optimization',['../nux_8h.html#a6ae96577c2e492ab8960112eaf4e42ee',1,'nux.h']]],
+  ['compiler_5foptions_5fga_5fpin_5ftensors_201',['compiler_options_ga_pin_tensors',['../nux_8h.html#a9293d758b3aae4c532a09e33e2463827',1,'nux.h']]],
+  ['compiler_5foptions_5fga_5fpopulation_5fsize_202',['compiler_options_ga_population_size',['../nux_8h.html#ac8dec199b3c94996367e3623b20eeaf8',1,'nux.h']]],
+  ['compiler_5foptions_5finput_203',['compiler_options_input',['../nux_8h.html#abe31b48eb253bc09ca65984fe07c4012',1,'nux.h']]],
+  ['compiler_5foptions_5fmemory_5fanalysis_204',['compiler_options_memory_analysis',['../nux_8h.html#ac4ec5c64dc225928e9077677ce0a7de6',1,'nux.h']]],
+  ['compiler_5foptions_5foutput_205',['compiler_options_output',['../nux_8h.html#ac5fdacabc2cbd0f235a14248d9a28bec',1,'nux.h']]],
+  ['compiler_5foptions_5fsplit_5fafter_5flower_206',['compiler_options_split_after_lower',['../nux_8h.html#ad5e5a806f67c276b23dc3203304b7284',1,'nux.h']]],
+  ['compiler_5foptions_5ftarget_5fir_207',['compiler_options_target_ir',['../nux_8h.html#aa580a2a1ca6870df4b0ffbd79a5a5570',1,'nux.h']]],
+  ['compiler_5foptions_5ftarget_5fnpu_208',['compiler_options_target_npu',['../nux_8h.html#a9f621a1fa3ac63c603c25b9832d1e6a3',1,'nux.h']]],
+  ['compiler_5frun_209',['compiler_run',['../nux_8h.html#a1704a6301adaa5035623bf94e0b7197c',1,'nux.h']]],
+  ['create_5fnux_210',['create_nux',['../nux_8h.html#ae68b58f43d3a93f6edf9d0c0bea56e6b',1,'nux.h']]]
+];

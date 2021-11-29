@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['toolchains_20for_20furiosa_20npu_3',['Toolchains for Furiosa NPU',['../index.html',1,'']]]
+  ['c_20api_20of_20npu_20engine_379',['C API of NPU Engine',['../index.html',1,'']]]
 ];
