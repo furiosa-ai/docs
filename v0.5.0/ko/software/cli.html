@@ -68,7 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
@@ -152,7 +152,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">furiosa</span></code> 커맨드는 <cite>Python SDK &lt;PythonSDK&gt;</cite> 를 설치하면 사용할 수 있는 메타 명령형 도구이다.
 또한 확장 패키지를 설치하면 추가 하위 커맨드(subcommand) 가 추가 된다.</p>
 <p>만약 Python 실행 환경이 준비되어 있지 않다면 <a class="reference internal" href="python-sdk.html#setuppython"><span class="std std-ref">Python 실행 환경 구성</span></a> 를 참고한다.</p>
-<p>명령 줄 도구 설치</p>
+<p>명령행 도구 설치</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install furiosa-sdk
 </pre></div>
 </div>
@@ -165,14 +165,8 @@ libnpu.so --- v2.0, built @ fe1fca3
 <div class="section" id="furiosa-compile">
 <span id="compilercli"></span><h3>furiosa compile<a class="headerlink" href="#furiosa-compile" title="이 표제에 대한 퍼머링크"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">compile</span></code> 명령은 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a>, <a class="reference external" href="https://onnx.ai/">ONNX</a>
-형식의 모델을 컴파일하여 FuriosaAI NPU를 사용하는 프로그램을 생성한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
-  test_data/MNISTnet_uint8_quant_without_softmax.tflite
-
-output.enf has been generated <span class="o">(</span>elapsed: <span class="m">513</span>.661 ms<span class="o">)</span>
-</pre></div>
-</div>
-<p>자세한 설명과 옵션은 <a class="reference internal" href="compiler.html#compiler"><span class="std std-ref">컴파일러</span></a> 페이지에서 찾을 수 있다.</p>
+형식의 모델을 컴파일하여 FuriosaAI NPU를 사용하는 프로그램을 생성한다.
+자세한 설명과 옵션은 <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa compile</span></a> 페이지에서 찾을 수 있다.</p>
 </div>
 <div class="section" id="id3">
 <h3>모델 적합 여부 검사<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크"></a></h3>

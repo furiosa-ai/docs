@@ -12,7 +12,7 @@ FuriosaAI NPU는 작은 배치 크기의 추론에 최적화되어,
 FuriosaAI NPU는 Image Classification, Object Detection, OCR, Super Resolution 등
 다양한 Vision Task에 사용되는 주요 CNN 모델들을 지원하며,
 특히 State-of-the-Art CNN 모델들에서 높은 정확도와 연산효율을 가능하게 하는
-Depthwise/Group Convolution과 같은 연산에 대해서도 차별화된 성능을 보여준다.
+Depthwise/Group Convolution과 같은 연산에 대해서 차별화된 성능을 보여준다.
 
 
 .. _IntroToWarboy:
@@ -26,7 +26,7 @@ Warboy는 2개의 Processing Element (PE)로 구성되어, 각각 32 TOPS의 성
 독립적인 디바이스로 사용할 수 있다. 전체 64 TOPS의 성능으로 모델의 응답속도를 극대화해야 하는 경우,
 2개의 PE를 1개의 큰 PE로 Fusion하여 사용할 수 있다.
 사용자의 모델의 크기 혹은 성능 요구 사항에 따라, 응답속도에 최적화하도록 Fusion하여 사용하거나
-혹은 처리량에 최적화하기 위해 각 PE들을 독립적으로 사용하도록 구성될 수 있다.
+혹은 처리량에 최적화하기 위해 각 PE들을 독립적으로 사용하도록 구성할 수 있다.
 
 FuriosaAI SDK는 FuriosaAI NPU를 위한 컴파일러, 런타임 소프트웨어 및 프로파일링 도구를 제공한다.
 또한 TensorFlow, PyTorch에서 표준적으로 사용하는 INT8 Quantization Scheme을 지원하며,

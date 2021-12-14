@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="튜토리얼" href="tutorials.html" />
+    <link rel="next" title="튜토리얼 및 코드 예제" href="tutorials.html" />
     <link rel="prev" title="Kubernetes 지원" href="kubernetes_support.html" /> 
 </head>
 
@@ -62,7 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#endpoint">엔드포인트(Endpoint) 정보</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
@@ -182,8 +182,8 @@ Options:
 </div>
 <div class="section" id="id4">
 <h2>모델 설정을 이용한 모델 서버 실행<a class="headerlink" href="#id4" title="이 표제에 대한 퍼머링크"></a></h2>
-<p>컴파일 옵션이나 서빙에 대한 더 고급 설정이 필요한 경우 또는 반복적으로 같은 옵션을 사용해야 경우
-모델 설정을 사용할 수 있다.</p>
+<p>컴파일 옵션이나 서빙에 대한 더 고급 설정이 필요한 경우 또는 반복적으로 같은 옵션을 사용하는 경우
+모델 설정을 활용할 수 있다.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model_config_list</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mnist</span>
     <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="s">&quot;samples/data/MNISTnet_uint8_quant.tflite&quot;</span>
@@ -220,7 +220,7 @@ INFO:     Uvicorn running on http://0.0.0.0:8080 <span class="o">(</span>Press C
 INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 <span class="o">(</span>Press CTRL+C to quit<span class="o">)</span>
 </pre></div>
 </div>
-<p>모델 서버가 시작하고 나면 일반적인 HTTP 요청을 보내 모델의 추론 작업을 해볼 수 있다.
+<p>모델 서버가 시작되고 나면 일반적인 HTTP 요청을 보내 모델의 추론 작업을 해볼 수 있다.
 모델 설정에서 모델 이름이 <code class="docutils literal notranslate"><span class="pre">mnist</span></code> 이고 버전이 <code class="docutils literal notranslate"><span class="pre">1</span></code> 인 모델에 추론 요청을 보낼 때는
 <code class="docutils literal notranslate"><span class="pre">http://&lt;host&gt;:&lt;port&gt;/v2/models/mnist/version/1/infer</span></code> 에 <code class="docutils literal notranslate"><span class="pre">POST</span></code> 요청을 보내면 된다.</p>
 <p>아래 예제는 위와 동일한 요청을 Python 코드를 통해 보내는 예제이다.</p>
@@ -289,7 +289,7 @@ INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 <span class="o">(</spa
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="kubernetes_support.html" class="btn btn-neutral float-left" title="Kubernetes 지원" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="tutorials.html" class="btn btn-neutral float-right" title="튜토리얼" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="튜토리얼 및 코드 예제" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

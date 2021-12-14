@@ -47,7 +47,7 @@
 <p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">FuriosaAI 소프트웨어 스택 소개</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#kernel-driver-firmware">커널 장치 드라이버 (Kernel Driver), 펌웨어 (Firmware)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kernel-driver-firmware">커널 장치 드라이버(Kernel Driver), 펌웨어(Firmware)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compiler">컴파일러(Compiler)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#runtime">런타임(Runtime)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#python-sdk-c-sdk">Python SDK와 C SDK</a></li>
@@ -64,7 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
@@ -117,7 +117,7 @@
 가장 아래는 FuriosaAI의 1세대 NPU인 <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">FuriosaAI Warboy</span></a> 가 있다.
 아래는 주요한 컴포넌트에 대해 소개한다.</p>
 <div class="section" id="kernel-driver-firmware">
-<h2>커널 장치 드라이버 (Kernel Driver), 펌웨어 (Firmware)<a class="headerlink" href="#kernel-driver-firmware" title="이 표제에 대한 퍼머링크"></a></h2>
+<h2>커널 장치 드라이버(Kernel Driver), 펌웨어(Firmware)<a class="headerlink" href="#kernel-driver-firmware" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>커널 장치 드라이버는 NPU 장치를 리눅스 운영체제 시스템이 인식하여
 리눅스의 디바이스 파일로 인식하도록 하는 역할을 한다.
 만약에 NPU 디바이스를 운영체제 차원에서 인식하지 않는다면
@@ -125,8 +125,8 @@
 NPU 장치에 대한 저수준 API를 제공한다. 런타임과 컴파일러는 펌웨어가 제공하는
 저수준 API를 이용하여 NPU를 제어하고 컴파일된 바이너리를 이용하여
 NPU에서 추론을 위한 테스크를 실행하고 스케쥴링 한다.</p>
-<p>커널 장치 드라이버와 펨웨어는 사용자가 직접 사용할 필요는 없으나
-FuriosaAI SDK를 사용하기 위한 반드시 설치해야 한다.
+<p>커널 장치 드라이버와 펌웨어는 사용자가 직접 사용할 필요는 없으나
+FuriosaAI SDK를 사용하기 위해서는 반드시 설치해야 한다.
 설치 방법은 <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 에서 찾을 수 있다.</p>
 </div>
 <div class="section" id="compiler">
@@ -177,13 +177,13 @@ FuriosaAI SDK가 제공하는 양자화 API 대한 더 자세한 정보는 <a cl
 로 노출한다. 모델 서버를 사용하면 사용자는 직접 라이브러리와 Python/C SDK 통해 NPU에 접근할 필요가 없으며
 원격 API를 통해 접근할 수 있다. 또한, 동일한 모델을 서빙하는 다수의 모델 서버를 사용하고
 로드 밸런서를 이용하면 수평적 확장성 있는 서비스를 쉽게 구현할 수 있다.</p>
-<p>모델 서버는 낮은 지연 시간과 높은 동시성 처리 능력과 고성능을 요구하는데 이를 위해 런타임의 스케쥴링 기능을 활용한다.
+<p>모델 서버는 낮은 지연 시간(latency) 및 높은 동시성 처리 능력(throughput)을 요구하는데 이를 위해 런타임의 스케쥴링 기능을 활용한다.
 모델 서버의 설치와 활용은 <a class="reference internal" href="serving.html#modelserving"><span class="std std-ref">모델 서버 (서빙 프레임워크)</span></a> 에서 찾을 수 있다.</p>
 </div>
 <div class="section" id="kubernetes">
 <h2>Kubernetes 지원<a class="headerlink" href="#kubernetes" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>컨테이너화된 워크로드와 서비스를 관리하는 플랫폼인 Kubernetes는 많은 기업에서 보편적으로 사용되고 있으며
-FuriosaAI 소프트웨어 스택도 Kubernetes 네이티브한 지원을 제공한다.</p>
+FuriosaAI 소프트웨어 스택도 Kubernetes 네이티브 지원을 제공한다.</p>
 <p>디바이스 플러그인(Kubernetes Device Plugin)은 Kubernetes 클러스터가 FuriosaAI의 NPU를 인식하고
 NPU가 필요한 워크로드와 서비스를 위해 NPU를 스케쥴링할 수 있게 만든다.
 이 기능은 Kubernetes와 같은 멀티테넌트(multi-tenant) 환경에서 다수의 워크로드가 NPU를 필요로 할 때

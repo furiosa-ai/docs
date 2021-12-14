@@ -61,7 +61,7 @@ furiosa
 만약 Python 실행 환경이 준비되어 있지 않다면 :any:`SetupPython` 를 참고한다.
 
 
-명령 줄 도구 설치
+명령행 도구 설치
 
 .. code-block:: sh
 
@@ -84,15 +84,7 @@ furiosa compile
 
 ``compile`` 명령은 `TFLite <https://www.tensorflow.org/lite>`_, `ONNX <https://onnx.ai/>`_
 형식의 모델을 컴파일하여 FuriosaAI NPU를 사용하는 프로그램을 생성한다.
-
-.. code-block:: sh
-
-  $ furiosa compile \
-    test_data/MNISTnet_uint8_quant_without_softmax.tflite
-
-  output.enf has been generated (elapsed: 513.661 ms)
-
-자세한 설명과 옵션은 :ref:`Compiler` 페이지에서 찾을 수 있다.
+자세한 설명과 옵션은 :ref:`CompilerCli` 페이지에서 찾을 수 있다.
 
 모델 적합 여부 검사
 --------------------
