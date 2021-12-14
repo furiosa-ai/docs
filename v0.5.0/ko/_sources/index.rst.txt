@@ -29,12 +29,14 @@ FuriosaAI Software
 * :doc:`모델 양자화 (Model quantization) </software/quantization>`
 * :doc:`Kubernetes 지원 </software/kubernetes_support>`
 
-FuriosaAI SDK 튜토리얼
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FuriosaAI SDK 튜토리얼 및 코드 예제
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * `Python SDK 시작하기 <https://github.com/hyunsik/furiosa-sdk-private/blob/reorg_examples/examples/notebooks/01_GettingStarted.ipynb>`_
-* `Inference) API 고급 <https://github.com/hyunsik/furiosa-sdk-private/blob/reorg_examples/examples/notebooks/01_GettingStarted.ipynb>`_
-* `Furiosa Model 예제 <https://github.com/hyunsik/furiosa-sdk-private/blob/reorg_examples/examples/notebooks/01_GettingStarted.ipynb>`_
-* `Python SDK에서 PyTorch 모델 사용하기 (양자화 포함) <https://github.com/hyunsik/furiosa-sdk-private/blob/reorg_examples/examples/notebooks/01_GettingStarted.ipynb>`_
+* `고급 추론 API <https://github.com/hyunsik/furiosa-sdk-private/blob/reorg_examples/examples/notebooks/01_GettingStarted.ipynb>`_
+* `CPU 기반 추론과 정확도 비교하기 예제 <https://github.com/furiosa-ai/furiosa-sdk/blob/reorg_examples/examples/notebooks/InferenceAccuracyCheck.ipynb>`_
+* `이미지 분류(Image Classification) 모델 추론 <https://github.com/furiosa-ai/furiosa-sdk/blob/reorg_examples/examples/notebooks/Image_Classification.ipynb>`_
+* `객체 탐지 (SSD Object Detection) 모델 추론 <https://github.com/furiosa-ai/furiosa-sdk/blob/reorg_examples/examples/notebooks/SSD_Object_Detection.ipynb>`_
+* `기타 Python 코드 예제 <https://github.com/furiosa-ai/furiosa-sdk/tree/reorg_examples/examples/inferences>`_
 
 서빙, 배포, MLOps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,10 +45,7 @@ FuriosaAI SDK 튜토리얼
 
 레퍼런스 문서
 -------------------------------------------------
-.. warning::
-   TODO: Python SDK 레퍼런스 업데이트
-
-* `C Language SDK 레퍼런스 <https://furiosa-ai.github.io/docs/v0.5.0/references/c_reference/>`_
+* `C Language SDK 레퍼런스 <https://furiosa-ai.github.io/docs/v0.5.0/en/references/c/>`_
 * `Python SDK 레퍼런스 <https://furiosa-ai.github.io/renegade-manual/references/python/>`_
 
 기타 링크
