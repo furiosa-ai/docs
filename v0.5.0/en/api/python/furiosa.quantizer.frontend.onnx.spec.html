@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>furiosa.quantizer.frontend.onnx.spec package &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SDK installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/prerequisites.html">FuriosaAI SDK Installation + Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/driver.html">NPU Kernel Driver and Firmware Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/runtime.html">NPU Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/python-sdk.html">FuriosaAI Python SDK Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/apikey.html">API Key Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/python-sdk.html">Python SDK Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/cli.html">Command Line Tools Quickstart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/supported_operators.html">List of NPU Acceleration Operators</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>furiosa.quantizer.frontend.onnx.spec package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/furiosa.quantizer.frontend.onnx.spec.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="furiosa-quantizer-frontend-onnx-spec-package">
+<h1>furiosa.quantizer.frontend.onnx.spec package<a class="headerlink" href="#furiosa-quantizer-frontend-onnx-spec-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-furiosa.quantizer.frontend.onnx.spec.export_spec">
+<span id="furiosa-quantizer-frontend-onnx-spec-export-spec-module"></span><h2>furiosa.quantizer.frontend.onnx.spec.export_spec module<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.spec.export_spec" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.spec.export_spec.</span></span><span class="sig-name descname"><span class="pre">OnnxExportSpec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="furiosa.quantizer.interfaces.html#furiosa.quantizer.interfaces.export_spec.ExportSpec" title="furiosa.quantizer.interfaces.export_spec.ExportSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.interfaces.export_spec.ExportSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.add" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.avgpool2d">
+<span class="sig-name descname"><span class="pre">avgpool2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.avgpool2d" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.clip">
+<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.clip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.concatenation">
+<span class="sig-name descname"><span class="pre">concatenation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.concatenation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.conv2d">
+<span class="sig-name descname"><span class="pre">conv2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.conv2d" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.convtranspose2d">
+<span class="sig-name descname"><span class="pre">convtranspose2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.convtranspose2d" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.depthtospace">
+<span class="sig-name descname"><span class="pre">depthtospace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.depthtospace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.div">
+<span class="sig-name descname"><span class="pre">div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.div" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.exp">
+<span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.exp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.expand">
+<span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.expand" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.export">
+<span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.export" title="Permalink to this definition"></a></dt>
+<dd><p>Traverse graph and export nodes as specs.
+Returns (a list of Spec, a set of unsupported ops)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.flatten">
+<span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.flatten" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.gelu">
+<span class="sig-name descname"><span class="pre">gelu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.gelu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.gemm">
+<span class="sig-name descname"><span class="pre">gemm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.gemm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.get_attributes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.get_attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.get_initializer_for_gen_spec">
+<span class="sig-name descname"><span class="pre">get_initializer_for_gen_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.get_initializer_for_gen_spec" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.get_inputs_for_gen_spec">
+<span class="sig-name descname"><span class="pre">get_inputs_for_gen_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.get_inputs_for_gen_spec" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.get_tensor_shapes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_tensor_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.get_tensor_shapes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.layer_norm">
+<span class="sig-name descname"><span class="pre">layer_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.layer_norm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.lp_norm">
+<span class="sig-name descname"><span class="pre">lp_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.lp_norm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.matmul">
+<span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.matmul" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.maxpool2d">
+<span class="sig-name descname"><span class="pre">maxpool2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.maxpool2d" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.mul">
+<span class="sig-name descname"><span class="pre">mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.mul" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.multi_node_lp_norm">
+<span class="sig-name descname"><span class="pre">multi_node_lp_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.multi_node_lp_norm" title="Permalink to this definition"></a></dt>
+<dd><p>Starts from ‘Div’, traverse up to find the form of l2norm.
+Returns all inputs of l2norm, consist of multi node</p>
+<p>LpNormalization is not defined in ONNX Operator spec, so that we should traverse the graph:</p>
+<dl class="simple">
+<dt>Input –&gt; ReduceL2 –&gt; Clip –&gt; Expand –&gt; D</dt><dd><p>———————————–&gt; iv –&gt; Output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.multi_node_spec">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">multi_node_spec</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">onnx.onnx_ml_pb2.NodeProto</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.multi_node_spec" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.pad">
+<span class="sig-name descname"><span class="pre">pad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.pad" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.reduce_l2">
+<span class="sig-name descname"><span class="pre">reduce_l2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.reduce_l2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.reduce_mean">
+<span class="sig-name descname"><span class="pre">reduce_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.reduce_mean" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.reduce_sum">
+<span class="sig-name descname"><span class="pre">reduce_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.reduce_sum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.reshape">
+<span class="sig-name descname"><span class="pre">reshape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.reshape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.resize">
+<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.resize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.sigmoid">
+<span class="sig-name descname"><span class="pre">sigmoid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.sigmoid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.single_node_spec">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">single_node_spec</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">onnx.onnx_ml_pb2.NodeProto</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.single_node_spec" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.skip_node">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">skip_node</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.skip_node" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.slice">
+<span class="sig-name descname"><span class="pre">slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.slice" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.softmax">
+<span class="sig-name descname"><span class="pre">softmax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.softmax" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.softplus">
+<span class="sig-name descname"><span class="pre">softplus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.softplus" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.split" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.squeeze">
+<span class="sig-name descname"><span class="pre">squeeze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.squeeze" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.sub">
+<span class="sig-name descname"><span class="pre">sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.sub" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.transpose" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.traverse_multi_node_spec">
+<span class="sig-name descname"><span class="pre">traverse_multi_node_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.traverse_multi_node_spec" title="Permalink to this definition"></a></dt>
+<dd><p>Returns (Spec, list of inputs of the node)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.traverse_single_node_spec">
+<span class="sig-name descname"><span class="pre">traverse_single_node_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.traverse_single_node_spec" title="Permalink to this definition"></a></dt>
+<dd><p>Returns (Spec, list of inputs of the node)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.unsqueeze">
+<span class="sig-name descname"><span class="pre">unsqueeze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.quantizer.ir.spec.html#furiosa.quantizer.ir.spec.Spec" title="furiosa.quantizer.ir.spec.Spec"><span class="pre">furiosa.quantizer.ir.spec.Spec</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.export_spec.OnnxExportSpec.unsqueeze" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-furiosa.quantizer.frontend.onnx.spec.spec_utils">
+<span id="furiosa-quantizer-frontend-onnx-spec-spec-utils-module"></span><h2>furiosa.quantizer.frontend.onnx.spec.spec_utils module<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.spec.spec_utils" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.spec_utils.gemm_shapes">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.spec.spec_utils.</span></span><span class="sig-name descname"><span class="pre">gemm_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shapes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transB</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.spec_utils.gemm_shapes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.spec_utils.horizontal_pads">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.spec.spec_utils.</span></span><span class="sig-name descname"><span class="pre">horizontal_pads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.spec_utils.horizontal_pads" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.spec_utils.implicit_axis_to_explicit">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.spec.spec_utils.</span></span><span class="sig-name descname"><span class="pre">implicit_axis_to_explicit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.spec_utils.implicit_axis_to_explicit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.spec_utils.node_identifier">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.spec.spec_utils.</span></span><span class="sig-name descname"><span class="pre">node_identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.spec_utils.node_identifier" title="Permalink to this definition"></a></dt>
+<dd><p>In the case of onnx, FuriosaAI uses the first output node’s name as a node identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.spec.spec_utils.slice_offset_dict">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.spec.spec_utils.</span></span><span class="sig-name descname"><span class="pre">slice_offset_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">starts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.spec.spec_utils.slice_offset_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-furiosa.quantizer.frontend.onnx.spec">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.spec" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, FuriosaAI Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>furiosa.quantizer.ir.spec package &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SDK installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/prerequisites.html">FuriosaAI SDK Installation + Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/driver.html">NPU Kernel Driver and Firmware Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/runtime.html">NPU Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/python-sdk.html">FuriosaAI Python SDK Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/apikey.html">API Key Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/python-sdk.html">Python SDK Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/cli.html">Command Line Tools Quickstart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/supported_operators.html">List of NPU Acceleration Operators</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>furiosa.quantizer.ir.spec package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/furiosa.quantizer.ir.spec.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="furiosa-quantizer-ir-spec-package">
+<h1>furiosa.quantizer.ir.spec package<a class="headerlink" href="#furiosa-quantizer-ir-spec-package" title="Permalink to this headline"></a></h1>
+<section id="module-furiosa.quantizer.ir.spec">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.quantizer.ir.spec" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Add">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Add" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Add.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Add.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.AveragePool2d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">AveragePool2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dilation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.Padding" title="furiosa.quantizer.ir.common.operator.Padding"><span class="pre">furiosa.quantizer.ir.common.operator.Padding</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.AveragePool2d" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.AveragePool2d.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.AveragePool2d.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Clip">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Clip" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Clip.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Clip.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Concatenation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Concatenation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Concatenation" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Concatenation.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Concatenation.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Conv2d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Conv2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dilation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.Padding" title="furiosa.quantizer.ir.common.operator.Padding"><span class="pre">furiosa.quantizer.ir.common.operator.Padding</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Conv2d" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Conv2d.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Conv2d.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.DepthToSpace">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">DepthToSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.DepthToSpace" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.DepthToSpace.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.DepthToSpace.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Div">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Div" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.Add" title="furiosa.quantizer.ir.spec.Add"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.Add</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Div.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Div.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Exp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Exp" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.Add" title="furiosa.quantizer.ir.spec.Add"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.Add</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Exp.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Exp.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Expand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Expand" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.Reshape" title="furiosa.quantizer.ir.spec.Reshape"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.Reshape</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Expand.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Expand.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Flatten">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Flatten" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Flatten.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Flatten.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Gelu">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Gelu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Gelu" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.Add" title="furiosa.quantizer.ir.spec.Add"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.Add</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Gelu.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Gelu.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Gemm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Gemm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Gemm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Gemm.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Gemm.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.LayerNorm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">LayerNorm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.LayerNorm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.LayerNorm.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.LayerNorm.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.LpNorm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">LpNorm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.LpNorm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.LpNorm.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.LpNorm.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.MatMul">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">MatMul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.MatMul" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.MatMul.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.MatMul.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.MaxPool2d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">MaxPool2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dilation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.Padding" title="furiosa.quantizer.ir.common.operator.Padding"><span class="pre">furiosa.quantizer.ir.common.operator.Padding</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.MaxPool2d" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.MaxPool2d.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.MaxPool2d.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Mul">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Mul" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.Add" title="furiosa.quantizer.ir.spec.Add"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.Add</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Mul.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Mul.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.OperatorSpec">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">OperatorSpec</span></span><a class="headerlink" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.OperatorSpec.as_dict">
+<span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.ir.spec.OperatorSpec.as_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.OperatorSpec.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.OperatorSpec.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Pad">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Pad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HorizontalPadding" title="furiosa.quantizer.ir.common.operator.HorizontalPadding"><span class="pre">furiosa.quantizer.ir.common.operator.HorizontalPadding</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Pad" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Pad.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Pad.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.PaddingSpecCustom">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">PaddingSpecCustom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.Padding" title="furiosa.quantizer.ir.common.operator.Padding"><span class="pre">furiosa.quantizer.ir.common.operator.Padding</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.PaddingSpecCustom" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.ReduceL2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">ReduceL2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.ReduceL2" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.ReduceMean" title="furiosa.quantizer.ir.spec.ReduceMean"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.ReduceMean</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.ReduceL2.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.ReduceL2.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.ReduceMean">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">ReduceMean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.ReduceMean" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.ReduceMean.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.ReduceMean.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.ReduceSum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">ReduceSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.ReduceSum" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.ReduceMean" title="furiosa.quantizer.ir.spec.ReduceMean"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.ReduceMean</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.ReduceSum.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.ReduceSum.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Reshape">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Reshape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Reshape" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Reshape.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Reshape.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Resize">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sizes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Resize" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Resize.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Resize.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Sigmoid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Sigmoid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Sigmoid" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.Add" title="furiosa.quantizer.ir.spec.Add"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.Add</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Sigmoid.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Sigmoid.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Slice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Slice" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Slice.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Slice.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Softmax">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Softmax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Softmax" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Softmax.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Softmax.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Softplus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Softplus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Softplus" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Softplus.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Softplus.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Spec">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator_spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Spec" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Spec.as_dict">
+<span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Spec.as_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Spec.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Spec.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Split">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Split" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Split.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Split.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Squeeze">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Squeeze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Squeeze" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.ReduceMean" title="furiosa.quantizer.ir.spec.ReduceMean"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.ReduceMean</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Squeeze.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Squeeze.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Sub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Sub" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.Add" title="furiosa.quantizer.ir.spec.Add"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.Add</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Sub.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Sub.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Transpose">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Transpose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">permutation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Transpose" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.OperatorSpec" title="furiosa.quantizer.ir.spec.OperatorSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.OperatorSpec</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Transpose.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Transpose.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.TrasnposeConv">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">TrasnposeConv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dilation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.HeightWidth" title="furiosa.quantizer.ir.common.operator.HeightWidth"><span class="pre">furiosa.quantizer.ir.common.operator.HeightWidth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.ir.common.html#furiosa.quantizer.ir.common.operator.Padding" title="furiosa.quantizer.ir.common.operator.Padding"><span class="pre">furiosa.quantizer.ir.common.operator.Padding</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.TrasnposeConv" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.Conv2d" title="furiosa.quantizer.ir.spec.Conv2d"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.Conv2d</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.TrasnposeConv.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.TrasnposeConv.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Unsqueeze">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.ir.spec.</span></span><span class="sig-name descname"><span class="pre">Unsqueeze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Unsqueeze" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.ir.spec.ReduceMean" title="furiosa.quantizer.ir.spec.ReduceMean"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.ir.spec.ReduceMean</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ir.spec.Unsqueeze.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ir.spec.Unsqueeze.kind" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, FuriosaAI Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
