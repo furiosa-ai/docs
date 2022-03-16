@@ -18,7 +18,7 @@ FuriosaAI SDK 0.6.0 릴리즈에는 약 40여개의 버그픽스, 기능 추가,
     * Concat (height 축 한정)
     * Grouped Convolution (groups <= 128 인 경우)
 
-* 큰 메모리 사용량을 요구하는 연산자가 포함된 모델에서 CPU 테스크 빈도를 크게 줄이는 개선 (실행 시간 향상)
+* 큰 메모리 사용량을 요구하는 연산자가 포함된 모델에서 CPU 테스크 빈도를 크게 줄이는 개선 (실행 시간 감소)
 
 Quantizer
 --------------------------------------
@@ -38,7 +38,7 @@ Python SDK
   * furiosa-sdk-quantizer -> furiosa-quantizer
   * furiosa-sdk-validator -> furiosa-litmus
 
-* 모델이 Furiosa SDK와 호환되는지 검사하는 패키지인 validator가 litmus로 이름이 변경되어 설치 방법이 아래와 같이 변경되었다. 더 자세한 사용 방법은 :ref:`Litmus` 를 참고
+* 모델이 Furiosa SDK와 호환되는지 검사하는 패키지인 validator가 litmus로 이름이 변경되어 설치 방법이 아래와 같이 변경되었다. 더 자세한 사용 방법은 :ref:`Litmus` 를 참조
 
   .. code-block:: sh
 

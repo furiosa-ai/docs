@@ -8,7 +8,6 @@ Subpackages
    :maxdepth: 4
 
    furiosa.quantizer.ir.common
-   furiosa.quantizer.ir.spec
 
 Module contents
 ---------------

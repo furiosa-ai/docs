@@ -8,7 +8,6 @@ Subpackages
    :maxdepth: 4
 
    furiosa.quantizer.frontend.onnx.quantizer
-   furiosa.quantizer.frontend.onnx.spec
    furiosa.quantizer.frontend.onnx.transformer
    furiosa.quantizer.frontend.onnx.utils
 

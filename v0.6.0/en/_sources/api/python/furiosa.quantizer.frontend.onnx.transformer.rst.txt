@@ -36,18 +36,10 @@ furiosa.quantizer.frontend.onnx.transformer.eliminate\_redundant\_shape\_pattern
    :undoc-members:
    :show-inheritance:
 
-furiosa.quantizer.frontend.onnx.transformer.fuse\_bn\_into\_conv module
------------------------------------------------------------------------
+furiosa.quantizer.frontend.onnx.transformer.fuse\_batchnorm module
+------------------------------------------------------------------
 
-.. automodule:: furiosa.quantizer.frontend.onnx.transformer.fuse_bn_into_conv
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-furiosa.quantizer.frontend.onnx.transformer.fuse\_bn\_into\_convtranspose module
---------------------------------------------------------------------------------
-
-.. automodule:: furiosa.quantizer.frontend.onnx.transformer.fuse_bn_into_convtranspose
+.. automodule:: furiosa.quantizer.frontend.onnx.transformer.fuse_batchnorm
    :members:
    :undoc-members:
    :show-inheritance:

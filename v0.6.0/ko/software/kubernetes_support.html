@@ -118,8 +118,8 @@ Kubernetes의 <code class="docutils literal notranslate"><span class="pre">spec.
 <section id="npu">
 <h2>NPU 노드 준비<a class="headerlink" href="#npu" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>Kubernetes 클러스터가 NPU를 인식하도록 장치 플러그인과 노드 레이블러 데몬셋(daemonset)을 설치한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.5.0/kubernetes/deployments/node-labeller.yaml
-kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.5.0/kubernetes/deployments/device-plugin.yaml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.6.0/kubernetes/deployments/node-labeller.yaml
+kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.6.0/kubernetes/deployments/device-plugin.yaml
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">daemonset</span> <span class="pre">-n</span> <span class="pre">kube-system</span></code> 명령으로 설치한 데몬셋이 정상 동작하는지 확인할 수 있다.</p>
@@ -130,7 +130,7 @@ furiosa-npu-plugin       <span class="m">2</span>         <span class="m">2</spa
 </pre></div>
 </div>
 <p>노드 레이블러(<code class="docutils literal notranslate"><span class="pre">furiosa-npu-labeller</span></code>)가 붙이는 메타데이터는 다음 표와 같다.</p>
-<span id="k8snodelabels"></span><table class="colwidths-given docutils align-default" id="id1">
+<table class="colwidths-given docutils align-default" id="id1">
 <caption><span class="caption-text">NPU Node Labels</span><a class="headerlink" href="#id1" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 33%" />
