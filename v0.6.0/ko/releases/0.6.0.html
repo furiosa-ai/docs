@@ -111,8 +111,8 @@
              
   <section id="release-notes-0-6-0">
 <h1>Release Notes - 0.6.0<a class="headerlink" href="#release-notes-0-6-0" title="이 표제에 대한 퍼머링크"></a></h1>
-<p>FuriosaAI SDK 0.6.0는 성능 개선, 기능 추가, 버그픽스에 대한
-234개의 PR과 약 900여개의 커밋을 포함하고 있는 주요 릴리즈 입니다.</p>
+<p>FuriosaAI SDK 0.6.0은 메이저 릴리즈로 성능 개선, 기능 추가, 버그픽스에 대한
+234개의 PR과 약 900여개의 커밋을 포함하고 있다.</p>
 <section id="id1">
 <h2>업그레이드 방법<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>APT 저장소를 사용하고 있다면 다음과 간단히 업그레이드할 수 있다.
@@ -121,6 +121,7 @@
 <div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
 apt-get install furiosa-driver-pdma furiosa-libnpu-warboy furiosa-libnux
 
+pip uninstall furiosa-sdk-quantizer furiosa-sdk-runtime furiosa-sdk-validator <span class="o">&amp;&amp;</span> <span class="se">\</span>
 pip install --upgrade furiosa-sdk
 </pre></div>
 </div>
