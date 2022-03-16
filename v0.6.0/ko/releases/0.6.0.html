@@ -62,12 +62,14 @@
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes - 0.6.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">컴파일러</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quantizer">Quantizer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#python-sdk">Python SDK</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#furiosa-serving-fistapi">Furiosa Serving: FistAPI 기반의 고급 서빙 라이브러리 추가</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">업그레이드 방법</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">주요 변경 사항</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">컴파일러</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quantizer">Quantizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-sdk">Python SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#furiosa-serving-fistapi">Furiosa Serving: FistAPI 기반의 고급 서빙 라이브러리 추가</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="0.5.0.html">Release Notes - 0.5.0</a></li>
@@ -109,10 +111,27 @@
              
   <section id="release-notes-0-6-0">
 <h1>Release Notes - 0.6.0<a class="headerlink" href="#release-notes-0-6-0" title="이 표제에 대한 퍼머링크"></a></h1>
-<p>FuriosaAI SDK 0.6.0 릴리즈에는 성능 개선, 기능 추가, 버그픽스에 대한
-234개의 PR과 약 900여개의 커밋을 포함하고 있다. 그 중 중요한 변경사항은 다음과 같다.</p>
+<p>FuriosaAI SDK 0.6.0는 성능 개선, 기능 추가, 버그픽스에 대한
+234개의 PR과 약 900여개의 커밋을 포함하고 있는 주요 릴리즈 입니다.</p>
 <section id="id1">
-<h2>컴파일러<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h2>
+<h2>업그레이드 방법<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h2>
+<p>APT 저장소를 사용하고 있다면 다음과 간단히 업그레이드할 수 있다.
+더 자세한 설치 방법은 <a class="reference internal" href="../software/installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 를 참고하라.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-get install furiosa-driver-pdma furiosa-libnpu-warboy furiosa-libnux
+
+pip install --upgrade furiosa-sdk
+</pre></div>
+</div>
+</div></blockquote>
+<section id="id2">
+<h3>주요 변경 사항<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h3>
+<p>중요한 변경사항은 다음과 같다.</p>
+</section>
+</section>
+<section id="id3">
+<h2>컴파일러<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크"></a></h2>
 <ul>
 <li><p>NPU 가속 연산자 추가 (가속 연산자의 전체 리스트는 <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">NPU 가속 지원 연산자 목록</span></a> 를 참고)</p>
 <blockquote>
@@ -153,8 +172,9 @@
 </div>
 </li>
 </ul>
+</section>
 <section id="furiosa-serving-fistapi">
-<h3>Furiosa Serving: FistAPI 기반의 고급 서빙 라이브러리 추가<a class="headerlink" href="#furiosa-serving-fistapi" title="이 표제에 대한 퍼머링크"></a></h3>
+<h2>Furiosa Serving: FistAPI 기반의 고급 서빙 라이브러리 추가<a class="headerlink" href="#furiosa-serving-fistapi" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>furiosa-serving은 FastAPI 기반으로 모델 추론 API의 실행 전후에 Python 기반의
 비지니스 로직이나 이미지 전후 처리 코드 등을 쉽게 추가할 수 있게 한다.</p>
 <p>설치는 아래와 같이 할 수 있다.</p>
@@ -195,7 +215,6 @@
 </div></blockquote>
 <p>더 자세한 설명은 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-serving">furiosa-serving Github</a> 에서
 살펴볼 수 있다.</p>
-</section>
 </section>
 </section>
 
