@@ -8,7 +8,7 @@ FuriosaAI SDK 0.6.0 릴리즈에는 성능 개선, 기능 추가, 버그픽스�
 
 컴파일러
 --------------------------------------------------------
-* NPU 가속 연산자 추가
+* NPU 가속 연산자 추가 (가속 연산자의 전체 리스트는 :ref:`SupportedOperators` 를 참고)
 
     * Space-to-depth (CRD 모드)
     * Transpose
@@ -41,9 +41,49 @@ Python SDK
 
     $ pip install 'furiosa-sdk[litmus]'
 
-* furiosa-serving 라이브러리 추가: FastAPI 기반으로 Python 기반의 전후처리 코드를 이용하여 모델 서빙 서비스 구현을 용이하게 하며 설치는 아래와 같이 할 수 있다. 자세한 설명은 `furiosa-serving <https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-serving>`_ 참조
+furiosa-serving: FistAPI 기반의 고급 서빙 라이브러리 추가
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+furiosa-serving은 FastAPI 기반으로 모델 추론 API의 실행 전후에 Python 기반의
+비지니스 로직이나 Pre/post processing 코드를 쉽게 추가할 수 있게 한다.
+
+설치는 아래와 같이 할 수 있다.
 
   .. code-block:: sh
 
     $ pip install 'furiosa-sdk[serving]'
 
+
+  .. code-block:: python
+
+    from typing import Dict
+
+    from fastapi import File, UploadFile
+    from furiosa.server.utils.thread import synchronous
+    from furiosa.serving import ServeAPI, ServeModel
+    import numpy as np
+
+
+    serve = ServeAPI()
+
+
+    model: ServeModel = synchronous(serve.model)(
+        'imagenet',
+        location='./examples/assets/models/image_classification.onnx'
+    )
+
+    @model.post("/models/imagenet/infer")
+    async def infer(image: UploadFile = File(...)) -> Dict:
+        # Convert image to Numpy array with your preprocess() function
+        tensors: List[np.ndarray] = preprocess(image)
+
+        # Infer from ServeModel
+        result: List[np.ndarray] = await model.predict(tensors)
+
+        # Classify model from numpy array with your postprocess() function
+        response: Dict = postprocess(result)
+
+        return response
+
+
+더 자세한 설명은 `furiosa-serving Github <https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-serving>`_ 에서
+살펴볼 수 있다.

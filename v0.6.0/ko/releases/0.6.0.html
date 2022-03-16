@@ -64,7 +64,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes - 0.6.0</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">컴파일러</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quantizer">Quantizer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#python-sdk">Python SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-sdk">Python SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-serving-fistapi">furiosa-serving: FistAPI 기반의 고급 서빙 라이브러리 추가</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="0.5.0.html">Release Notes - 0.5.0</a></li>
@@ -111,7 +114,7 @@
 <section id="id1">
 <h2>컴파일러<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h2>
 <ul>
-<li><p>NPU 가속 연산자 추가</p>
+<li><p>NPU 가속 연산자 추가 (가속 연산자의 전체 리스트는 <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">NPU 가속 지원 연산자 목록</span></a> 를 참고)</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Space-to-depth (CRD 모드)</p></li>
@@ -149,12 +152,50 @@
 </pre></div>
 </div>
 </li>
-<li><p>furiosa-serving 라이브러리 추가: FastAPI 기반으로 Python 기반의 전후처리 코드를 이용하여 모델 서빙 서비스 구현을 용이하게 하며 설치는 아래와 같이 할 수 있다. 자세한 설명은 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-serving">furiosa-serving</a> 참조</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install <span class="s1">&#39;furiosa-sdk[serving]&#39;</span>
+</ul>
+<section id="furiosa-serving-fistapi">
+<h3>furiosa-serving: FistAPI 기반의 고급 서빙 라이브러리 추가<a class="headerlink" href="#furiosa-serving-fistapi" title="이 표제에 대한 퍼머링크"></a></h3>
+<p>furiosa-serving은 FastAPI 기반으로 모델 추론 API의 실행 전후에 Python 기반의
+비지니스 로직이나 Pre/post processing 코드를 쉽게 추가할 수 있게 한다.</p>
+<p>설치는 아래와 같이 할 수 있다.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install <span class="s1">&#39;furiosa-sdk[serving]&#39;</span>
 </pre></div>
 </div>
-</li>
-</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">File</span><span class="p">,</span> <span class="n">UploadFile</span>
+<span class="kn">from</span> <span class="nn">furiosa.server.utils.thread</span> <span class="kn">import</span> <span class="n">synchronous</span>
+<span class="kn">from</span> <span class="nn">furiosa.serving</span> <span class="kn">import</span> <span class="n">ServeAPI</span><span class="p">,</span> <span class="n">ServeModel</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">serve</span> <span class="o">=</span> <span class="n">ServeAPI</span><span class="p">()</span>
+
+
+<span class="n">model</span><span class="p">:</span> <span class="n">ServeModel</span> <span class="o">=</span> <span class="n">synchronous</span><span class="p">(</span><span class="n">serve</span><span class="o">.</span><span class="n">model</span><span class="p">)(</span>
+    <span class="s1">&#39;imagenet&#39;</span><span class="p">,</span>
+    <span class="n">location</span><span class="o">=</span><span class="s1">&#39;./examples/assets/models/image_classification.onnx&#39;</span>
+<span class="p">)</span>
+
+<span class="nd">@model</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/models/imagenet/infer&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">UploadFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="c1"># Convert image to Numpy array with your preprocess() function</span>
+    <span class="n">tensors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+    <span class="c1"># Infer from ServeModel</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tensors</span><span class="p">)</span>
+
+    <span class="c1"># Classify model from numpy array with your postprocess() function</span>
+    <span class="n">response</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="n">postprocess</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">response</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>더 자세한 설명은 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-serving">furiosa-serving Github</a> 에서
+살펴볼 수 있다.</p>
+</section>
 </section>
 </section>
 
