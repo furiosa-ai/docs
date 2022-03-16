@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kubernetes 지원 &mdash; FuriosaAI NPU 및 Software 문서 furiosa-docs 문서</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="모델 서버 (서빙 프레임워크)" href="serving.html" />
+    <link rel="prev" title="모델 양자화" href="quantization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">NPU 가속 지원 연산자 목록</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI 소프트웨어 스택 소개</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">드라이버, 펌웨어, 런타임 설치 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">명령행 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">컴파일러</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kubernetes 지원</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#npu">NPU 노드 준비</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#npu-pod">NPU와 함께 Pod 배포</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/v0.5.0.html">Release Notes - v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/v0.6.0.html">Release Notes - v0.6.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/#">0.2.0 문서</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Kubernetes 지원</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/software/kubernetes_support.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="kubernetes">
+<span id="kubernetesintegration"></span><h1>Kubernetes 지원<a class="headerlink" href="#kubernetes" title="이 표제에 대한 퍼머링크"></a></h1>
+<p><a class="reference external" href="https://kubernetes.io/">Kuberentes</a> 는 컨테이너화된 워크로드와 서비스를
+관리하는 오픈소스 플랫폼이다.</p>
+<p>FuriosaAI는 현재 가장 인기 있는 Kubernetes 플랫폼을 잘 지원하기 위해 지속적으로
+개발하고 있으며 현재 제공되는 도구는 다음과 같다.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/">Kubernetes 장치 플러그인(Device Plugin)</a> : NPU가 장착된 머신에서 유휴 NPU를 인식하고 Kubernetes에 등록하여
+Kubernetes의 <code class="docutils literal notranslate"><span class="pre">spec.containers[].resources.limits</span></code> 등을 이용하여 필요한 만큼의 NPU 를 스케쥴링 하게 한다.</p></li>
+<li><p>Kubernetes 노드 레이블러(Node Labeller): NPU가 장착된 머신의 NPU의 정보를 파악하여 노드의 레이블로 등록한다.
+이 정보를 이용하여 Pod을 선택적으로 스케쥴링할 수 있다.</p></li>
+</ul>
+<p>위 두 컴포넌트를 이용하면 사용자는 컨테이너화된 워크로드와 서비스에 원하는 개수의 NPU를 할당하여 배포할 수 있게 된다.</p>
+<section id="npu">
+<h2>NPU 노드 준비<a class="headerlink" href="#npu" title="이 표제에 대한 퍼머링크"></a></h2>
+<p>Kubernetes 클러스터가 NPU를 인식하도록 장치 플러그인과 노드 레이블러 데몬셋(daemonset)을 설치한다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.5.0/kubernetes/deployments/node-labeller.yaml
+kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.5.0/kubernetes/deployments/device-plugin.yaml
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">daemonset</span> <span class="pre">-n</span> <span class="pre">kube-system</span></code> 명령으로 설치한 데몬셋이 정상 동작하는지 확인할 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl get daemonset -n kube-system
+NAME                     DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                                               AGE
+furiosa-npu-labeller     <span class="m">6</span>         <span class="m">6</span>         <span class="m">6</span>       <span class="m">6</span>            <span class="m">6</span>           kubernetes.io/os<span class="o">=</span>linux                                      321d
+furiosa-npu-plugin       <span class="m">2</span>         <span class="m">2</span>         <span class="m">2</span>       <span class="m">2</span>            <span class="m">2</span>           alpha.furiosa.ai/npu.family<span class="o">=</span>warboy,kubernetes.io/os<span class="o">=</span>linux   159d
+</pre></div>
+</div>
+<p>노드 레이블러(<code class="docutils literal notranslate"><span class="pre">furiosa-npu-labeller</span></code>)가 붙이는 메타데이터는 다음 표와 같다.</p>
+<span id="k8snodelabels"></span><table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">NPU Node Labels</span><a class="headerlink" href="#id1" title="이 표에 대한 퍼머링크"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>레이블(Label)</p></th>
+<th class="head"><p>값(Value)</p></th>
+<th class="head"><p>설명(Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>alpha.furiosa.ai/npu.family</p></td>
+<td><p>warboy, renegade</p></td>
+<td><p>Chip 종류</p></td>
+</tr>
+<tr class="row-odd"><td><p>alpha.furiosa.ai/npu.hwtype</p></td>
+<td><p>HW 유형</p></td>
+<td><p>haps, u250 (FPGA 샘플의 경우)</p></td>
+</tr>
+</tbody>
+</table>
+<p>노드의 레이블을 확인하기 위해 <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">--show-labels</span></code> 명령을 실행하면
+다음과 같은 레이블이 보여야 정상적으로 설치된 것이다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl get nodes --show-labels
+
+warboy-node01     Ready   &lt;none&gt;  65d   v1.20.10   alpha.furiosa.ai/npu.family<span class="o">=</span>warboy,alpha.furiosa.ai/npu.hwtype<span class="o">=</span>haps...,kubernetes.io/os<span class="o">=</span>linux
+warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   alpha.furiosa.ai/npu.family<span class="o">=</span>warboy,alpha.furiosa.ai/npu.hwtype<span class="o">=</span>haps...,kubernetes.io/os<span class="o">=</span>linux
+</pre></div>
+</div>
+</section>
+<section id="npu-pod">
+<h2>NPU와 함께 Pod 배포<a class="headerlink" href="#npu-pod" title="이 표제에 대한 퍼머링크"></a></h2>
+<p>NPU를 Pod에 할당하기 위해서는 <code class="docutils literal notranslate"><span class="pre">spec.containers[].resources.limits</span></code> 에 아래와 같이 추가한다.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Pod 생성을 위한 전체 예제는 다음과 같다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat &gt; npu-pod.yaml <span class="s">&lt;&lt;EOL</span>
+<span class="s">apiVersion: v1</span>
+<span class="s">kind: Pod</span>
+<span class="s">metadata:</span>
+<span class="s">  name: npu-pod</span>
+<span class="s">spec:</span>
+<span class="s">  nodeSelector:</span>
+<span class="s">    alpha.furiosa.ai/npu.family: warboy</span>
+<span class="s">  containers:</span>
+<span class="s">    - name: linux</span>
+<span class="s">      image: ubuntu:focal</span>
+<span class="s">      command: [&quot;/bin/sleep&quot;, &quot;3650d&quot;]</span>
+<span class="s">      resources:</span>
+<span class="s">        limits:</span>
+<span class="s">          alpha.furiosa.ai/npu: &quot;1&quot;</span>
+<span class="s">EOL</span>
+
+$ kubectl apply -f npu-pod.yaml
+</pre></div>
+</div>
+<p>Pod 생성 뒤에는 다음과 같이 NPU 할당을 확인해볼 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl <span class="nb">exec</span> npu-pod -it -- /bin/bash
+root@npu-pod:/# <span class="nb">echo</span> <span class="nv">$NPU_DEVNAME</span>
+npu0pe0-1
+root@npu-pod:/# furiosactl
+furiosactl controls the FURIOSA NPU.
+
+Find more information at: https://furiosa.ai/
+
+Basic Commands:
+  version    Print the furiosactl version information
+  list       Display NPU device list
+  info       Show information one or many NPU<span class="o">(</span>s<span class="o">)</span>
+  config     Get/Set configuration <span class="k">for</span> NPU environment
+
+Usage:
+  furiosactl COMMAND
+
+root@npu-pod:/# furiosactl info
++------+------------------+-------+--------+--------------+---------+
+<span class="p">|</span> NPU  <span class="p">|</span> Name             <span class="p">|</span> Temp. <span class="p">|</span> Power  <span class="p">|</span> PCI-BDF      <span class="p">|</span> PCI-DEV <span class="p">|</span>
++------+------------------+-------+--------+--------------+---------+
+<span class="p">|</span> npu1 <span class="p">|</span> FuriosaAI Warboy <span class="p">|</span>  <span class="m">40</span>°C <span class="p">|</span> <span class="m">1</span>.37 W <span class="p">|</span> <span class="m">0000</span>:01:00.0 <span class="p">|</span> <span class="m">509</span>:0   <span class="p">|</span>
++------+------------------+-------+--------+--------------+---------+
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quantization.html" class="btn btn-neutral float-left" title="모델 양자화" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="serving.html" class="btn btn-neutral float-right" title="모델 서버 (서빙 프레임워크)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 저작권 2021, FuriosaAI Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
