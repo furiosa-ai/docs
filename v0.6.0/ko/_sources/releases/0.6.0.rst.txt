@@ -1,12 +1,10 @@
 *********************************************************
-Release Notes - v0.6.0
+Release Notes - 0.6.0
 *********************************************************
 
-FuriosaAI SDK 0.6.0 릴리즈에는 약 40여개의 버그픽스, 기능 추가, 개선을 포함하고 있다.
-그 중 중요한 변경사항은 다음과 같다.
+FuriosaAI SDK 0.6.0 릴리즈에는 성능 개선, 기능 추가, 버그픽스에 대한
+234개의 PR과 약 900여개의 커밋을 포함하고 있다. 그 중 중요한 변경사항은 다음과 같다.
 
-
-.. _CompilerImprovement:
 
 컴파일러
 --------------------------------------------------------
@@ -42,7 +40,7 @@ Python SDK
 
   .. code-block:: sh
 
-    $ pip install furiosa-sdk[litmus]
+    $ pip install 'furiosa-sdk[litmus]'
 
 * furiosa-serving 라이브러리 추가: FastAPI 기반으로 Python 기반의 전후처리 코드를 이용하여 모델 서빙 서비스 구현을 용이하게 하며 설치는 아래와 같이 할 수 있다. 자세한 설명은 `furiosa-serving <https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-serving>`_ 참조
 

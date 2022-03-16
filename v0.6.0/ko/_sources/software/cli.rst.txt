@@ -77,8 +77,6 @@ furiosa
   0.5.0 (rev: 49b97492a built at 2021-12-07 04:07:08) (wrapper: None)
 
 
-.. _CompilerCli:
-
 furiosa compile
 --------------------
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>버그 신고 &mdash; FuriosaAI NPU 및 Software 문서 furiosa-docs 문서</title>
+  <title>Release Notes - 0.6.0 &mdash; FuriosaAI NPU 및 Software 문서 furiosa-docs 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -20,7 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="prev" title="Release Notes - 0.5.0" href="../releases/0.5.0.html" /> 
+    <link rel="next" title="Release Notes - 0.5.0" href="0.5.0.html" />
+    <link rel="prev" title="레퍼런스 문서" href="../software/references.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,14 +60,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../software/references.html">레퍼런스 문서</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes - 0.6.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">컴파일러</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quantizer">Quantizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-sdk">Python SDK</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="0.5.0.html">Release Notes - 0.5.0</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">버그 신고</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
 <ul>
@@ -88,9 +94,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>버그 신고</li>
+      <li>Release Notes - 0.6.0</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/customer-support/bugs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/releases/0.6.0.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -98,59 +104,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="bugreport">
-<span id="id1"></span><h1>버그 신고<a class="headerlink" href="#bugreport" title="이 표제에 대한 퍼머링크"></a></h1>
-<p>사용 중 해결되지 않는 문제를 겪을 경우 <a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals">FuriosaAI 고객지원 센터</a> 에서
-버그 신고를 할 수 있다. 버그 신고에는 기본적으로 다음 정보가 포함되어야 한다.</p>
-<ol class="arabic simple">
-<li><p>문제 재현 방법</p></li>
-<li><p>문제 발생 당시 로그 또는 스크린샷</p></li>
-<li><p>SDK 버전 정보</p></li>
-<li><p>모델 컴파일 실패 시 컴파일러 로그</p></li>
-</ol>
-<p>기본적으로 furiosa-sdk는 에러가 발생하는 경우 아래와 같은 정보를 출력한다.
-아래와 같은 화면을 본다면, <code class="docutils literal notranslate"><span class="pre">Information</span> <span class="pre">Dump</span></code> 이하의 정보와 메시지에 출력되는 컴파일러 로그파일 (아래 예에서는 <code class="docutils literal notranslate"><span class="pre">/home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log</span></code>)
-을 <a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals">FuriosaAI 고객지원 센터</a> 의 <cite>Bug Report</cite> 섹션에 신고하라.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Saving the compilation log into /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log
-Using furiosa-compiler 0.5.0 (rev: 407c0c51f-modified built at 2021-11-18 22:32:34)
-2021-11-22T06:30:28.392114Z  INFO Npu (npu0pe0) is being initialized
-2021-11-22T06:30:28.397757Z  INFO NuxInner create with pes: [PeId(0)]
-[1/6] 🔍   Compiling from onnx to dfg
-2021-11-22T06:30:28.423026Z  INFO [Profiler] Received a termination signal.
-2021-11-22T06:30:28.423371Z ERROR fail to compile the model: the static shape of tensor &#39;input&#39; contains an unsupported dimension value: Some(DimParam(&quot;batch_size&quot;))
-================================================================================
-Information Dump
-================================================================================
-- Python version: 3.8.10 (default, Sep 28 2021, 16:10:42)  [GCC 9.3.0]
-- furiosa-libnux path: libnux.so.0.5.0
-- furiosa-libnux version: 0.5.0 (rev: 407c0c51f built at 2021-11-18 22:32:34)
-- furiosa-compiler version: 0.5.0 (rev: 407c0c51f built at 2021-11-18 22:32:34)
-- furiosa-sdk-runtime version: Furiosa SDK Runtime  (libnux 0.5.0 407c0c51f 2021-11-18 22:32:34)
-
-Please check the compiler log at /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log.
-If you have a problem, please report the log file to https://furiosa-ai.atlassian.net/servicedesk/customer/portals with the information dumped above.
-================================================================================
+  <section id="release-notes-0-6-0">
+<h1>Release Notes - 0.6.0<a class="headerlink" href="#release-notes-0-6-0" title="이 표제에 대한 퍼머링크"></a></h1>
+<p>FuriosaAI SDK 0.6.0 릴리즈에는 성능 개선, 기능 추가, 버그픽스에 대한
+234개의 PR과 약 900여개의 커밋을 포함하고 있다. 그 중 중요한 변경사항은 다음과 같다.</p>
+<section id="id1">
+<h2>컴파일러<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h2>
+<ul>
+<li><p>NPU 가속 연산자 추가</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Space-to-depth (CRD 모드)</p></li>
+<li><p>Transpose</p></li>
+<li><p>Slice (height 축 한정)</p></li>
+<li><p>Concat (height 축 한정)</p></li>
+<li><p>Grouped Convolution (groups &lt;= 128 인 경우)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>큰 메모리 사용량을 요구하는 연산자가 포함된 모델에서 CPU 테스크 빈도를 크게 줄이는 개선 (실행 시간 감소)</p></li>
+</ul>
+</section>
+<section id="quantizer">
+<h2>Quantizer<a class="headerlink" href="#quantizer" title="이 표제에 대한 퍼머링크"></a></h2>
+<ul class="simple">
+<li><p>모델 양자화 과정이 멱등성 (idempotent) 을 보장하도록 개선</p></li>
+<li><p>PyTorch 의존성 제거</p></li>
+<li><p>다수의 Pylint 경고를 제거하여 코드 품질 향상</p></li>
+<li><p>다수의 라이브러리 의존성 업그레이드 (Numpy -&gt; 1.21.5, Pyyaml -&gt; 6.0.0 등)</p></li>
+<li><p>10여가지의 버그 픽스</p></li>
+</ul>
+</section>
+<section id="python-sdk">
+<h2>Python SDK<a class="headerlink" href="#python-sdk" title="이 표제에 대한 퍼머링크"></a></h2>
+<ul>
+<li><p>Python SDK 프로젝트 구조 변경</p>
+<ul class="simple">
+<li><p>furiosa-sdk-runtime -&gt; furiosa-sdk</p></li>
+<li><p>furiosa-sdk-quantizer -&gt; furiosa-quantizer</p></li>
+<li><p>furiosa-sdk-validator -&gt; furiosa-litmus</p></li>
+</ul>
+</li>
+<li><p>모델이 Furiosa SDK와 호환되는지 검사하는 패키지인 validator가 litmus로 이름이 변경되어 설치 방법이 아래와 같이 변경되었다. 더 자세한 사용 방법은 <a class="reference internal" href="../software/cli.html#litmus"><span class="std std-ref">furiosa litmus (모델 적합 여부 검사)</span></a> 를 참조</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install <span class="s1">&#39;furiosa-sdk[litmus]&#39;</span>
 </pre></div>
 </div>
-<p>위와 같은 정보가 출력되지 않는 경우 다음 방법으로 필요 정보를 직접 수집하여 <a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals">FuriosaAI 고객지원 센터</a> 에 버그 신고를 할 수 있다.</p>
-<p>파이썬 런타임의 버전 정보는 다음과 같이 파악할 수 있다.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python --version
-Python 3.8.6
+</li>
+<li><p>furiosa-serving 라이브러리 추가: FastAPI 기반으로 Python 기반의 전후처리 코드를 이용하여 모델 서빙 서비스 구현을 용이하게 하며 설치는 아래와 같이 할 수 있다. 자세한 설명은 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-serving">furiosa-serving</a> 참조</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install <span class="s1">&#39;furiosa-sdk[serving]&#39;</span>
 </pre></div>
 </div>
-<p>SDK 버전 정보는 다음과 같이 파악할 수 있다.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -c &quot;from furiosa import runtime;print(runtime.__full_version__)&quot;
-loaded native library /usr/lib64/libnux.so (0.5.0 407c0c51f)
-Furiosa SDK Runtime 0.5.0 (libnux 0.5.0 407c0c51f 2021-11-18 22:32:34)
-</pre></div>
-</div>
+</li>
+</ul>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../releases/0.5.0.html" class="btn btn-neutral float-left" title="Release Notes - 0.5.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../software/references.html" class="btn btn-neutral float-left" title="레퍼런스 문서" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="0.5.0.html" class="btn btn-neutral float-right" title="Release Notes - 0.5.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
