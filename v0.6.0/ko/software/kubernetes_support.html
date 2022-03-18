@@ -228,8 +228,6 @@ $ kubectl apply -f npu-pod.yaml
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl get pods npu-pod -o yaml <span class="p">|</span> grep alpha.furiosa.ai/npu
     alpha.furiosa.ai/npu: <span class="s2">&quot;1&quot;</span>
     alpha.furiosa.ai/npu: <span class="s2">&quot;1&quot;</span>
-alpha.furiosa.ai/npu.family: warboy
-alpha.furiosa.ai/npu.hwtype: haps
 </pre></div>
 </div>
 <p>다수의 NPU 장치가 있을 경우 어떤 장치가 할당되었는지 아래와 같이 확인할 수 있다.
