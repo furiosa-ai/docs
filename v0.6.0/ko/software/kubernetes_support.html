@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kubernetes 지원 &mdash; FuriosaAI NPU 및 Software 문서 furiosa-docs 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -104,7 +103,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="kubernetes">
+  <div class="section" id="kubernetes">
 <span id="kubernetesintegration"></span><h1>Kubernetes 지원<a class="headerlink" href="#kubernetes" title="이 표제에 대한 퍼머링크"></a></h1>
 <p><a class="reference external" href="https://kubernetes.io/">Kuberentes</a> 는 컨테이너화된 워크로드와 서비스를
 관리하는 오픈소스 플랫폼이다. FuriosaAI SDK는 Kubernetes 환경 지원을 위해 다음 컴포넌트를 제공한다.</p>
@@ -119,7 +118,7 @@
 <li><p>NPU가 장착된 머신의 NPU의 정보를 파악하여 노드의 레이블로 등록한다 (이 정보와 <cite>nodeSelector</cite> 등을 사용하면 Pod을 선택적으로 스케쥴링할 수 있다).</p></li>
 </ul>
 <p>Kubernetes 지원을 위한 셋업 과정은 다음 순서를 따라 진행하면 된다.</p>
-<section id="npu">
+<div class="section" id="npu">
 <h2>1. NPU 노드 준비<a class="headerlink" href="#npu" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>Kubernetes 노드의 요구 사항은 다음과 같다.</p>
 <ul class="simple">
@@ -141,8 +140,8 @@ APT 서버가 셋업되어 있다면 (<a class="reference internal" href="instal
 +------+------------------+-------+--------+--------------+---------+
 </pre></div>
 </div>
-</section>
-<section id="device-plugin-node-labeller">
+</div>
+<div class="section" id="device-plugin-node-labeller">
 <h2>2. Device Plugin, Node Labeller 설치<a class="headerlink" href="#device-plugin-node-labeller" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>NPU 노드 준비가 완료되면, 장치 플러그인과 노드 레이블러 데몬셋 (daemonset)을 다음과 같이 설치한다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.6.0/kubernetes/deployments/node-labeller.yaml
@@ -159,7 +158,7 @@ furiosa-npu-plugin       <span class="m">2</span>         <span class="m">2</spa
 </pre></div>
 </div>
 <p>노드 레이블러 (<code class="docutils literal notranslate"><span class="pre">furiosa-npu-labeller</span></code>)가 붙이는 메타데이터는 다음 표와 같다.</p>
-<table class="colwidths-given docutils align-default" id="id2">
+<span id="k8snodelabels"></span><table class="colwidths-given docutils align-default" id="id2">
 <caption><span class="caption-text">NPU Node Labels</span><a class="headerlink" href="#id2" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 33%" />
@@ -191,13 +190,13 @@ warboy-node01     Ready   &lt;none&gt;  65d   v1.20.10   alpha.furiosa.ai/npu.fa
 warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   alpha.furiosa.ai/npu.family<span class="o">=</span>warboy,alpha.furiosa.ai/npu.hwtype<span class="o">=</span>haps...,kubernetes.io/os<span class="o">=</span>linux
 </pre></div>
 </div>
-</section>
-<section id="npu-pod">
+</div>
+<div class="section" id="npu-pod">
 <h2>3. NPU와 함께 Pod 배포<a class="headerlink" href="#npu-pod" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>NPU를 Pod에 할당하기 위해서는 <code class="docutils literal notranslate"><span class="pre">spec.containers[].resources.limits</span></code> 에 아래와 같이 추가한다.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alpha.furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">resources</span><span class="p">:</span>
+  <span class="nt">limits</span><span class="p">:</span>
+    <span class="nt">alpha.furiosa.ai/npu</span><span class="p">:</span> <span class="s">&quot;1&quot;</span> <span class="c1"># requesting 1 NPU</span>
 </pre></div>
 </div>
 <p>Pod 생성을 위한 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.6.0/kubernetes/deployments/pod-example.yaml">전체 예제</a> 는 다음과 같다.</p>
@@ -260,8 +259,8 @@ root@npu-pod:/# furiosactl info
 +------+------------------+-------+--------+--------------+---------+
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

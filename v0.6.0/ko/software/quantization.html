@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>모델 양자화 &mdash; FuriosaAI NPU 및 Software 문서 furiosa-docs 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -104,7 +103,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="modelquantization">
+  <div class="section" id="modelquantization">
 <span id="id1"></span><h1>모델 양자화<a class="headerlink" href="#modelquantization" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>FuriosaAI SDK와 1세대 Warboy는 8bit 정수형 모델을 지원한다.
 실수형 데이터 타입 기반의 모델을 지원하기 위해 Furiosa SDK는 FP16, FP32 실수형 데이터 타입 기반 모델을 양자화(quantization)하여
@@ -114,7 +113,7 @@ FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용�
 <p>FuriosaAI SDK가 지원하는 양자화 방식은  <em>post-training 8-bit quantization</em> 기반이며
 <a class="reference external" href="https://www.tensorflow.org/lite/performance/quantization_spec">Tensorflow Lite 8-bit quantization specification</a>
 을 따른다.</p>
-<section id="id2">
+<div class="section" id="id2">
 <h2>동작 방식<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>양자화 도구는 아래 그림에서 표현된 바와 같이 ONNX 모델을 입력으로 받아
 아래 3단계를 거쳐 양자화를 실행하고 양자화된 ONNX 모델을 출력한다.</p>
@@ -123,15 +122,15 @@ FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용�
 <li><p>보정(Calibration)</p></li>
 <li><p>양자화(Quantization)</p></li>
 </ol>
-<figure class="align-center">
+<div class="figure align-center">
 <img alt="Quantization Process" class="with-shadow" src="../_images/nux-quantizer_quantization_pipepline-edd29681.png" />
-</figure>
+</div>
 <p>그래프 최적화 과정에서는 모델이 양자화된 데이터를 정확도 저하를 최소화하면서 처리할 수 있도록
 원본 모델 네트워크의 구조를 분석하여 모델에 연산자를 추가하거나 대체하여 그래프의 위상구조를 변경한다.</p>
 <p>보정 과정에서는 데이터를 기반으로 모델의 가중치를 보정하며 이 과정에서
 모델을 학습할 때 사용했던 데이터가 필요하다.</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>양자화 모델의 정확도<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
@@ -173,8 +172,8 @@ FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용�
 </tr>
 </tbody>
 </table>
-</section>
-<section id="apis">
+</div>
+<div class="section" id="apis">
 <h2>모델 양자화 APIs<a class="headerlink" href="#apis" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>SDK가 제공하는 API와 명령행 도구를 사용하여 ONNX 모델을 8bit 양자화 모델로 변환할 수 있다.
 사용 방법은 아래 링크에서 확인할 수 있다.</p>
@@ -186,8 +185,8 @@ FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용�
 <li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/examples/quantizers">Python SDK Quantization 예제</a></p></li>
 <li><p><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/api/python/furiosa.quantizer.html">Python 레퍼런스 - furiosa.quantizer</a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

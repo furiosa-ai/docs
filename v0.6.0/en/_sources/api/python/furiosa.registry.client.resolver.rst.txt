@@ -1,0 +1,37 @@
+furiosa.registry.client.resolver package
+========================================
+
+Submodules
+----------
+
+furiosa.registry.client.resolver.base module
+--------------------------------------------
+
+.. automodule:: furiosa.registry.client.resolver.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.registry.client.resolver.code module
+--------------------------------------------
+
+.. automodule:: furiosa.registry.client.resolver.code
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.registry.client.resolver.serial module
+----------------------------------------------
+
+.. automodule:: furiosa.registry.client.resolver.serial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.registry.client.resolver
+   :members:
+   :undoc-members:
+   :show-inheritance:

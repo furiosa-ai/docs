@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>furiosa.registry.client.transport package &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SDK installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/prerequisites.html">FuriosaAI SDK Installation + Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/driver.html">NPU Kernel Driver and Firmware Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/runtime.html">NPU Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/python-sdk.html">FuriosaAI Python SDK Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/apikey.html">API Key Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/python-sdk.html">Python SDK Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/cli.html">Command Line Tools Quickstart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/supported_operators.html">List of NPU Acceleration Operators</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>furiosa.registry.client.transport package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/furiosa.registry.client.transport.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="furiosa-registry-client-transport-package">
+<h1>furiosa.registry.client.transport package<a class="headerlink" href="#furiosa-registry-client-transport-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-furiosa.registry.client.transport.base">
+<span id="furiosa-registry-client-transport-base-module"></span><h2>furiosa.registry.client.transport.base module<a class="headerlink" href="#module-furiosa.registry.client.transport.base" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.base.Transport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.base.</span></span><span class="sig-name descname"><span class="pre">Transport</span></span><a class="headerlink" href="#furiosa.registry.client.transport.base.Transport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base transport class to read/download from various registry sources.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.base.Transport.cache">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cache</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#furiosa.registry.client.transport.base.Transport.cache" title="Permalink to this definition"></a></dt>
+<dd><p>Cache directory to save downloaded files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.base.Transport.download">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.base.Transport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.base.Transport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.base.Transport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.base.Transport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.base.Transport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-furiosa.registry.client.transport.file">
+<span id="furiosa-registry-client-transport-file-module"></span><h2>furiosa.registry.client.transport.file module<a class="headerlink" href="#module-furiosa.registry.client.transport.file" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.file.FileTransport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.file.</span></span><span class="sig-name descname"><span class="pre">FileTransport</span></span><a class="headerlink" href="#furiosa.registry.client.transport.file.FileTransport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.registry.client.transport.base.Transport" title="furiosa.registry.client.transport.base.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.registry.client.transport.base.Transport</span></code></a></p>
+<p>Transport for local file path.</p>
+<p>This transport check specified URI has valid local file scheme (e.g. <a class="reference external" href="file://">file://</a>).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.file.FileTransport.download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.file.FileTransport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<p>FileTransport download is just to copy local directory into the cache.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.file.FileTransport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.file.FileTransport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.file.FileTransport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.file.FileTransport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.file.FileTransport.scheme">
+<span class="sig-name descname"><span class="pre">scheme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'file://'</span></em><a class="headerlink" href="#furiosa.registry.client.transport.file.FileTransport.scheme" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-furiosa.registry.client.transport.github">
+<span id="furiosa-registry-client-transport-github-module"></span><h2>furiosa.registry.client.transport.github module<a class="headerlink" href="#module-furiosa.registry.client.transport.github" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.github.GithubTransport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.github.</span></span><span class="sig-name descname"><span class="pre">GithubTransport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.registry.client.transport.github.GithubTransport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.registry.client.transport.http.HTTPTransport" title="furiosa.registry.client.transport.http.HTTPTransport"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.registry.client.transport.http.HTTPTransport</span></code></a></p>
+<p>Transport for Github repository.</p>
+<p>This transport check specified URI has valid Github repository URL. (e.g. <a class="reference external" href="https://github.com/">https://github.com/</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.github.GithubTransport.download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.registry.client.transport.github.GithubTransport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.github.GithubTransport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.github.GithubTransport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.github.GithubTransport.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.github.GithubTransport.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse URI following Github repository scheme.</p>
+<p>e.g. <a class="reference external" href="https://github.com/furiosa-ai/furiosa-models:main">https://github.com/furiosa-ai/furiosa-models:main</a> to (furiosa-ai, furiosa-models, main)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.github.GithubTransport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.github.GithubTransport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.github.GithubTransport.schemes">
+<span class="sig-name descname"><span class="pre">schemes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('https://github.com/',</span> <span class="pre">'http://github.com/')</span></em><a class="headerlink" href="#furiosa.registry.client.transport.github.GithubTransport.schemes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-furiosa.registry.client.transport.http">
+<span id="furiosa-registry-client-transport-http-module"></span><h2>furiosa.registry.client.transport.http module<a class="headerlink" href="#module-furiosa.registry.client.transport.http" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.http.HTTPTransport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.http.</span></span><span class="sig-name descname"><span class="pre">HTTPTransport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.registry.client.transport.http.HTTPTransport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.registry.client.transport.base.Transport" title="furiosa.registry.client.transport.base.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.registry.client.transport.base.Transport</span></code></a></p>
+<p>Transport for HTTP.</p>
+<p>This transport check specified URI has valid http scheme (e.g. <a class="reference external" href="https://">https://</a>, <a class="reference external" href="http://">http://</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.http.HTTPTransport.download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.http.HTTPTransport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.http.HTTPTransport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.http.HTTPTransport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.http.HTTPTransport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.http.HTTPTransport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.http.HTTPTransport.schemes">
+<span class="sig-name descname"><span class="pre">schemes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('https://',</span> <span class="pre">'http://')</span></em><a class="headerlink" href="#furiosa.registry.client.transport.http.HTTPTransport.schemes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-furiosa.registry.client.transport.s3">
+<span id="furiosa-registry-client-transport-s3-module"></span><h2>furiosa.registry.client.transport.s3 module<a class="headerlink" href="#module-furiosa.registry.client.transport.s3" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.s3.S3Transport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.s3.</span></span><span class="sig-name descname"><span class="pre">S3Transport</span></span><a class="headerlink" href="#furiosa.registry.client.transport.s3.S3Transport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.registry.client.transport.base.Transport" title="furiosa.registry.client.transport.base.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.registry.client.transport.base.Transport</span></code></a></p>
+<p>Transport for S3.</p>
+<p>This transport check specified URI has valid S3 scheme (e.g. s3://).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.s3.S3Transport.download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.s3.S3Transport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.s3.S3Transport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.s3.S3Transport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.s3.S3Transport.parse">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.s3.S3Transport.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse URI to network location and path.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.s3.S3Transport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.s3.S3Transport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.s3.S3Transport.scheme">
+<span class="sig-name descname"><span class="pre">scheme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'s3://'</span></em><a class="headerlink" href="#furiosa.registry.client.transport.s3.S3Transport.scheme" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-furiosa.registry.client.transport">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.registry.client.transport" title="Permalink to this headline"></a></h2>
+<p>FuriosaAI registry transport</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.FileTransport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.</span></span><span class="sig-name descname"><span class="pre">FileTransport</span></span><a class="headerlink" href="#furiosa.registry.client.transport.FileTransport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.registry.client.transport.base.Transport" title="furiosa.registry.client.transport.base.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.registry.client.transport.base.Transport</span></code></a></p>
+<p>Transport for local file path.</p>
+<p>This transport check specified URI has valid local file scheme (e.g. <a class="reference external" href="file://">file://</a>).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.FileTransport.download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.FileTransport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<p>FileTransport download is just to copy local directory into the cache.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.FileTransport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.FileTransport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.FileTransport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.FileTransport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.FileTransport.scheme">
+<span class="sig-name descname"><span class="pre">scheme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'file://'</span></em><a class="headerlink" href="#furiosa.registry.client.transport.FileTransport.scheme" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.GithubTransport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.</span></span><span class="sig-name descname"><span class="pre">GithubTransport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.registry.client.transport.GithubTransport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.registry.client.transport.http.HTTPTransport" title="furiosa.registry.client.transport.http.HTTPTransport"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.registry.client.transport.http.HTTPTransport</span></code></a></p>
+<p>Transport for Github repository.</p>
+<p>This transport check specified URI has valid Github repository URL. (e.g. <a class="reference external" href="https://github.com/">https://github.com/</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.GithubTransport.download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.registry.client.transport.GithubTransport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.GithubTransport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.GithubTransport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.GithubTransport.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.GithubTransport.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse URI following Github repository scheme.</p>
+<p>e.g. <a class="reference external" href="https://github.com/furiosa-ai/furiosa-models:main">https://github.com/furiosa-ai/furiosa-models:main</a> to (furiosa-ai, furiosa-models, main)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.GithubTransport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.GithubTransport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.GithubTransport.schemes">
+<span class="sig-name descname"><span class="pre">schemes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('https://github.com/',</span> <span class="pre">'http://github.com/')</span></em><a class="headerlink" href="#furiosa.registry.client.transport.GithubTransport.schemes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.HTTPTransport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.</span></span><span class="sig-name descname"><span class="pre">HTTPTransport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.registry.client.transport.HTTPTransport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.registry.client.transport.base.Transport" title="furiosa.registry.client.transport.base.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.registry.client.transport.base.Transport</span></code></a></p>
+<p>Transport for HTTP.</p>
+<p>This transport check specified URI has valid http scheme (e.g. <a class="reference external" href="https://">https://</a>, <a class="reference external" href="http://">http://</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.HTTPTransport.download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.HTTPTransport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.HTTPTransport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.HTTPTransport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.HTTPTransport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.HTTPTransport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.HTTPTransport.schemes">
+<span class="sig-name descname"><span class="pre">schemes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('https://',</span> <span class="pre">'http://')</span></em><a class="headerlink" href="#furiosa.registry.client.transport.HTTPTransport.schemes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.S3Transport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.</span></span><span class="sig-name descname"><span class="pre">S3Transport</span></span><a class="headerlink" href="#furiosa.registry.client.transport.S3Transport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.registry.client.transport.base.Transport" title="furiosa.registry.client.transport.base.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.registry.client.transport.base.Transport</span></code></a></p>
+<p>Transport for S3.</p>
+<p>This transport check specified URI has valid S3 scheme (e.g. s3://).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.S3Transport.download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.S3Transport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.S3Transport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.S3Transport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.S3Transport.parse">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.S3Transport.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse URI to network location and path.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.S3Transport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.S3Transport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.S3Transport.scheme">
+<span class="sig-name descname"><span class="pre">scheme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'s3://'</span></em><a class="headerlink" href="#furiosa.registry.client.transport.S3Transport.scheme" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.Transport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.</span></span><span class="sig-name descname"><span class="pre">Transport</span></span><a class="headerlink" href="#furiosa.registry.client.transport.Transport" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base transport class to read/download from various registry sources.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.Transport.cache">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cache</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#furiosa.registry.client.transport.Transport.cache" title="Permalink to this definition"></a></dt>
+<dd><p>Cache directory to save downloaded files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.Transport.download">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.Transport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.Transport.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.Transport.is_supported" title="Permalink to this definition"></a></dt>
+<dd><p>Decicde wether this transport supports the specified URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to locate the artifacts.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This transport supports the URI or not.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.Transport.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#furiosa.registry.client.transport.Transport.read" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch methods based on type signature</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Dispatcher</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.download">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.</span></span><span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.download" title="Permalink to this definition"></a></dt>
+<dd><p>Download a registry directory into local destination with a transport which supports the URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI to download the data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Destination directory name. This directory will be located in <cite>cache</cite> directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="furiosa.registry.html#furiosa.registry.errors.TransportNotFound" title="furiosa.registry.errors.TransportNotFound"><strong>TransportNotFound</strong></a> – If all of the available transports are not supporing the URI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.is_relative">
+<span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.</span></span><span class="sig-name descname"><span class="pre">is_relative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.is_relative" title="Permalink to this definition"></a></dt>
+<dd><p>Is this path relative path?</p>
+<p>If all of the available transports are not supporting the path, we assume that it’s relative
+path. You should find the path from the registry URI if it’s relative path.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.registry.client.transport.supported">
+<span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.transport.</span></span><span class="sig-name descname"><span class="pre">supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.registry.client.transport.base.Transport" title="furiosa.registry.client.transport.base.Transport"><span class="pre">furiosa.registry.client.transport.base.Transport</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.registry.client.transport.supported" title="Permalink to this definition"></a></dt>
+<dd><p>Supported trasnport for the URI.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, FuriosaAI Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

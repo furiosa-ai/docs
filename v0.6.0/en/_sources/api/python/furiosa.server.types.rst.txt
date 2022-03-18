@@ -1,0 +1,29 @@
+furiosa.server.types package
+============================
+
+Submodules
+----------
+
+furiosa.server.types.model\_repository module
+---------------------------------------------
+
+.. automodule:: furiosa.server.types.model_repository
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.server.types.predict module
+-----------------------------------
+
+.. automodule:: furiosa.server.types.predict
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.server.types
+   :members:
+   :undoc-members:
+   :show-inheritance:
