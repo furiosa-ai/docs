@@ -159,8 +159,8 @@ furiosa-npu-plugin       <span class="m">2</span>         <span class="m">2</spa
 </pre></div>
 </div>
 <p>노드 레이블러 (<code class="docutils literal notranslate"><span class="pre">furiosa-npu-labeller</span></code>)가 붙이는 메타데이터는 다음 표와 같다.</p>
-<table class="colwidths-given docutils align-default" id="id1">
-<caption><span class="caption-text">NPU Node Labels</span><a class="headerlink" href="#id1" title="이 표에 대한 퍼머링크"></a></caption>
+<span id="k8snodelabels"></span><table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">NPU Node Labels</span><a class="headerlink" href="#id2" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -200,7 +200,7 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   alpha.furiosa.ai/npu.fa
 <span class="w">    </span><span class="nt">furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Pod 생성을 위한 <cite>전체 예제 &lt;https://github.com/furiosa-ai/furiosa-sdk/blob/v0.6.0/kubernetes/deployments/pod-example.yaml&gt;</cite> 는 다음과 같다.</p>
+<p>Pod 생성을 위한 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.6.0/kubernetes/deployments/pod-example.yaml">전체 예제</a> 는 다음과 같다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat &gt; npu-pod.yaml <span class="s">&lt;&lt;EOL</span>
 <span class="s">apiVersion: v1</span>
 <span class="s">kind: Pod</span>
@@ -233,7 +233,7 @@ alpha.furiosa.ai/npu.hwtype: haps
 </pre></div>
 </div>
 <p>다수의 NPU 장치가 있을 경우 어떤 장치가 할당되었는지 아래와 같이 확인할 수 있다.
-SDK의 어플리케이션은 자동으로 할당된 NPU 장치를 인식하게 설계되어 있다.</p>
+SDK의 어플리케이션은 자동으로 할당된 NPU 장치를 인식한다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl <span class="nb">exec</span> npu-pod -it -- /bin/bash
 root@npu-pod:/# <span class="nb">echo</span> <span class="nv">$NPU_DEVNAME</span>
 npu0pe0-1

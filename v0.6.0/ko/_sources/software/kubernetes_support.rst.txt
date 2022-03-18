@@ -108,7 +108,7 @@ NPU를 Pod에 할당하기 위해서는 ``spec.containers[].resources.limits`` �
       furiosa.ai/npu: "1" # requesting 1 NPU
 
 
-Pod 생성을 위한 `전체 예제 <https://github.com/furiosa-ai/furiosa-sdk/blob/v0.6.0/kubernetes/deployments/pod-example.yaml>` 는 다음과 같다.
+Pod 생성을 위한 `전체 예제 <https://github.com/furiosa-ai/furiosa-sdk/blob/v0.6.0/kubernetes/deployments/pod-example.yaml>`_ 는 다음과 같다.
 
 .. code-block:: sh
 
@@ -146,7 +146,7 @@ Pod 생성 뒤에는 다음과 같이 NPU 할당을 확인해볼 수 있다.
 
 
 다수의 NPU 장치가 있을 경우 어떤 장치가 할당되었는지 아래와 같이 확인할 수 있다.
-SDK의 어플리케이션은 자동으로 할당된 NPU 장치를 인식하게 설계되어 있다.
+SDK의 어플리케이션은 자동으로 할당된 NPU 장치를 인식한다.
 
 .. code-block:: sh
 
