@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Release Notes - 0.5.0 &mdash; FuriosaAI NPU 및 Software 문서 furiosa-docs 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -79,8 +80,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/ko/#">0.5.0 문서</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/#">0.2.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/ko/">0.5.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
 </ul>
 
         </div>
@@ -107,11 +108,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="release-notes-0-5-0">
+  <section id="release-notes-0-5-0">
 <h1>Release Notes - 0.5.0<a class="headerlink" href="#release-notes-0-5-0" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>FuriosaAI SDK 0.5.0 릴리즈에는 약 87개의 버그픽스, 기능 추가, 개선을 포함하고 있다.
 그 중 중요한 변경사항은 다음과 같다.</p>
-<div class="section" id="compilerimprovement">
+<section id="compilerimprovement">
 <span id="id1"></span><h2>컴파일러 개선<a class="headerlink" href="#compilerimprovement" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>0.5.0 릴리즈에서 부터 다음 연산자에 대한 NPU 가속 지원을 추가한다. 가속이 지원되는 연산자 목록 전체는
 <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">NPU 가속 지원 연산자 목록</span></a> 에서 찾아볼 수 있다.</p>
@@ -125,8 +126,8 @@
 </ul>
 <p>또한 0.5.0 릴리즈 부터 컴파일러는 Onnx의 <a class="reference external" href="https://github.com/onnx/onnx/releases/tag/v1.8.0">Opset 13</a>
 연산자까지 지원하도록 개선되었다.</p>
-</div>
-<div class="section" id="session-api">
+</section>
+<section id="session-api">
 <h2>Session API 개선<a class="headerlink" href="#session-api" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>첫번째 API 개선 (<a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/commit/b1d2b742f9f1ed43dbe7aa5f2ed822ae38d636e4">commit b1d2b74</a>) 은
 Session API에서 NPU 장치를 지정할 수 있다.
@@ -153,8 +154,8 @@ sess1.run_with(outputs=[“output1”], inputs={
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2>에러 진단 메시지 및 에러 핸들링 개선<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>에러가 발생하면 디버깅을 위한 버전 정보와 컴파일러 로그가 독립적으로 출력 되어 간편한
 버그 신고를 가능하게 한다. <a class="reference internal" href="../customer-support/bugs.html#bugreport"><span class="std std-ref">버그 신고</span></a> 에서 문제 보고와 고객 지원의 더 많은 정보를 찾을 수 있다.</p>
@@ -183,8 +184,8 @@ sess1.run_with(outputs=[“output1”], inputs={
 <li><p>CompletionQueue의 timeout 추가 및 Session 연결 종료 에러 핸들링 개선(<a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/commit/21cba85737840546357f2dd709d33d9bc2b00390">commit 21cba85</a>)</p></li>
 <li><p>컴파일 중 인터럽트에 대한 hanging 문제 해결 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/commit/a0f4bd7ab8d199e3e46f9820fe4dc75bfa845e61">(commit a0f4bd7</a>)</p></li>
 </ul>
-</div>
-<div class="section" id="furiosa-server">
+</section>
+<section id="furiosa-server">
 <h2>Furiosa Server (서빙 프레임워크) 패키지 도입<a class="headerlink" href="#furiosa-server" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>0.5.0 부터 GRPC와 REST API를 지원하는 서빙 프레임워크인 <cite>Furiosa Server</cite> 가 추가되었다.
 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">furiosa-sdk[server]</span></code> 를 실행해 간단히 설치 할 수 있으며 아래 커맨드과 같이
@@ -195,8 +196,8 @@ sess1.run_with(outputs=[“output1”], inputs={
 --model-name mnist
 </pre></div>
 </div>
-</div>
-<div class="section" id="furiosa-model">
+</section>
+<section id="furiosa-model">
 <h2>Furiosa Model 패키지 도입<a class="headerlink" href="#furiosa-model" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>0.5.0 부터 FuriosaAI NPU에 최적화된 모델을 Python 패키지로 바로 사용할 수 있다.
 설치는 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">furiosa-sdk[models]</span></code> 명령으로 간단히 할 수 있으며
@@ -211,8 +212,8 @@ sess1.run_with(outputs=[“output1”], inputs={
 <span class="n">sess</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">resnet50</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;npu0pe0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="npu-furiosactl">
+</section>
+<section id="npu-furiosactl">
 <h2>명령형 NPU 관리 도구: furiosactl 도입<a class="headerlink" href="#npu-furiosactl" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>0.5.0 부터 명령형 NPU 관리 도구인 furiosactl 이 포함된다.
 설치는 <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">furiosa-toolkit</span></code> 로 할 수 있으면 NPU 장치의 상태를 확인하거나 유휴 NPU를 확인할 수 있다.
@@ -236,8 +237,8 @@ $ furiosactl list
 +------+-----------+-----------+--------+
 </pre></div>
 </div>
-</div>
-<div class="section" id="kubernetes">
+</section>
+<section id="kubernetes">
 <h2>Kubernetes 지원<a class="headerlink" href="#kubernetes" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>0.5.0 부터 NPU의 Kubernetes 지원이 포함된다.
 아래 커맨드로 간단히 NPU 장치 플러그인과 노드 레이블러를 설치하고 Pod을 배포할 때 NPU가 함께 스케쥴 되도록 할 수 있다.
@@ -246,8 +247,8 @@ $ furiosactl list
 kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/main/kubernetes/deployments/node-labeller.yaml
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
