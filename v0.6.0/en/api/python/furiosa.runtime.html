@@ -162,7 +162,7 @@
 <dt class="sig sig-object py" id="furiosa.runtime.errors.DeviceBusy">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">DeviceBusy</span></span><a class="headerlink" href="#furiosa.runtime.errors.DeviceBusy" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
-<p>when api client fails to initialize due to api keys or others</p>
+<p>The device is already occupied</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -203,7 +203,7 @@
 <dt class="sig sig-object py" id="furiosa.runtime.errors.InvalidInput">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">InvalidInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Invalid</span> <span class="pre">input</span> <span class="pre">tensors'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.errors.InvalidInput" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.FuriosaError" title="furiosa.runtime.errors.FuriosaError"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.FuriosaError</span></code></a></p>
-<p>when input tensors are invalid with any reason</p>
+<p>When input tensors are invalid with any reason</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -381,21 +381,28 @@
 <dt class="sig sig-object py" id="furiosa.runtime.errors.QueueWaitTimeout">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">QueueWaitTimeout</span></span><a class="headerlink" href="#furiosa.runtime.errors.QueueWaitTimeout" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
-<p>when api client fails to initialize due to api keys or others</p>
+<p>Timed out in Completion queue</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.SessionClosed">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">SessionClosed</span></span><a class="headerlink" href="#furiosa.runtime.errors.SessionClosed" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.FuriosaError" title="furiosa.runtime.errors.FuriosaError"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.FuriosaError</span></code></a></p>
+<p>Session is already terminated</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="furiosa.runtime.errors.SessionTerminated">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">SessionTerminated</span></span><a class="headerlink" href="#furiosa.runtime.errors.SessionTerminated" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
-<p>when api client fails to initialize due to api keys or others</p>
+<p>Session is already terminated</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="furiosa.runtime.errors.TensorNameNotFound">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">TensorNameNotFound</span></span><a class="headerlink" href="#furiosa.runtime.errors.TensorNameNotFound" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
-<p>when api client fails to initialize due to api keys or others</p>
+<p>When a given tensor name is not found in this model</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -409,7 +416,7 @@
 <dt class="sig sig-object py" id="furiosa.runtime.errors.UnsupportedFeature">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">UnsupportedFeature</span></span><a class="headerlink" href="#furiosa.runtime.errors.UnsupportedFeature" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
-<p>when api client fails to initialize due to api keys or others</p>
+<p>Feature is not supported</p>
 </dd></dl>
 
 <dl class="py exception">
