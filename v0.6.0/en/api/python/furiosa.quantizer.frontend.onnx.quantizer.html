@@ -7,6 +7,7 @@
   <title>furiosa.quantizer.frontend.onnx.quantizer package &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -35,23 +36,40 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">SDK installation</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/prerequisites.html">FuriosaAI SDK Installation + Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/driver.html">NPU Kernel Driver and Firmware Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/runtime.html">NPU Runtime Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/python-sdk.html">FuriosaAI Python SDK Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/apikey.html">API Key Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart/python-sdk.html">Python SDK Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart/cli.html">Command Line Tools Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/python-sdk.html">Python SDK Installation &amp; User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/c-sdk.html">Installation and User Guide of C SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/references.html">References</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/quantization.html">Model Quantization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/supported_operators.html">List of NPU Acceleration Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
 </ul>
 
         </div>
@@ -83,20 +101,365 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
 </section>
-<section id="furiosa-quantizer-frontend-onnx-quantizer-eliminate-clipper-module">
-<h2>furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper module<a class="headerlink" href="#furiosa-quantizer-frontend-onnx-quantizer-eliminate-clipper-module" title="Permalink to this headline"></a></h2>
+<section id="module-furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper">
+<span id="furiosa-quantizer-frontend-onnx-quantizer-eliminate-clipper-module"></span><h2>furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper module<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.</span></span><span class="sig-name descname"><span class="pre">ClipperElimination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#furiosa.quantizer.frontend.onnx.transformer.ONNXTransformer" title="furiosa.quantizer.frontend.onnx.transformer.ONNXTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.frontend.onnx.transformer.ONNXTransformer</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>This class contains methods commonly used in various EliminateClipper patterns</p>
+<dl class="simple">
+<dt>Eliminate clippers if</dt><dd><ol class="arabic simple">
+<li><p>a pattern given should be matched.</p></li>
+<li><p>every consumer’s output quantization parameters of the previous node of clipper should be mutually identical.</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.check_condition_1">
+<span class="sig-name descname"><span class="pre">check_condition_1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.check_condition_1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.check_condition_2">
+<span class="sig-name descname"><span class="pre">check_condition_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qlinear</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.check_condition_2" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>We assume multiple dqlinears(DQs) might follow from qlinear(Q) like in …-op-Q-DQ-clip-Q1-…</dt><dd><p>+-DQ_1-clip-Q1_1-…
++-      …</p>
+</dd>
+</dl>
+<p>Logic below checks the equality of qlinear1s(Q1s)’ quantization parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.pattern_condition_checker">
+<span class="sig-name descname"><span class="pre">pattern_condition_checker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matched_nodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.pattern_condition_checker" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.pattern_matching">
+<span class="sig-name descname"><span class="pre">pattern_matching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.pattern_matching" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.pattern_to_match">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pattern_to_match</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.pattern_to_match" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.remove_clip_qdq">
+<span class="sig-name descname"><span class="pre">remove_clip_qdq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.remove_clip_qdq" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.replace_quant_params">
+<span class="sig-name descname"><span class="pre">replace_quant_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qlinear</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qlinear1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination.replace_quant_params" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.EliminateClipper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.</span></span><span class="sig-name descname"><span class="pre">EliminateClipper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.EliminateClipper" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="furiosa.quantizer.interfaces.html#furiosa.quantizer.interfaces.transformer.Transformer" title="furiosa.quantizer.interfaces.transformer.Transformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.interfaces.transformer.Transformer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.EliminateClipper.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.EliminateClipper.transform" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.</span></span><span class="sig-name descname"><span class="pre">Pattern_1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_1" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination" title="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination</span></code></a></p>
+<dl class="simple">
+<dt>transform</dt><dd><p>prev –&gt; Conv –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Relu –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+<dt>to</dt><dd><p>prev –&gt; Conv –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_1.pattern_to_match">
+<span class="sig-name descname"><span class="pre">pattern_to_match</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Conv',</span> <span class="pre">'QuantizeLinear',</span> <span class="pre">'DequantizeLinear',</span> <span class="pre">'Relu',</span> <span class="pre">'QuantizeLinear']</span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_1.pattern_to_match" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.</span></span><span class="sig-name descname"><span class="pre">Pattern_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_2" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination" title="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination</span></code></a></p>
+<dl class="simple">
+<dt>transform</dt><dd><p>prev –&gt; Conv –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Clip –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+<dt>to</dt><dd><p>prev –&gt; Conv –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+</dl>
+<p>if Clip.input[1], Clip.input[2]’s input before fake quantization have initializer</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_2.pattern_to_match">
+<span class="sig-name descname"><span class="pre">pattern_to_match</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Conv',</span> <span class="pre">'QuantizeLinear',</span> <span class="pre">'DequantizeLinear',</span> <span class="pre">'Clip',</span> <span class="pre">'QuantizeLinear']</span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_2.pattern_to_match" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.</span></span><span class="sig-name descname"><span class="pre">Pattern_3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_3" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination" title="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination</span></code></a></p>
+<dl class="simple">
+<dt>transform</dt><dd><p>prev –&gt; Add –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Relu –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+<dt>to</dt><dd><p>prev –&gt; Add –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_3.pattern_to_match">
+<span class="sig-name descname"><span class="pre">pattern_to_match</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Add',</span> <span class="pre">'QuantizeLinear',</span> <span class="pre">'DequantizeLinear',</span> <span class="pre">'Relu',</span> <span class="pre">'QuantizeLinear']</span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_3.pattern_to_match" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_4">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.</span></span><span class="sig-name descname"><span class="pre">Pattern_4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_4" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination" title="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination</span></code></a></p>
+<dl class="simple">
+<dt>transform</dt><dd><p>prev –&gt; Add –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Clip –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+<dt>to</dt><dd><p>prev –&gt; Add –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+</dl>
+<p>if Clip.input[1], Clip.input[2]’s input before fake quantization have initializer</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_4.pattern_to_match">
+<span class="sig-name descname"><span class="pre">pattern_to_match</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Add',</span> <span class="pre">'QuantizeLinear',</span> <span class="pre">'DequantizeLinear',</span> <span class="pre">'Clip',</span> <span class="pre">'QuantizeLinear']</span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_4.pattern_to_match" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_5">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.</span></span><span class="sig-name descname"><span class="pre">Pattern_5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_5" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination" title="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination</span></code></a></p>
+<dl class="simple">
+<dt>transform</dt><dd><p>prev –&gt; Conv –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Squeeze –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Relu –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+<dt>to</dt><dd><p>prev –&gt; Conv –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Squeeze –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_5.pattern_to_match">
+<span class="sig-name descname"><span class="pre">pattern_to_match</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Conv',</span> <span class="pre">'QuantizeLinear',</span> <span class="pre">'DequantizeLinear',</span> <span class="pre">'Squeeze',</span> <span class="pre">'QuantizeLinear',</span> <span class="pre">'DequantizeLinear',</span> <span class="pre">'Relu',</span> <span class="pre">'QuantizeLinear']</span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_5.pattern_to_match" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_6">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.</span></span><span class="sig-name descname"><span class="pre">Pattern_6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_6" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination" title="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.ClipperElimination</span></code></a></p>
+<dl class="simple">
+<dt>transform</dt><dd><p>prev –&gt; Conv –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Squeeze –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Clip –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+<dt>to</dt><dd><p>prev –&gt; Conv –&gt; QuantizeLinear –&gt; DequantizeLinear –&gt; Squeeze –&gt; QuantizeLinear –&gt; next</p>
+</dd>
+</dl>
+<p>if Clip.input[1], Clip.input[2]’s input before fake quantization have initializer</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_6.pattern_to_match">
+<span class="sig-name descname"><span class="pre">pattern_to_match</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Conv',</span> <span class="pre">'QuantizeLinear',</span> <span class="pre">'DequantizeLinear',</span> <span class="pre">'Squeeze',</span> <span class="pre">'QuantizeLinear',</span> <span class="pre">'DequantizeLinear',</span> <span class="pre">'Clip',</span> <span class="pre">'QuantizeLinear']</span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper.Pattern_6.pattern_to_match" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="furiosa-quantizer-frontend-onnx-quantizer-quantizer-module">
-<h2>furiosa.quantizer.frontend.onnx.quantizer.quantizer module<a class="headerlink" href="#furiosa-quantizer-frontend-onnx-quantizer-quantizer-module" title="Permalink to this headline"></a></h2>
+<section id="module-furiosa.quantizer.frontend.onnx.quantizer.quantizer">
+<span id="furiosa-quantizer-frontend-onnx-quantizer-quantizer-module"></span><h2>furiosa.quantizer.frontend.onnx.quantizer.quantizer module<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.quantizer.quantizer" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.quantizer.</span></span><span class="sig-name descname"><span class="pre">FuriosaONNXQuantizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">per_channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode" title="furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic_ranges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.build_quantized_model">
+<span class="sig-name descname"><span class="pre">build_quantized_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.build_quantized_model" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.check_model">
+<span class="sig-name descname"><span class="pre">check_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.check_model" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.make_intermediate_representation">
+<span class="sig-name descname"><span class="pre">make_intermediate_representation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.make_intermediate_representation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.make_quant_dequant_node">
+<span class="sig-name descname"><span class="pre">make_quant_dequant_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.make_quant_dequant_node" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.quantize">
+<span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.quantize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.quantize_model">
+<span class="sig-name descname"><span class="pre">quantize_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer.FuriosaONNXQuantizer.quantize_model" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="furiosa-quantizer-frontend-onnx-quantizer-quantizer-mode-module">
-<h2>furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode module<a class="headerlink" href="#furiosa-quantizer-frontend-onnx-quantizer-quantizer-mode-module" title="Permalink to this headline"></a></h2>
+<section id="module-furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode">
+<span id="furiosa-quantizer-frontend-onnx-quantizer-quantizer-mode-module"></span><h2>furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode module<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.</span></span><span class="sig-name descname"><span class="pre">DFGImportable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable.remove_quantizelinear_operator_with_initializer">
+<span class="sig-name descname"><span class="pre">remove_quantizelinear_operator_with_initializer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable.remove_quantizelinear_operator_with_initializer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable.transform" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable.transform_to_integer_arithmetic_operator">
+<span class="sig-name descname"><span class="pre">transform_to_integer_arithmetic_operator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable.transform_to_integer_arithmetic_operator" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.ONNXRuntimeExecutable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.</span></span><span class="sig-name descname"><span class="pre">ONNXRuntimeExecutable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.ONNXRuntimeExecutable" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable" title="furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.DFGImportable</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.ONNXRuntimeExecutable.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode.ONNXRuntimeExecutable.transform" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="furiosa-quantizer-frontend-onnx-quantizer-utils-module">
-<h2>furiosa.quantizer.frontend.onnx.quantizer.utils module<a class="headerlink" href="#furiosa-quantizer-frontend-onnx-quantizer-utils-module" title="Permalink to this headline"></a></h2>
+<section id="module-furiosa.quantizer.frontend.onnx.quantizer.utils">
+<span id="furiosa-quantizer-frontend-onnx-quantizer-utils-module"></span><h2>furiosa.quantizer.frontend.onnx.quantizer.utils module<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.quantizer.utils" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">QuantizationMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode.DFG">
+<span class="sig-name descname"><span class="pre">DFG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode.DFG" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode.FAKE">
+<span class="sig-name descname"><span class="pre">FAKE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode.FAKE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.activation_scale_zeropoint">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">activation_scale_zeropoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_qtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.activation_scale_zeropoint" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.append_suffix">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">append_suffix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.append_suffix" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function to append suffixes to the given name.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.asymmetric_scale_zeropoint">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">asymmetric_scale_zeropoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_qtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.asymmetric_scale_zeropoint" title="Permalink to this definition"></a></dt>
+<dd><p>source: onnxruntime quantization tools</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.calculate_activation_quant_params">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">calculate_activation_quant_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamic_ranges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">onnx.onnx_ml_pb2.NodeProto</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_qtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.TensorProto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.calculate_activation_quant_params" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.calculate_weight_quant_params">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">calculate_weight_quant_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_qtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.TensorProto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.calculate_weight_quant_params" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – data to quantize</p></li>
+<li><p><strong>weight_qtype</strong> – quantization data type of weight</p></li>
+<li><p><strong>name</strong> – name of tensor to quantize</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>quantized weights, zero point, scale</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>To pack weights, we compute a linear transformation</dt><dd><ul class="simple">
+<li><p>when data type == uint8 mode, from [rmin, rmax] -&gt; [0, 2^{b-1}] and</p></li>
+<li><dl class="simple">
+<dt>when data type == int8, from [-m , m] -&gt; [-(2^{b-1}-1), 2^{b-1}-1] where</dt><dd><p>m = max(abs(rmin), abs(rmax))</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>and add necessary intermediate nodes to trasnform quantized weight to full weight using the equation
+r = S(q-z), where</p>
+<blockquote>
+<div><p>r: real original value
+q: quantized value
+S: scale
+z: zero point</p>
+</div></blockquote>
+<p>source: onnxruntime quantization tools</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.get_input_tensors">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">get_input_tensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.get_input_tensors" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.get_qrange">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">get_qrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.get_qrange" title="Permalink to this definition"></a></dt>
+<dd><p>source: onnxruntime quantization tools</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.get_vi_dtype">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">get_vi_dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.get_vi_dtype" title="Permalink to this definition"></a></dt>
+<dd><p>This function returns value_info’s data type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vi</strong> – graph.value_info</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>graph.value_info.type.tensor_type.elem_type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.quantizer.utils.is_float_tensor">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.</span></span><span class="sig-name descname"><span class="pre">is_float_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.quantizer.utils.is_float_tensor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="module-furiosa.quantizer.frontend.onnx.quantizer">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.quantizer" title="Permalink to this headline"></a></h2>
 </section>
 </section>
 

@@ -4,6 +4,14 @@ furiosa.common package
 Submodules
 ----------
 
+furiosa.common.error module
+---------------------------
+
+.. automodule:: furiosa.common.error
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 furiosa.common.native module
 ----------------------------
 

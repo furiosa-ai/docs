@@ -108,6 +108,14 @@ furiosa.quantizer.frontend.onnx.transformer.fuse\_redundant\_reshape\_pattern mo
    :undoc-members:
    :show-inheritance:
 
+furiosa.quantizer.frontend.onnx.transformer.infer\_squeeze\_axes module
+-----------------------------------------------------------------------
+
+.. automodule:: furiosa.quantizer.frontend.onnx.transformer.infer_squeeze_axes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 furiosa.quantizer.frontend.onnx.transformer.polish\_model module
 ----------------------------------------------------------------
 
