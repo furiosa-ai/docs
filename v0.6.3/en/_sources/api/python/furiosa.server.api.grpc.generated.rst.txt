@@ -1,0 +1,45 @@
+furiosa.server.api.grpc.generated package
+=========================================
+
+Submodules
+----------
+
+furiosa.server.api.grpc.generated.model\_repository\_pb2 module
+---------------------------------------------------------------
+
+.. automodule:: furiosa.server.api.grpc.generated.model_repository_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.server.api.grpc.generated.model\_repository\_pb2\_grpc module
+---------------------------------------------------------------------
+
+.. automodule:: furiosa.server.api.grpc.generated.model_repository_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.server.api.grpc.generated.predict\_pb2 module
+-----------------------------------------------------
+
+.. automodule:: furiosa.server.api.grpc.generated.predict_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.server.api.grpc.generated.predict\_pb2\_grpc module
+-----------------------------------------------------------
+
+.. automodule:: furiosa.server.api.grpc.generated.predict_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.server.api.grpc.generated
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,53 @@
+furiosa.registry package
+========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   furiosa.registry.client
+
+Submodules
+----------
+
+furiosa.registry.artifact module
+--------------------------------
+
+.. automodule:: furiosa.registry.artifact
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.registry.errors module
+------------------------------
+
+.. automodule:: furiosa.registry.errors
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.registry.model module
+-----------------------------
+
+.. automodule:: furiosa.registry.model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.registry.utils module
+-----------------------------
+
+.. automodule:: furiosa.registry.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.registry
+   :members:
+   :undoc-members:
+   :show-inheritance:

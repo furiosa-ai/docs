@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuriosaAI Python SDK Installation &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Key Settings" href="apikey.html" />
+    <link rel="prev" title="NPU Runtime Installation" href="runtime.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SDK installation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">FuriosaAI SDK Installation + Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driver.html">NPU Kernel Driver and Firmware Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">NPU Runtime Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FuriosaAI Python SDK Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-requirements">Minimum Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-notebook-user-guide">Jupyter Notebook User Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apikey.html">API Key Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">Command Line Tools Quickstart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">List of NPU Acceleration Operators</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>FuriosaAI Python SDK Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/installation/python-sdk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="furiosaai-python-sdk-installation">
+<h1>FuriosaAI Python SDK Installation<a class="headerlink" href="#furiosaai-python-sdk-installation" title="Permalink to this headline"></a></h1>
+<p>FuriosaAI’s NPU Python SDK provides a number of interfaces for accelerating models using the NPU,
+Python libraries, and command line tools.</p>
+<section id="minimum-requirements">
+<h2>Minimum Requirements<a class="headerlink" href="#minimum-requirements" title="Permalink to this headline"></a></h2>
+<ul>
+<li><p><a class="reference internal" href="driver.html"><span class="doc">NPU Kernel Driver and Firmware Installation</span></a></p></li>
+<li><p><a class="reference internal" href="runtime.html"><span class="doc">NPU Runtime Installation</span></a></p></li>
+<li><p>Python 3.7 or later (refer to <a class="reference internal" href="prerequisites.html#setuppython"><span class="std std-ref">Configuring the Python SDK Runtime Environment</span></a> if necessary)</p></li>
+<li><p>The latest version of pip (Upgrade to the latest version of pip with the following command)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install --upgrade pip
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>The included Python library interface can be used with a number
+of command line tools and functions. The FuriosaAI Python SDK can be installed with PyPi as follows.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the FuriosaAI NPU Python SDK to use the Python interface, e.g. `import furiosa`</span>
+pip install --upgrade furiosa-sdk
+<span class="c1"># Install additional tools, see below for details</span>
+pip install --upgrade <span class="s1">&#39;furiosa-sdk[runtime,quantizer]&#39;</span>
+<span class="c1"># Install all additional tools</span>
+pip install --upgrade <span class="s1">&#39;furiosa-sdk[full]&#39;</span>
+</pre></div>
+</div>
+<p>The following additional packages can be installed by using pip.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli</span></code>: Installs the command line tool. Refer to <a class="reference internal" href="../quickstart/cli.html"><span class="doc">Command Line Tools Quickstart</span></a> for usage</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="s1">&#39;furiosa-sdk[cli]&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">runtime</span></code>:  Installs various libraries to accelerating models using the NPU using the FuriosaAI NPU Runtime. <strong>Required for model acceleration using the NPU</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="s1">&#39;furiosa-sdk[runtime]&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quantizer</span></code>: Installs the model quantization tool (see <a class="reference internal" href="../advanced/quantization.html"><span class="doc">Model Quantization</span></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="s1">&#39;furiosa-sdk[quantizer]&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">validator</span></code>: Installs model analysis tools, quantizes for accelerating corresponding models on the NPU, and includes compilation success verification tools.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="s1">&#39;furiosa-sdk[quantizer,runtime,validator,cli]&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>If you need a development environment for model inference and model quantization tools, the following installs them for you:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install --upgrade <span class="s1">&#39;furiosa-sdk[runtime,quantizer]&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="jupyter-notebook-user-guide">
+<h2>Jupyter Notebook User Guide<a class="headerlink" href="#jupyter-notebook-user-guide" title="Permalink to this headline"></a></h2>
+<p>While using Jupyter Notebook, you can leverage the FuriosaAI Python SDK
+and various libraries in the Python ecosystem.</p>
+<p>If you have already installed the Python SDK as above, you can just install
+and use Jupyter Notebook using pip as shown below.
+Because Jupyter Notebook installs a wide variety of dependencies,
+<a class="reference internal" href="prerequisites.html#condainstall"><span class="std std-ref">Configuring the Python Environment Using Conda</span></a> is recommended.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install jupyterlab
+$ jupyter-notebook
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="runtime.html" class="btn btn-neutral float-left" title="NPU Runtime Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="apikey.html" class="btn btn-neutral float-right" title="API Key Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

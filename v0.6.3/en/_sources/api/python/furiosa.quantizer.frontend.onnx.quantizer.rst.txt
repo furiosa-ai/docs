@@ -1,0 +1,45 @@
+furiosa.quantizer.frontend.onnx.quantizer package
+=================================================
+
+Submodules
+----------
+
+furiosa.quantizer.frontend.onnx.quantizer.eliminate\_clipper module
+-------------------------------------------------------------------
+
+.. automodule:: furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.quantizer.frontend.onnx.quantizer.quantizer module
+----------------------------------------------------------
+
+.. automodule:: furiosa.quantizer.frontend.onnx.quantizer.quantizer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.quantizer.frontend.onnx.quantizer.quantizer\_mode module
+----------------------------------------------------------------
+
+.. automodule:: furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.quantizer.frontend.onnx.quantizer.utils module
+------------------------------------------------------
+
+.. automodule:: furiosa.quantizer.frontend.onnx.quantizer.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.quantizer.frontend.onnx.quantizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

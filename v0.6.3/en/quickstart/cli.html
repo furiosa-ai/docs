@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Line Tools Quickstart &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model Quantization" href="../advanced/quantization.html" />
+    <link rel="prev" title="Python SDK Quickstart" href="python-sdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SDK installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/prerequisites.html">FuriosaAI SDK Installation + Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/driver.html">NPU Kernel Driver and Firmware Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/runtime.html">NPU Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/python-sdk.html">FuriosaAI Python SDK Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/apikey.html">API Key Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Line Tools Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-quickstart">Command Quickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checking-the-toolchain-version">Checking the toolchain version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-compilation">Model Compilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-the-model-fit">Checking the Model Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compilation-analysis-and-optimization-tool">Compilation Analysis and Optimization Tool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">List of NPU Acceleration Operators</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Command Line Tools Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/quickstart/cli.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-line-tools-quickstart">
+<h1>Command Line Tools Quickstart<a class="headerlink" href="#command-line-tools-quickstart" title="Permalink to this headline"></a></h1>
+<p>FuriosaAI SDK provides a variety of command line tools
+to help compile, optimize and quantize models.</p>
+<p>Since some command line tools function based on FuriosaAI’s web services,
+you need to set up an API key to use all the features.
+If you have not yet set up a key, refer to <a class="reference internal" href="../installation/apikey.html"><span class="doc">API Key Settings</span></a>.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>If the Python execution environment has not been set up, refer to <a class="reference internal" href="../installation/prerequisites.html#setuppython"><span class="std std-ref">Configuring the Python SDK Runtime Environment</span></a>.</p>
+<p>Install Command Line Tools</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install <span class="s1">&#39;furiosa-sdk[cli, validator]&#39;</span>
+</pre></div>
+</div>
+<p>Verifying the Installation</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa version
+Server version: <span class="m">0</span>.2.0 <span class="o">(</span>rev: a4bbbb1b4 built_at: <span class="m">2021</span>-03-15T21:20:59Z<span class="o">)</span>
+Client version: <span class="m">0</span>.1.0
+</pre></div>
+</div>
+</section>
+<section id="command-quickstart">
+<h2>Command Quickstart<a class="headerlink" href="#command-quickstart" title="Permalink to this headline"></a></h2>
+<section id="checking-the-toolchain-version">
+<h3>Checking the toolchain version<a class="headerlink" href="#checking-the-toolchain-version" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">toolchain</span></code> command provides additional functions related to the toolchain.
+Currently, it provides a function to print the version of the provided toolchains.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa toolchain list
+
+Available Toolchains:
+<span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="m">0</span>.1.0 <span class="o">(</span>rev: 952707e5f built_at: <span class="m">2020</span>-12-15 <span class="m">23</span>:38:22<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="model-compilation">
+<h3>Model Compilation<a class="headerlink" href="#model-compilation" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">compile</span></code> command creates a program that uses the FuriosaAI NPU by compiling models in
+<a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> and <a class="reference external" href="https://onnx.ai/">ONNX</a> formats. (Is it using the NPU to compile?*)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
+  test_data/MNISTnet_uint8_quant_without_softmax.tflite
+
+output.enf has been generated <span class="o">(</span>elapsed: <span class="m">513</span>.661 ms<span class="o">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the location where the generated program binary will be saved.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
+  MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
+  -o /tmp/mnist.enf
+
+mnist.enf has been generated <span class="o">(</span>elapsed: <span class="m">513</span>.661 ms<span class="o">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--conf</span></code> option allows you to use yaml files when specifying different compiler options.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
+  test_data/MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
+  --config test_data/compiler_config.yml
+
+outout.enf has been generated <span class="o">(</span>elapsed: <span class="m">513</span>.661 ms<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="checking-the-model-fit">
+<h3>Checking the Model Fit<a class="headerlink" href="#checking-the-model-fit" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">validate</span></code> command takes a <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> or <a class="reference external" href="https://onnx.ai/">ONNX</a> as an argument,
+automatically quantizes it, and tries to compile to a final binary.
+Success indicates that the model can be run on the FuriosaAI NPU..</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa validate yolov4.onxx
+
+Passed!
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa validate efficientnet-lite4-11.onnx
+
+Failed. The result has been written to validation.txt
+
+$ cat validation.txt
+
+  Stdout:
+  <span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Checking <span class="k">if</span> the model can be transformed into a quantized model ...
+  Stderr:
+  /root/miniconda3/envs/furiosa/lib/python3.8/site-packages/onnx/__init__.py:97: RuntimeWarning: Unexpected end-group tag: Not all data was converted
+      <span class="nv">decoded</span> <span class="o">=</span> cast<span class="o">(</span>Optional<span class="o">[</span>int<span class="o">]</span>, proto.ParseFromString<span class="o">(</span>s<span class="o">))</span>
+  <span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Failed
+</pre></div>
+</div>
+</section>
+<section id="compilation-analysis-and-optimization-tool">
+<h3>Compilation Analysis and Optimization Tool<a class="headerlink" href="#compilation-analysis-and-optimization-tool" title="Permalink to this headline"></a></h3>
+<p>Both additional options given during compilation
+and separate commands generate NPU utilization level
+and model compilation process report for the compiled model.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--mem-allow-report</span></code> option for the <code class="docutils literal notranslate"><span class="pre">compile</span></code> command
+generates a memory allocation report in HTML format.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile <span class="se">\</span>
+  MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
+  -o /tmp/mnist.enf <span class="se">\</span>
+  --mem-alloc-report ./mem-report.html
+</pre></div>
+</div>
+<p>The figure below is an example of the memory allocation report output.</p>
+<img alt="Memory Allocation Report" src="../_images/mem_alloc_report.png" />
+<p>The <code class="docutils literal notranslate"><span class="pre">perfeye</span></code> command predicts and outputs the
+compiled model’s NPU utilization in operator units.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa perfeye <span class="se">\</span>
+  MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
+  -o output.html
+
+output.html has been generated <span class="o">(</span>elapsed: <span class="m">510</span>.783 ms<span class="o">)</span>
+</pre></div>
+</div>
+<p>The figure below is an example of a perfeye report.</p>
+<img alt="Perfeye Report" src="../_images/perfeye.png" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python-sdk.html" class="btn btn-neutral float-left" title="Python SDK Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../advanced/quantization.html" class="btn btn-neutral float-right" title="Model Quantization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
