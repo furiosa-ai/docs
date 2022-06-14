@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>드라이버, 펌웨어, 런타임 설치 가이드 &mdash; FuriosaAI NPU 및 Software 문서 0.7.0-dev 문서</title>
+  <title>드라이버, 펌웨어, 런타임 설치 가이드 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0-dev 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -64,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cli.html">명령행 도구</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">컴파일러</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">성능 프로파일링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
@@ -71,6 +72,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
 </ul>
@@ -145,7 +147,7 @@ sudo apt install -y ca-certificates apt-transport-https gnupg
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>FuriosaAI의 공개 Singing 키를 등록 한다.</p></li>
+<li><p>FuriosaAI의 공개 Signing 키를 등록 한다.</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 5F03AFA423A751913F249259814F888B20B09A7E
 </pre></div>
@@ -183,13 +185,14 @@ chmod <span class="m">400</span> /etc/apt/auth.conf.d/furiosa.conf
 <section id="installlinuxpackages">
 <span id="id2"></span><h2>필수 패키지 설치<a class="headerlink" href="#installlinuxpackages" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>위에 설명에 따라 APT 서버를 등록했거나 다운로드 사이트에 가입했다면 필수 패키지인
-NPU 커널 드라이버, 펌웨어, 런타임를 설치할 수 있다.</p>
+NPU 커널 드라이버, 펌웨어, 런타임을 설치할 수 있다.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">APT 서버를 이용한 설치</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">다운로드 센터를 이용한 설치</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>아래 패키지를 설치하면 의존된 패키지들은 자동으로 설치된다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y furiosa-driver-pdma furiosa-libnux
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>아래 패키지들의 최신 버전을 선택하여 다운 받아 명령에 쓰여진 순서대로 설치한다.</p>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>아래 패키지들의 최신 버전을 선택하여 다운 받아 명령에 쓰여진 순서대로 설치한다.
+<code class="docutils literal notranslate"><span class="pre">x.y.z-?</span></code> 버전 부분은 다운받은 파일의 버전에 맞게 변경한다.</p>
 <ul class="simple">
 <li><p>NPU Driver (furiosa-driver-pdma)</p></li>
 <li><p>Hardware Abstraction Layer (furiosa-libhal)</p></li>
@@ -205,7 +208,7 @@ sudo apt-get install -y ./furiosa-libnux-x.y.z-?.deb
 </div></div>
 <section id="id3">
 <h3>설치된 버전 고정 및 해제<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크"></a></h3>
-<p>패키지 설치 이후 안정적인 운영환경을 유지하기 위해 설치된 패키지의 버전을 고정할 필요가 있다
+<p>패키지 설치 이후 안정적인 운영환경을 유지하기 위해 설치된 패키지의 버전을 고정할 필요가 있다.
 아래 명령어를 이용하면 현재 설치된 버전을 고정 할 수 있다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-mark hold furiosa-driver-pdma furiosa-libhal-warboy furiosa-libnux libonnxruntime
 </pre></div>
@@ -227,9 +230,9 @@ sudo apt-get install -y ./furiosa-libnux-x.y.z-?.deb
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p><code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span></code> 명령에 옵션으로 패키지 이름 과 버전을 지정한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span></code> 명령에 옵션으로 패키지 이름과 버전을 지정한다.</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y furiosa-libnux<span class="o">=</span><span class="m">0</span>.6.3-2
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y furiosa-libnux<span class="o">=</span><span class="m">0</span>.7.0-?
 </pre></div>
 </div>
 </section>
@@ -247,7 +250,7 @@ sudo apt-get install -y ./furiosa-libnux-x.y.z-?.deb
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; 저작권 2021, FuriosaAI Inc..</p>
+    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

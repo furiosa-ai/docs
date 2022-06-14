@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NPU 가속 지원 연산자 목록 &mdash; FuriosaAI NPU 및 Software 문서 0.7.0-dev 문서</title>
+  <title>NPU 가속 지원 연산자 목록 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0-dev 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -54,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../software/cli.html">명령행 도구</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/compiler.html">컴파일러</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/profiler.html">성능 프로파일링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/kubernetes_support.html">Kubernetes 지원</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/serving.html">모델 서버 (서빙 프레임워크)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/tutorials.html">튜토리얼 및 코드 예제</a></li>
@@ -61,6 +62,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
 </ul>
@@ -113,8 +115,8 @@
 CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크거나 NPU의 메모리로
 특정 연산을 처리하기에 부족한 경우가 한 가지 예이다.</p>
 </div>
-<table class="colwidths-given docutils align-default" id="id1">
-<caption><span class="caption-text">NPU 가속 지원 연산자</span><a class="headerlink" href="#id1" title="이 표에 대한 퍼머링크"></a></caption>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">NPU 가속 지원 연산자</span><a class="headerlink" href="#id2" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -138,19 +140,25 @@ CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크
 <td></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#concat">Concat</a></p></td>
-<td><p>height 축에 대해서만 지원</p></td>
+<td><p>H axis 지원 (&gt;= 0.6.0), C axis 지원 (&gt;= 0.7.0)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#conv">Conv</a></p></td>
-<td><p><cite>group</cite> &lt;= 128, dilation &lt;= 12 인 경우에 대해 지원</p></td>
+<td><p><cite>group</cite> &lt;= 128, <cite>dilation</cite> &lt;= 12 인 경우에 대해 지원</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#convtranspose">ConvTranspose</a></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#depthtospace">DepthToSpace</a></p></td>
-<td></td>
+<td><p>CRD 모드 지원 (&gt;= 0.6.0), DCR 모드 지원 (&gt;= 0.7.0)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#exp">Exp</a></p></td>
-<td></td>
+<td><p>0.7.0 이상 부터 지원</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#Elu">Elu</a></p></td>
+<td><p>0.7.0 이상 부터 지원</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#Erf">Erf</a></p></td>
+<td><p>0.7.0 이상 부터 지원</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#expand">Expand</a></p></td>
 <td></td>
@@ -161,7 +169,13 @@ CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#gemm">Gemm</a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#leakyrelu">LeakyRelu</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/microsoft/onnxruntime/blob/master/docs/ContribOperators.md#com.microsoft.Gelu">Gelu</a></p></td>
+<td><p>0.7.0 이상 부터 지원</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#leakyrelu">LeakyRelu</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#Log">Log</a></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#lpnormalization">LpNormalization</a></p></td>
@@ -180,7 +194,7 @@ CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크
 <td></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Pad">Pad</a></p></td>
-<td></td>
+<td><p>CWH axis 지원 (&gt;= 0.7.0)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#ReduceL2">ReduceL2</a></p></td>
 <td></td>
@@ -194,37 +208,46 @@ CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#reshape">Reshape</a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Pow">Pow</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Resize">Resize</a></p></td>
+<td><p>Linear, Nearest 모드 지원 (&gt;= 0.7.0)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Pow">Pow</a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#SpaceToDepth">SpaceToDepth</a></p></td>
-<td><p>0.6.0 이상 버전에서 mode=”CRD” 인 경우에 지원</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#SpaceToDepth">SpaceToDepth</a></p></td>
+<td><p>CRD 모드 지원 (&gt;= 0.6.0), DCR 모드 지원 (&gt;= 0.7.0)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Sigmoid">Sigmoid</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Sigmoid">Sigmoid</a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#slice">Slice</a></p></td>
-<td><p>height 축에 대해서만 지원</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#slice">Slice</a></p></td>
+<td><p>H axis 지원 (&gt;= 0.6.0), C axis 지원 (&gt;= 0.7.0)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Softmax">Softmax</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Softmax">Softmax</a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Softplus">Softplus</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Softplus">Softplus</a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#sub">Sub</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#sub">Sub</a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Split">Split</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Split">Split</a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Sqrt">Sqrt</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Sqrt">Sqrt</a></p></td>
 <td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#Tanh">Tanh</a></p></td>
+<td><p>0.7.0 이상 버전 부터 지원</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Transpose">Transpose</a></p></td>
-<td></td>
+<td><p>0.6.0 이상 버전 부터 지원</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#unsqueeze">Unsqueeze</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Transpose">Transpose</a></p></td>
+<td><p>0.6.0 이상 버전 부터 지원</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#unsqueeze">Unsqueeze</a></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -242,7 +265,7 @@ CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; 저작권 2021, FuriosaAI Inc..</p>
+    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
