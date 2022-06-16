@@ -68,8 +68,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id3">더 많은 연산자가 가속되도록 컴파일러 개선</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">컴파일러 캐쉬 도입</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5">성능 프로파일링 도구 도입</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#quantizer">Quantizer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#model-zoo">Model Zoo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">양자화 도구</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#device-plugin">Device Plugin의 파일 기반 설정 도입</a></li>
 </ul>
 </li>
@@ -119,8 +118,8 @@
 <h1>Release Notes - 0.7.0<a class="headerlink" href="#release-notes-0-7-0" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>Furiosa SDK 0.7.0은 메이저 릴리즈로 다수의 성능 개선, 기능 추가, 버그픽스에 대한 약 1400여개의
 커밋을 포함하고 있다.</p>
-<table class="colwidths-given docutils align-default" id="id6">
-<caption><span class="caption-text">컴포넌트 버전 정보</span><a class="headerlink" href="#id6" title="이 표에 대한 퍼머링크"></a></caption>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-text">컴포넌트 버전 정보</span><a class="headerlink" href="#id7" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 80%" />
 <col style="width: 20%" />
@@ -144,13 +143,13 @@
 <td><p>0.7.0</p></td>
 </tr>
 <tr class="row-even"><td><p>NPU Device Plugin</p></td>
-<td><p>0.11.0</p></td>
+<td><p>0.10.0</p></td>
 </tr>
 <tr class="row-odd"><td><p>NPU Feature Discovery</p></td>
 <td><p>0.1.0</p></td>
 </tr>
 <tr class="row-even"><td><p>furiosactl (NPU management CLI)</p></td>
-<td><p>0.10.0</p></td>
+<td><p>0.9.1</p></td>
 </tr>
 </tbody>
 </table>
@@ -200,28 +199,35 @@ pip install --upgrade furiosa-sdk
 환경변수 또는 Python 코드 내에서 프로파일링 컨텍스트를 통해 프로파일러를 활성화 할 수 있다.
 자세한 사용법은 <a class="reference internal" href="../software/profiler.html#profiling"><span class="std std-ref">성능 프로파일링</span></a> 에서 찾아볼 수 있다.</p>
 <a class="with-shadow reference internal image-reference" href="../_images/tracing.png"><img alt="Tracing" class="with-shadow align-center" src="../_images/tracing.png" style="width: 600px;" /></a>
-<p></p>
 </section>
-<section id="quantizer">
-<h3>Quantizer<a class="headerlink" href="#quantizer" title="이 표제에 대한 퍼머링크"></a></h3>
-<div class="admonition warning">
-<p class="admonition-title">경고</p>
-<p>WIP</p>
-</div>
-</section>
-<section id="model-zoo">
-<h3>Model Zoo<a class="headerlink" href="#model-zoo" title="이 표제에 대한 퍼머링크"></a></h3>
-<div class="admonition warning">
-<p class="admonition-title">경고</p>
-<p>WIP</p>
-</div>
+<section id="id6">
+<h3>양자화 도구<a class="headerlink" href="#id6" title="이 표제에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p>ONNX Squeeze 연산자 OpSet 12 이하 버전에서 <cite>axes</cite> 속성이 지정되어 있지 않은
+경우에도 출력 텐서의 모양을 추론할 수 있도록 수정</p></li>
+<li><p>NxCxHxW 모양을 가진 텐서를 입력으로 받는 Conv 뿐만 아니라, NxCxD 모양을 가진
+입력 텐서를 받는 Conv에 대한 지원 추가</p></li>
+<li><p>Conv가 편향(bias)을 입력으로 받지 않는 경우에도 “Conv - BatchNormalization”
+부분 그래프를 Conv로 융합할 수 있도록 수정</p></li>
+<li><p>양자화 이후 과정에서 일관된 방식으로 모델을 처리할 수 있도록, 피연산자가
+초기값을 가지는지 여부와 상관없이 Sub, Concat과 Pow 연산자를 항상 QDQ
+형식으로 양자화하도록 수정</p></li>
+<li><p>양자화 과정 및 결과 모델에서 ONNX Runtime 관련 경고가 나지 않도록 수정</p></li>
+<li><p>텐서 모양 정보를 추론하지 못 하는 경우를 빠짐없이 발견하도록 검사 조건을 강화</p></li>
+<li><p>float32 형 데이터를 입력으로 받는 모델 뿐만 아니라 다른 소수점 형이나 정수
+형을 입력으로 받는 모델도 랜덤 캘리브레이션할 수 있도록 수정</p></li>
+<li><p>이미 양자화된 모델이 주어졌을 때를 보다 안정적으로 발견하고 종료하도록 수정</p></li>
+<li><p>Conv의 데이터 입력 혹은 가중치(weight)의 스케일(scale)이 너무 작아
+편향(bias)의 스케일이 0이 되는 경우 가중치의 스케일을 적절히 조절하도록 수정</p></li>
+<li><p>“Gather - MatMul” 부분 그래프를 Gather로 융합할 수 있는 경우에 대한 조건 강화</p></li>
+<li><p>사용하는 의존 라이브러리들을 최신 버전으로 갱신</p></li>
+</ul>
 </section>
 <section id="device-plugin">
 <h3>Device Plugin의 파일 기반 설정 도입<a class="headerlink" href="#device-plugin" title="이 표제에 대한 퍼머링크"></a></h3>
-<div class="admonition warning">
-<p class="admonition-title">경고</p>
-<p>WIP</p>
-</div>
+<p>Kubernetes에서 사용하는 NPU Device Plugin의 실행 옵션을 파일로 설정하는 기능이 추가되었다.
+기존처럼 명령행 인자로 옵션 항목들을 입력하거나, 설정 파일을 선택하여 옵션을 지정할 수 있다.
+자세한 사용법은 <a class="reference internal" href="../software/kubernetes_support.html#kubernetesintegration"><span class="std std-ref">Kubernetes 지원</span></a> 에서 찾아볼 수 있다.</p>
 </section>
 </section>
 </section>
