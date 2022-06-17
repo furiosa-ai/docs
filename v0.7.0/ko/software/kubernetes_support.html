@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kubernetes 지원 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0-dev 문서</title>
+  <title>Kubernetes 지원 &mdash; FuriosaAI NPU 및 Software 문서 0.7.0 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -176,8 +176,8 @@ APT 서버가 셋업되어 있다면 (<a class="reference internal" href="instal
 <section id="device-plugin-npu-feature-discovery">
 <h2>3. Device Plugin, NPU Feature Discovery 설치<a class="headerlink" href="#device-plugin-npu-feature-discovery" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>NPU 노드 준비가 완료되면, Device Plugin과 NPU Feature Discovery의 DaemonSet을 다음과 같이 설치한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.8.0/kubernetes/deployments/device-plugin.yaml
-kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.8.0/kubernetes/deployments/npu-feature-discovery.yaml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/device-plugin.yaml
+kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/npu-feature-discovery.yaml
 </pre></div>
 </div>
 <p>위 커맨드를 실행하고 난 뒤에 <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">daemonset</span> <span class="pre">-n</span> <span class="pre">kube-system</span></code> 명령으로 설치한 DaemonSet이 정상 동작하는지 확인할 수 있다.
@@ -262,7 +262,7 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.cou
 <span class="w">    </span><span class="nt">beta.furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Pod 생성을 위한 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.8.0/kubernetes/deployments/pod-example.yaml">전체 예제</a> 는 다음과 같다.</p>
+<p>Pod 생성을 위한 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.7.0/kubernetes/deployments/pod-example.yaml">전체 예제</a> 는 다음과 같다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat &gt; npu-pod.yaml <span class="s">&lt;&lt;EOL</span>
 <span class="s">apiVersion: v1</span>
 <span class="s">kind: Pod</span>
@@ -336,7 +336,7 @@ root@npu-pod:/# furiosactl info
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
+    <p>&#169; 저작권 2022, FuriosaAI, Inc..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
