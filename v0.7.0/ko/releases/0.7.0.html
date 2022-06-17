@@ -66,7 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id1">업그레이드 방법</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">주요 변경 사항</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id3">더 많은 연산자가 가속되도록 컴파일러 개선</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">컴파일러 캐쉬 도입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">컴파일러 캐시 도입</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5">컴파일러 힌트 도입</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6">성능 프로파일링 도구 도입</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#python-sdk">Python SDK 개선</a></li>
@@ -135,7 +135,7 @@
 <tr class="row-even"><td><p>NPU Driver</p></td>
 <td><p>1.3.0</p></td>
 </tr>
-<tr class="row-odd"><td><p>HAL (hard abstraction layer)</p></td>
+<tr class="row-odd"><td><p>HAL (Hardware Abstraction Layer)</p></td>
 <td><p>0.8.0</p></td>
 </tr>
 <tr class="row-even"><td><p>Furiosa Compiler</p></td>
@@ -150,7 +150,7 @@
 <tr class="row-odd"><td><p>NPU Feature Discovery</p></td>
 <td><p>0.1.0</p></td>
 </tr>
-<tr class="row-even"><td><p>furiosactl (NPU management CLI)</p></td>
+<tr class="row-even"><td><p>NPU Management CLI (furiosactl)</p></td>
 <td><p>0.9.1</p></td>
 </tr>
 </tbody>
@@ -190,9 +190,9 @@ pip install --upgrade furiosa-sdk
 </div></blockquote>
 </section>
 <section id="id4">
-<h3>컴파일러 캐쉬 도입<a class="headerlink" href="#id4" title="이 표제에 대한 퍼머링크"></a></h3>
-<p>컴파일러 캐쉬는 모델의 바이너리와 속성에 기반한 해쉬 값과 컴파일 결과를 함께 저장하여 동일한 모델을 컴파일 할 때
-결과를 재활용하게 한다. 로컬 파일 시스템 (<cite>$HOME/cache/furiosa/compiler</cite>) 또는 Redis를 캐쉬 스토리지로 활용할 수 있으며
+<h3>컴파일러 캐시 도입<a class="headerlink" href="#id4" title="이 표제에 대한 퍼머링크"></a></h3>
+<p>컴파일러 캐시는 모델의 바이너리와 속성에 기반한 해쉬 값과 컴파일 결과를 함께 저장하여 동일한 모델을 컴파일 할 때
+결과를 재활용하게 한다. 로컬 파일 시스템 (<cite>$HOME/.cache/furiosa/compiler</cite>) 또는 Redis를 캐쉬 스토리지로 활용할 수 있으며
 자세한 사용법은 <a class="reference internal" href="../software/compiler.html#compilercache"><span class="std std-ref">컴파일러 캐쉬 (Compiler Cache)</span></a> 에서 찾아볼 수 있다.</p>
 </section>
 <section id="id5">
