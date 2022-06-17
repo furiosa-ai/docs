@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>컴파일러 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0-dev 문서</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="모델 양자화" href="quantization.html" />
+    <link rel="prev" title="명령행 도구" href="cli.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">NPU 가속 지원 연산자 목록</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI 소프트웨어 스택 소개</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">드라이버, 펌웨어, 런타임 설치 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">명령행 도구</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">컴파일러</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#furiosa-compile"><code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enf">ENF 파일의 활용</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compiler-cache">컴파일러 캐쉬 (Compiler Cache)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">성능 프로파일링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.3/ko/">0.6.3 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/ko/">0.6.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/ko/">0.5.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>컴파일러</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/software/compiler.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="compiler">
+<span id="id1"></span><h1>컴파일러<a class="headerlink" href="#compiler" title="이 표제에 대한 퍼머링크"></a></h1>
+<p>FuriosaAI의 컴파일러는 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> 와 <a class="reference external" href="https://onnx.ai/">Onnx</a>
+형식의 모델(<a class="reference external" href="https://onnxruntime.ai/docs/reference/compatibility#onnx-opset-support">OpSet 16</a> 호환)을 컴파일하여 FuriosaAI NPU와 호스트 머신의 자원(CPU, 메모리)을 이용해 추론(inference)을
+실행하는 프로그램을 생성한다. 이 과정에서 모델을 연산자 단위로 분석하고 최적화하여 최대한 NPU 가속와 호스트 자원을
+잘 활용할 수 있도록 프로그램을 생성한다. 따라서, 기존에 알려진 모델이 아니라도 지원되는
+연산자를 잘 활용하면 NPU에 최적화된 모델을 설계할 수 있다.
+NPU 가속이 지원되는 연산자 목록은 <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">NPU 가속 지원 연산자 목록</span></a> 에서 찾을 수 있다.</p>
+<section id="furiosa-compile">
+<span id="compilercli"></span><h2><code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code><a class="headerlink" href="#furiosa-compile" title="이 표제에 대한 퍼머링크"></a></h2>
+<p>컴파일러는 추론 API의 Session을 초기화 하는 과정에서 모델과 NPU를 초기화할 때
+자동으로 호출되어 사용되는 것이 가장 일반적인 사용 방법이다.
+그러나 쉘에서 명령행 도구인 <code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> 이용해 직접 모델을 컴파일하여 프로그램을 생성해볼 수 있다.
+<code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> 명령은 <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">Python SDK 설치 및 사용 가이드</span></a> 를 설치하면 사용 가능해진다.</p>
+<p>명령의 인자는 다음과 같다. <code class="docutils literal notranslate"><span class="pre">MODEL_PATH</span></code> 는
+<a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> 나 <a class="reference external" href="https://onnx.ai/">Onnx</a> 파일의 경로이다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa compile MODEL_PATH <span class="o">[</span>-o OUTPUT<span class="o">]</span> <span class="o">[</span>--target-npu TARGET_NPU<span class="o">]</span> <span class="o">[</span>--batch BATCH_SIZE<span class="o">]</span>
+</pre></div>
+</div>
+<p><cite>-o OUTPUT</cite> 은 생략 가능한 옵션이며 지정한다면 출력되는 파일 이름을 지정할 수 있다.
+생략했을 때 기본 출력 파일 이름은 <code class="docutils literal notranslate"><span class="pre">output.enf</span></code> 이다. 여기서 enf는 Executable NPU Format의 약어이다.
+따라서, 예를 들면 아래와 같이 실행하면 기본으로 <code class="docutils literal notranslate"><span class="pre">output.enf</span></code> 파일을 생성한다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa compile foo.onnx
+</pre></div>
+</div>
+<p>아래와 같이 직접 출력 파일 이름을 지정하면 <code class="docutils literal notranslate"><span class="pre">foo.enf</span></code> 파일로 생성된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span> <span class="nb">compile</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="o">.</span><span class="n">enf</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--target-npu</span></code> 는 생성한 바이너리가 목표로하는 NPU를 지정하게 한다.</p>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">Target NPUs</span><a class="headerlink" href="#id4" title="이 표에 대한 퍼머링크"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>NPU Family</p></th>
+<th class="head"><p>Number of PEs</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Warboy</p></td>
+<td><p>1</p></td>
+<td><p>warboy</p></td>
+</tr>
+<tr class="row-odd"><td><p>Warboy</p></td>
+<td><p>2</p></td>
+<td><p>warboy-2pe</p></td>
+</tr>
+</tbody>
+</table>
+<p>생성한 프로그램이 동작할 NPU가 1개의 PE를 독립적으로 사용하는 Warboy라면 아래와 같이 명령을 실행하면 된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span> <span class="nb">compile</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">npu</span> <span class="n">warboy</span>
+</pre></div>
+</div>
+<p>2개의 PE (Processing Element)를 Fusing 해서 사용하는 경우는 아래와 같이 실행한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span> <span class="nb">compile</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">npu</span> <span class="n">warboy</span><span class="o">-</span><span class="mi">2</span><span class="n">pe</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--batch-size</span></code> 옵션은 추론 API를 통해 추론을 실행할 때
+입력으로 전달할 샘플의 개수인 <cite>배치 크기</cite> 를 지정하게 한다.
+배치 크기가 크면 일반적으로 한번에 많은 데이터를 넣고 실행하므로
+NPU의 활용도를 높일 수 있고 추론을 실행하는 과정을 공유하므로 더 효율적일 수 있다.
+그러나 NPU에 더 많은 메모리가 필요하게 되어 필요한 메모리 사이즈가 NPU의 DRAM 크기를 초과하면
+오히려 호스트(Host)와 NPU간에 메모리 I/O 비용이 커져 큰 성능 저하가 일어날 수 있다.
+기본 값은 1이며 적절한 설정은 일반적으로 실험을 통해 찾을 수 있다.
+참고로, <a class="reference external" href="https://mlcommons.org/en/inference-edge-20/">MLPerf™ Inference Edge v2.0</a> 벤치마크에 포함된 일부 모델들의 최적 배치 크기는 다음과 같다.</p>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">Optimal Batch Size for Well-known Models</span><a class="headerlink" href="#id5" title="이 표에 대한 퍼머링크"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Optimal Batch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SSD-MobileNets-v1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Resnet50-v1.5</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>SSD-ResNet34</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>원하는 배치 크기가 2인 경우는 아래와 같이 명령을 실행하면 된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span> <span class="nb">compile</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">batch</span><span class="o">-</span><span class="n">size</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</section>
+<section id="enf">
+<h2>ENF 파일의 활용<a class="headerlink" href="#enf" title="이 표제에 대한 퍼머링크"></a></h2>
+<p>FuriosaAI 컴파일러가 컴파일 과정을 마치고 최종적으로 생성해내는 출력물이
+ENF (Executable NPU Format) 형식의 데이터이다.
+일반적으로, 컴파일 과정은 모델에 따라서 수 초에서 수 분까지 걸리는데
+ENF 파일을 한번 생성하여 재사용하면 컴파일을 과정을 생략할 수 있다.</p>
+<p>빈번하게 세션을 생성해야 하거나 실제 운영 환경에서 하나의 모델을 여러 머신에서
+서빙해야 하는 경우 유용하게 활용할 수 있다.</p>
+<p>예를 들면, <a class="reference internal" href="#compilercli"><span class="std std-ref">furiosa compile</span></a> 사용법을 참고하여 ENF 파일을 생성하고
+아래 처럼 <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">PythonSDK</span></a> 를 사용할 때 <code class="docutils literal notranslate"><span class="pre">session.create()</span></code>
+함수에 인자로 ENF 파일을 전달하면 컴파일 과정을 거치지 않고 즉각적으로 <code class="docutils literal notranslate"><span class="pre">Session</span></code> 객체를 생성한다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<span class="n">sess</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;foo.enf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="compiler-cache">
+<span id="compilercache"></span><h2>컴파일러 캐쉬 (Compiler Cache)<a class="headerlink" href="#compiler-cache" title="이 표제에 대한 퍼머링크"></a></h2>
+<p>컴파일러 캐쉬는 같은 모델을 컴파일 하는 경우 기존에 컴파일된 결과를 저장해 재활용하게 한다.
+로컬 파일 시스템 (기본 설정: <code class="docutils literal notranslate"><span class="pre">$HOME/.cache/furiosa/compiler</span></code>) 또는
+Redis를 캐쉬 스토리지로 활용한다.</p>
+<p>컴파일러 캐쉬 기능은 기본으로 활성화 되어 있으며 환경변수 <code class="docutils literal notranslate"><span class="pre">FC_CACHE_ENABLED</span></code> 를 이용해 비활성화 할 수 있다.
+아래 환경 변수는 명령형 도구, Python SDK, 서빙 프레임워크 등 모든 도구에서 동일하게 적용된다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable Compiler Cache</span>
+<span class="nb">export</span> <span class="nv">FC_CACHE_ENABLED</span><span class="o">=</span><span class="m">1</span>
+<span class="c1"># Disable Compiler Cache</span>
+<span class="nb">export</span> <span class="nv">FC_CACHE_ENABLED</span><span class="o">=</span><span class="m">0</span>
+</pre></div>
+</div>
+<p>캐쉬 스토리지의 기본 설정은 <code class="docutils literal notranslate"><span class="pre">$HOME/.cache/furiosa/compiler``이며</span>
+<span class="pre">환경변수</span> <span class="pre">``FC_CACHE_STORE_URL</span></code> 를 통해 오버라이드 가능하다. <code class="docutils literal notranslate"><span class="pre">redis://</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">rediss://</span></code> (SSL의 경우)
+scheme 으로 시작하는 URL을 설정하면 Redis 클러스터를 캐쉬 스토리지로 활용 가능하다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># When you want to specify a cache directory</span>
+<span class="nb">export</span> <span class="nv">FC_CACHE_STORE_URL</span><span class="o">=</span>/tmp/cache
+
+<span class="c1"># When you want to specify a Redis cluster as the cache storage</span>
+<span class="nb">export</span> <span class="nv">FC_CACHE_STORE_URL</span><span class="o">=</span>redis://:&lt;PASSWORD&gt;@127.0.0.1:6379
+<span class="c1"># When you want to specify a Redis cluster over SSL as the cache storage</span>
+<span class="nb">export</span> <span class="nv">FC_CACHE_STORE_URL</span><span class="o">=</span>rediss://:&lt;PASSWORD&gt;@127.0.0.1:25945
+</pre></div>
+</div>
+<p>캐쉬는 기본으로 72시간(3일)의 유효시간을 가지고 있으며 환경변수 <code class="docutils literal notranslate"><span class="pre">FC_CACHE_LIFETIME</span></code> 를 통해 초 단위 설정을 통해
+오버라이드 가능하다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2 hours cache lifetime</span>
+<span class="nb">export</span> <span class="nv">FC_CACHE_LIFETIME</span><span class="o">=</span><span class="m">7200</span>
+</pre></div>
+</div>
+<p>옵션 값에 따라 목적에 맞는 다양한 동작 방식을 선택 할 수 있다.</p>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">FC_CACHE_LIFETIME 설정 값에 따른 캐쉬 동작</span><a class="headerlink" href="#id6" title="이 표에 대한 퍼머링크"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 67%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>값 (초)</p></th>
+<th class="head"><p>설명</p></th>
+<th class="head"><p>예</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>N</em> &gt; 0</p></td>
+<td><p>컴파일 결과가 <em>N</em> 초 만큼 캐쉬로 활용 됨</p></td>
+<td><p>7200 (2 시간)</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>기존 컴파일 결과가 무효가 되며 항상 새로 컴파일 함 (기존 컴파일 결과를 다시 생성하고 싶을 때 활용 가능)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><em>N</em> &lt; 0</p></td>
+<td><p>기존 컴파일 결과를 유효시간 없이 영구적으로 사용한다. 읽기 전용 캐쉬를 활용할 때 사용할 수 있다.</p></td>
+<td><p>-1</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cli.html" class="btn btn-neutral float-left" title="명령행 도구" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quantization.html" class="btn btn-neutral float-right" title="모델 양자화" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

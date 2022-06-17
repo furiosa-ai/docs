@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Release Notes - 0.7.0 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0-dev 문서</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Release Notes - 0.6.0" href="0.6.0.html" />
+    <link rel="prev" title="레퍼런스 문서" href="../software/references.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">NPU 가속 지원 연산자 목록</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/intro.html">FuriosaAI 소프트웨어 스택 소개</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/installation.html">드라이버, 펌웨어, 런타임 설치 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/python-sdk.html">Python SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/c-sdk.html">C SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/cli.html">명령행 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/compiler.html">컴파일러</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/profiler.html">성능 프로파일링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/serving.html">모델 서버 (서빙 프레임워크)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/tutorials.html">튜토리얼 및 코드 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/references.html">레퍼런스 문서</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes - 0.7.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">업그레이드 방법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">주요 변경 사항</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">더 많은 연산자가 가속되도록 컴파일러 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">컴파일러 캐쉬 도입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">컴파일러 힌트 도입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">성능 프로파일링 도구 도입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-sdk">Python SDK 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">양자화 도구</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#device-plugin">Device Plugin의 파일 기반 설정 도입</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.3/ko/">0.6.3 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/ko/">0.6.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/ko/">0.5.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Release Notes - 0.7.0</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/releases/0.7.0.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="release-notes-0-7-0">
+<h1>Release Notes - 0.7.0<a class="headerlink" href="#release-notes-0-7-0" title="이 표제에 대한 퍼머링크"></a></h1>
+<p>Furiosa SDK 0.7.0은 메이저 릴리즈로 다수의 성능 개선, 기능 추가, 버그픽스에 대한 약 1400여개의
+커밋을 포함하고 있다.</p>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">컴포넌트 버전 정보</span><a class="headerlink" href="#id8" title="이 표에 대한 퍼머링크"></a></caption>
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>패키지 이름</p></th>
+<th class="head"><p>버전</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NPU Driver</p></td>
+<td><p>1.3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>HAL (hard abstraction layer)</p></td>
+<td><p>0.8.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Furiosa Compiler</p></td>
+<td><p>0.7.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Python SDK (furiosa-runtime, furiosa-server, furiosa-serving, furiosa-quantizer, ..)</p></td>
+<td><p>0.7.0</p></td>
+</tr>
+<tr class="row-even"><td><p>NPU Device Plugin</p></td>
+<td><p>0.10.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>NPU Feature Discovery</p></td>
+<td><p>0.1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>furiosactl (NPU management CLI)</p></td>
+<td><p>0.9.1</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>업그레이드 방법<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h2>
+<p>APT 저장소를 사용하고 있다면 다음과 간단히 업그레이드할 수 있다.
+APT 저장소 설정 및 설치 방법에 대한 자세한 설명은 <a class="reference internal" href="../software/installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 에서 찾을 수 있다.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+apt-get install -y furiosa-driver-pdma furiosa-libnux
+
+pip install --upgrade furiosa-sdk
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id2">
+<h2>주요 변경 사항<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h2>
+<section id="id3">
+<h3>더 많은 연산자가 가속되도록 컴파일러 개선<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크"></a></h3>
+<p>컴파일러 개선을 통해 더 많은 연산자가 다양한 조건에서 가속될 수 있게 되었다.
+0.7.0에서 추가된 가속 연산자와 조건은 아래에서 확인할 수 있으며
+가속 연산자의 전체 리스트는 <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">NPU 가속 지원 연산자 목록</span></a> 에서 찾을 수 있다.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Resize 연산자의 Linear 및 Nearest 모드 지원 추가</p></li>
+<li><p>SpaceToDepth 연산자의 DCR 모드 지원 추가</p></li>
+<li><p>DepthToSpace 연산자의 DCR 모드 지원 추가</p></li>
+<li><p>Pad 연산자의 CHW axis 지원 추가</p></li>
+<li><p>Slice 연산자의 C axis 지원 추가</p></li>
+<li><p>Tanh, Exp, Log 연산자에 대한 가속 지원</p></li>
+<li><p>Concat의 C axis 지원</p></li>
+<li><p>Dilation이 최대 12까지 지원되도록 개선</p></li>
+<li><p>Gelu, Erf, Elu 연산자 가속 지원</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id4">
+<h3>컴파일러 캐쉬 도입<a class="headerlink" href="#id4" title="이 표제에 대한 퍼머링크"></a></h3>
+<p>컴파일러 캐쉬는 모델의 바이너리와 속성에 기반한 해쉬 값과 컴파일 결과를 함께 저장하여 동일한 모델을 컴파일 할 때
+결과를 재활용하게 한다. 로컬 파일 시스템 (<cite>$HOME/cache/furiosa/compiler</cite>) 또는 Redis를 캐쉬 스토리지로 활용할 수 있으며
+자세한 사용법은 <a class="reference internal" href="../software/compiler.html#compilercache"><span class="std std-ref">컴파일러 캐쉬 (Compiler Cache)</span></a> 에서 찾아볼 수 있다.</p>
+</section>
+<section id="id5">
+<h3>컴파일러 힌트 도입<a class="headerlink" href="#id5" title="이 표제에 대한 퍼머링크"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">session.create()</span></code> 과 같이 컴파일 과정을 수반하는 함수 실행 시
+아래와 같이 컴파일러 로그가 저장된 경로가 출력된다.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Saving the compilation log into /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log
+</pre></div>
+</div>
+</div></blockquote>
+<p>로그에는 기본적으로 컴파일 과정을 이해하는 유용한 정보를 담고 있는데 0.7.0 버전 부터 성능 개선에 유용한 힌트를 추가로 출력한다.
+<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&lt;log</span> <span class="pre">file&gt;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">Hint</span></code> 커맨드로 힌트만 출력해볼 수 있다. 힌트는 어떤 연산자를 왜 가속되지 않는지를 알려준다.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cat /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log <span class="p">|</span> grep Hint
+<span class="m">2022</span>-05-24T02:44:11.399402Z  WARN nux::session: Hint <span class="o">[</span><span class="m">19</span><span class="o">]</span>: <span class="s1">&#39;LogSoftmax&#39;</span> cannot be accelerated yet
+<span class="m">2022</span>-05-24T02:44:11.399407Z  WARN nux::session: Hint <span class="o">[</span><span class="m">12</span><span class="o">]</span>: groups should be bigger than <span class="m">1</span>
+<span class="m">2022</span>-05-24T02:44:11.399408Z  WARN nux::session: Hint <span class="o">[</span><span class="m">17</span><span class="o">]</span>: Softmax with large batch <span class="o">(</span><span class="m">36</span> &gt; <span class="m">2</span><span class="o">)</span> cannot be accelerated by Warboy
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id6">
+<h3>성능 프로파일링 도구 도입<a class="headerlink" href="#id6" title="이 표제에 대한 퍼머링크"></a></h3>
+<p>모델 추론(inference) 과정에서 수행되는 시간을 단계별로 측정하여 볼 수 있는 프로파일링 기능이 도입되었다.
+환경변수 또는 Python 코드 내에서 프로파일링 컨텍스트를 통해 프로파일러를 활성화 할 수 있다.
+자세한 사용법은 <a class="reference internal" href="../software/profiler.html#profiling"><span class="std std-ref">성능 프로파일링</span></a> 에서 찾아볼 수 있다.</p>
+<a class="with-shadow reference internal image-reference" href="../_images/tracing.png"><img alt="Tracing" class="with-shadow align-center" src="../_images/tracing.png" style="width: 600px;" /></a>
+<p></p>
+</section>
+<section id="python-sdk">
+<h3>Python SDK 개선<a class="headerlink" href="#python-sdk" title="이 표제에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">session.create()</span></code> 및 <code class="docutils literal notranslate"><span class="pre">session.create_async()</span></code> 함수가 배치 사이즈를 인자로 받도록 개선</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">session.create()</span></code> 및 <code class="docutils literal notranslate"><span class="pre">session.create_async()</span></code> 에서 파라메터로 전달된 컴파일러 옵션이 반영되지 않는 버그 수정</p></li>
+</ul>
+<p>아래는 배치 사이즈와 컴파일러 옵션을 사용 하는 예이다.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;without_quantize&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;input_min&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;input_max&quot;</span><span class="p">:</span> <span class="mf">255.0</span><span class="p">,</span> <span class="s2">&quot;permute&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;model.onnx&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">compile_config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+  <span class="n">outputs</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id7">
+<h3>양자화 도구<a class="headerlink" href="#id7" title="이 표제에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p>ONNX Squeeze 연산자 OpSet 12 이하 버전에서 <cite>axes</cite> 속성이 지정되어 있지 않은
+경우에도 출력 텐서의 모양을 추론할 수 있도록 수정</p></li>
+<li><p>NxCxHxW 모양을 가진 텐서를 입력으로 받는 Conv 뿐만 아니라, NxCxD 모양을 가진
+입력 텐서를 받는 Conv에 대한 지원 추가</p></li>
+<li><p>Conv가 편향(bias)을 입력으로 받지 않는 경우에도 “Conv - BatchNormalization”
+부분 그래프를 Conv로 융합할 수 있도록 수정</p></li>
+<li><p>양자화 이후 과정에서 일관된 방식으로 모델을 처리할 수 있도록, 피연산자가
+초기값을 가지는지 여부와 상관없이 Sub, Concat과 Pow 연산자를 항상 QDQ
+형식으로 양자화하도록 수정</p></li>
+<li><p>양자화 과정 및 결과 모델에서 ONNX Runtime 관련 경고가 나지 않도록 수정</p></li>
+<li><p>텐서 모양 정보를 추론하지 못 하는 경우를 빠짐없이 발견하도록 검사 조건을 강화</p></li>
+<li><p>float32 형 데이터를 입력으로 받는 모델 뿐만 아니라 다른 소수점 형이나 정수
+형을 입력으로 받는 모델도 랜덤 캘리브레이션할 수 있도록 수정</p></li>
+<li><p>이미 양자화된 모델이 주어졌을 때를 보다 안정적으로 발견하고 종료하도록 수정</p></li>
+<li><p>Conv의 데이터 입력 혹은 가중치(weight)의 스케일(scale)이 너무 작아
+편향(bias)의 스케일이 0이 되는 경우 가중치의 스케일을 적절히 조절하도록 수정</p></li>
+<li><p>“Gather - MatMul” 부분 그래프를 Gather로 융합할 수 있는 경우에 대한 조건 강화</p></li>
+<li><p>사용하는 의존 라이브러리들을 최신 버전으로 갱신</p></li>
+</ul>
+</section>
+<section id="device-plugin">
+<h3>Device Plugin의 파일 기반 설정 도입<a class="headerlink" href="#device-plugin" title="이 표제에 대한 퍼머링크"></a></h3>
+<p>Kubernetes에서 사용하는 NPU Device Plugin의 실행 옵션을 파일로 설정하는 기능이 추가되었다.
+기존처럼 명령행 인자로 옵션 항목들을 입력하거나, 설정 파일을 선택하여 옵션을 지정할 수 있다.
+자세한 사용법은 <a class="reference internal" href="../software/kubernetes_support.html#kubernetesintegration"><span class="std std-ref">Kubernetes 지원</span></a> 에서 찾아볼 수 있다.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../software/references.html" class="btn btn-neutral float-left" title="레퍼런스 문서" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="0.6.0.html" class="btn btn-neutral float-right" title="Release Notes - 0.6.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

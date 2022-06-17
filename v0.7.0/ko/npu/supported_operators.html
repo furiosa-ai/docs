@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NPU 가속 지원 연산자 목록 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0-dev 문서</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="FuriosaAI 소프트웨어 스택 소개" href="../software/intro.html" />
+    <link rel="prev" title="FuriosaAI NPU" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NPU 가속 지원 연산자 목록</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/intro.html">FuriosaAI 소프트웨어 스택 소개</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/installation.html">드라이버, 펌웨어, 런타임 설치 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/python-sdk.html">Python SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/c-sdk.html">C SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/cli.html">명령행 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/compiler.html">컴파일러</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/profiler.html">성능 프로파일링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/serving.html">모델 서버 (서빙 프레임워크)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/tutorials.html">튜토리얼 및 코드 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/references.html">레퍼런스 문서</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.3/ko/">0.6.3 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/ko/">0.6.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/ko/">0.5.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>NPU 가속 지원 연산자 목록</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/npu/supported_operators.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="npu">
+<span id="supportedoperators"></span><h1>NPU 가속 지원 연산자 목록<a class="headerlink" href="#npu" title="이 표제에 대한 퍼머링크"></a></h1>
+<p>FuriosaAI NPU와 SDK 에서는
+<a class="reference external" href="https://www.tensorflow.org/lite">Tensorflow Lite</a> 모델과 <a class="reference external" href="https://onnx.ai/">ONNX</a> 가 지원하는
+아래 연산자들을 가속할 수 있다. 연산자 이름은 <a class="reference external" href="https://onnx.ai/">ONNX</a> 를 기준으로 한다.</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>NPU 가속을 지원하지 않는 경우에는 CPU에서 동작하게 된다.
+또한 NPU 가속을 지원하는 일부 연산자는 특정 조건을 만족하지 않을 경우 다수의 연산자로 분할되어 동작하거나
+CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크거나 NPU의 메모리로
+특정 연산을 처리하기에 부족한 경우가 한 가지 예이다.</p>
+</div>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">NPU 가속 지원 연산자</span><a class="headerlink" href="#id2" title="이 표에 대한 퍼머링크"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>연산자 이름</p></th>
+<th class="head"><p>추가 설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Add">Add</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#AveragePool">AveragePool</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#batchnormalization">BatchNormalization</a></p></td>
+<td><p>Conv 다음에 있는 경우에 한하여 가속 지원</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#clip">Clip</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#concat">Concat</a></p></td>
+<td><p>H axis 지원 (&gt;= 0.6.0), C axis 지원 (&gt;= 0.7.0)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#conv">Conv</a></p></td>
+<td><p><cite>group</cite> &lt;= 128, <cite>dilation</cite> &lt;= 12 인 경우에 대해 지원</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#convtranspose">ConvTranspose</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#depthtospace">DepthToSpace</a></p></td>
+<td><p>CRD 모드 지원 (&gt;= 0.6.0), DCR 모드 지원 (&gt;= 0.7.0)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#exp">Exp</a></p></td>
+<td><p>0.7.0 이상 부터 지원</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#Elu">Elu</a></p></td>
+<td><p>0.7.0 이상 부터 지원</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#Erf">Erf</a></p></td>
+<td><p>0.7.0 이상 부터 지원</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#expand">Expand</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Flatten">Flatten</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#gemm">Gemm</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/microsoft/onnxruntime/blob/master/docs/ContribOperators.md#com.microsoft.Gelu">Gelu</a></p></td>
+<td><p>0.7.0 이상 부터 지원</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#leakyrelu">LeakyRelu</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#Log">Log</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#lpnormalization">LpNormalization</a></p></td>
+<td><p>p = 2 인 경우에 한하여 지원</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#matmul">MatMul</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#maxpool">MaxPool</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#mean">Mean</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#mul">Mul</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Pad">Pad</a></p></td>
+<td><p>CWH axis 지원 (&gt;= 0.7.0)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#ReduceL2">ReduceL2</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#ReduceSum">ReduceSum</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Relu">Relu</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#reshape">Reshape</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Resize">Resize</a></p></td>
+<td><p>Linear, Nearest 모드 지원 (&gt;= 0.7.0)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Pow">Pow</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#SpaceToDepth">SpaceToDepth</a></p></td>
+<td><p>CRD 모드 지원 (&gt;= 0.6.0), DCR 모드 지원 (&gt;= 0.7.0)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Sigmoid">Sigmoid</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#slice">Slice</a></p></td>
+<td><p>H axis 지원 (&gt;= 0.6.0), C axis 지원 (&gt;= 0.7.0)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Softmax">Softmax</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Softplus">Softplus</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#sub">Sub</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Split">Split</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Sqrt">Sqrt</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Operators.md#Tanh">Tanh</a></p></td>
+<td><p>0.7.0 이상 버전 부터 지원</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Transpose">Transpose</a></p></td>
+<td><p>0.6.0 이상 버전 부터 지원</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#Transpose">Transpose</a></p></td>
+<td><p>0.6.0 이상 버전 부터 지원</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md#unsqueeze">Unsqueeze</a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="FuriosaAI NPU" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../software/intro.html" class="btn btn-neutral float-right" title="FuriosaAI 소프트웨어 스택 소개" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
