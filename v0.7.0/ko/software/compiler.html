@@ -111,7 +111,7 @@
   <section id="compiler">
 <span id="id1"></span><h1>컴파일러<a class="headerlink" href="#compiler" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>FuriosaAI의 컴파일러는 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> 와 <a class="reference external" href="https://onnx.ai/">Onnx</a>
-형식의 모델(<a class="reference external" href="https://onnxruntime.ai/docs/reference/compatibility#onnx-opset-support">OpSet 16</a> 호환)을 컴파일하여 FuriosaAI NPU와 호스트 머신의 자원(CPU, 메모리)을 이용해 추론(inference)을
+형식의 모델(<a class="reference external" href="https://onnxruntime.ai/docs/reference/compatibility#onnx-opset-support">OpSet 12</a> 호환)을 컴파일하여 FuriosaAI NPU와 호스트 머신의 자원(CPU, 메모리)을 이용해 추론(inference)을
 실행하는 프로그램을 생성한다. 이 과정에서 모델을 연산자 단위로 분석하고 최적화하여 최대한 NPU 가속와 호스트 자원을
 잘 활용할 수 있도록 프로그램을 생성한다. 따라서, 기존에 알려진 모델이 아니라도 지원되는
 연산자를 잘 활용하면 NPU에 최적화된 모델을 설계할 수 있다.
