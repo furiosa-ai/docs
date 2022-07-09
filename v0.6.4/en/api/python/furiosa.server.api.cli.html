@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>furiosa.server.api.cli package &mdash; Furiosa SDK Documentation 0.6.4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>furiosa.server.api.cli package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/furiosa.server.api.cli.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="furiosa-server-api-cli-package">
+<h1>furiosa.server.api.cli package<a class="headerlink" href="#furiosa-server-api-cli-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-furiosa.server.api.cli.main">
+<span id="furiosa-server-api-cli-main-module"></span><h2>furiosa.server.api.cli.main module<a class="headerlink" href="#module-furiosa.server.api.cli.main" title="Permalink to this headline"></a></h2>
+<p>Command line interface for FuriosaAI model server</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main.LogLevel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.cli.main.</span></span><span class="sig-name descname"><span class="pre">LogLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.cli.main.LogLevel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Log level enum for typer choice parameter</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main.LogLevel.DEBUG">
+<span class="sig-name descname"><span class="pre">DEBUG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DEBUG'</span></em><a class="headerlink" href="#furiosa.server.api.cli.main.LogLevel.DEBUG" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main.LogLevel.ERROR">
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ERROR'</span></em><a class="headerlink" href="#furiosa.server.api.cli.main.LogLevel.ERROR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main.LogLevel.INFO">
+<span class="sig-name descname"><span class="pre">INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'INFO'</span></em><a class="headerlink" href="#furiosa.server.api.cli.main.LogLevel.INFO" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main.LogLevel.TRACE">
+<span class="sig-name descname"><span class="pre">TRACE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TRACE'</span></em><a class="headerlink" href="#furiosa.server.api.cli.main.LogLevel.TRACE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main.LogLevel.WARN">
+<span class="sig-name descname"><span class="pre">WARN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WARN'</span></em><a class="headerlink" href="#furiosa.server.api.cli.main.LogLevel.WARN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main.main">
+<span class="sig-prename descclassname"><span class="pre">furiosa.server.api.cli.main.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.cli.main.main" title="Permalink to this definition"></a></dt>
+<dd><p>Entry point for command line interface</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main.start">
+<span class="sig-prename descclassname"><span class="pre">furiosa.server.api.cli.main.</span></span><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_level:</span> <span class="pre">furiosa.server.api.cli.main.LogLevel</span> <span class="pre">=</span> <span class="pre">LogLevel.INFO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_path:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_version:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">http_port:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_config:</span> <span class="pre">typer.models.FileText</span> <span class="pre">=</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server_config:</span> <span class="pre">typer.models.FileText</span> <span class="pre">=</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.cli.main.start" title="Permalink to this definition"></a></dt>
+<dd><p>Start serving models from FuriosaAI model server</p>
+</dd></dl>
+
+</section>
+<section id="module-furiosa.server.api.cli">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.server.api.cli" title="Permalink to this headline"></a></h2>
+<p>CLI interface for FuriosaAI model server</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.server.api.cli.main">
+<span class="sig-prename descclassname"><span class="pre">furiosa.server.api.cli.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.cli.main" title="Permalink to this definition"></a></dt>
+<dd><p>Entry point for command line interface</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

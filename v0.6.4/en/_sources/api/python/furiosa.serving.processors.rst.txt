@@ -1,0 +1,29 @@
+furiosa.serving.processors package
+==================================
+
+Submodules
+----------
+
+furiosa.serving.processors.base module
+--------------------------------------
+
+.. automodule:: furiosa.serving.processors.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.serving.processors.imagenet module
+------------------------------------------
+
+.. automodule:: furiosa.serving.processors.imagenet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.serving.processors
+   :members:
+   :undoc-members:
+   :show-inheritance:

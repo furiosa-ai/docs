@@ -1,0 +1,10 @@
+furiosa.models.nonblocking.vision package
+=========================================
+
+Module contents
+---------------
+
+.. automodule:: furiosa.models.nonblocking.vision
+   :members:
+   :undoc-members:
+   :show-inheritance:

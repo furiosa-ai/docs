@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Line Tools &mdash; Furiosa SDK Documentation 0.6.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compiler" href="compiler.html" />
+    <link rel="prev" title="C SDK installation and user guide" href="c-sdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#furiosa-toolkit">furiosa-toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-toolkit-installation">furiosa-toolkit installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosactl-instructions">furiosactl instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#furiosa">furiosa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-compile">furiosa compile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-litmus-checking-for-model-compatibility">furiosa litmus (Checking for model compatibility)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Command Line Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/software/cli.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-line-tools">
+<h1>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline"></a></h1>
+<p>Through the command line tools, Furiosa SDK provides functions such as monitoring NPU device information, compiling models, and checking compatibility between models and SDKs. This section explains how to install and use each command line tool.</p>
+<section id="furiosa-toolkit">
+<span id="toolkit"></span><h2>furiosa-toolkit<a class="headerlink" href="#furiosa-toolkit" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-toolkit</span></code> provides a command line tool that enables users to manage and check the information of NPU devices.</p>
+<section id="furiosa-toolkit-installation">
+<h3>furiosa-toolkit installation<a class="headerlink" href="#furiosa-toolkit-installation" title="Permalink to this headline"></a></h3>
+<p>To use this command line tool, you first need to install the kernel driver as shown in <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">Driver, Firmware, and Runtime Installation</span></a>.
+Subsequently, follow the instructions below to install furiosa-toolkit.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Installation using APT server</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Installation using download center</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y furiosa-toolkit
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Select and download the latest versions of the packages listed below. Install them in order as written in the command.</p>
+<ul class="simple">
+<li><p>furiosactl</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y ./furiosa-toolkit-x.y.z-?.deb
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="furiosactl-instructions">
+<h3>furiosactl instructions<a class="headerlink" href="#furiosactl-instructions" title="Permalink to this headline"></a></h3>
+<p>After installing the kernel driver, you can use the <code class="docutils literal notranslate"><span class="pre">furiosactl</span></code> command to check whether the NPU device is recognized.
+Currently, this command provides the <code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">info</span></code> command to output the Device ID, temperature, power consumption and PCI information of the NPU device.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosactl info
++------+------------------+-------+--------+--------------+---------+
+<span class="p">|</span> NPU  <span class="p">|</span> Name             <span class="p">|</span> Temp. <span class="p">|</span> Power  <span class="p">|</span> PCI-BDF      <span class="p">|</span> PCI-DEV <span class="p">|</span>
++------+------------------+-------+--------+--------------+---------+
+<span class="p">|</span> npu1 <span class="p">|</span> FuriosaAI Warboy <span class="p">|</span>  <span class="m">40</span>°C <span class="p">|</span> <span class="m">0</span>.00 W <span class="p">|</span> <span class="m">0000</span>:01:00.0 <span class="p">|</span> <span class="m">509</span>:0   <span class="p">|</span>
++------+------------------+-------+--------+--------------+---------+
+</pre></div>
+</div>
+</section>
+</section>
+<section id="furiosa">
+<h2>furiosa<a class="headerlink" href="#furiosa" title="Permalink to this headline"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> command is a meta-command line tool that can be used by installing the <cite>Python SDK &lt;PythonSDK&gt;</cite>.
+Additional subcommands are also added when the extension package is installed.</p>
+<p>If the Python execution environment is not prepared, refer to <a class="reference internal" href="python-sdk.html#setuppython"><span class="std std-ref">Python execution environment setup</span></a>.</p>
+<p>Installing command line tool.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install furiosa-sdk
+</pre></div>
+</div>
+<p>Verifying installation.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile --version
+libnpu.so --- v2.0, built @ fe1fca3
+<span class="m">0</span>.5.0 <span class="o">(</span>rev: 49b97492a built at <span class="m">2021</span>-12-07 <span class="m">04</span>:07:08<span class="o">)</span> <span class="o">(</span>wrapper: None<span class="o">)</span>
+</pre></div>
+</div>
+<section id="furiosa-compile">
+<h3>furiosa compile<a class="headerlink" href="#furiosa-compile" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">compile</span></code> command compiles models such as <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> and <a class="reference external" href="https://onnx.ai/">ONNX</a>, generating programs that utilize FuriosaAI NPU.</p>
+<p>Detailed explanations and options can be found in the <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa compile</span></a> page.</p>
+</section>
+<section id="furiosa-litmus-checking-for-model-compatibility">
+<span id="litmus"></span><h3>furiosa litmus (Checking for model compatibility)<a class="headerlink" href="#furiosa-litmus-checking-for-model-compatibility" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">litmus</span></code> command takes the <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> and <a class="reference external" href="https://onnx.ai/">ONNX</a> models as arguments,
+quantizes them automatically, and attempts to compile up to the final binary, in order to check whether the given model is compatible with the SDK.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa litmus yolov4.onxx
+<span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Checking <span class="k">if</span> the model can be transformed into a quantized model ...
+Quantization: <span class="m">100</span>%<span class="p">|</span>█████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span> <span class="m">67</span>/67 <span class="o">[</span><span class="m">00</span>:00&lt;<span class="m">00</span>:00, <span class="m">85</span>.33it/s<span class="o">]</span>
+<span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Passed
+<span class="o">[</span>Step <span class="m">2</span><span class="o">]</span> Checking <span class="k">if</span> the model can be compiled to a NPU program ...
+<span class="o">[</span>Step <span class="m">2</span><span class="o">]</span> Passed
+</pre></div>
+</div>
+<p>Should it fail, you will see an error message like the one below. You can seek help by filing a bug report to
+<a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals">FuriosaAI customer service center</a>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa litmus efficientnet-lite4-11.onnx
+
+  Stdout:
+  <span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Checking <span class="k">if</span> the model can be transformed into a quantized model ...
+
+  Stderr:
+  /root/miniconda3/envs/furiosa/lib/python3.8/site-packages/onnx/__init__.py:97: RuntimeWarning: Unexpected end-group tag: Not all data was converted
+      <span class="nv">decoded</span> <span class="o">=</span> cast<span class="o">(</span>Optional<span class="o">[</span>int<span class="o">]</span>, proto.ParseFromString<span class="o">(</span>s<span class="o">))</span>
+  <span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Failed
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="c-sdk.html" class="btn btn-neutral float-left" title="C SDK installation and user guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="compiler.html" class="btn btn-neutral float-right" title="Compiler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
