@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Driver, Firmware, and Runtime Installation &mdash; Furiosa SDK Documentation 0.7.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/tabs.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python SDK installation and user guide" href="python-sdk.html" />
+    <link rel="prev" title="FuriosaAI SW Stack Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Driver, Firmware, and Runtime Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-requirements-for-sdk-installation">Minimum requirements for SDK installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apt-server-configuration">APT server configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-required-packages">Installing required packages.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#holding-unholding-installed-version">Holding/unholding installed version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-a-specific-version">Installing a specific version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.7.0/en/">v0.7.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Driver, Firmware, and Runtime Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/software/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="driver-firmware-and-runtime-installation">
+<span id="requiredpackages"></span><h1>Driver, Firmware, and Runtime Installation<a class="headerlink" href="#driver-firmware-and-runtime-installation" title="Permalink to this headline">¶</a></h1>
+<p>Here, we explain how to install the packages necessary to use
+the various SW components provided by FuriosaAI.</p>
+<p>These required packages are kernel drivers, firmware, and runtime library,
+and can be downloaded either directly through the download center,
+or through the APT/PIP servers as issued on the developer site.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The download center and developer site will be provided upon registration
+to the FuriosaAI evaluation program. Currently, the request for registration
+can be done through <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a>.</p>
+</div>
+<div class="section" id="minimum-requirements-for-sdk-installation">
+<span id="minimumrequirements"></span><h2>Minimum requirements for SDK installation<a class="headerlink" href="#minimum-requirements-for-sdk-installation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ubuntu 18.04 LTS (Bionic Beaver)/Debian buster
+or higher</p></li>
+<li><p>Administrator privileges on system (root)</p></li>
+<li><p>Internet-accessible network</p></li>
+</ul>
+</div>
+<div class="section" id="apt-server-configuration">
+<span id="setupaptrepository"></span><h2>APT server configuration<a class="headerlink" href="#apt-server-configuration" title="Permalink to this headline">¶</a></h2>
+<p>In order to use the APT server as provided by FuriosaAI, the APT server must be configured
+on Ubuntu or Debian Linux as delineated below.
+This section may be skipped if you are using the download center, and not the APT.</p>
+<ol class="arabic simple">
+<li><p>Install the necessary packages to access HTTPS-based APT server.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt install -y ca-certificates apt-transport-https gnupg
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Register the FuriosaAI public Singing key.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 5F03AFA423A751913F249259814F888B20B09A7E
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Issue the API key from FuriosaAI developer center, and configure the API key as follows:</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo tee -a /etc/apt/auth.conf.d/furiosa.conf &gt; /dev/null <span class="s">&lt;&lt;EOT</span>
+<span class="s">  machine archive.furiosa.ai</span>
+<span class="s">  login xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span class="s">  password xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span class="s">EOT</span>
+
+chmod <span class="m">400</span> /etc/apt/auth.conf.d/furiosa.conf
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Configure the APT server according to the explanation given in the Linux distribution version tab.</p></li>
+</ol>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ubuntu 18.04 (Debian Buster)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu 20.04 (Debian Bullseye)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Register the APT server through the command below.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo tee -a /etc/apt/sources.list.d/furiosa.list <span class="s">&lt;&lt;EOT</span>
+<span class="s">deb [arch=amd64] https://archive.furiosa.ai/ubuntu bionic restricted</span>
+<span class="s">EOT</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Register the APT server through the command below.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo tee -a /etc/apt/sources.list.d/furiosa.list <span class="s">&lt;&lt;EOT</span>
+<span class="s">deb [arch=amd64] https://archive.furiosa.ai/ubuntu focal restricted</span>
+<span class="s">EOT</span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="installing-required-packages">
+<span id="installlinuxpackages"></span><h2>Installing required packages.<a class="headerlink" href="#installing-required-packages" title="Permalink to this headline">¶</a></h2>
+<p>If you have registered the APT server as above, or registered on the download site,
+you will be able to install the required packages - NPU kernel driver, firmware, and runtime.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Installation using APT server</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Installation using download center</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y <span class="se">\</span>
+furiosa-driver-pdma furiosa-libnpu-warboy furiosa-libnux libonnxruntime
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Select the latest version of the packages below, download them,
+and install them in order as written in the command.</p>
+<ul class="simple">
+<li><p>NPU Driver (furiosa-driver-pdma)</p></li>
+<li><p>Firmware (furiosa-libnpu)</p></li>
+<li><p>Runtime library  (furiosa-libnux)</p></li>
+<li><p>Onnxruntime  (libonnxruntime)</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y ./furiosa-driver-pdma-x.y.z-?.deb
+sudo apt-get install -y ./furiosa-libnpu-warboy-x.y.z-?.deb
+sudo apt-get install -y ./libonnxruntime-x.y.z-?.deb
+sudo apt-get install -y ./furiosa-libnux-x.y.z-?.deb
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="holding-unholding-installed-version">
+<h3>Holding/unholding installed version<a class="headerlink" href="#holding-unholding-installed-version" title="Permalink to this headline">¶</a></h3>
+<p>Following package installation, in order to maintain a stable operating environment,
+there may be a need to hold the installed packages versions. By using the command below,
+you will be able to hold the currently installed versions.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-mark hold furiosa-driver-pdma furiosa-libnpu-warboy furiosa-libnux libonnxruntime
+</pre></div>
+</div>
+<p>In order to unhold and update the current package versions, designate the package
+that you wish to unhold with the command <code class="docutils literal notranslate"><span class="pre">apt-mark</span> <span class="pre">unhold</span></code>.
+Here, you can state the name of the package, thereby unholding selectively
+a specific package. In order to show the properties of an already held package,
+use the command <code class="docutils literal notranslate"><span class="pre">apt-mark</span> <span class="pre">showhold</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-mark unhold furiosa-driver-pdma furiosa-libnpu-warboy furiosa-libnux libonnxruntime
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-a-specific-version">
+<h3>Installing a specific version<a class="headerlink" href="#installing-a-specific-version" title="Permalink to this headline">¶</a></h3>
+<p>If you need to install a specific version,
+you may designate the version that you want and install as follows.</p>
+<ol class="arabic simple">
+<li><p>Check available versions through <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">list</span></code>.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt list -a furiosa-libnux
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>State the package name and version as options in the command <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span></code></p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y furiosa-libnux<span class="o">=</span><span class="m">0</span>.6.0-2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="python-sdk.html" class="btn btn-neutral float-right" title="Python SDK installation and user guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro.html" class="btn btn-neutral float-left" title="FuriosaAI SW Stack Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 FuriosaAI, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

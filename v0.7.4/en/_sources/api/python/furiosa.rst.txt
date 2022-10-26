@@ -1,0 +1,12 @@
+furiosa namespace
+=================
+
+.. py:module:: furiosa
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   furiosa.sdk

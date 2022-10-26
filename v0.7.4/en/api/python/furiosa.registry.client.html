@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>furiosa.registry.client package &mdash; Furiosa SDK Documentation 0.7.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.7.0/en/">v0.7.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>furiosa.registry.client package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/python/furiosa.registry.client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="furiosa-registry-client-package">
+<h1>furiosa.registry.client package<a class="headerlink" href="#furiosa-registry-client-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.registry.client.transport.html">furiosa.registry.client.transport package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.client.transport.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.base">furiosa.registry.client.transport.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.file">furiosa.registry.client.transport.file module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.github">furiosa.registry.client.transport.github module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.http">furiosa.registry.client.transport.http module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.s3">furiosa.registry.client.transport.s3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-furiosa.registry.client">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.registry.client" title="Permalink to this headline">¶</a></h2>
+<p>FuriosaAI registry client.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.registry.client.help">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.</span></span><span class="sig-name descname"><span class="pre">help</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.registry.client.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the documentation for the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uri</strong> (<em>str</em>) – Registry URI which have a descriptor file (artifacts.py).</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Model name in a descriptor file.</p></li>
+<li><p><strong>version</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Model version to be created.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Documentation string for the model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ModuleNotFoundError</strong> – If descriptor file not found in the registry.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.registry.client.list">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.</span></span><span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.registry.client.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List Artifacts from the specified registry URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – Registry URI which have a descriptor file (artifacts.py).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Available model names in the registry</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ModuleNotFoundError</strong> – If descriptor file not found in the registry.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.registry.client.load">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.client.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="furiosa.registry.html#furiosa.registry.model.Model" title="furiosa.registry.model.Model"><span class="pre">furiosa.registry.model.Model</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.registry.client.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load models from the specified registry URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uri</strong> (<em>str</em>) – Registry URI which have a descriptor file (artifacts.py).</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Model name in a descriptor file.</p></li>
+<li><p><strong>kwargs</strong> (<em>args</em><em>,</em>) – Arguments for Model instantiation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A model loaded from the registry.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="furiosa.registry.html#furiosa.registry.model.Model" title="furiosa.registry.model.Model">Model</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ModuleNotFoundError</strong> – If descriptor file not found in the registry.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 FuriosaAI, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
