@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>furiosa.quantizer.frontend.onnx package &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.7.0/en/">v0.7.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>furiosa.quantizer.frontend.onnx package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/python/furiosa.quantizer.frontend.onnx.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="furiosa-quantizer-frontend-onnx-package">
+<h1>furiosa.quantizer.frontend.onnx package<a class="headerlink" href="#furiosa-quantizer-frontend-onnx-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.quantizer.html">furiosa.quantizer.frontend.onnx.quantizer package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.quantizer.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.quantizer.html#module-furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper">furiosa.quantizer.frontend.onnx.quantizer.eliminate_clipper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.quantizer.html#module-furiosa.quantizer.frontend.onnx.quantizer.quantizer">furiosa.quantizer.frontend.onnx.quantizer.quantizer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.quantizer.html#module-furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode">furiosa.quantizer.frontend.onnx.quantizer.quantizer_mode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.quantizer.html#module-furiosa.quantizer.frontend.onnx.quantizer.utils">furiosa.quantizer.frontend.onnx.quantizer.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.quantizer.html#module-furiosa.quantizer.frontend.onnx.quantizer">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html">furiosa.quantizer.frontend.onnx.transformer package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.experimental.html">furiosa.quantizer.frontend.onnx.transformer.experimental package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.experimental.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.experimental.html#module-furiosa.quantizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess">furiosa.quantizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.experimental.html#module-furiosa.quantizer.frontend.onnx.transformer.experimental.embedding_bag_porting">furiosa.quantizer.frontend.onnx.transformer.experimental.embedding_bag_porting module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.experimental.html#module-furiosa.quantizer.frontend.onnx.transformer.experimental.fuse_div_for_bert">furiosa.quantizer.frontend.onnx.transformer.experimental.fuse_div_for_bert module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.experimental.html#module-furiosa.quantizer.frontend.onnx.transformer.experimental.reify_conv_for_bert">furiosa.quantizer.frontend.onnx.transformer.experimental.reify_conv_for_bert module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.experimental.html#module-furiosa.quantizer.frontend.onnx.transformer.experimental">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.convert_2d_sum_to_add">furiosa.quantizer.frontend.onnx.transformer.convert_2d_sum_to_add module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.convert_conv1d_to_conv2d">furiosa.quantizer.frontend.onnx.transformer.convert_conv1d_to_conv2d module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.convert_negative_pads_to_slice">furiosa.quantizer.frontend.onnx.transformer.convert_negative_pads_to_slice module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.convert_prelu_to_relu">furiosa.quantizer.frontend.onnx.transformer.convert_prelu_to_relu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.eliminate_redundant_shape_pattern">furiosa.quantizer.frontend.onnx.transformer.eliminate_redundant_shape_pattern module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.fuse_batchnorm">furiosa.quantizer.frontend.onnx.transformer.fuse_batchnorm module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.fuse_conv">furiosa.quantizer.frontend.onnx.transformer.fuse_conv module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.fuse_depth_to_space">furiosa.quantizer.frontend.onnx.transformer.fuse_depth_to_space module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.fuse_gather_matmul">furiosa.quantizer.frontend.onnx.transformer.fuse_gather_matmul module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.fuse_lp_normalization">furiosa.quantizer.frontend.onnx.transformer.fuse_lp_normalization module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.fuse_pad">furiosa.quantizer.frontend.onnx.transformer.fuse_pad module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.fuse_redundant_reshape_pattern">furiosa.quantizer.frontend.onnx.transformer.fuse_redundant_reshape_pattern module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.infer_squeeze_axes">furiosa.quantizer.frontend.onnx.transformer.infer_squeeze_axes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.polish_model">furiosa.quantizer.frontend.onnx.transformer.polish_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer.utils">furiosa.quantizer.frontend.onnx.transformer.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.transformer.html#module-furiosa.quantizer.frontend.onnx.transformer">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.utils.html">furiosa.quantizer.frontend.onnx.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.utils.html#module-furiosa.quantizer.frontend.onnx.utils.check_model">furiosa.quantizer.frontend.onnx.utils.check_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.utils.html#module-furiosa.quantizer.frontend.onnx.utils.inference_shape">furiosa.quantizer.frontend.onnx.utils.inference_shape module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.utils.html#module-furiosa.quantizer.frontend.onnx.utils.version_checker">furiosa.quantizer.frontend.onnx.utils.version_checker module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.utils.html#module-furiosa.quantizer.frontend.onnx.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-furiosa.quantizer.frontend.onnx.calibrate">
+<span id="furiosa-quantizer-frontend-onnx-calibrate-module"></span><h2>furiosa.quantizer.frontend.onnx.calibrate module<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx.calibrate" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.calibrate.CalibrationDataReaderForIterator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.calibrate.</span></span><span class="sig-name descname"><span class="pre">CalibrationDataReaderForIterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.calibrate.CalibrationDataReaderForIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">onnxruntime.quantization.calibrate.CalibrationDataReader</span></code></p>
+<p>A CalibrationDataReader that wraps dicts mapping input tensor names to their values.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.calibrate.CalibrationDataReaderForIterator.get_next">
+<span class="sig-name descname"><span class="pre">get_next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.calibrate.CalibrationDataReaderForIterator.get_next" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the input data dict for ONNXinferenceSession run</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.calibrate.CalibrationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.calibrate.</span></span><span class="sig-name descname"><span class="pre">CalibrationError</span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.calibrate.CalibrationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>The base class for all exceptions that are related to calibration.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.calibrate.calibrate">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.calibrate.</span></span><span class="sig-name descname"><span class="pre">calibrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">augmented_model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.calibrate.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the range of tensors in a model, based on a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – An ONNX model to calibrate.</p></li>
+<li><p><strong>dataset</strong> – An Iterable that returns dicts mapping input tensor names to their values.</p></li>
+<li><p><strong>augmented_model_path</strong> – A path to save an augmented model to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dict mapping tensors in the model to their minimum and maximum values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.calibrate.calibrate_with_random_data">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.calibrate.</span></span><span class="sig-name descname"><span class="pre">calibrate_with_random_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">augmented_model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.calibrate.calibrate_with_random_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the range of tensors in a model, based on a random dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – An ONNX model to calibrate.</p></li>
+<li><p><strong>dataset_size</strong> – the size of a random dataset to use.</p></li>
+<li><p><strong>augmented_model_path</strong> – A path to save an augmented model to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dict mapping tensors in the model to their minimum and maximum values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.quantizer.frontend.onnx">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.quantizer.frontend.onnx" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.AlreadyQuantizedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.</span></span><span class="sig-name descname"><span class="pre">AlreadyQuantizedError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.AlreadyQuantizedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+<p>Exception raised if given model is partially quantized.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.optimize_model">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.</span></span><span class="sig-name descname"><span class="pre">optimize_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_shapes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opset_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">13</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.optimize_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.parse_onnx_graph">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.</span></span><span class="sig-name descname"><span class="pre">parse_onnx_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">onnx.onnx_ml_pb2.ValueInfoProto</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">onnx.onnx_ml_pb2.NodeProto</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">onnx.onnx_ml_pb2.NodeProto</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.parse_onnx_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.post_training_quantization_with_random_calibration">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.</span></span><span class="sig-name descname"><span class="pre">post_training_quantization_with_random_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">per_channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.quantizer.html#furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode" title="furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode"><span class="pre">furiosa.quantizer.frontend.onnx.quantizer.utils.QuantizationMode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opset_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">13</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.post_training_quantization_with_random_calibration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.frontend.onnx.post_training_quantize">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.frontend.onnx.</span></span><span class="sig-name descname"><span class="pre">post_training_quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">per_channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opset_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">13</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">onnx.onnx_ml_pb2.ModelProto</span></span></span><a class="headerlink" href="#furiosa.quantizer.frontend.onnx.post_training_quantize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post-training-quantizes an ONNX model with a calibration dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – An ONNX model to quantize.</p></li>
+<li><p><strong>dataset</strong> – A calibration dataset.</p></li>
+<li><p><strong>per_channel</strong> – If per_channel is True, Conv’s filters are
+per-channel quantized. Otherwise, they are per-tensor
+quantized.</p></li>
+<li><p><strong>opset_version</strong> – ONNX OperatorSet version to use.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An ONNX model post-training-quantized with the calibration
+dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 FuriosaAI, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

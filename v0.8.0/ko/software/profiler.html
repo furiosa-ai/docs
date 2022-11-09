@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>성능 프로파일링 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0-dev 문서</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Kubernetes 지원" href="kubernetes_support.html" />
+    <link rel="prev" title="모델 양자화" href="quantization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">NPU 가속 지원 연산자 목록</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI 소프트웨어 스택 소개</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">드라이버, 펌웨어, 런타임 설치 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">명령행 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">컴파일러</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">성능 프로파일링</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#trace-analysis">트레이스 분석 (Trace Analysis)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">환경 변수를 통한 트레이스 생성 활성화</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">프로파일러 컨텍스트를 이용한 트레이스 생성 활성화</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pandas-dataframe">Pandas DataFrame을 이용한 트레이스 분석</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.3/ko/">0.6.3 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/ko/">0.6.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/ko/">0.5.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>성능 프로파일링</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/software/profiler.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="profiling">
+<span id="id1"></span><h1>성능 프로파일링<a class="headerlink" href="#profiling" title="이 표제에 대한 퍼머링크">¶</a></h1>
+<p>많은 DNN 응용에서 낮은 지연시간과 높은 처리 성능은 중요한 요소이다.
+성능 최적화를 위해서는 모델 개발자나 ML 엔지니어가 모델의 성능을 이해하고 병목지점을 분석할 수 있어야 한다.
+이를 위해 FuriosaAI SDK는 프로파일링 도구를 제공한다.</p>
+<div class="section" id="trace-analysis">
+<h2>트레이스 분석 (Trace Analysis)<a class="headerlink" href="#trace-analysis" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<p>트레이스 분석은 모델의 추론 작업을 실제로 실행 시키고 측정한 구간 별 실행 시간을 구조적 데이터(structured)로 제공한다.
+또한 데이터를 크롬 웹브라우져(Chrome Web Browser)의
+<a class="reference external" href="https://www.chromium.org/developers/how-tos/trace-event-profiling-tool/">Trace Event Profiling Tool</a>
+기능을 이용해 시각화 할 수 있다.</p>
+<p>트레이스 생성은 구간 별 시간을 측정하고 파일로 결과를 쓰기 때문에 작지만 실행 시간 오버헤드를 유발한다.
+따라서 기본 설정으로는 활성화 되어 있지 않으며 아래 두 가지 방법을 통해 트레이스를 생성할 수 있다.</p>
+<div class="section" id="id2">
+<h3>환경 변수를 통한 트레이스 생성 활성화<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">FURIOSA_PROFILER_OUTPUT_PATH</span></code> 에 트레이스 결과가 쓰여질 파일의 경로를 설정 하면
+트레이스 생성을 활성화 할 수 있다. 이 방법은 작성된 코드를 전혀 변경하지 않고
+트레이스를 활성화할 수 있다는 장점이 있다. 반면, 측정하기 윈하는 구간이나 측정 연산의 카테고리를 더 세밀하게 설정 할 수 없다는
+한계가 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> furiosa-sdk/examples/inferences
+<span class="nb">export</span> <span class="nv">FURIOSA_PROFILER_OUTPUT_PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/tracing.json
+./image_classification.sh ../assets/images/car.jpeg
+
+ls -l ./tracing.json
+-rw-r--r--@ <span class="m">1</span> furiosa  furiosa  <span class="m">605054</span> Jun  <span class="m">15</span> <span class="m">02</span>:02 tracing.json
+</pre></div>
+</div>
+<p>위와 같이 환경변수를 통해 설정하면 환경변수 값에 설정된 경로에 JSON 파일이 쓰여진다.
+크롬 브라우져에서 주소창에서 <code class="docutils literal notranslate"><span class="pre">chrome://tracing</span></code> 주소를 입력하면 트레이스 뷰어가
+시작된다. 트레이스 뷰어에서 왼쪽 상단에 <code class="docutils literal notranslate"><span class="pre">Load</span></code> 버튼을 누르고 저장된 파일 (위의 예에서는 <code class="docutils literal notranslate"><span class="pre">tracing.json</span></code>)
+파일을 선택하면 트레이스 결과를 볼 수 있다.</p>
+<a class="with-shadow reference internal image-reference" href="../_images/tracing.png"><img alt="Tracing" class="with-shadow align-center" src="../_images/tracing.png" style="width: 600px;" /></a>
+<p></p>
+</div>
+<div class="section" id="id3">
+<h3>프로파일러 컨텍스트를 이용한 트레이스 생성 활성화<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<p>Python 코드에서 프로파일러 컨텍스트(Profiler Context)를 정의하는 것으로도 트레이스 생성을 활성화할 수 있다.
+이 방법은 환경 변수를 통한 트레이스 활성화 방법과 비교하여 다음과 같은 장점을 가진다.</p>
+<ul class="simple">
+<li><p>Python 인터프리터 또는 Jupyter Notebook와 같은 인터렉티브한 환경에서 바로 트레이스를 활성화 할 수 있다.</p></li>
+<li><p>실행 구간에 레이블을 붙일 수 있다.</p></li>
+<li><p>측정을 원하는 연산 카테고리의 선택적으로 측정할 수 있다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
+<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">profile</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mnist_trace.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;MNISTnet_uint8_quant_without_softmax.tflite&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">input_shape</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;warm up&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+                    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+
+            <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;trace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+                    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>위는 프로파일링 컨텍스트를 활용한 코드 예제이다. 위 Python 코드가 실행되고 나면 <cite>mnist_trace.json</cite> 파일이 생성되며
+트레이스 결과는 아래 그림과 같이 〈warm up’과 〈trace〉 레이블이 붙는다.</p>
+<a class="with-shadow reference internal image-reference" href="../_images/mnist_trace.png"><img alt="Tracing with Profiler Context" class="with-shadow align-center" src="../_images/mnist_trace.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="pandas-dataframe">
+<span id="pandasprofilinganalysis"></span><h3>Pandas DataFrame을 이용한 트레이스 분석<a class="headerlink" href="#pandas-dataframe" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<p>측정한 트레이싱 데이터를 Chrome Trace Format으로 출력하여 시각화 하는 방법 외에도
+데이터 분석에 많이 사용되는 Pandas의 DataFrame으로 표현하고 사용할 수 있다.
+이 방법은 Chrome Trace Format과 비교하여 다음과 같은 장점을 가진다.</p>
+<ul class="simple">
+<li><p>Python Interpreter 또는 Jupyter Notebook 등의 interactive shell에서 바로 사용할 수 있다.</p></li>
+<li><p>기본적으로 제공되는 reporting 함수 외에도 사용자가 직접 DataFrame에 접근하여 분석 작업을 수행할 수 있다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
+<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
+
+<span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">RecordFormat</span><span class="o">.</span><span class="n">PandasDataFrame</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;MNISTnet_uint8_quant_without_softmax.tflite&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+        <span class="n">input_shape</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;warm up&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+
+        <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;trace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span> <span class="c1"># (1)</span>
+
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_inferences</span><span class="p">()</span> <span class="c1"># (2)</span>
+
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_npu_executions</span><span class="p">()</span> <span class="c1"># (3)</span>
+
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_npu_operators</span><span class="p">()</span> <span class="c1"># (4)</span>
+
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_external_operators</span><span class="p">()</span> <span class="c1"># (5)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">get_pandas_dataframe</span><span class="p">()</span> <span class="c1"># (6)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;trace&quot;</span><span class="p">][[</span><span class="s2">&quot;trace_id&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;thread.id&quot;</span><span class="p">,</span> <span class="s2">&quot;dur&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>위는 프로파일링 컨텍스트의 형식을 PandasDataFrame으로 지정한 코드 예제이다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">(1)</span></code> 라인이 실행되면 아래와 같이 수행 결과의 요약 정보가 출력된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">================================================</span>
+  <span class="n">Inference</span> <span class="n">Results</span> <span class="n">Summary</span>
+<span class="o">================================================</span>
+<span class="n">Inference</span> <span class="n">counts</span>                <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Min</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>                <span class="p">:</span> <span class="mi">258540</span>
+<span class="n">Max</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>                <span class="p">:</span> <span class="mi">650018</span>
+<span class="n">Mean</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>               <span class="p">:</span> <span class="mi">386095</span>
+<span class="n">Median</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>             <span class="p">:</span> <span class="mi">317912</span>
+<span class="mf">90.0</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">564572</span>
+<span class="mf">95.0</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">607295</span>
+<span class="mf">97.0</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">624384</span>
+<span class="mf">99.0</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">641473</span>
+<span class="mf">99.9</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">649163</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">(2)</span></code> 라인이 실행되면 아래와 같이 하나의 Inference 요청 단위로 소요된 시간 정보가 출력된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                            <span class="n">trace_id</span>           <span class="n">span_id</span>  <span class="n">thread</span><span class="o">.</span><span class="n">id</span>     <span class="n">dur</span>
+<span class="mi">40</span>   <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="n">d5ac7df24cfd0408</span>         <span class="mi">45</span>  <span class="mi">650018</span>
+<span class="mi">81</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="mi">313</span><span class="n">be2a0fb70dc4f</span>         <span class="mi">45</span>  <span class="mi">365199</span>
+<span class="mi">124</span>  <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="n">f4402ab5ea873f46</span>         <span class="mi">45</span>  <span class="mi">258540</span>
+<span class="mi">173</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="mi">4</span><span class="n">f67a754e72e2211</span>         <span class="mi">45</span>  <span class="mi">270625</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">(3)</span></code> 라인이 실행되면 아래와 같이 NPU의 Execution 단위로 소요된 시간 정보가 출력된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                          <span class="n">trace_id</span>           <span class="n">span_id</span>  <span class="n">pe_index</span>  <span class="n">execution_index</span>  <span class="n">NPU</span> <span class="n">Total</span>  <span class="n">NPU</span> <span class="n">Run</span>  <span class="n">NPU</span> <span class="n">IoWait</span>
+<span class="mi">0</span>  <span class="n">e3917c06e01d136ddb98299da74748d8</span>  <span class="mi">1</span><span class="n">b99d7c6574c1c29</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10902</span>     <span class="mi">8559</span>        <span class="mi">2343</span>
+<span class="mi">1</span>  <span class="n">a867049bb2db14e62cebe3dc18546923</span>  <span class="n">f5cd3ba0d885fab4</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10901</span>     <span class="mi">8557</span>        <span class="mi">2344</span>
+<span class="mi">2</span>  <span class="mi">05</span><span class="n">bfa81f1579ac8089ac75588f36a747</span>  <span class="n">e7e847b44ce11d28</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10997</span>     <span class="mi">8557</span>        <span class="mi">2440</span>
+<span class="mi">3</span>  <span class="mi">438</span><span class="n">df7d9beb7fb8c60daaeffbb2c7e76</span>  <span class="n">d2c20e3d9daf21be</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10900</span>     <span class="mi">8555</span>        <span class="mi">2345</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">(4)</span></code> 라인이 실행되면 아래와 같이 NPU의 Execution 단위로 소요된 시간 정보가 출력된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                        <span class="n">average</span> <span class="n">elapsed</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>  <span class="n">count</span>
+<span class="n">name</span>
+<span class="n">LowLevelConv2d</span>                   <span class="mf">1226.187500</span>     <span class="mi">16</span>
+<span class="n">LowLevelDepthwiseConv2d</span>           <span class="mf">757.333333</span>     <span class="mi">12</span>
+<span class="n">LowLevelPad</span>                       <span class="mf">361.416667</span>     <span class="mi">12</span>
+<span class="n">LowLevelMask</span>                      <span class="mf">116.500000</span>      <span class="mi">8</span>
+<span class="n">LowLevelExpand</span>                      <span class="mf">3.000000</span>      <span class="mi">8</span>
+<span class="n">LowLevelReshape</span>                     <span class="mf">3.000000</span>     <span class="mi">68</span>
+<span class="n">LowLevelSlice</span>                       <span class="mf">3.000000</span>      <span class="mi">8</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">(5)</span></code> 라인이 실행되면 아래와 같이 CPU에서 동작하는 Operator들에서 소요된 시간 정보가 출력된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                            <span class="n">trace_id</span>           <span class="n">span_id</span>  <span class="n">thread</span><span class="o">.</span><span class="n">id</span>        <span class="n">name</span>  <span class="n">operator_index</span>    <span class="n">dur</span>
+<span class="mi">2</span>    <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="mf">704e2</span><span class="n">c8ece98e29e</span>         <span class="mi">45</span>    <span class="n">Quantize</span>               <span class="mi">0</span>  <span class="mi">42929</span>
+<span class="mi">3</span>    <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="mi">4</span><span class="n">a304c8c46be707a</span>         <span class="mi">45</span>       <span class="n">Lower</span>               <span class="mi">1</span>  <span class="mi">72999</span>
+<span class="mi">34</span>   <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="n">cff0f3268f26423d</span>         <span class="mi">45</span>     <span class="n">Unlower</span>               <span class="mi">2</span>  <span class="mi">31812</span>
+<span class="mi">36</span>   <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="n">b3a90233e6eb90f8</span>         <span class="mi">45</span>  <span class="n">Dequantize</span>               <span class="mi">3</span>   <span class="mi">4895</span>
+<span class="mi">54</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="mi">920</span><span class="n">c7170893cb202</span>         <span class="mi">45</span>    <span class="n">Quantize</span>               <span class="mi">0</span>  <span class="mi">14085</span>
+<span class="mi">55</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="n">b2508624adaf01a1</span>         <span class="mi">45</span>       <span class="n">Lower</span>               <span class="mi">1</span>  <span class="mi">32360</span>
+<span class="mi">75</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="n">ed6fc23c0a7cc81e</span>         <span class="mi">45</span>     <span class="n">Unlower</span>               <span class="mi">2</span>  <span class="mi">15655</span>
+<span class="mi">78</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="n">e2d61265a1fe0ad6</span>         <span class="mi">45</span>  <span class="n">Dequantize</span>               <span class="mi">3</span>   <span class="mi">6128</span>
+<span class="mi">96</span>   <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="mi">20473</span><span class="n">c3a26d91593</span>         <span class="mi">45</span>    <span class="n">Quantize</span>               <span class="mi">0</span>   <span class="mi">4400</span>
+<span class="mi">100</span>  <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="n">f71676c0868f1a34</span>         <span class="mi">45</span>       <span class="n">Lower</span>               <span class="mi">1</span>  <span class="mi">28714</span>
+<span class="mi">118</span>  <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="n">dff936584542ee83</span>         <span class="mi">45</span>     <span class="n">Unlower</span>               <span class="mi">2</span>  <span class="mi">12675</span>
+<span class="mi">121</span>  <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="mi">9</span><span class="n">d2eaf76f1a6d156</span>         <span class="mi">45</span>  <span class="n">Dequantize</span>               <span class="mi">3</span>  <span class="mi">12227</span>
+<span class="mi">138</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="mi">0</span><span class="n">df3b383e59e5322</span>         <span class="mi">45</span>    <span class="n">Quantize</span>               <span class="mi">0</span>   <span class="mi">6631</span>
+<span class="mi">142</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="n">c15504b489f56503</span>         <span class="mi">45</span>       <span class="n">Lower</span>               <span class="mi">1</span>  <span class="mi">11694</span>
+<span class="mi">170</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="n">cb8f9199904c6065</span>         <span class="mi">45</span>     <span class="n">Unlower</span>               <span class="mi">2</span>  <span class="mi">17573</span>
+<span class="mi">171</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="mi">90</span><span class="n">c1af4de00eebc2</span>         <span class="mi">45</span>  <span class="n">Dequantize</span>               <span class="mi">3</span>  <span class="mi">16021</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">(6)</span></code> 라인을 실행하면 코드에서 DataFrame에 접근하고 사용자가 직접 분석할 수 있다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                            <span class="n">trace_id</span>   <span class="n">name</span>  <span class="n">thread</span><span class="o">.</span><span class="n">id</span>     <span class="n">dur</span>
+<span class="mi">150</span>  <span class="n">ec3dd3d28baf03adc6a1ddd5efe319bc</span>  <span class="n">trace</span>         <span class="mi">44</span>  <span class="mi">778887</span>
+</pre></div>
+</div>
+<p></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="kubernetes_support.html" class="btn btn-neutral float-right" title="Kubernetes 지원" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quantization.html" class="btn btn-neutral float-left" title="모델 양자화" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 저작권 2021, FuriosaAI, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
