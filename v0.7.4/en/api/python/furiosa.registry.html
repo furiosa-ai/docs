@@ -286,20 +286,76 @@
 <dt class="sig sig-object py" id="furiosa.registry.model.Model">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.registry.model.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.registry.model.Format" title="furiosa.registry.model.Format"><span class="pre">furiosa.registry.model.Format</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.registry.model.Metadata" title="furiosa.registry.model.Metadata"><span class="pre">furiosa.registry.model.Metadata</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.registry.model.ModelTensor" title="furiosa.registry.model.ModelTensor"><span class="pre">furiosa.registry.model.ModelTensor</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.registry.model.ModelTensor" title="furiosa.registry.model.ModelTensor"><span class="pre">furiosa.registry.model.ModelTensor</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.registry.model.Model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
-<p>Model for a Furiosa SDK.</p>
+<p>Represent the artifacts and metadata of a neural network model</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.registry.model.Model.compiler_config">
-<span class="sig-name descname"><span class="pre">compiler_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.registry.model.Model.compiler_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="furiosa.registry.model.Model.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#furiosa.registry.model.Model.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>a name of this model</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.model.Model.format">
+<span class="sig-name descname"><span class="pre">format</span></span><a class="headerlink" href="#furiosa.registry.model.Model.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>the binary format type of model source; e.g., ONNX, tflite</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.model.Model.source">
+<span class="sig-name descname"><span class="pre">source</span></span><a class="headerlink" href="#furiosa.registry.model.Model.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>a source binary in ONNX or tflite. It can be used for compiling this model
+with a custom compiler configuration.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="furiosa.registry.model.Model.dfg">
-<span class="sig-name descname"><span class="pre">dfg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.registry.model.Model.dfg" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">dfg</span></span><a class="headerlink" href="#furiosa.registry.model.Model.dfg" title="Permalink to this definition">¶</a></dt>
+<dd><p>an intermediate representation of furiosa-compiler. Native post processor implementation uses dfg binary.
+Users don’t need to use <cite>dfg</cite> directly.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="furiosa.registry.model.Model.enf">
-<span class="sig-name descname"><span class="pre">enf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.registry.model.Model.enf" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">enf</span></span><a class="headerlink" href="#furiosa.registry.model.Model.enf" title="Permalink to this definition">¶</a></dt>
+<dd><p>the executable binary for furiosa runtime and NPU</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.model.Model.version">
+<span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#furiosa.registry.model.Model.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>model version</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.model.Model.inputs">
+<span class="sig-name descname"><span class="pre">inputs</span></span><a class="headerlink" href="#furiosa.registry.model.Model.inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>data type and shape of input tensors</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.model.Model.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><a class="headerlink" href="#furiosa.registry.model.Model.outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>data type and shape of output tensors</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.registry.model.Model.compiler_config">
+<span class="sig-name descname"><span class="pre">compiler_config</span></span><a class="headerlink" href="#furiosa.registry.model.Model.compiler_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>a pre-defined compiler option</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">compiler_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">dfg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">enf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -308,13 +364,13 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.registry.model.Model.format">
-<span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.registry.model.Format" title="furiosa.registry.model.Format"><span class="pre">furiosa.registry.model.Format</span></a></em><a class="headerlink" href="#furiosa.registry.model.Model.format" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.registry.model.Format" title="furiosa.registry.model.Format"><span class="pre">furiosa.registry.model.Format</span></a></em><a class="headerlink" href="#id3" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.registry.model.Model.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.registry.model.ModelTensor" title="furiosa.registry.model.ModelTensor"><span class="pre">furiosa.registry.model.ModelTensor</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.registry.model.Model.inputs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.registry.model.ModelTensor" title="furiosa.registry.model.ModelTensor"><span class="pre">furiosa.registry.model.ModelTensor</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id4" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -323,23 +379,23 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.registry.model.Model.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#furiosa.registry.model.Model.name" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id5" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.registry.model.Model.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.registry.model.ModelTensor" title="furiosa.registry.model.ModelTensor"><span class="pre">furiosa.registry.model.ModelTensor</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.registry.model.Model.outputs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.registry.model.ModelTensor" title="furiosa.registry.model.ModelTensor"><span class="pre">furiosa.registry.model.ModelTensor</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id6" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.registry.model.Model.source">
-<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#furiosa.registry.model.Model.source" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#id7" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.registry.model.Model.version">
-<span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.registry.model.Model.version" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id8" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

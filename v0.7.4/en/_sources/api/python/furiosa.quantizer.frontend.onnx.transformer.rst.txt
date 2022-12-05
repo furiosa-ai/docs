@@ -28,6 +28,14 @@ furiosa.quantizer.frontend.onnx.transformer.convert\_conv1d\_to\_conv2d module
    :undoc-members:
    :show-inheritance:
 
+furiosa.quantizer.frontend.onnx.transformer.convert\_negative\_pads\_to\_slice module
+-------------------------------------------------------------------------------------
+
+.. automodule:: furiosa.quantizer.frontend.onnx.transformer.convert_negative_pads_to_slice
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 furiosa.quantizer.frontend.onnx.transformer.convert\_prelu\_to\_relu module
 ---------------------------------------------------------------------------
 

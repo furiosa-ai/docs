@@ -196,106 +196,17 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-furiosa.server.api.rest.app">
-<span id="furiosa-server-api-rest-app-module"></span><h2>furiosa.server.api.rest.app module<a class="headerlink" href="#module-furiosa.server.api.rest.app" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.app.create">
-<span class="sig-prename descclassname"><span class="pre">furiosa.server.api.rest.app.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.html#furiosa.server.settings.RESTServerConfig" title="furiosa.server.settings.RESTServerConfig"><span class="pre">furiosa.server.settings.RESTServerConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.predict.PredictHandler" title="furiosa.server.handlers.predict.PredictHandler"><span class="pre">furiosa.server.handlers.predict.PredictHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">repository_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.repository.RepositoryHandler" title="furiosa.server.handlers.repository.RepositoryHandler"><span class="pre">furiosa.server.handlers.repository.RepositoryHandler</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">fastapi.applications.FastAPI</span></span></span><a class="headerlink" href="#furiosa.server.api.rest.app.create" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.app.exception_handler">
-<span class="sig-prename descclassname"><span class="pre">furiosa.server.api.rest.app.</span></span><span class="sig-name descname"><span class="pre">exception_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">starlette.requests.Request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.html#furiosa.server.errors.ModelServerError" title="furiosa.server.errors.ModelServerError"><span class="pre">furiosa.server.errors.ModelServerError</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">starlette.responses.JSONResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.rest.app.exception_handler" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="furiosa-server-api-rest-app-module">
+<h2>furiosa.server.api.rest.app module<a class="headerlink" href="#furiosa-server-api-rest-app-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-furiosa.server.api.rest.endpoints">
-<span id="furiosa-server-api-rest-endpoints-module"></span><h2>furiosa.server.api.rest.endpoints module<a class="headerlink" href="#module-furiosa.server.api.rest.endpoints" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.BooleanResponse">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.rest.endpoints.</span></span><span class="sig-name descname"><span class="pre">BooleanResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.BooleanResponse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">starlette.responses.Response</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelEndpoints">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.rest.endpoints.</span></span><span class="sig-name descname"><span class="pre">ModelEndpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.predict.PredictHandler" title="furiosa.server.handlers.predict.PredictHandler"><span class="pre">furiosa.server.handlers.predict.PredictHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelEndpoints" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelEndpoints.infer">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">infer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.InferenceRequest" title="furiosa.server.types.predict.InferenceRequest"><span class="pre">furiosa.server.types.predict.InferenceRequest</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.InferenceResponse" title="furiosa.server.types.predict.InferenceResponse"><span class="pre">furiosa.server.types.predict.InferenceResponse</span></a></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelEndpoints.infer" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelEndpoints.live">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">live</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">starlette.responses.Response</span></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelEndpoints.live" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelEndpoints.metadata">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.MetadataServerResponse" title="furiosa.server.types.predict.MetadataServerResponse"><span class="pre">furiosa.server.types.predict.MetadataServerResponse</span></a></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelEndpoints.metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelEndpoints.model_metadata">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.MetadataModelResponse" title="furiosa.server.types.predict.MetadataModelResponse"><span class="pre">furiosa.server.types.predict.MetadataModelResponse</span></a></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelEndpoints.model_metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelEndpoints.model_ready">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_ready</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">starlette.responses.Response</span></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelEndpoints.model_ready" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelEndpoints.ready">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ready</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">starlette.responses.Response</span></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelEndpoints.ready" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelRepositoryEndpoints">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.rest.endpoints.</span></span><span class="sig-name descname"><span class="pre">ModelRepositoryEndpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.repository.RepositoryHandler" title="furiosa.server.handlers.repository.RepositoryHandler"><span class="pre">furiosa.server.handlers.repository.RepositoryHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelRepositoryEndpoints" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelRepositoryEndpoints.index">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.model_repository.RepositoryIndexRequest" title="furiosa.server.types.model_repository.RepositoryIndexRequest"><span class="pre">furiosa.server.types.model_repository.RepositoryIndexRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.model_repository.RepositoryIndexResponse" title="furiosa.server.types.model_repository.RepositoryIndexResponse"><span class="pre">furiosa.server.types.model_repository.RepositoryIndexResponse</span></a></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelRepositoryEndpoints.index" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelRepositoryEndpoints.load">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">starlette.responses.Response</span></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelRepositoryEndpoints.load" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.endpoints.ModelRepositoryEndpoints.unload">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">starlette.responses.Response</span></span></span><a class="headerlink" href="#furiosa.server.api.rest.endpoints.ModelRepositoryEndpoints.unload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="furiosa-server-api-rest-endpoints-module">
+<h2>furiosa.server.api.rest.endpoints module<a class="headerlink" href="#furiosa-server-api-rest-endpoints-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-furiosa.server.api.rest.server">
-<span id="furiosa-server-api-rest-server-module"></span><h2>furiosa.server.api.rest.server module<a class="headerlink" href="#module-furiosa.server.api.rest.server" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.server.RESTServer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.rest.server.</span></span><span class="sig-name descname"><span class="pre">RESTServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.html#furiosa.server.settings.RESTServerConfig" title="furiosa.server.settings.RESTServerConfig"><span class="pre">furiosa.server.settings.RESTServerConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.predict.PredictHandler" title="furiosa.server.handlers.predict.PredictHandler"><span class="pre">furiosa.server.handlers.predict.PredictHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">repository_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.repository.RepositoryHandler" title="furiosa.server.handlers.repository.RepositoryHandler"><span class="pre">furiosa.server.handlers.repository.RepositoryHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.rest.server.RESTServer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.server.RESTServer.start">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.rest.server.RESTServer.start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="furiosa.server.api.rest.server.RESTServer.stop">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.rest.server.RESTServer.stop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="furiosa-server-api-rest-server-module">
+<h2>furiosa.server.api.rest.server module<a class="headerlink" href="#furiosa-server-api-rest-server-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-furiosa.server.api.rest">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.server.api.rest" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
