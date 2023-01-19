@@ -1,75 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Kubernetes 지원 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0 문서</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="모델 서버 (서빙 프레임워크)" href="serving.html" />
     <link rel="prev" title="성능 프로파일링" href="profiler.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
@@ -141,73 +90,32 @@
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Kubernetes 지원</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Kubernetes 지원</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/software/kubernetes_support.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="kubernetes">
-<span id="kubernetesintegration"></span><h1>Kubernetes 지원<a class="headerlink" href="#kubernetes" title="이 표제에 대한 퍼머링크">¶</a></h1>
+<span id="kubernetesintegration"></span><h1>Kubernetes 지원<a class="headerlink" href="#kubernetes" title="이 표제에 대한 퍼머링크"></a></h1>
 <p><a class="reference external" href="https://kubernetes.io/">Kubernetes</a> 는 컨테이너화된 워크로드와 서비스를
 관리하는 오픈소스 플랫폼이다. FuriosaAI SDK는 Kubernetes 환경 지원을 위해 다음 컴포넌트를 제공한다.</p>
 <ul class="simple">
@@ -228,7 +136,7 @@
 </ul>
 <p>Kubernetes 지원을 위한 셋업 과정은 다음 순서를 따라 진행하면 된다.</p>
 <div class="section" id="npu">
-<h2>1. NPU 노드 준비<a class="headerlink" href="#npu" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<h2>1. NPU 노드 준비<a class="headerlink" href="#npu" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>Kubernetes 노드의 요구 사항은 다음과 같다.</p>
 <ul class="simple">
 <li><p>Ubuntu 18.04, 20.04 또는 상위 버전</p></li>
@@ -251,7 +159,7 @@ APT 서버가 셋업되어 있다면 (<a class="reference internal" href="instal
 </div>
 </div>
 <div class="section" id="setupnodefeaturediscovery">
-<span id="id2"></span><h2>2. Node Feature Discovery 설치<a class="headerlink" href="#setupnodefeaturediscovery" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<span id="id2"></span><h2>2. Node Feature Discovery 설치<a class="headerlink" href="#setupnodefeaturediscovery" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>Kubernetes에서 NPU를 활용하기 위해서는 Node Feature Discovery가 필요하다.
 아래 예제처럼 커맨드를 실행하여 <code class="docutils literal notranslate"><span class="pre">feature.node.kubernetes.io/...</span></code> 로 시작되는 노드 레이블이 있다면 Node Feature Discovery의 DaemonSet이 이미 설치된 것으로 볼 수 있다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl get no -o json <span class="p">|</span> jq <span class="s1">&#39;.items[].metadata.labels&#39;</span>
@@ -282,7 +190,7 @@ APT 서버가 셋업되어 있다면 (<a class="reference internal" href="instal
 </li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">nfd-worker.conf</span><a class="headerlink" href="#id5" title="이 코드에 대한 퍼머링크">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">nfd-worker.conf</span><a class="headerlink" href="#id5" title="이 코드에 대한 퍼머링크"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sources</span><span class="p">:</span>
   <span class="n">pci</span><span class="p">:</span>
     <span class="n">deviceClassWhitelist</span><span class="p">:</span>
@@ -303,11 +211,11 @@ APT 서버가 셋업되어 있다면 (<a class="reference internal" href="instal
 </div>
 </div>
 <div class="section" id="device-plugin-npu-feature-discovery-npu-metrics-exporter">
-<span id="installingdevicepluginandnfd"></span><h2>3. Device Plugin, NPU Feature Discovery, NPU Metrics Exporter 설치<a class="headerlink" href="#device-plugin-npu-feature-discovery-npu-metrics-exporter" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<span id="installingdevicepluginandnfd"></span><h2>3. Device Plugin, NPU Feature Discovery, NPU Metrics Exporter 설치<a class="headerlink" href="#device-plugin-npu-feature-discovery-npu-metrics-exporter" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>NPU 노드 준비가 완료되면, Device Plugin, NPU Feature Discovery와 NPU Metrics Exporter의 DaemonSet을 다음과 같이 설치한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.8.0/kubernetes/deployments/device-plugin.yaml
-kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.8.0/kubernetes/deployments/npu-feature-discovery.yaml
-kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.8.0/kubernetes/deployments/npu-metrics-exporter.yaml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/device-plugin.yaml
+kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/npu-feature-discovery.yaml
+kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/npu-metrics-exporter.yaml
 </pre></div>
 </div>
 <p>위 커맨드를 실행하고 난 뒤에 <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">daemonset</span> <span class="pre">-n</span> <span class="pre">kube-system</span></code> 명령으로 설치한 DaemonSet이 정상 동작하는지 확인할 수 있다.
@@ -339,7 +247,7 @@ furiosa-npu-metrics-exporter   <span class="m">3</span>         <span class="m">
 </ul>
 <p>NPU Feature Discovery가 노드에 레이블로 붙여주는 메타데이터는 다음 표와 같다.</p>
 <span id="k8snodelabels"></span><table class="colwidths-given docutils align-default" id="id6">
-<caption><span class="caption-text">NPU Node Labels</span><a class="headerlink" href="#id6" title="이 표에 대한 퍼머링크">¶</a></caption>
+<caption><span class="caption-text">NPU Node Labels</span><a class="headerlink" href="#id6" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -403,7 +311,7 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.cou
 </pre></div>
 </div>
 <div class="section" id="device-plugin">
-<h3>Device Plugin 설정<a class="headerlink" href="#device-plugin" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>Device Plugin 설정<a class="headerlink" href="#device-plugin" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>Device Plugin의 실행 옵션은 명령행의 인자로 지정하거나 설정 파일을 통해 지정할 수 있도록 두 가지 방법을 제공한다.</p>
 <ol class="arabic simple">
 <li><p>명령행 입력 방식</p></li>
@@ -428,7 +336,7 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.cou
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id7">
-<caption><span class="caption-text">k8s-device-plugin 인자 목록</span><a class="headerlink" href="#id7" title="이 표에 대한 퍼머링크">¶</a></caption>
+<caption><span class="caption-text">k8s-device-plugin 인자 목록</span><a class="headerlink" href="#id7" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 60%" />
@@ -476,7 +384,7 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.cou
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">/etc/furiosa/device-plugin.conf</span><a class="headerlink" href="#id8" title="이 코드에 대한 퍼머링크">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">/etc/furiosa/device-plugin.conf</span><a class="headerlink" href="#id8" title="이 코드에 대한 퍼머링크"></a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
 <span class="nt">defaultPe</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fusion</span><span class="w"></span>
 <span class="nt">disabledDevices</span><span class="p">:</span><span class="w">             </span><span class="c1"># warboy-node01 노드의 npu1 장치를 사용하지 않음을 의미</span><span class="w"></span>
@@ -496,7 +404,7 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.cou
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">configmap/npu-device-plugin</span><a class="headerlink" href="#id9" title="이 코드에 대한 퍼머링크">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">configmap/npu-device-plugin</span><a class="headerlink" href="#id9" title="이 코드에 대한 퍼머링크"></a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
 <span class="nt">data</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">config.yaml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
@@ -512,14 +420,14 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.cou
 </div>
 </div>
 <div class="section" id="npu-pod">
-<h2>4. NPU와 함께 Pod 배포<a class="headerlink" href="#npu-pod" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<h2>4. NPU와 함께 Pod 배포<a class="headerlink" href="#npu-pod" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>NPU를 Pod에 할당하기 위해서는 <code class="docutils literal notranslate"><span class="pre">spec.containers[].resources.limits</span></code> 에 아래와 같이 추가한다.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">beta.furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Pod 생성을 위한 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.8.0/kubernetes/deployments/pod-example.yaml">전체 예제</a> 는 다음과 같다.</p>
+<p>Pod 생성을 위한 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/0.8.0/kubernetes/deployments/pod-example.yaml">전체 예제</a> 는 다음과 같다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat &gt; npu-pod.yaml <span class="s">&lt;&lt;EOL</span>
 <span class="s">apiVersion: v1</span>
 <span class="s">kind: Pod</span>
@@ -581,14 +489,14 @@ root@npu-pod:/# furiosactl info
 </div>
 </div>
 <div class="section" id="id4">
-<h2>5. NPU 모니터링<a class="headerlink" href="#id4" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<h2>5. NPU 모니터링<a class="headerlink" href="#id4" title="이 표제에 대한 퍼머링크"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">npu-metrics-exporter</span></code> 를 설치하면 DaemonSet과 Service가 생성된다.
 DaemonSet을 통해 실행되는 Pod에서는 NPU의 각종 상태 정보를 지표로 출력하여 모니터링에 도움이 되는 정보를 제공한다.
 지표 정보는 Prometheus 형식으로 표현되며, Kubernetes 클러스터내에 service discovery가 활성화 된 Prometheus가 설치되어 있다면
 Prometheus가 Exporter를 통해 출력되는 데이터를 자동으로 수집한다.</p>
 <p>수집된 데이터는 Grafana 등의 시각화 도구를 통해 확인할 수 있다.</p>
 <table class="colwidths-given docutils align-default" id="id10">
-<caption><span class="caption-text">npu-metrics-exporter 수집 항목 목록</span><a class="headerlink" href="#id10" title="이 표에 대한 퍼머링크">¶</a></caption>
+<caption><span class="caption-text">npu-metrics-exporter 수집 항목 목록</span><a class="headerlink" href="#id10" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -627,50 +535,33 @@ Prometheus가 Exporter를 통해 출력되는 데이터를 자동으로 수집�
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="serving.html" class="btn btn-neutral float-right" title="모델 서버 (서빙 프레임워크)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="profiler.html" class="btn btn-neutral float-left" title="성능 프로파일링" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="serving.html" class="btn btn-neutral float-right" title="모델 서버 (서빙 프레임워크)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; 저작권 2022, FuriosaAI, Inc..
-
-    </p>
+    <p>&#169; 저작권 2022, FuriosaAI, Inc..</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

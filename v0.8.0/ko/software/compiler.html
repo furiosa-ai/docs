@@ -1,75 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>컴파일러 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0 문서</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="모델 양자화" href="quantization.html" />
     <link rel="prev" title="명령행 도구" href="cli.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
@@ -136,79 +85,38 @@
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>컴파일러</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">컴파일러</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/software/compiler.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="compiler">
-<span id="id1"></span><h1>컴파일러<a class="headerlink" href="#compiler" title="이 표제에 대한 퍼머링크">¶</a></h1>
+<span id="id1"></span><h1>컴파일러<a class="headerlink" href="#compiler" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>FuriosaAI의 컴파일러는 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> 와 <a class="reference external" href="https://onnx.ai/">Onnx</a>
 모델(<a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Changelog.md#version-13-of-the-default-onnx-operator-set">OpSet 13</a> 및 이하 버전 호환)을 분석하고 최적화하여 NPU 가속을 이용하여 모델을 추론하는 프로그램을 생성한다.
 이 과정에서 컴파일러는 전체 모델 네트워크를 연산자 단위로 분석하고 가속 가능한 연산자에 대해 NPU를 활용하도록 프로그램을 생성해낸다. 따라서, 기존에 알려진 모델이 아니라도 지원되는 연산자를 잘 활용하면 NPU에 최적화된 모델을 설계할 수 있다.
 현재 NPU 가속이 지원되는 연산자 목록은 <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">NPU 가속 지원 연산자 목록</span></a> 에서 찾을 수 있다.</p>
 <div class="section" id="furiosa-compile">
-<span id="compilercli"></span><h2><code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code><a class="headerlink" href="#furiosa-compile" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<span id="compilercli"></span><h2><code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code><a class="headerlink" href="#furiosa-compile" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>컴파일러는 추론 API의 Session을 초기화 하는 과정에서 모델과 NPU를 초기화할 때
 자동으로 호출되어 사용되는 것이 가장 일반적인 사용 방법이다.
 그러나 쉘에서 명령행 도구인 <code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> 이용해 직접 모델을 컴파일하여 프로그램을 생성해볼 수 있다.
@@ -219,7 +127,7 @@
 </pre></div>
 </div>
 <p><cite>-o OUTPUT</cite> 은 생략 가능한 옵션이며 지정한다면 출력되는 파일 이름을 지정할 수 있다.
-생략했을 때 기본 출력 파일 이름은 <code class="docutils literal notranslate"><span class="pre">output.enf</span></code> 이다. enf는 Executable NPU Format의 확장자이다.
+생략했을 때 기본 출력 파일 이름은 <code class="docutils literal notranslate"><span class="pre">output.enf</span></code> 이다. ENF는 Executable NPU Format의 확장자이다.
 예를 들면 아래와 같이 실행하면 기본으로 <code class="docutils literal notranslate"><span class="pre">output.enf</span></code> 파일을 생성한다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa compile foo.onnx
 </pre></div>
@@ -230,7 +138,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--target-npu</span></code> 는 생성한 바이너리가 목표로하는 NPU를 지정하게 한다.</p>
 <table class="colwidths-given docutils align-default" id="id4">
-<caption><span class="caption-text">Target NPUs</span><a class="headerlink" href="#id4" title="이 표에 대한 퍼머링크">¶</a></caption>
+<caption><span class="caption-text">Target NPUs</span><a class="headerlink" href="#id4" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -270,7 +178,7 @@ NPU의 활용도를 높일 수 있고 추론을 실행하는 과정을 공유하
 기본 값은 1이며 적절한 설정은 일반적으로 실험을 통해 찾을 수 있다.
 참고로, <a class="reference external" href="https://mlcommons.org/en/inference-edge-20/">MLPerf™ Inference Edge v2.0</a> 벤치마크에 포함된 일부 모델들의 최적 배치 크기는 다음과 같다.</p>
 <table class="colwidths-given docutils align-default" id="id5">
-<caption><span class="caption-text">Optimal Batch Size for Well-known Models</span><a class="headerlink" href="#id5" title="이 표에 대한 퍼머링크">¶</a></caption>
+<caption><span class="caption-text">Optimal Batch Size for Well-known Models</span><a class="headerlink" href="#id5" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -298,7 +206,7 @@ NPU의 활용도를 높일 수 있고 추론을 실행하는 과정을 공유하
 </div>
 </div>
 <div class="section" id="enf">
-<h2>ENF 파일의 활용<a class="headerlink" href="#enf" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<h2>ENF 파일의 활용<a class="headerlink" href="#enf" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>FuriosaAI 컴파일러가 컴파일 과정을 마치고 최종적으로 생성해내는 출력물이
 ENF (Executable NPU Format) 형식의 데이터이다.
 일반적으로, 컴파일 과정은 모델에 따라서 수 초에서 수 분까지 걸리는데
@@ -314,7 +222,7 @@ ENF 파일을 한번 생성하여 재사용하면 컴파일을 과정을 생략�
 </div>
 </div>
 <div class="section" id="compiler-cache">
-<span id="compilercache"></span><h2>컴파일러 캐쉬 (Compiler Cache)<a class="headerlink" href="#compiler-cache" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<span id="compilercache"></span><h2>컴파일러 캐쉬 (Compiler Cache)<a class="headerlink" href="#compiler-cache" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>컴파일러 캐쉬는 같은 모델을 컴파일 하는 경우 기존에 컴파일된 결과를 저장해 재활용하게 한다.
 로컬 파일 시스템 (기본 설정: <code class="docutils literal notranslate"><span class="pre">$HOME/.cache/furiosa/compiler</span></code>) 또는
 Redis를 캐쉬 스토리지로 활용한다.</p>
@@ -346,7 +254,7 @@ scheme 으로 시작하는 URL을 설정하면 Redis 클러스터를 캐쉬 스�
 </div>
 <p>옵션 값에 따라 목적에 맞는 다양한 동작 방식을 선택 할 수 있다.</p>
 <table class="colwidths-given docutils align-default" id="id6">
-<caption><span class="caption-text">FC_CACHE_LIFETIME 설정 값에 따른 캐쉬 동작</span><a class="headerlink" href="#id6" title="이 표에 대한 퍼머링크">¶</a></caption>
+<caption><span class="caption-text">FC_CACHE_LIFETIME 설정 값에 따른 캐쉬 동작</span><a class="headerlink" href="#id6" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 67%" />
@@ -378,50 +286,33 @@ scheme 으로 시작하는 URL을 설정하면 Redis 클러스터를 캐쉬 스�
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="quantization.html" class="btn btn-neutral float-right" title="모델 양자화" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="cli.html" class="btn btn-neutral float-left" title="명령행 도구" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quantization.html" class="btn btn-neutral float-right" title="모델 양자화" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; 저작권 2022, FuriosaAI, Inc..
-
-    </p>
+    <p>&#169; 저작권 2022, FuriosaAI, Inc..</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

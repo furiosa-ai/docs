@@ -1,76 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>명령행 도구 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0 문서</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/tabs.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="컴파일러" href="compiler.html" />
     <link rel="prev" title="C SDK 설치 및 사용 가이드" href="c-sdk.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -78,18 +38,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
@@ -144,80 +93,39 @@
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>명령행 도구</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">명령행 도구</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/software/cli.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="id1">
-<h1>명령행 도구<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크">¶</a></h1>
+<h1>명령행 도구<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>FuriosaAI SDK는 NPU 디바이스 정보를 출력 하거나 모델 컴파일, 모델과 SDK 간의 호환성 확인
 등의 기능을 명령행 도구로 제공한다. 이 섹션에서는 각 명령형 도구 별 설치 방법과 사용 방법에 대해 설명한다.</p>
 <div class="section" id="furiosa-toolkit">
-<span id="toolkit"></span><h2>furiosa-toolkit<a class="headerlink" href="#furiosa-toolkit" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<span id="toolkit"></span><h2>furiosa-toolkit<a class="headerlink" href="#furiosa-toolkit" title="이 표제에 대한 퍼머링크"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">furiosa-toolkit</span></code> 은 NPU 장치를 관리하고 정보를 확인하는 명령형 도구를 제공한다.</p>
 <div class="section" id="id2">
-<h3>furiosa-toolkit 설치<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>furiosa-toolkit 설치<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>이 명령형 도구 사용을 위해서는 사전에 <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 를 따라 커널 드라이버를 설치해야 한다.
 그 이후에는 아래 설명을 따라 furiosa-toolkit 을 설치한다.</p>
 <div class="sphinx-tabs docutils container">
@@ -234,14 +142,14 @@
 </div></div>
 </div>
 <div class="section" id="furiosactl">
-<h3>furiosactl 사용법<a class="headerlink" href="#furiosactl" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>furiosactl 사용법<a class="headerlink" href="#furiosactl" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>furiosactl 커맨드는 다양한 서브 커맨드를 제공하고 장치의 정보를 얻거나 제어하는 기능을 가지고 있다.</p>
 <p>문법 개요:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosactl &lt;sub command&gt; <span class="o">[</span>option<span class="o">]</span> ..
 </pre></div>
 </div>
 <div class="section" id="furiosactl-info">
-<h4><code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">info</span></code><a class="headerlink" href="#furiosactl-info" title="이 표제에 대한 퍼머링크">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">info</span></code><a class="headerlink" href="#furiosactl-info" title="이 표제에 대한 퍼머링크"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">info</span></code> 서브
 NPU 장치가 잘 인식되었는지 확인하기 위해 <code class="docutils literal notranslate"><span class="pre">info</span></code> 명령을 사용할 수 있다.
 이 명령은 NPU 장치의 DEVICE UUID와 온도, PCI 정보 출력한다. 만약 머신에 장치를 장착한 후에도 장치가 이 명령으로 보이지 않는다면,
@@ -256,7 +164,7 @@ NPU 장치가 잘 인식되었는지 확인하기 위해 <code class="docutils l
 </div>
 </div>
 <div class="section" id="furiosactl-ps">
-<h4><code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">ps</span></code><a class="headerlink" href="#furiosactl-ps" title="이 표제에 대한 퍼머링크">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">ps</span></code><a class="headerlink" href="#furiosactl-ps" title="이 표제에 대한 퍼머링크"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">ps</span></code> 서브 커맨드는 현재 NPU 장치를 점유하고 있는 OS 프로세스의 정보를 출력해준다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># furiosactl ps</span>
 +-----------+--------+------------------------------------------------------------+
@@ -270,7 +178,7 @@ NPU 장치가 잘 인식되었는지 확인하기 위해 <code class="docutils l
 </div>
 </div>
 <div class="section" id="furiosa">
-<h2>furiosa<a class="headerlink" href="#furiosa" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<h2>furiosa<a class="headerlink" href="#furiosa" title="이 표제에 대한 퍼머링크"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">furiosa</span></code> 커맨드는 <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">Python SDK</span></a> 를 설치하면 사용할 수 있는 메타 명령형 도구이다.
 또한 확장 패키지를 설치하면 추가 하위 커맨드(subcommand) 가 추가 된다.</p>
 <p>만약 Python 실행 환경이 준비되어 있지 않다면 <a class="reference internal" href="python-sdk.html#setuppython"><span class="std std-ref">Python 실행 환경 구성</span></a> 를 참고한다.</p>
@@ -285,13 +193,13 @@ libnpu.so --- v2.0, built @ fe1fca3
 </pre></div>
 </div>
 <div class="section" id="furiosa-compile">
-<h3>furiosa compile<a class="headerlink" href="#furiosa-compile" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>furiosa compile<a class="headerlink" href="#furiosa-compile" title="이 표제에 대한 퍼머링크"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">compile</span></code> 명령은 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a>, <a class="reference external" href="https://onnx.ai/">ONNX</a>
 형식의 모델을 컴파일하여 FuriosaAI NPU를 사용하는 프로그램을 생성한다.
 자세한 설명과 옵션은 <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa compile</span></a> 페이지에서 찾을 수 있다.</p>
 </div>
 <div class="section" id="furiosa-litmus">
-<span id="litmus"></span><h3>furiosa litmus (모델 적합 여부 검사)<a class="headerlink" href="#furiosa-litmus" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<span id="litmus"></span><h3>furiosa litmus (모델 적합 여부 검사)<a class="headerlink" href="#furiosa-litmus" title="이 표제에 대한 퍼머링크"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">litmus</span></code> 명령은 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a>, <a class="reference external" href="https://onnx.ai/">ONNX</a> 모델을 인자로 받아,
 자동으로 양자화한 후 최종 바이너리까지 컴파일을 시도하여 주어진 모델이 SDK와 호환되는지 검사한다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa litmus yolov4.onxx
@@ -322,50 +230,33 @@ Quantization: <span class="m">100</span>%<span class="p">|</span>█████
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="compiler.html" class="btn btn-neutral float-right" title="컴파일러" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="c-sdk.html" class="btn btn-neutral float-left" title="C SDK 설치 및 사용 가이드" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="compiler.html" class="btn btn-neutral float-right" title="컴파일러" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; 저작권 2022, FuriosaAI, Inc..
-
-    </p>
+    <p>&#169; 저작권 2022, FuriosaAI, Inc..</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

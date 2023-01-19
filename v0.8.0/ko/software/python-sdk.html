@@ -1,76 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Python SDK 설치 및 사용 가이드 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0 문서</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/tabs.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="C SDK 설치 및 사용 가이드" href="c-sdk.html" />
     <link rel="prev" title="드라이버, 펌웨어, 런타임 설치 가이드" href="installation.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -78,18 +38,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
@@ -148,79 +97,38 @@
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Python SDK 설치 및 사용 가이드</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Python SDK 설치 및 사용 가이드</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/software/python-sdk.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="python-sdk">
-<span id="pythonsdk"></span><h1>Python SDK 설치 및 사용 가이드<a class="headerlink" href="#python-sdk" title="이 표제에 대한 퍼머링크">¶</a></h1>
+<span id="pythonsdk"></span><h1>Python SDK 설치 및 사용 가이드<a class="headerlink" href="#python-sdk" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>FuriosaAI Python SDK는 NPU를 사용하는 Python 응용을 작성하기 위한
 소프트웨어 개발 키트이다. Python SDK를 이용하여 NPU 응용 애플리케이션 개발에
 AI/ML 분야에서 가장 널리 사용되는 Python 생태계의 여러 도구와 라이브러리, 프레임워크들을 활용할 수 있다.
 Python SDK는 다양한 모듈로 구성되며 추론 API, 양자화 API, 명령행 도구, 서빙을 위한 서버 프로그램을 제공한다.</p>
 <div class="section" id="id1">
-<h2>설치 사전 요구 사항<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<h2>설치 사전 요구 사항<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h2>
 <ul class="simple">
 <li><p>Ubuntu 18.04 LTS (Debian buster) 또는 상위 버전</p></li>
 <li><p><a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">FuriosaAI SDK 필수 패키지</span></a></p></li>
@@ -231,7 +139,7 @@ Python SDK는 다양한 모듈로 구성되며 추론 API, 양자화 API, 명령
 커널 드라이버, 펌웨어, 런타임 라이브러리를 반드시 설치해야 한다.</p>
 </div>
 <div class="section" id="python">
-<span id="setuppython"></span><h2>Python 실행 환경 구성<a class="headerlink" href="#python" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<span id="setuppython"></span><h2>Python 실행 환경 구성<a class="headerlink" href="#python" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>Python SDK는 Python 3.7 또는 그 상위 버전의 실행 환경이 필요하고
 이 섹션에서는 Python 실행 환경 구성을 설명한다.</p>
 <div class="admonition note">
@@ -255,7 +163,7 @@ Python SDK는 다양한 모듈로 구성되며 추론 API, 양자화 API, 명령
 다른 Python 실행 환경과 충돌이 우려되지 않는 경우 선택할 수 있다.</p></li>
 </ul>
 <div class="section" id="conda-python">
-<span id="condainstall"></span><h3>Conda를 이용한 Python 환경 구성<a class="headerlink" href="#conda-python" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<span id="condainstall"></span><h3>Conda를 이용한 Python 환경 구성<a class="headerlink" href="#conda-python" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>Conda는 특정 Python 어플리케이션만을 위한 독립된 Python 환경을 쉽게 구성하게 해준다.
 Conda에 대해 자세히 알고 싶다면 <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">Conda</a> 에서 다양한 문서를 참고할 수 있다.</p>
 <p>설치는 아래와 같이 설치 프로그램을 다운 받아 시작할 수 있다.
@@ -267,7 +175,7 @@ Conda에 대해 자세히 알고 싶다면 <a class="reference external" href="h
 </pre></div>
 </div>
 <div class="section" id="id2">
-<h4>독립된 Python 실행 환경 생성 및 활성화<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크">¶</a></h4>
+<h4>독립된 Python 실행 환경 생성 및 활성화<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h4>
 <p>Anaconda 설치 후에는 독립된 Python 실행 환경을 구성하고 필요할 때 활성화 할 수 있다.</p>
 <ol class="arabic simple">
 <li><p>Python 3.9를 사용한다면 <code class="docutils literal notranslate"><span class="pre">furiosa-3.9</span></code> 라는 이름으로 아래 명령으로 실행 환경을 생성하자.</p></li>
@@ -295,7 +203,7 @@ Conda에 대해 자세히 알고 싶다면 <a class="reference external" href="h
 </div>
 </div>
 <div class="section" id="linux-python">
-<span id="setuppythononlinux"></span><h3>Linux 패키지를 이용한 Python 환경 구성<a class="headerlink" href="#linux-python" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<span id="setuppythononlinux"></span><h3>Linux 패키지를 이용한 Python 환경 구성<a class="headerlink" href="#linux-python" title="이 표제에 대한 퍼머링크"></a></h3>
 <ol class="arabic simple">
 <li><p>시스템에서 직접 Python 환경을 구성할 수 있는 경우 아래와 같이 필요한 패키지를 설치한다.</p></li>
 </ol>
@@ -312,7 +220,7 @@ Conda에 대해 자세히 알고 싶다면 <a class="reference external" href="h
 </div>
 </div>
 <div class="section" id="installpippackages">
-<span id="id3"></span><h2>Python SDK 패키지 설치<a class="headerlink" href="#installpippackages" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<span id="id3"></span><h2>Python SDK 패키지 설치<a class="headerlink" href="#installpippackages" title="이 표제에 대한 퍼머링크"></a></h2>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">PIP를 이용한 설치</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">소스 코드를 이용한 설치</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>FuriosaAI Python SDK 패키지는 <a class="reference external" href="https://pypi.org/">pypi</a> 저장소에 업로드 되어 있어
 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 명령을 이용하여 다음과 같이 간편하게 설치할 수 있다.</p>
@@ -347,9 +255,9 @@ pip install furiosa-server
 </div></div>
 </div>
 <div class="section" id="pythonextrapackages">
-<span id="id6"></span><h2>추가 패키지 목록<a class="headerlink" href="#pythonextrapackages" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<span id="id6"></span><h2>추가 패키지 목록<a class="headerlink" href="#pythonextrapackages" title="이 표제에 대한 퍼머링크"></a></h2>
 <div class="section" id="furiosaai-models">
-<h3>FuriosaAI Models<a class="headerlink" href="#furiosaai-models" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>FuriosaAI Models<a class="headerlink" href="#furiosaai-models" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>NPU에서 바로 실행 가능하며 최적화된 DNN 모델 아키텍쳐와 사전에 훈련된 모델 이미지 등을
 Python 모듈 형태로 제공하는 패키지다. 설치는 다음 커맨드로 할 수 있다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;furiosa-sdk[models]&#39;</span>
@@ -357,7 +265,7 @@ Python 모듈 형태로 제공하는 패키지다. 설치는 다음 커맨드로
 </div>
 </div>
 <div class="section" id="model-server">
-<h3>Model Server<a class="headerlink" href="#model-server" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>Model Server<a class="headerlink" href="#model-server" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>DNN 모델을 NPU로 가속하여 GRPC나 Restful API로 서빙하는 기능을 제공한다.
 설치는 다음 커맨드로 할 수 있다. 자세한 사용법은 <a class="reference internal" href="serving.html#modelserving"><span class="std std-ref">모델 서버 (서빙 프레임워크)</span></a> 에서 찾을 수 있다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;furiosa-sdk[server]&#39;</span>
@@ -365,7 +273,7 @@ Python 모듈 형태로 제공하는 패키지다. 설치는 다음 커맨드로
 </div>
 </div>
 <div class="section" id="litmus">
-<h3>Litmus<a class="headerlink" href="#litmus" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>Litmus<a class="headerlink" href="#litmus" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>지정한 모델이 FuriosaAI SDK와 호환되는지 여부를 검사하는 도구이다.
 이 과정에서 모델 양자화, 컴파일 등의 과정을 모의로 실행한다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;furiosa-sdk[litmus]&#39;</span>
@@ -373,7 +281,7 @@ Python 모듈 형태로 제공하는 패키지다. 설치는 다음 커맨드로
 </div>
 </div>
 <div class="section" id="quantizer">
-<h3>Quantizer<a class="headerlink" href="#quantizer" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>Quantizer<a class="headerlink" href="#quantizer" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>Quantizer 패키지는 모델을 양자화(quantization) 된 모델로 변환하기 위한 API 집합을 제공한다.
 FuriosaAI SDK와 NPU가 제공하는 양자화 기능에 대한 자세한 내용은 <a class="reference internal" href="quantization.html#modelquantization"><span class="std std-ref">모델 양자화</span></a> 에서
 찾을 수 있다.</p>
@@ -386,50 +294,33 @@ FuriosaAI SDK와 NPU가 제공하는 양자화 기능에 대한 자세한 내용
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="c-sdk.html" class="btn btn-neutral float-right" title="C SDK 설치 및 사용 가이드" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="드라이버, 펌웨어, 런타임 설치 가이드" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="c-sdk.html" class="btn btn-neutral float-right" title="C SDK 설치 및 사용 가이드" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; 저작권 2022, FuriosaAI, Inc..
-
-    </p>
+    <p>&#169; 저작권 2022, FuriosaAI, Inc..</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

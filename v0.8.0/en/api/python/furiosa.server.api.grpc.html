@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>furiosa.server.api.grpc package &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.8.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.7.0/en/">v0.7.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">furiosa.server.api.grpc package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/furiosa.server.api.grpc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="furiosa-server-api-grpc-package">
+<h1>furiosa.server.api.grpc package<a class="headerlink" href="#furiosa-server-api-grpc-package" title="Permalink to this headline"></a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.server.api.grpc.generated.html">furiosa.server.api.grpc.generated package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.api.grpc.generated.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.api.grpc.generated.html#module-furiosa.server.api.grpc.generated.model_repository_pb2">furiosa.server.api.grpc.generated.model_repository_pb2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.api.grpc.generated.html#module-furiosa.server.api.grpc.generated.model_repository_pb2_grpc">furiosa.server.api.grpc.generated.model_repository_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.api.grpc.generated.html#module-furiosa.server.api.grpc.generated.predict_pb2">furiosa.server.api.grpc.generated.predict_pb2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.api.grpc.generated.html#module-furiosa.server.api.grpc.generated.predict_pb2_grpc">furiosa.server.api.grpc.generated.predict_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.api.grpc.generated.html#module-furiosa.server.api.grpc.generated">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="module-furiosa.server.api.grpc.converters">
+<span id="furiosa-server-api-grpc-converters-module"></span><h2>furiosa.server.api.grpc.converters module<a class="headerlink" href="#module-furiosa.server.api.grpc.converters" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferInputTensorConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">InferInputTensorConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferInputTensorConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferInputTensorConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.RequestInput" title="furiosa.server.types.predict.RequestInput"><span class="pre">furiosa.server.types.predict.RequestInput</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.InferInputTensor</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferInputTensorConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferInputTensorConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.InferInputTensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.RequestInput" title="furiosa.server.types.predict.RequestInput"><span class="pre">furiosa.server.types.predict.RequestInput</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferInputTensorConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferOutputTensorConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">InferOutputTensorConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferOutputTensorConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferOutputTensorConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.ResponseOutput" title="furiosa.server.types.predict.ResponseOutput"><span class="pre">furiosa.server.types.predict.ResponseOutput</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.InferOutputTensor</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferOutputTensorConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferOutputTensorConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.InferOutputTensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.ResponseOutput" title="furiosa.server.types.predict.ResponseOutput"><span class="pre">furiosa.server.types.predict.ResponseOutput</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferOutputTensorConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferRequestedOutputTensorConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">InferRequestedOutputTensorConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferRequestedOutputTensorConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferRequestedOutputTensorConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.RequestOutput" title="furiosa.server.types.predict.RequestOutput"><span class="pre">furiosa.server.types.predict.RequestOutput</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.InferRequestedOutputTensor</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferRequestedOutputTensorConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferRequestedOutputTensorConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.InferRequestedOutputTensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.RequestOutput" title="furiosa.server.types.predict.RequestOutput"><span class="pre">furiosa.server.types.predict.RequestOutput</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferRequestedOutputTensorConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferTensorContentsConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">InferTensorContentsConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferTensorContentsConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferTensorContentsConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.TensorData" title="furiosa.server.types.predict.TensorData"><span class="pre">furiosa.server.types.predict.TensorData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">datatype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.InferTensorContents</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferTensorContentsConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.InferTensorContentsConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.InferTensorContents</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.TensorData" title="furiosa.server.types.predict.TensorData"><span class="pre">furiosa.server.types.predict.TensorData</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.InferTensorContentsConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelInferRequestConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">ModelInferRequestConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelInferRequestConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelInferRequestConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.InferenceRequest" title="furiosa.server.types.predict.InferenceRequest"><span class="pre">furiosa.server.types.predict.InferenceRequest</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.ModelInferRequest</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelInferRequestConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelInferRequestConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.ModelInferRequest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.InferenceRequest" title="furiosa.server.types.predict.InferenceRequest"><span class="pre">furiosa.server.types.predict.InferenceRequest</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelInferRequestConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelInferResponseConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">ModelInferResponseConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelInferResponseConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelInferResponseConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.InferenceResponse" title="furiosa.server.types.predict.InferenceResponse"><span class="pre">furiosa.server.types.predict.InferenceResponse</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.ModelInferResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelInferResponseConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelInferResponseConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.ModelInferResponse</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.InferenceResponse" title="furiosa.server.types.predict.InferenceResponse"><span class="pre">furiosa.server.types.predict.InferenceResponse</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelInferResponseConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelMetadataResponseConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">ModelMetadataResponseConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelMetadataResponseConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelMetadataResponseConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.MetadataModelResponse" title="furiosa.server.types.predict.MetadataModelResponse"><span class="pre">furiosa.server.types.predict.MetadataModelResponse</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.ModelMetadataResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelMetadataResponseConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ModelMetadataResponseConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.ModelMetadataResponse</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.MetadataModelResponse" title="furiosa.server.types.predict.MetadataModelResponse"><span class="pre">furiosa.server.types.predict.MetadataModelResponse</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ModelMetadataResponseConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ParametersConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">ParametersConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ParametersConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ParametersConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.Parameters" title="furiosa.server.types.predict.Parameters"><span class="pre">furiosa.server.types.predict.Parameters</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">predict_pb2.InferParameter</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ParametersConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ParametersConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">predict_pb2.InferParameter</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.Parameters" title="furiosa.server.types.predict.Parameters"><span class="pre">furiosa.server.types.predict.Parameters</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ParametersConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexRequestConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">RepositoryIndexRequestConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexRequestConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexRequestConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.model_repository.RepositoryIndexRequest" title="furiosa.server.types.model_repository.RepositoryIndexRequest"><span class="pre">furiosa.server.types.model_repository.RepositoryIndexRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">model_repository_pb2.RepositoryIndexRequest</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexRequestConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexRequestConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">model_repository_pb2.RepositoryIndexRequest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.model_repository.RepositoryIndexRequest" title="furiosa.server.types.model_repository.RepositoryIndexRequest"><span class="pre">furiosa.server.types.model_repository.RepositoryIndexRequest</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexRequestConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexResponseConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">RepositoryIndexResponseConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexResponseConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexResponseConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.model_repository.RepositoryIndexResponse" title="furiosa.server.types.model_repository.RepositoryIndexResponse"><span class="pre">furiosa.server.types.model_repository.RepositoryIndexResponse</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">model_repository_pb2.RepositoryIndexResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexResponseConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexResponseConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">model_repository_pb2.RepositoryIndexResponse</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.model_repository.RepositoryIndexResponse" title="furiosa.server.types.model_repository.RepositoryIndexResponse"><span class="pre">furiosa.server.types.model_repository.RepositoryIndexResponse</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexResponseConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexResponseItemConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">RepositoryIndexResponseItemConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexResponseItemConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexResponseItemConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.model_repository.RepositoryIndexResponseItem" title="furiosa.server.types.model_repository.RepositoryIndexResponseItem"><span class="pre">furiosa.server.types.model_repository.RepositoryIndexResponseItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">model_repository_pb2.ModelIndex</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexResponseItemConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.RepositoryIndexResponseItemConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">model_repository_pb2.ModelIndex</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.model_repository.RepositoryIndexResponseItem" title="furiosa.server.types.model_repository.RepositoryIndexResponseItem"><span class="pre">furiosa.server.types.model_repository.RepositoryIndexResponseItem</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.RepositoryIndexResponseItemConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ServerMetadataResponseConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">ServerMetadataResponseConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ServerMetadataResponseConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ServerMetadataResponseConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.MetadataServerResponse" title="furiosa.server.types.predict.MetadataServerResponse"><span class="pre">furiosa.server.types.predict.MetadataServerResponse</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.ServerMetadataResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ServerMetadataResponseConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.ServerMetadataResponseConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.ServerMetadataResponse</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.MetadataServerResponse" title="furiosa.server.types.predict.MetadataServerResponse"><span class="pre">furiosa.server.types.predict.MetadataServerResponse</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.ServerMetadataResponseConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.TensorMetadataConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.converters.</span></span><span class="sig-name descname"><span class="pre">TensorMetadataConverter</span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.TensorMetadataConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.TensorMetadataConverter.from_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.MetadataTensor" title="furiosa.server.types.predict.MetadataTensor"><span class="pre">furiosa.server.types.predict.MetadataTensor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.TensorMetadata</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.TensorMetadataConverter.from_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.converters.TensorMetadataConverter.to_types">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.TensorMetadata</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="furiosa.server.types.html#furiosa.server.types.predict.MetadataTensor" title="furiosa.server.types.predict.MetadataTensor"><span class="pre">furiosa.server.types.predict.MetadataTensor</span></a></span></span><a class="headerlink" href="#furiosa.server.api.grpc.converters.TensorMetadataConverter.to_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.server.api.grpc.server">
+<span id="furiosa-server-api-grpc-server-module"></span><h2>furiosa.server.api.grpc.server module<a class="headerlink" href="#module-furiosa.server.api.grpc.server" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.server.GRPCServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.server.</span></span><span class="sig-name descname"><span class="pre">GRPCServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.html#furiosa.server.settings.GRPCServerConfig" title="furiosa.server.settings.GRPCServerConfig"><span class="pre">furiosa.server.settings.GRPCServerConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.predict.PredictHandler" title="furiosa.server.handlers.predict.PredictHandler"><span class="pre">furiosa.server.handlers.predict.PredictHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">repository_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.repository.RepositoryHandler" title="furiosa.server.handlers.repository.RepositoryHandler"><span class="pre">furiosa.server.handlers.repository.RepositoryHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.server.GRPCServer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.server.GRPCServer.start">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.server.GRPCServer.start" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.server.GRPCServer.stop">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.server.GRPCServer.stop" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.server.api.grpc.servicers">
+<span id="furiosa-server-api-grpc-servicers-module"></span><h2>furiosa.server.api.grpc.servicers module<a class="headerlink" href="#module-furiosa.server.api.grpc.servicers" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.InferenceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.servicers.</span></span><span class="sig-name descname"><span class="pre">InferenceServicer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predict_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.predict.PredictHandler" title="furiosa.server.handlers.predict.PredictHandler"><span class="pre">furiosa.server.handlers.predict.PredictHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.InferenceServicer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="furiosa.server.api.grpc.generated.html#furiosa.server.api.grpc.generated.predict_pb2_grpc.GRPCInferenceServiceServicer" title="furiosa.server.api.grpc.generated.predict_pb2_grpc.GRPCInferenceServiceServicer"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.server.api.grpc.generated.predict_pb2_grpc.GRPCInferenceServiceServicer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.InferenceServicer.ModelInfer">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ModelInfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.InferenceServicer.ModelInfer" title="Permalink to this definition"></a></dt>
+<dd><p>The ModelInfer API performs inference using the specified model. Errors are
+indicated by the google.rpc.Status returned for the request. The OK code
+indicates success and other codes indicate failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.InferenceServicer.ModelMetadata">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ModelMetadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.InferenceServicer.ModelMetadata" title="Permalink to this definition"></a></dt>
+<dd><p>The per-model metadata API provides information about a model. Errors are
+indicated by the google.rpc.Status returned for the request. The OK code
+indicates success and other codes indicate failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.InferenceServicer.ModelReady">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ModelReady</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.ModelReadyRequest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.ModelReadyResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.InferenceServicer.ModelReady" title="Permalink to this definition"></a></dt>
+<dd><p>The ModelReady API indicates if a specific model is ready for inferencing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.InferenceServicer.ServerLive">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ServerLive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.ServerLiveRequest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.ServerLiveResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.InferenceServicer.ServerLive" title="Permalink to this definition"></a></dt>
+<dd><p>The ServerLive API indicates if the inference server is able to receive
+and respond to metadata and inference requests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.InferenceServicer.ServerMetadata">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ServerMetadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.ServerMetadataRequest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.ServerMetadataResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.InferenceServicer.ServerMetadata" title="Permalink to this definition"></a></dt>
+<dd><p>The ServerMetadata API provides information about the server. Errors are
+indicated by the google.rpc.Status returned for the request. The OK code
+indicates success and other codes indicate failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.InferenceServicer.ServerReady">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ServerReady</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">predict_pb2.ServerReadyRequest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">predict_pb2.ServerReadyResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.InferenceServicer.ServerReady" title="Permalink to this definition"></a></dt>
+<dd><p>The ServerReady API indicates if the server is ready for inferencing.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.ModelRepositoryServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.server.api.grpc.servicers.</span></span><span class="sig-name descname"><span class="pre">ModelRepositoryServicer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="furiosa.server.handlers.html#furiosa.server.handlers.repository.RepositoryHandler" title="furiosa.server.handlers.repository.RepositoryHandler"><span class="pre">furiosa.server.handlers.repository.RepositoryHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.ModelRepositoryServicer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="furiosa.server.api.grpc.generated.html#furiosa.server.api.grpc.generated.model_repository_pb2_grpc.ModelRepositoryServiceServicer" title="furiosa.server.api.grpc.generated.model_repository_pb2_grpc.ModelRepositoryServiceServicer"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.server.api.grpc.generated.model_repository_pb2_grpc.ModelRepositoryServiceServicer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.ModelRepositoryServicer.RepositoryIndex">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RepositoryIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">model_repository_pb2.RepositoryIndexRequest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">model_repository_pb2.RepositoryIndexResponse</span></span></span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.ModelRepositoryServicer.RepositoryIndex" title="Permalink to this definition"></a></dt>
+<dd><p>Get the index of model repository contents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.ModelRepositoryServicer.RepositoryModelLoad">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RepositoryModelLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.ModelRepositoryServicer.RepositoryModelLoad" title="Permalink to this definition"></a></dt>
+<dd><p>Load or reload a model from a repository.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.server.api.grpc.servicers.ModelRepositoryServicer.RepositoryModelUnload">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RepositoryModelUnload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.server.api.grpc.servicers.ModelRepositoryServicer.RepositoryModelUnload" title="Permalink to this definition"></a></dt>
+<dd><p>Unload a model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.server.api.grpc">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.server.api.grpc" title="Permalink to this headline"></a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
