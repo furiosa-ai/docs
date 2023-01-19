@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furiosa SDK 0.8.0 API Documentation &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.8.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.7.0/en/">v0.7.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Furiosa SDK 0.8.0 API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="furiosa-sdk-projectversion-api-documentation">
+<h1>Furiosa SDK 0.8.0 API Documentation<a class="headerlink" href="#furiosa-sdk-projectversion-api-documentation" title="Permalink to this headline"></a></h1>
+<p>Welcome! This is the Furiosa SDK Documentation for 0.8.0.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.common.html">furiosa.common package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.common.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.common.html#module-furiosa.common.error">furiosa.common.error module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.common.html#module-furiosa.common.native">furiosa.common.native module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.common.html#module-furiosa.common.thread">furiosa.common.thread module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.common.html#module-furiosa.common.utils">furiosa.common.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.common.html#module-furiosa.common">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.runtime.html">furiosa.runtime package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime.compiler">furiosa.runtime.compiler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime.consts">furiosa.runtime.consts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime.envs">furiosa.runtime.envs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime.errors">furiosa.runtime.errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime.model">furiosa.runtime.model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime.profiler">furiosa.runtime.profiler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime.session">furiosa.runtime.session module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime.tensor">furiosa.runtime.tensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.runtime.html#module-furiosa.runtime">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.quantizer.html">furiosa.quantizer package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.quantizer.frontend.html">furiosa.quantizer.frontend package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.frontend.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.html">furiosa.quantizer.frontend.onnx package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.html#subpackages">Subpackages</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.html#module-furiosa.quantizer.frontend.onnx.calibrate">furiosa.quantizer.frontend.onnx.calibrate module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.quantizer.frontend.onnx.html#module-furiosa.quantizer.frontend.onnx">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.frontend.html#module-furiosa.quantizer.frontend">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.quantizer.interfaces.html">furiosa.quantizer.interfaces package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.interfaces.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.interfaces.html#module-furiosa.quantizer.interfaces.transformer">furiosa.quantizer.interfaces.transformer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.quantizer.interfaces.html#module-furiosa.quantizer.interfaces">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.quantizer.html#module-furiosa.quantizer">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.registry.html">furiosa.registry package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.registry.client.html">furiosa.registry.client package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.registry.client.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="furiosa.registry.client.transport.html">furiosa.registry.client.transport package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.registry.client.transport.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.base">furiosa.registry.client.transport.base module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.file">furiosa.registry.client.transport.file module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.github">furiosa.registry.client.transport.github module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.http">furiosa.registry.client.transport.http module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport.s3">furiosa.registry.client.transport.s3 module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.registry.client.transport.html#module-furiosa.registry.client.transport">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.registry.client.html#module-furiosa.registry.client">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.html#module-furiosa.registry.errors">furiosa.registry.errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.html#module-furiosa.registry.model">furiosa.registry.model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.html#module-furiosa.registry.utils">furiosa.registry.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.registry.html#module-furiosa.registry">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.server.html">furiosa.server package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.server.api.html">furiosa.server.api package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="furiosa.server.api.cli.html">furiosa.server.api.cli package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.cli.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.cli.html#module-furiosa.server.api.cli.main">furiosa.server.api.cli.main module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.cli.html#module-furiosa.server.api.cli">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="furiosa.server.api.grpc.html">furiosa.server.api.grpc package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.grpc.html#subpackages">Subpackages</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.grpc.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.grpc.html#module-furiosa.server.api.grpc.converters">furiosa.server.api.grpc.converters module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.grpc.html#module-furiosa.server.api.grpc.server">furiosa.server.api.grpc.server module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.grpc.html#module-furiosa.server.api.grpc.servicers">furiosa.server.api.grpc.servicers module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.grpc.html#module-furiosa.server.api.grpc">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="furiosa.server.api.rest.html">furiosa.server.api.rest package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.rest.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.rest.html#module-furiosa.server.api.rest.app">furiosa.server.api.rest.app module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.rest.html#module-furiosa.server.api.rest.endpoints">furiosa.server.api.rest.endpoints module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.rest.html#module-furiosa.server.api.rest.server">furiosa.server.api.rest.server module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="furiosa.server.api.rest.html#module-furiosa.server.api.rest">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.api.html#module-furiosa.server.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.server.handlers.html">furiosa.server.handlers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.handlers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.handlers.html#module-furiosa.server.handlers.predict">furiosa.server.handlers.predict module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.handlers.html#module-furiosa.server.handlers.repository">furiosa.server.handlers.repository module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.handlers.html#module-furiosa.server.handlers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.server.types.html">furiosa.server.types package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.types.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.types.html#module-furiosa.server.types.model_repository">furiosa.server.types.model_repository module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.types.html#module-furiosa.server.types.predict">furiosa.server.types.predict module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.types.html#module-furiosa.server.types">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.server.utils.html">furiosa.server.utils namespace</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.server.utils.html#module-furiosa.server.utils.loader">furiosa.server.utils.loader module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#module-furiosa.server.errors">furiosa.server.errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#module-furiosa.server.model">furiosa.server.model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#module-furiosa.server.registry">furiosa.server.registry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#module-furiosa.server.repository">furiosa.server.repository module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#module-furiosa.server.server">furiosa.server.server module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#module-furiosa.server.settings">furiosa.server.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.server.html#module-furiosa.server">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="furiosa.serving.html">furiosa.serving package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.serving.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.serving.apps.html">furiosa.serving.apps package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.apps.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.apps.html#module-furiosa.serving.apps.health">furiosa.serving.apps.health module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.apps.html#module-furiosa.serving.apps.model">furiosa.serving.apps.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.apps.html#module-furiosa.serving.apps.repository">furiosa.serving.apps.repository module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.apps.html#module-furiosa.serving.apps">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="furiosa.serving.processors.html">furiosa.serving.processors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.processors.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.processors.html#module-furiosa.serving.processors.base">furiosa.serving.processors.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.processors.html#module-furiosa.serving.processors.imagenet">furiosa.serving.processors.imagenet module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="furiosa.serving.processors.html#module-furiosa.serving.processors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.serving.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.serving.html#module-furiosa.serving.application">furiosa.serving.application module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.serving.html#module-furiosa.serving.model">furiosa.serving.model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.serving.html#furiosa-serving-telemetry-module">furiosa.serving.telemetry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furiosa.serving.html#module-furiosa.serving">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

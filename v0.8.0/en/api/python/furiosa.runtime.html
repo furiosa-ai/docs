@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>furiosa.runtime package &mdash; Furiosa SDK Documentation furiosa-docs documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.8.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.7.0/en/">v0.7.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">furiosa.runtime package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/furiosa.runtime.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="furiosa-runtime-package">
+<h1>furiosa.runtime package<a class="headerlink" href="#furiosa-runtime-package" title="Permalink to this headline"></a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="module-furiosa.runtime.compiler">
+<span id="furiosa-runtime-compiler-module"></span><h2>furiosa.runtime.compiler module<a class="headerlink" href="#module-furiosa.runtime.compiler" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.compiler.generate_compiler_log_path">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.compiler.</span></span><span class="sig-name descname"><span class="pre">generate_compiler_log_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pathlib.Path</span></span></span><a class="headerlink" href="#furiosa.runtime.compiler.generate_compiler_log_path" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a log path for compilation log</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.runtime.consts">
+<span id="furiosa-runtime-consts-module"></span><h2>furiosa.runtime.consts module<a class="headerlink" href="#module-furiosa.runtime.consts" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="module-furiosa.runtime.envs">
+<span id="furiosa-runtime-envs-module"></span><h2>furiosa.runtime.envs module<a class="headerlink" href="#module-furiosa.runtime.envs" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.envs.current_npu_device">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.envs.</span></span><span class="sig-name descname"><span class="pre">current_npu_device</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.runtime.envs.current_npu_device" title="Permalink to this definition"></a></dt>
+<dd><p>Return the current npu device name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>NPU device name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.envs.is_compile_log_enabled">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.envs.</span></span><span class="sig-name descname"><span class="pre">is_compile_log_enabled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.runtime.envs.is_compile_log_enabled" title="Permalink to this definition"></a></dt>
+<dd><p>Return True or False whether the compile log is enabled or not.</p>
+<dl class="simple">
+<dt>Returns</dt><dd><p>True if the compile log is enabled, or False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.envs.log_dir">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.envs.</span></span><span class="sig-name descname"><span class="pre">log_dir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.runtime.envs.log_dir" title="Permalink to this definition"></a></dt>
+<dd><p>Return FURIOSA_LOG_DIR where the logs are stored.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The log directory of furiosa sdk</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.envs.profiler_output">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.envs.</span></span><span class="sig-name descname"><span class="pre">profiler_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.runtime.envs.profiler_output" title="Permalink to this definition"></a></dt>
+<dd><p>Return FURIOSA_PROFILER_OUTPUT_PATH where profiler outputs written.</p>
+<p>For compatibility, NUX_PROFILER_PATH is also currently being supported, but it will be
+deprecated by FURIOSA_PROFILER_OUTPUT_PATH later.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The file path of profiler output if specified, or None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.envs.xdg_state_home">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.envs.</span></span><span class="sig-name descname"><span class="pre">xdg_state_home</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.runtime.envs.xdg_state_home" title="Permalink to this definition"></a></dt>
+<dd><p>Return XDG_STATE_HOME which is the base directory of furiosa logs, history, and other states</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Furiosa home directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.runtime.errors">
+<span id="furiosa-runtime-errors-module"></span><h2>furiosa.runtime.errors module<a class="headerlink" href="#module-furiosa.runtime.errors" title="Permalink to this headline"></a></h2>
+<p>Nux Exception and Error</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.ApiClientInitFailed">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">ApiClientInitFailed</span></span><a class="headerlink" href="#furiosa.runtime.errors.ApiClientInitFailed" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>when api client fails to initialize due to api keys or others</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.CompilationFailed">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">CompilationFailed</span></span><a class="headerlink" href="#furiosa.runtime.errors.CompilationFailed" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>when Nux fails to compile a given model image to NPU model binary</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.DeviceBusy">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">DeviceBusy</span></span><a class="headerlink" href="#furiosa.runtime.errors.DeviceBusy" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>The device is already occupied</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.IncompatibleApiClientError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">IncompatibleApiClientError</span></span><a class="headerlink" href="#furiosa.runtime.errors.IncompatibleApiClientError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>When both API client and server are incompatible</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.IncompatibleModel">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">IncompatibleModel</span></span><a class="headerlink" href="#furiosa.runtime.errors.IncompatibleModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>When Renegade compiler cannot recognize a given model image binary</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.InternalError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">InternalError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cause</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'unknown'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.errors.InternalError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>internal error or no corresponding error in Python binding</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.InvalidCompilerConfig">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">InvalidCompilerConfig</span></span><a class="headerlink" href="#furiosa.runtime.errors.InvalidCompilerConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>Compiler config is invalid</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.InvalidInput">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">InvalidInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Invalid</span> <span class="pre">input</span> <span class="pre">tensors'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.errors.InvalidInput" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="furiosa.common.html#furiosa.common.error.FuriosaError" title="furiosa.common.error.FuriosaError"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.common.error.FuriosaError</span></code></a></p>
+<p>When input tensors are invalid with any reason</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.InvalidSessionOption">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">InvalidSessionOption</span></span><a class="headerlink" href="#furiosa.runtime.errors.InvalidSessionOption" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>when api client fails to initialize due to api keys or others</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.InvalidYamlException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">InvalidYamlException</span></span><a class="headerlink" href="#furiosa.runtime.errors.InvalidYamlException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>When Renegade compiler cannot recognize a given model image binary</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">NativeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.errors.NativeError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Python object correspondnig to nux_error_t in Nux C API</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.API_CLIENT_INIT_FAILED">
+<span class="sig-name descname"><span class="pre">API_CLIENT_INIT_FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.API_CLIENT_INIT_FAILED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.COMPILATION_FAILED">
+<span class="sig-name descname"><span class="pre">COMPILATION_FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.COMPILATION_FAILED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.DEVICE_BUSY">
+<span class="sig-name descname"><span class="pre">DEVICE_BUSY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">23</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.DEVICE_BUSY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.DUMP_PROFILE_FAILED">
+<span class="sig-name descname"><span class="pre">DUMP_PROFILE_FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.DUMP_PROFILE_FAILED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.GET_TASK_FAILED">
+<span class="sig-name descname"><span class="pre">GET_TASK_FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.GET_TASK_FAILED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INCOMPATIBLE_API_CLIENT_ERROR">
+<span class="sig-name descname"><span class="pre">INCOMPATIBLE_API_CLIENT_ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INCOMPATIBLE_API_CLIENT_ERROR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INCOMPATIBLE_MODEL">
+<span class="sig-name descname"><span class="pre">INCOMPATIBLE_MODEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INCOMPATIBLE_MODEL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INTERNAL_ERROR">
+<span class="sig-name descname"><span class="pre">INTERNAL_ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INTERNAL_ERROR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INVALID_BUFFER">
+<span class="sig-name descname"><span class="pre">INVALID_BUFFER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INVALID_BUFFER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INVALID_COMPILER_CONFIG">
+<span class="sig-name descname"><span class="pre">INVALID_COMPILER_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INVALID_COMPILER_CONFIG" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INVALID_INPUTS">
+<span class="sig-name descname"><span class="pre">INVALID_INPUTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INVALID_INPUTS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INVALID_INPUT_INDEX">
+<span class="sig-name descname"><span class="pre">INVALID_INPUT_INDEX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INVALID_INPUT_INDEX" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INVALID_OUTPUTS">
+<span class="sig-name descname"><span class="pre">INVALID_OUTPUTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INVALID_OUTPUTS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INVALID_OUTPUT_INDEX">
+<span class="sig-name descname"><span class="pre">INVALID_OUTPUT_INDEX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INVALID_OUTPUT_INDEX" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INVALID_SESSION_OPTIONS">
+<span class="sig-name descname"><span class="pre">INVALID_SESSION_OPTIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">21</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INVALID_SESSION_OPTIONS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.INVALID_YAML">
+<span class="sig-name descname"><span class="pre">INVALID_YAML</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.INVALID_YAML" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.MODEL_DEPLOY_FAILED">
+<span class="sig-name descname"><span class="pre">MODEL_DEPLOY_FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.MODEL_DEPLOY_FAILED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.MODEL_EXECUTION_FAILED">
+<span class="sig-name descname"><span class="pre">MODEL_EXECUTION_FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.MODEL_EXECUTION_FAILED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.NO_API_KEY">
+<span class="sig-name descname"><span class="pre">NO_API_KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.NO_API_KEY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.NULL_POINTER_EXCEPTION">
+<span class="sig-name descname"><span class="pre">NULL_POINTER_EXCEPTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.NULL_POINTER_EXCEPTION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.NUX_CREATION_FAILED">
+<span class="sig-name descname"><span class="pre">NUX_CREATION_FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.NUX_CREATION_FAILED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.QUEUE_NO_DATA">
+<span class="sig-name descname"><span class="pre">QUEUE_NO_DATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.QUEUE_NO_DATA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.QUEUE_WAIT_TIMEOUT">
+<span class="sig-name descname"><span class="pre">QUEUE_WAIT_TIMEOUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.QUEUE_WAIT_TIMEOUT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.SESSION_TERMINATED">
+<span class="sig-name descname"><span class="pre">SESSION_TERMINATED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.SESSION_TERMINATED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.SUCCESS">
+<span class="sig-name descname"><span class="pre">SUCCESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.SUCCESS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.TENSOR_NAME_NOT_FOUND">
+<span class="sig-name descname"><span class="pre">TENSOR_NAME_NOT_FOUND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">24</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.TENSOR_NAME_NOT_FOUND" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeError.UNSUPPORTED_FEATURE">
+<span class="sig-name descname"><span class="pre">UNSUPPORTED_FEATURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">25</span></em><a class="headerlink" href="#furiosa.runtime.errors.NativeError.UNSUPPORTED_FEATURE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">NativeException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.runtime.errors.NativeError" title="furiosa.runtime.errors.NativeError"><span class="pre">furiosa.runtime.errors.NativeError</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.errors.NativeException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="furiosa.common.html#furiosa.common.error.FuriosaError" title="furiosa.common.error.FuriosaError"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.common.error.FuriosaError</span></code></a></p>
+<p>general exception caused by Nuxpy</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NativeException.native_error">
+<span class="sig-name descname"><span class="pre">native_error</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.runtime.errors.NativeError" title="furiosa.runtime.errors.NativeError"><span class="pre">furiosa.runtime.errors.NativeError</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.runtime.errors.NativeException.native_error" title="Permalink to this definition"></a></dt>
+<dd><p>Return a native error if this exception comes from C native extension</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.NoApiKeyException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">NoApiKeyException</span></span><a class="headerlink" href="#furiosa.runtime.errors.NoApiKeyException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>when api client fails to initialize due to api keys or others</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.QueueWaitTimeout">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">QueueWaitTimeout</span></span><a class="headerlink" href="#furiosa.runtime.errors.QueueWaitTimeout" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>Timed out in Completion queue</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.SessionClosed">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">SessionClosed</span></span><a class="headerlink" href="#furiosa.runtime.errors.SessionClosed" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="furiosa.common.html#furiosa.common.error.FuriosaError" title="furiosa.common.error.FuriosaError"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.common.error.FuriosaError</span></code></a></p>
+<p>Session is already terminated</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.SessionTerminated">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">SessionTerminated</span></span><a class="headerlink" href="#furiosa.runtime.errors.SessionTerminated" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>Session is already terminated</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.TensorNameNotFound">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">TensorNameNotFound</span></span><a class="headerlink" href="#furiosa.runtime.errors.TensorNameNotFound" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>When a given tensor name is not found in this model</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.UnsupportedDataType">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">UnsupportedDataType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.errors.UnsupportedDataType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>Unsupported tensor data type</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.UnsupportedFeature">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">UnsupportedFeature</span></span><a class="headerlink" href="#furiosa.runtime.errors.UnsupportedFeature" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>Feature is not supported</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.UnsupportedTensorType">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">UnsupportedTensorType</span></span><a class="headerlink" href="#furiosa.runtime.errors.UnsupportedTensorType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.errors.NativeException</span></code></a></p>
+<p>Unsupported tensor type</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.errors.into_exception">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">into_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">ctypes.c_int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.errors.NativeException" title="furiosa.runtime.errors.NativeException"><span class="pre">furiosa.runtime.errors.NativeException</span></a></span></span><a class="headerlink" href="#furiosa.runtime.errors.into_exception" title="Permalink to this definition"></a></dt>
+<dd><p>Convert nux_error_t type in Nux C API to NuxException</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>err</strong> (<a class="reference internal" href="#furiosa.runtime.errors.NativeError" title="furiosa.runtime.errors.NativeError"><em>NativeError</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>NuxException</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.runtime.model">
+<span id="furiosa-runtime-model-module"></span><h2>furiosa.runtime.model module<a class="headerlink" href="#module-furiosa.runtime.model" title="Permalink to this headline"></a></h2>
+<p>Model and its methods to access model metadata</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.model.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><a class="headerlink" href="#furiosa.runtime.model.Model" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>NPU model binary compiled by Renegade compiler</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.allocate_inputs">
+<span class="sig-name descname"><span class="pre">allocate_inputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.allocate_inputs" title="Permalink to this definition"></a></dt>
+<dd><p>Creates an array of input tensors with allocated buffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.allocate_outputs">
+<span class="sig-name descname"><span class="pre">allocate_outputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.allocate_outputs" title="Permalink to this definition"></a></dt>
+<dd><p>Creates an array of output tensors with allocated buffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.allocate_tensors">
+<span class="sig-name descname"><span class="pre">allocate_tensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.allocate_tensors" title="Permalink to this definition"></a></dt>
+<dd><p>Creates an array of tensors corresponding to tensor names with allocated buffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.create_inputs">
+<span class="sig-name descname"><span class="pre">create_inputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.create_inputs" title="Permalink to this definition"></a></dt>
+<dd><p>Creates an array of input tensors without allocated buffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.create_outputs">
+<span class="sig-name descname"><span class="pre">create_outputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.create_outputs" title="Permalink to this definition"></a></dt>
+<dd><p>Creates an array of output tensors without allocated buffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.create_tensors">
+<span class="sig-name descname"><span class="pre">create_tensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.create_tensors" title="Permalink to this definition"></a></dt>
+<dd><p>Creates an array of tensors corresponding to tensor names without allocated buffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.input">
+<span class="sig-name descname"><span class="pre">input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorDesc" title="furiosa.runtime.tensor.TensorDesc"><span class="pre">furiosa.runtime.tensor.TensorDesc</span></a></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.input" title="Permalink to this definition"></a></dt>
+<dd><p>Return tensor description of i-th input tensor of Model</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.input_num">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#furiosa.runtime.model.Model.input_num" title="Permalink to this definition"></a></dt>
+<dd><p>Number of input tensors of Model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.inputs">
+<span class="sig-name descname"><span class="pre">inputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.runtime.tensor.TensorDesc" title="furiosa.runtime.tensor.TensorDesc"><span class="pre">furiosa.runtime.tensor.TensorDesc</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.inputs" title="Permalink to this definition"></a></dt>
+<dd><p>Tensor descriptions of all input tensors of Model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.output">
+<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorDesc" title="furiosa.runtime.tensor.TensorDesc"><span class="pre">furiosa.runtime.tensor.TensorDesc</span></a></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.output" title="Permalink to this definition"></a></dt>
+<dd><p>Returns tensor description of i-th output tensor of Model</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.output_num">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#furiosa.runtime.model.Model.output_num" title="Permalink to this definition"></a></dt>
+<dd><p>Number of output tensors of Model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.runtime.tensor.TensorDesc" title="furiosa.runtime.tensor.TensorDesc"><span class="pre">furiosa.runtime.tensor.TensorDesc</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.outputs" title="Permalink to this definition"></a></dt>
+<dd><p>Tensor descriptions of all output tensors of Model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.print_summary">
+<span class="sig-name descname"><span class="pre">print_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.model.Model.print_summary" title="Permalink to this definition"></a></dt>
+<dd><p>Prints the summary of this model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.model.Model.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.runtime.model.Model.summary" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the summary of this model</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.runtime.profiler">
+<span id="furiosa-runtime-profiler-module"></span><h2>furiosa.runtime.profiler module<a class="headerlink" href="#module-furiosa.runtime.profiler" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.ChromeTraceConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">ChromeTraceConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">io.IOBase</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.ChromeTraceConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<p>ChromeTrace specific config.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.ChromeTraceConfig.file">
+<span class="sig-name descname"><span class="pre">file</span></span><a class="headerlink" href="#furiosa.runtime.profiler.ChromeTraceConfig.file" title="Permalink to this definition"></a></dt>
+<dd><p>file descriptor to write profile data. By default, sys.stdout.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.ChromeTraceConfig.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#furiosa.runtime.profiler.ChromeTraceConfig.Config" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.ChromeTraceConfig.Config.arbitrary_types_allowed">
+<span class="sig-name descname"><span class="pre">arbitrary_types_allowed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#furiosa.runtime.profiler.ChromeTraceConfig.Config.arbitrary_types_allowed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.ChromeTraceConfig.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'forbid'</span></em><a class="headerlink" href="#furiosa.runtime.profiler.ChromeTraceConfig.Config.extra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.ChromeTraceConfig.Config.json_encoders">
+<span class="sig-name descname"><span class="pre">json_encoders</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'_io._IOBase'&gt;:</span> <span class="pre">&lt;function</span> <span class="pre">ChromeTraceConfig.Config.&lt;lambda&gt;&gt;}</span></em><a class="headerlink" href="#furiosa.runtime.profiler.ChromeTraceConfig.Config.json_encoders" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">file</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">io.IOBase</span></em><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.PandasDataFrameConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">PandasDataFrameConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.PandasDataFrameConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<p>PandasDataFrame specific config.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.PandasDataFrameConfig.file">
+<span class="sig-name descname"><span class="pre">file</span></span><a class="headerlink" href="#furiosa.runtime.profiler.PandasDataFrameConfig.file" title="Permalink to this definition"></a></dt>
+<dd><p>file descriptor to write profile data. By default, memfd.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.PandasDataFrameConfig.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#furiosa.runtime.profiler.PandasDataFrameConfig.Config" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.PandasDataFrameConfig.Config.arbitrary_types_allowed">
+<span class="sig-name descname"><span class="pre">arbitrary_types_allowed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#furiosa.runtime.profiler.PandasDataFrameConfig.Config.arbitrary_types_allowed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.PandasDataFrameConfig.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'allow'</span></em><a class="headerlink" href="#furiosa.runtime.profiler.PandasDataFrameConfig.Config.extra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">file</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.RecordFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">RecordFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.RecordFormat" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Profiler format to record profile data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.RecordFormat.ChromeTrace">
+<span class="sig-name descname"><span class="pre">ChromeTrace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#furiosa.runtime.profiler.RecordFormat.ChromeTrace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.RecordFormat.PandasDataFrame">
+<span class="sig-name descname"><span class="pre">PandasDataFrame</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.runtime.profiler.RecordFormat.PandasDataFrame" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">Resource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.Resource" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Flag</span></code></p>
+<p>Profiler target resource to be recorded.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.ALL">
+<span class="sig-name descname"><span class="pre">ALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.ALL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.CPU">
+<span class="sig-name descname"><span class="pre">CPU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.CPU" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.NPU">
+<span class="sig-name descname"><span class="pre">NPU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.NPU" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><span class="pre">furiosa.runtime.profiler.Resource</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resource.ALL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.runtime.profiler.RecordFormat" title="furiosa.runtime.profiler.RecordFormat"><span class="pre">furiosa.runtime.profiler.RecordFormat</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RecordFormat.ChromeTrace</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Profiler context manager.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;profile.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">RecordFormat</span><span class="o">.</span><span class="n">ChromeTrace</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="c1"># Profiler enabled from here</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;Inference&quot;</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="o">...</span> <span class="c1"># Profiler recorded with span named &#39;Inference&#39;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.export_chrome_trace">
+<span class="sig-name descname"><span class="pre">export_chrome_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.export_chrome_trace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_cpu_pandas_dataframe">
+<span class="sig-name descname"><span class="pre">get_cpu_pandas_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_cpu_pandas_dataframe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_npu_pandas_dataframe">
+<span class="sig-name descname"><span class="pre">get_npu_pandas_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_npu_pandas_dataframe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_pandas_dataframe">
+<span class="sig-name descname"><span class="pre">get_pandas_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_pandas_dataframe_with_filter">
+<span class="sig-name descname"><span class="pre">get_pandas_dataframe_with_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe_with_filter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_external_operators">
+<span class="sig-name descname"><span class="pre">print_external_operators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_external_operators" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_inferences">
+<span class="sig-name descname"><span class="pre">print_inferences</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_inferences" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_npu_executions">
+<span class="sig-name descname"><span class="pre">print_npu_executions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_npu_executions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_npu_operators">
+<span class="sig-name descname"><span class="pre">print_npu_operators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_npu_operators" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_summary">
+<span class="sig-name descname"><span class="pre">print_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_summary" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.record">
+<span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warm_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.record" title="Permalink to this definition"></a></dt>
+<dd><p>Create profiler span with specified name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Profiler record span name.</p></li>
+<li><p><strong>warm_up</strong> (<em>bool</em>) – If true, do not record profiler result, and just warm up.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.runtime.session">
+<span id="furiosa-runtime-session-module"></span><h2>furiosa.runtime.session module<a class="headerlink" href="#module-furiosa.runtime.session" title="Permalink to this headline"></a></h2>
+<p>Session and its asynchronous API for model inference</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.session.AsyncSession">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.session.</span></span><span class="sig-name descname"><span class="pre">AsyncSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ctypes.c_void_p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.AsyncSession" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.model.Model" title="furiosa.runtime.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.model.Model</span></code></a></p>
+<p>An asynchronous session for a given model allows to submit predictions</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.session.AsyncSession.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">2b7ab80&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.AsyncSession.close" title="Permalink to this definition"></a></dt>
+<dd><p>Closes this session</p>
+<p>After a session is closed, CompletionQueue will return an error
+if CompletionQueue.recv() is called.</p>
+<p>_LIBNUX is only for internal use and not supposed to be specified by a
+user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.session.AsyncSession.submit">
+<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.generic</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#furiosa.runtime.session.AsyncSession.submit" title="Permalink to this definition"></a></dt>
+<dd><p>Submit a prediction request</p>
+<p>It immediately returns without blocking the caller, and
+If the prediction is completed, the outputs will be sent to CompletionQueue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> – Input values</p></li>
+<li><p><strong>context</strong> – an additional context to identify the prediction request</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.session.CompletionQueue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.session.</span></span><span class="sig-name descname"><span class="pre">CompletionQueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ctypes.c_void_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_ty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">type</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_descs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.runtime.tensor.TensorDesc" title="furiosa.runtime.tensor.TensorDesc"><span class="pre">furiosa.runtime.tensor.TensorDesc</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profiler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profiler_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.CompletionQueue" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Receives the completion results asynchronously from AsyncSession</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.session.CompletionQueue.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">2b7ab80&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.CompletionQueue.close" title="Permalink to this definition"></a></dt>
+<dd><p>Closes this completion queue.</p>
+<p>If it is closed, AsyncSession also will stop working.</p>
+<p>_LIBNUX is only for internal use and not supposed to be specified by a
+user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.session.CompletionQueue.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.runtime.session.CompletionQueue.recv" title="Permalink to this definition"></a></dt>
+<dd><p>Receives the prediction results which are asynchronously coming from AsyncSession</p>
+<p>If there are already prediction outputs, it will return immediately.
+Otherwise, it will be blocked until the next result are ready.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">timeout</span></code> is set, <code class="docutils literal notranslate"><span class="pre">recv()</span></code> will be blocked only until
+the timeout occurs. If timed out, <code class="docutils literal notranslate"><span class="pre">recv()</span></code> throws <code class="docutils literal notranslate"><span class="pre">QueueWaitTimeout</span></code>
+exception.</p>
+<p>If AsyncSession is closed earlier <code class="docutils literal notranslate"><span class="pre">recv()</span></code> will throw
+<code class="docutils literal notranslate"><span class="pre">SessionTerminated</span></code> exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timeout</strong> (<em>int</em>) – How long to wait before giving up.</p></li>
+<li><p><strong>milliseconds.</strong> (<em>It should be a positive interger in</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tuple, whose first value is the context value passed             when you submit an inference task and the second value             is inference output.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.session.Session">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.session.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_hints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.Session" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#furiosa.runtime.model.Model" title="furiosa.runtime.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">furiosa.runtime.model.Model</span></code></a></p>
+<p>Provides a blocking API to run an inference task with a given model</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.session.Session.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">2b7ab80&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.Session.close" title="Permalink to this definition"></a></dt>
+<dd><p>Close the session and release all resources belonging to the session</p>
+<p>_LIBNUX is only for internal use and not supposed to be specified by a
+user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.session.Session.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.generic</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.generic</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a></span></span><a class="headerlink" href="#furiosa.runtime.session.Session.run" title="Permalink to this definition"></a></dt>
+<dd><p>Runs an inference task with <cite>inputs</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – It can be a single runtime.Tensor, runtime.TensorArray or             numpy.ndarray object. Also, you can pass one TensorArray or a             list of numpy.ndarray objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inference output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.session.Session.run_with">
+<span class="sig-name descname"><span class="pre">run_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><span class="pre">furiosa.runtime.tensor.TensorArray</span></a></span></span><a class="headerlink" href="#furiosa.runtime.session.Session.run_with" title="Permalink to this definition"></a></dt>
+<dd><p>Runs an inference task with <cite>inputs</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – It can be a single runtime.Tensor, runtime.TensorArray or             numpy.ndarray object. Also, you can pass one TensorArray or a             list of numpy.ndarray objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inference output</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.session.create">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.session.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="furiosa.registry.html#furiosa.registry.model.Model" title="furiosa.registry.model.Model"><span class="pre">furiosa.registry.model.Model</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_hints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.session.Session" title="furiosa.runtime.session.Session"><span class="pre">furiosa.runtime.session.Session</span></a></span></span><a class="headerlink" href="#furiosa.runtime.session.create" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a session for a model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>bytes</em><em>, </em><em>str</em><em>, </em><em>Path</em><em>, </em><a class="reference internal" href="furiosa.registry.html#furiosa.registry.model.Model" title="furiosa.registry.model.Model"><em>Model</em></a>) – a byte string containing a model image or         a path string of a model image file or <cite>furiosa.registry.Model</cite></p></li>
+<li><p><strong>device</strong> – NPU device (str) (e.g., npu0pe0, npu0pe0-1)</p></li>
+<li><p><strong>worker_num</strong> – Number of workers</p></li>
+<li><p><strong>batch_size</strong> – Batch size of input tensors</p></li>
+<li><p><strong>compiler_config</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>object</em><em>]</em>) – Compile config</p></li>
+<li><p><strong>compiler_hints</strong> – Print compiler hints if True (default: True)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the session for a given model, allowing to run predictions.         Session is a thread safe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.session.create_async">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.session.</span></span><span class="sig-name descname"><span class="pre">create_async</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="furiosa.registry.html#furiosa.registry.model.Model" title="furiosa.registry.model.Model"><span class="pre">furiosa.registry.model.Model</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_ty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">type</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_hints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#furiosa.runtime.session.AsyncSession" title="furiosa.runtime.session.AsyncSession"><span class="pre">furiosa.runtime.session.AsyncSession</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.session.CompletionQueue" title="furiosa.runtime.session.CompletionQueue"><span class="pre">furiosa.runtime.session.CompletionQueue</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.runtime.session.create_async" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a pair of the asynchronous session and the completion queue for a given model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>bytes</em><em>, </em><em>str</em><em>, </em><em>Path</em><em>, </em><a class="reference internal" href="furiosa.registry.html#furiosa.registry.model.Model" title="furiosa.registry.model.Model"><em>Model</em></a>) – a byte string containing a model image or         a path string of a model image file or <cite>furiosa.registry.Model</cite></p></li>
+<li><p><strong>context_ty</strong> (<em>type</em>) – Type for passing context from AsyncSession to CompletionQueue</p></li>
+<li><p><strong>device</strong> – NPU device (str) (e.g., npu0pe0, npu0pe0-1)</p></li>
+<li><p><strong>worker_num</strong> – Number of workers</p></li>
+<li><p><strong>batch_size</strong> – Batch size of input tensors</p></li>
+<li><p><strong>compiler_hints</strong> – Print compiler hints if True (default: True)</p></li>
+<li><p><strong>input_queue_size</strong> – The input queue size, and it must be &gt; 0 and &lt; 2^31.</p></li>
+<li><p><strong>output_queue_size</strong> – The output queue size, and it must be be &gt; 0 and &lt; 2^31.</p></li>
+<li><p><strong>compiler_config</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>object</em><em>]</em>) – Compile config</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pair of the asynchronous session and the completion queue.         the asynchronous session for a given model allows to submit predictions.         the completion queue allows users to receive the prediction outputs         asynchronously.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.runtime.tensor">
+<span id="furiosa-runtime-tensor-module"></span><h2>furiosa.runtime.tensor module<a class="headerlink" href="#module-furiosa.runtime.tensor" title="Permalink to this headline"></a></h2>
+<p>Tensor object and its utilities</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">Axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.Axis" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Axis of Tensor</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.BATCH">
+<span class="sig-name descname"><span class="pre">BATCH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.BATCH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.BATCH_OUTER">
+<span class="sig-name descname"><span class="pre">BATCH_OUTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.BATCH_OUTER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.CHANNEL">
+<span class="sig-name descname"><span class="pre">CHANNEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.CHANNEL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.CHANNEL_OUTER">
+<span class="sig-name descname"><span class="pre">CHANNEL_OUTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.CHANNEL_OUTER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.HEIGHT">
+<span class="sig-name descname"><span class="pre">HEIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.HEIGHT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.HEIGHT_OUTER">
+<span class="sig-name descname"><span class="pre">HEIGHT_OUTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.HEIGHT_OUTER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.UNKNOWN">
+<span class="sig-name descname"><span class="pre">UNKNOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.UNKNOWN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.WIDTH">
+<span class="sig-name descname"><span class="pre">WIDTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.WIDTH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Axis.WIDTH_OUTER">
+<span class="sig-name descname"><span class="pre">WIDTH_OUTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Axis.WIDTH_OUTER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.DataType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">DataType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.DataType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Tensor data type</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.DataType.BFLOAT16">
+<span class="sig-name descname"><span class="pre">BFLOAT16</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#furiosa.runtime.tensor.DataType.BFLOAT16" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.DataType.FLOAT32">
+<span class="sig-name descname"><span class="pre">FLOAT32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#furiosa.runtime.tensor.DataType.FLOAT32" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.DataType.INT32">
+<span class="sig-name descname"><span class="pre">INT32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#furiosa.runtime.tensor.DataType.INT32" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.DataType.INT64">
+<span class="sig-name descname"><span class="pre">INT64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#furiosa.runtime.tensor.DataType.INT64" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.DataType.INT8">
+<span class="sig-name descname"><span class="pre">INT8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#furiosa.runtime.tensor.DataType.INT8" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.DataType.UINT8">
+<span class="sig-name descname"><span class="pre">UINT8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.runtime.tensor.DataType.UINT8" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.DataType.numpy_dtype">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><a class="headerlink" href="#furiosa.runtime.tensor.DataType.numpy_dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Return the numpy dtype corresponding to this DataType</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">Tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ctypes.c_void_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.runtime.tensor.TensorDesc" title="furiosa.runtime.tensor.TensorDesc"><span class="pre">furiosa.runtime.tensor.TensorDesc</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">allocated</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.Tensor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A tensor which contains data and tensor description including shape</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.copy_from">
+<span class="sig-name descname"><span class="pre">copy_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.generic</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.copy_from" title="Permalink to this definition"></a></dt>
+<dd><p>Copy the contents of Numpy ndarray to this tensor</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.dtype">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.tensor.DataType" title="furiosa.runtime.tensor.DataType"><span class="pre">furiosa.runtime.tensor.DataType</span></a></em><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Data type of tensor</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.numpy">
+<span class="sig-name descname"><span class="pre">numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.numpy" title="Permalink to this definition"></a></dt>
+<dd><p>Return numpy.ndarray converted from this tensor</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.numpy_dtype">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.numpy_dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Return numpy dtype</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.shape" title="Permalink to this definition"></a></dt>
+<dd><p>Return the tensor shape</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tensor shape. An example shape is
+<code class="docutils literal notranslate"><span class="pre">`(1,</span> <span class="pre">28,</span> <span class="pre">28,</span> <span class="pre">1)`</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.view">
+<span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.view" title="Permalink to this definition"></a></dt>
+<dd><p>Return numpy.ndarray view converted from this tensor</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorArray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">TensorArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ref:</span> <span class="pre">ctypes.c_void_p,</span> <span class="pre">descs:</span> <span class="pre">[&lt;class</span> <span class="pre">'furiosa.runtime.tensor.TensorDesc'&gt;],</span> <span class="pre">allocated:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.TensorArray" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A list of tensors</p>
+<p>It is used for input and output values of model inferences.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorArray.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.TensorArray.is_empty" title="Permalink to this definition"></a></dt>
+<dd><p>True if it has no Tensor</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorArray.numpy">
+<span class="sig-name descname"><span class="pre">numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'numpy.ndarray'&gt;]</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.TensorArray.numpy" title="Permalink to this definition"></a></dt>
+<dd><p>Convert TensorArray to a list of numpy.ndarray</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorArray.view">
+<span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'numpy.ndarray'&gt;]</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.TensorArray.view" title="Permalink to this definition"></a></dt>
+<dd><p>Convert TensorArray to a list of numpy.ndarray view</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">TensorDesc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ctypes.c_void_p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Tensor description including dimension, shape, and data type</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.axis">
+<span class="sig-name descname"><span class="pre">axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.runtime.tensor.Axis" title="furiosa.runtime.tensor.Axis"><span class="pre">furiosa.runtime.tensor.Axis</span></a></span></span><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.axis" title="Permalink to this definition"></a></dt>
+<dd><p>Axis type of i-th dimension (e.g., width, height, channel)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.dim" title="Permalink to this definition"></a></dt>
+<dd><p>Size of i-th dimension</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.dtype">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.tensor.DataType" title="furiosa.runtime.tensor.DataType"><span class="pre">furiosa.runtime.tensor.DataType</span></a></em><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Data type of tensor</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.format">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.format" title="Permalink to this definition"></a></dt>
+<dd><p>Tensor memory layout (e.g., NHWC, NCHW)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.length">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.length" title="Permalink to this definition"></a></dt>
+<dd><p>Number of all elements across all dimensions</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.ndim">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ndim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.ndim" title="Permalink to this definition"></a></dt>
+<dd><p>Number of dimensions</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.numpy_dtype">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.numpy_dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Return numpy dtype</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.shape" title="Permalink to this definition"></a></dt>
+<dd><p>tensor shape</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.size" title="Permalink to this definition"></a></dt>
+<dd><p>Size in bytes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorDesc.stride">
+<span class="sig-name descname"><span class="pre">stride</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.TensorDesc.stride" title="Permalink to this definition"></a></dt>
+<dd><p>Stride of i-th dimension</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.numpy_dtype">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.numpy_dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Return numpy dtype from any eligible object of Nux</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.rand">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">rand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.runtime.tensor.TensorDesc" title="furiosa.runtime.tensor.TensorDesc"><span class="pre">furiosa.runtime.tensor.TensorDesc</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.rand" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new array of given shape and type, filled with random numbers.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.tensor.zeros">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">zeros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.runtime.tensor.TensorDesc" title="furiosa.runtime.tensor.TensorDesc"><span class="pre">furiosa.runtime.tensor.TensorDesc</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#furiosa.runtime.tensor.zeros" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new array of given shape and type, filled with zeros.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-furiosa.runtime">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.runtime" title="Permalink to this headline"></a></h2>
+<p>Provide high-level Python APIs to access Furiosa AI’s NPUs and its eco-system</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.runtime.full_version">
+<span class="sig-prename descclassname"><span class="pre">furiosa.runtime.</span></span><span class="sig-name descname"><span class="pre">full_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#furiosa.runtime.full_version" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a full version string including the native library version</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

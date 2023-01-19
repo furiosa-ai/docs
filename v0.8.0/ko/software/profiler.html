@@ -1,75 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>성능 프로파일링 &mdash; FuriosaAI NPU 및 Software 문서 0.8.0 문서</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="Kubernetes 지원" href="kubernetes_support.html" />
     <link rel="prev" title="모델 양자화" href="quantization.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
@@ -139,78 +88,37 @@
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>성능 프로파일링</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">성능 프로파일링</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/software/profiler.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="profiling">
-<span id="id1"></span><h1>성능 프로파일링<a class="headerlink" href="#profiling" title="이 표제에 대한 퍼머링크">¶</a></h1>
+<span id="id1"></span><h1>성능 프로파일링<a class="headerlink" href="#profiling" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>많은 DNN 응용에서 낮은 지연시간과 높은 처리 성능은 중요한 요소이다.
 성능 최적화를 위해서는 모델 개발자나 ML 엔지니어가 모델의 성능을 이해하고 병목지점을 분석할 수 있어야 한다.
 이를 위해 FuriosaAI SDK는 프로파일링 도구를 제공한다.</p>
 <div class="section" id="trace-analysis">
-<h2>트레이스 분석 (Trace Analysis)<a class="headerlink" href="#trace-analysis" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<h2>트레이스 분석 (Trace Analysis)<a class="headerlink" href="#trace-analysis" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>트레이스 분석은 모델의 추론 작업을 실제로 실행 시키고 측정한 구간 별 실행 시간을 구조적 데이터(structured)로 제공한다.
 또한 데이터를 크롬 웹브라우져(Chrome Web Browser)의
 <a class="reference external" href="https://www.chromium.org/developers/how-tos/trace-event-profiling-tool/">Trace Event Profiling Tool</a>
@@ -218,7 +126,7 @@
 <p>트레이스 생성은 구간 별 시간을 측정하고 파일로 결과를 쓰기 때문에 작지만 실행 시간 오버헤드를 유발한다.
 따라서 기본 설정으로는 활성화 되어 있지 않으며 아래 두 가지 방법을 통해 트레이스를 생성할 수 있다.</p>
 <div class="section" id="id2">
-<h3>환경 변수를 통한 트레이스 생성 활성화<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>환경 변수를 통한 트레이스 생성 활성화<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">FURIOSA_PROFILER_OUTPUT_PATH</span></code> 에 트레이스 결과가 쓰여질 파일의 경로를 설정 하면
 트레이스 생성을 활성화 할 수 있다. 이 방법은 작성된 코드를 전혀 변경하지 않고
 트레이스를 활성화할 수 있다는 장점이 있다. 반면, 측정하기 윈하는 구간이나 측정 연산의 카테고리를 더 세밀하게 설정 할 수 없다는
@@ -239,7 +147,7 @@ ls -l ./tracing.json
 <p></p>
 </div>
 <div class="section" id="id3">
-<h3>프로파일러 컨텍스트를 이용한 트레이스 생성 활성화<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<h3>프로파일러 컨텍스트를 이용한 트레이스 생성 활성화<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>Python 코드에서 프로파일러 컨텍스트(Profiler Context)를 정의하는 것으로도 트레이스 생성을 활성화할 수 있다.
 이 방법은 환경 변수를 통한 트레이스 활성화 방법과 비교하여 다음과 같은 장점을 가진다.</p>
 <ul class="simple">
@@ -269,7 +177,7 @@ ls -l ./tracing.json
 <a class="with-shadow reference internal image-reference" href="../_images/mnist_trace.png"><img alt="Tracing with Profiler Context" class="with-shadow align-center" src="../_images/mnist_trace.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="pandas-dataframe">
-<span id="pandasprofilinganalysis"></span><h3>Pandas DataFrame을 이용한 트레이스 분석<a class="headerlink" href="#pandas-dataframe" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<span id="pandasprofilinganalysis"></span><h3>Pandas DataFrame을 이용한 트레이스 분석<a class="headerlink" href="#pandas-dataframe" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>측정한 트레이싱 데이터를 Chrome Trace Format으로 출력하여 시각화 하는 방법 외에도
 데이터 분석에 많이 사용되는 Pandas의 DataFrame으로 표현하고 사용할 수 있다.
 이 방법은 Chrome Trace Format과 비교하여 다음과 같은 장점을 가진다.</p>
@@ -339,7 +247,7 @@ ls -l ./tracing.json
 <span class="mi">3</span>  <span class="mi">438</span><span class="n">df7d9beb7fb8c60daaeffbb2c7e76</span>  <span class="n">d2c20e3d9daf21be</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10900</span>     <span class="mi">8555</span>        <span class="mi">2345</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">(4)</span></code> 라인이 실행되면 아래와 같이 NPU의 Execution 단위로 소요된 시간 정보가 출력된다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">(4)</span></code> 라인이 실행되면 아래와 같이 Operator 단위로 소요된 시간 정보가 출력된다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                        <span class="n">average</span> <span class="n">elapsed</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>  <span class="n">count</span>
 <span class="n">name</span>
 <span class="n">LowLevelConv2d</span>                   <span class="mf">1226.187500</span>     <span class="mi">16</span>
@@ -383,50 +291,33 @@ ls -l ./tracing.json
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="kubernetes_support.html" class="btn btn-neutral float-right" title="Kubernetes 지원" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="quantization.html" class="btn btn-neutral float-left" title="모델 양자화" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kubernetes_support.html" class="btn btn-neutral float-right" title="Kubernetes 지원" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; 저작권 2022, FuriosaAI, Inc..
-
-    </p>
+    <p>&#169; 저작권 2022, FuriosaAI, Inc..</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
