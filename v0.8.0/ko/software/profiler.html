@@ -28,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FuriosaAI NPU 및 Software 문서
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -101,7 +105,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">성능 프로파일링</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/software/profiler.rst.txt" rel="nofollow"> View page source</a>
@@ -131,12 +135,12 @@
 트레이스 생성을 활성화 할 수 있다. 이 방법은 작성된 코드를 전혀 변경하지 않고
 트레이스를 활성화할 수 있다는 장점이 있다. 반면, 측정하기 윈하는 구간이나 측정 연산의 카테고리를 더 세밀하게 설정 할 수 없다는
 한계가 있다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> furiosa-sdk/examples/inferences
-<span class="nb">export</span> <span class="nv">FURIOSA_PROFILER_OUTPUT_PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/tracing.json
-./image_classification.sh ../assets/images/car.jpeg
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>furiosa-sdk/examples/inferences
+<span class="nb">export</span><span class="w"> </span><span class="nv">FURIOSA_PROFILER_OUTPUT_PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/tracing.json
+./image_classification.sh<span class="w"> </span>../assets/images/car.jpeg
 
-ls -l ./tracing.json
--rw-r--r--@ <span class="m">1</span> furiosa  furiosa  <span class="m">605054</span> Jun  <span class="m">15</span> <span class="m">02</span>:02 tracing.json
+ls<span class="w"> </span>-l<span class="w"> </span>./tracing.json
+-rw-r--r--@<span class="w"> </span><span class="m">1</span><span class="w"> </span>furiosa<span class="w">  </span>furiosa<span class="w">  </span><span class="m">605054</span><span class="w"> </span>Jun<span class="w">  </span><span class="m">15</span><span class="w"> </span><span class="m">02</span>:02<span class="w"> </span>tracing.json
 </pre></div>
 </div>
 <p>위와 같이 환경변수를 통해 설정하면 환경변수 값에 설정된 경로에 JSON 파일이 쓰여진다.

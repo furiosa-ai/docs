@@ -27,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
           </a>
               <div class="version">
                 0.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -107,7 +111,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Release Notes - 0.7.0</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/releases/0.7.0.rst.txt" rel="nofollow"> View page source</a>
@@ -161,10 +165,10 @@
 <p>The upgrade is a simple process if you are using an APT repository.
 Detailed information on APT repository setting and installation can be found in <a class="reference internal" href="../software/installation.html#requiredpackages"><span class="std std-ref">Driver, Firmware, and Runtime Installation</span></a>.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
-apt-get install -y furiosa-driver-pdma furiosa-libnux
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-driver-pdma<span class="w"> </span>furiosa-libnux
 
-pip install --upgrade furiosa-sdk
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>furiosa-sdk
 </pre></div>
 </div>
 </div></blockquote>
@@ -201,7 +205,7 @@ More detailed instructions can be found in <a class="reference internal" href=".
 <p>When running a function that includes compilation,
 such as <code class="docutils literal notranslate"><span class="pre">session.create()</span></code>, a path that includes the compilation log is printed as follows.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Saving the compilation log into /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Saving<span class="w"> </span>the<span class="w"> </span>compilation<span class="w"> </span>log<span class="w"> </span>into<span class="w"> </span>/home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log
 </pre></div>
 </div>
 </div></blockquote>
@@ -210,10 +214,10 @@ and give some optimization opportunities.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&lt;log</span> <span class="pre">file&gt;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">Hint</span></code> command will show you only hint from the log.
 The hint informs why certain operators are not accelerated as shown in the below example.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cat /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log <span class="p">|</span> grep Hint
-<span class="m">2022</span>-05-24T02:44:11.399402Z  WARN nux::session: Hint <span class="o">[</span><span class="m">19</span><span class="o">]</span>: <span class="s1">&#39;LogSoftmax&#39;</span> cannot be accelerated yet
-<span class="m">2022</span>-05-24T02:44:11.399407Z  WARN nux::session: Hint <span class="o">[</span><span class="m">12</span><span class="o">]</span>: groups should be bigger than <span class="m">1</span>
-<span class="m">2022</span>-05-24T02:44:11.399408Z  WARN nux::session: Hint <span class="o">[</span><span class="m">17</span><span class="o">]</span>: Softmax with large batch <span class="o">(</span><span class="m">36</span> &gt; <span class="m">2</span><span class="o">)</span> cannot be accelerated by Warboy
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Hint
+<span class="m">2022</span>-05-24T02:44:11.399402Z<span class="w">  </span>WARN<span class="w"> </span>nux::session:<span class="w"> </span>Hint<span class="w"> </span><span class="o">[</span><span class="m">19</span><span class="o">]</span>:<span class="w"> </span><span class="s1">&#39;LogSoftmax&#39;</span><span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>accelerated<span class="w"> </span>yet
+<span class="m">2022</span>-05-24T02:44:11.399407Z<span class="w">  </span>WARN<span class="w"> </span>nux::session:<span class="w"> </span>Hint<span class="w"> </span><span class="o">[</span><span class="m">12</span><span class="o">]</span>:<span class="w"> </span>groups<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>bigger<span class="w"> </span>than<span class="w"> </span><span class="m">1</span>
+<span class="m">2022</span>-05-24T02:44:11.399408Z<span class="w">  </span>WARN<span class="w"> </span>nux::session:<span class="w"> </span>Hint<span class="w"> </span><span class="o">[</span><span class="m">17</span><span class="o">]</span>:<span class="w"> </span>Softmax<span class="w"> </span>with<span class="w"> </span>large<span class="w"> </span>batch<span class="w"> </span><span class="o">(</span><span class="m">36</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>accelerated<span class="w"> </span>by<span class="w"> </span>Warboy
 </pre></div>
 </div>
 </div></blockquote>

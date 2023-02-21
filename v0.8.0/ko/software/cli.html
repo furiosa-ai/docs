@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FuriosaAI NPU 및 Software 문서
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -106,7 +110,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">명령행 도구</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/software/cli.rst.txt" rel="nofollow"> View page source</a>
@@ -129,14 +133,14 @@
 <p>이 명령형 도구 사용을 위해서는 사전에 <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 를 따라 커널 드라이버를 설치해야 한다.
 그 이후에는 아래 설명을 따라 furiosa-toolkit 을 설치한다.</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">APT 서버를 이용한 설치</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">다운로드 센터를 이용한 설치</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y furiosa-toolkit
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">APT 서버를 이용한 설치</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">다운로드 센터를 이용한 설치</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-toolkit
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>아래 패키지들의 최신 버전을 선택하여 다운 받아 명령에 쓰여진 순서대로 설치한다.</p>
 <ul class="simple">
 <li><p>furiosactl</p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y ./furiosa-toolkit-x.y.z-?.deb
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./furiosa-toolkit-x.y.z-?.deb
 </pre></div>
 </div>
 </div></div>
@@ -145,7 +149,7 @@
 <h3>furiosactl 사용법<a class="headerlink" href="#furiosactl" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>furiosactl 커맨드는 다양한 서브 커맨드를 제공하고 장치의 정보를 얻거나 제어하는 기능을 가지고 있다.</p>
 <p>문법 개요:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosactl &lt;sub command&gt; <span class="o">[</span>option<span class="o">]</span> ..
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosactl<span class="w"> </span>&lt;sub<span class="w"> </span>command&gt;<span class="w"> </span><span class="o">[</span>option<span class="o">]</span><span class="w"> </span>..
 </pre></div>
 </div>
 <div class="section" id="furiosactl-info">
@@ -154,11 +158,11 @@
 NPU 장치가 잘 인식되었는지 확인하기 위해 <code class="docutils literal notranslate"><span class="pre">info</span></code> 명령을 사용할 수 있다.
 이 명령은 NPU 장치의 DEVICE UUID와 온도, PCI 정보 출력한다. 만약 머신에 장치를 장착한 후에도 장치가 이 명령으로 보이지 않는다면,
 <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 를 따라 드라이버 설치해야 한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosactl info
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosactl<span class="w"> </span>info
 +------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span> NPU  <span class="p">|</span> Name             <span class="p">|</span> Temp. <span class="p">|</span> Power  <span class="p">|</span> PCI-BDF      <span class="p">|</span> PCI-DEV <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">             </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span><span class="w"> </span>PCI-DEV<span class="w"> </span><span class="p">|</span>
 +------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span> npu1 <span class="p">|</span> FuriosaAI Warboy <span class="p">|</span>  <span class="m">40</span>°C <span class="p">|</span> <span class="m">0</span>.00 W <span class="p">|</span> <span class="m">0000</span>:01:00.0 <span class="p">|</span> <span class="m">509</span>:0   <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>npu1<span class="w"> </span><span class="p">|</span><span class="w"> </span>FuriosaAI<span class="w"> </span>Warboy<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">40</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span>.00<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:01:00.0<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">509</span>:0<span class="w">   </span><span class="p">|</span>
 +------+------------------+-------+--------+--------------+---------+
 </pre></div>
 </div>
@@ -168,9 +172,9 @@ NPU 장치가 잘 인식되었는지 확인하기 위해 <code class="docutils l
 <p><code class="docutils literal notranslate"><span class="pre">ps</span></code> 서브 커맨드는 현재 NPU 장치를 점유하고 있는 OS 프로세스의 정보를 출력해준다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># furiosactl ps</span>
 +-----------+--------+------------------------------------------------------------+
-<span class="p">|</span> NPU       <span class="p">|</span> PID    <span class="p">|</span> CMD                                                        <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">       </span><span class="p">|</span><span class="w"> </span>PID<span class="w">    </span><span class="p">|</span><span class="w"> </span>CMD<span class="w">                                                        </span><span class="p">|</span>
 +-----------+--------+------------------------------------------------------------+
-<span class="p">|</span> npu0pe0-1 <span class="p">|</span> <span class="m">132529</span> <span class="p">|</span> /usr/bin/python3 /usr/local/bin/uvicorn image_classify:app <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>npu0pe0-1<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">132529</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>/usr/bin/python3<span class="w"> </span>/usr/local/bin/uvicorn<span class="w"> </span>image_classify:app<span class="w"> </span><span class="p">|</span>
 +-----------+--------+------------------------------------------------------------+
 </pre></div>
 </div>
@@ -183,13 +187,13 @@ NPU 장치가 잘 인식되었는지 확인하기 위해 <code class="docutils l
 또한 확장 패키지를 설치하면 추가 하위 커맨드(subcommand) 가 추가 된다.</p>
 <p>만약 Python 실행 환경이 준비되어 있지 않다면 <a class="reference internal" href="python-sdk.html#setuppython"><span class="std std-ref">Python 실행 환경 구성</span></a> 를 참고한다.</p>
 <p>명령행 도구 설치</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install furiosa-sdk
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>furiosa-sdk
 </pre></div>
 </div>
 <p>설치 확인</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa compile --version
-libnpu.so --- v2.0, built @ fe1fca3
-<span class="m">0</span>.5.0 <span class="o">(</span>rev: 49b97492a built at <span class="m">2021</span>-12-07 <span class="m">04</span>:07:08<span class="o">)</span> <span class="o">(</span>wrapper: None<span class="o">)</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa<span class="w"> </span>compile<span class="w"> </span>--version
+libnpu.so<span class="w"> </span>---<span class="w"> </span>v2.0,<span class="w"> </span>built<span class="w"> </span>@<span class="w"> </span>fe1fca3
+<span class="m">0</span>.5.0<span class="w"> </span><span class="o">(</span>rev:<span class="w"> </span>49b97492a<span class="w"> </span>built<span class="w"> </span>at<span class="w"> </span><span class="m">2021</span>-12-07<span class="w"> </span><span class="m">04</span>:07:08<span class="o">)</span><span class="w"> </span><span class="o">(</span>wrapper:<span class="w"> </span>None<span class="o">)</span>
 </pre></div>
 </div>
 <div class="section" id="furiosa-compile">
@@ -202,26 +206,26 @@ libnpu.so --- v2.0, built @ fe1fca3
 <span id="litmus"></span><h3>furiosa litmus (모델 적합 여부 검사)<a class="headerlink" href="#furiosa-litmus" title="이 표제에 대한 퍼머링크"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">litmus</span></code> 명령은 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a>, <a class="reference external" href="https://onnx.ai/">ONNX</a> 모델을 인자로 받아,
 자동으로 양자화한 후 최종 바이너리까지 컴파일을 시도하여 주어진 모델이 SDK와 호환되는지 검사한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa litmus yolov4.onxx
-<span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Checking <span class="k">if</span> the model can be transformed into a quantized model ...
-Quantization: <span class="m">100</span>%<span class="p">|</span>█████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span> <span class="m">67</span>/67 <span class="o">[</span><span class="m">00</span>:00&lt;<span class="m">00</span>:00, <span class="m">85</span>.33it/s<span class="o">]</span>
-<span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Passed
-<span class="o">[</span>Step <span class="m">2</span><span class="o">]</span> Checking <span class="k">if</span> the model can be compiled to a NPU program ...
-<span class="o">[</span>Step <span class="m">2</span><span class="o">]</span> Passed
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa<span class="w"> </span>litmus<span class="w"> </span>yolov4.onnx
+<span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>transformed<span class="w"> </span>into<span class="w"> </span>a<span class="w"> </span>quantized<span class="w"> </span>model<span class="w"> </span>...
+Quantization:<span class="w"> </span><span class="m">100</span>%<span class="p">|</span>█████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">67</span>/67<span class="w"> </span><span class="o">[</span><span class="m">00</span>:00&lt;<span class="m">00</span>:00,<span class="w"> </span><span class="m">85</span>.33it/s<span class="o">]</span>
+<span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Passed
+<span class="o">[</span>Step<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>compiled<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>NPU<span class="w"> </span>program<span class="w"> </span>...
+<span class="o">[</span>Step<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Passed
 </pre></div>
 </div>
 <p>실패하는 경우 아래와 같은 오류를 볼 수 있으며 오류가 발생한 경우 메시지를
 <a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals">FuriosaAI 고객지원 센터</a> 에
 <cite>버그 신고(Bug Report)</cite> 섹션 보고하여 지원을 받을 수 있다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa litmus efficientnet-lite4-11.onnx
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa<span class="w"> </span>litmus<span class="w"> </span>efficientnet-lite4-11.onnx
 
-  Stdout:
-  <span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Checking <span class="k">if</span> the model can be transformed into a quantized model ...
+<span class="w">  </span>Stdout:
+<span class="w">  </span><span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>transformed<span class="w"> </span>into<span class="w"> </span>a<span class="w"> </span>quantized<span class="w"> </span>model<span class="w"> </span>...
 
-  Stderr:
-  /root/miniconda3/envs/furiosa/lib/python3.8/site-packages/onnx/__init__.py:97: RuntimeWarning: Unexpected end-group tag: Not all data was converted
-      <span class="nv">decoded</span> <span class="o">=</span> cast<span class="o">(</span>Optional<span class="o">[</span>int<span class="o">]</span>, proto.ParseFromString<span class="o">(</span>s<span class="o">))</span>
-  <span class="o">[</span>Step <span class="m">1</span><span class="o">]</span> Failed
+<span class="w">  </span>Stderr:
+<span class="w">  </span>/root/miniconda3/envs/furiosa/lib/python3.8/site-packages/onnx/__init__.py:97:<span class="w"> </span>RuntimeWarning:<span class="w"> </span>Unexpected<span class="w"> </span>end-group<span class="w"> </span>tag:<span class="w"> </span>Not<span class="w"> </span>all<span class="w"> </span>data<span class="w"> </span>was<span class="w"> </span>converted
+<span class="w">      </span><span class="nv">decoded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cast<span class="o">(</span>Optional<span class="o">[</span>int<span class="o">]</span>,<span class="w"> </span>proto.ParseFromString<span class="o">(</span>s<span class="o">))</span>
+<span class="w">  </span><span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Failed
 </pre></div>
 </div>
 </div>

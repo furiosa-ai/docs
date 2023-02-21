@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FuriosaAI NPU 및 Software 문서
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -103,7 +107,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">드라이버, 펌웨어, 런타임 설치 가이드</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/software/installation.rst.txt" rel="nofollow"> View page source</a>
@@ -143,26 +147,26 @@ Ubuntu 또는 Debian 리눅스에 설정한다. APT를 사용하지 않고 다�
 <ol class="arabic simple">
 <li><p>HTTPS 기반의 APT 서버 접근을 위해 필요 패키지를 설치 한다.</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update
-sudo apt install -y ca-certificates apt-transport-https gnupg
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ca-certificates<span class="w"> </span>apt-transport-https<span class="w"> </span>gnupg
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>FuriosaAI의 공개 Signing 키를 등록 한다.</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 5F03AFA423A751913F249259814F888B20B09A7E
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-key<span class="w"> </span>adv<span class="w"> </span>--keyserver<span class="w"> </span>keyserver.ubuntu.com<span class="w"> </span>--recv-key<span class="w"> </span>5F03AFA423A751913F249259814F888B20B09A7E
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>FuriosaAI 개발자 센터에서 API 키를 발급하고 발급한 API 키를 아래와 같이 설정한다.</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo tee -a /etc/apt/auth.conf.d/furiosa.conf &gt; /dev/null <span class="s">&lt;&lt;EOT</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/auth.conf.d/furiosa.conf<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
 <span class="s">  machine archive.furiosa.ai</span>
 <span class="s">  login xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
 <span class="s">  password xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
 <span class="s">EOT</span>
 
-sudo chmod <span class="m">400</span> /etc/apt/auth.conf.d/furiosa.conf
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>/etc/apt/auth.conf.d/furiosa.conf
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -170,13 +174,13 @@ sudo chmod <span class="m">400</span> /etc/apt/auth.conf.d/furiosa.conf
 </ol>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ubuntu 18.04 (Debian Buster)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu 20.04 (Debian Bullseye)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>아래 커맨드를 통해 APT 서버를 등록합니다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo tee -a /etc/apt/sources.list.d/furiosa.list <span class="s">&lt;&lt;EOT</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/furiosa.list<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
 <span class="s">deb [arch=amd64] https://archive.furiosa.ai/ubuntu bionic restricted</span>
 <span class="s">EOT</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>아래 커맨드를 통해 APT 서버를 등록합니다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo tee -a /etc/apt/sources.list.d/furiosa.list <span class="s">&lt;&lt;EOT</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/furiosa.list<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
 <span class="s">deb [arch=amd64] https://archive.furiosa.ai/ubuntu focal restricted</span>
 <span class="s">EOT</span>
 </pre></div>
@@ -189,7 +193,7 @@ sudo chmod <span class="m">400</span> /etc/apt/auth.conf.d/furiosa.conf
 NPU 커널 드라이버, 펌웨어, 런타임을 설치할 수 있다.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">APT 서버를 이용한 설치</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">다운로드 센터를 이용한 설치</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>아래 패키지를 설치하면 의존된 패키지들은 자동으로 설치된다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y furiosa-driver-pdma furiosa-libnux
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-driver-pdma<span class="w"> </span>furiosa-libnux
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>아래 패키지들의 최신 버전을 선택하여 다운 받아 명령에 쓰여진 순서대로 설치한다.
@@ -200,10 +204,10 @@ NPU 커널 드라이버, 펌웨어, 런타임을 설치할 수 있다.</p>
 <li><p>Runtime library  (furiosa-libnux)</p></li>
 <li><p>Onnxruntime  (libonnxruntime)</p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y ./furiosa-driver-pdma-x.y.z-?.deb
-sudo apt-get install -y ./furiosa-libhal-warboy-x.y.z-?.deb
-sudo apt-get install -y ./libonnxruntime-x.y.z-?.deb
-sudo apt-get install -y ./furiosa-libnux-x.y.z-?.deb
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./furiosa-driver-pdma-x.y.z-?.deb
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./furiosa-libhal-warboy-x.y.z-?.deb
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./libonnxruntime-x.y.z-?.deb
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./furiosa-libnux-x.y.z-?.deb
 </pre></div>
 </div>
 </div></div>
@@ -211,13 +215,13 @@ sudo apt-get install -y ./furiosa-libnux-x.y.z-?.deb
 <h3>설치된 버전 고정 및 해제<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크"></a></h3>
 <p>패키지 설치 이후 안정적인 운영환경을 유지하기 위해 설치된 패키지의 버전을 고정할 필요가 있다.
 아래 명령어를 이용하면 현재 설치된 버전을 고정 할 수 있다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-mark hold furiosa-driver-pdma furiosa-libhal-warboy furiosa-libnux libonnxruntime
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-mark<span class="w"> </span>hold<span class="w"> </span>furiosa-driver-pdma<span class="w"> </span>furiosa-libhal-warboy<span class="w"> </span>furiosa-libnux<span class="w"> </span>libonnxruntime
 </pre></div>
 </div>
 <p>고정된 패키지 버전을 해제하여 업데이트 하기 위해서는 <code class="docutils literal notranslate"><span class="pre">apt-mark</span> <span class="pre">unhold</span></code>
 명령과 함께 원하는 패키지를 지정한다. 이때 패키지 이름을 적어 선택적으로 특정 패키지의 버전 고정을 해제할 수 있으며
 이미 고정된 패키지 정보를 보기 위해서는 <code class="docutils literal notranslate"><span class="pre">apt-mark</span> <span class="pre">showhold</span></code> 명령을 사용한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-mark unhold furiosa-driver-pdma furiosa-libhal-warboy furiosa-libnux libonnxruntime
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-mark<span class="w"> </span>unhold<span class="w"> </span>furiosa-driver-pdma<span class="w"> </span>furiosa-libhal-warboy<span class="w"> </span>furiosa-libnux<span class="w"> </span>libonnxruntime
 </pre></div>
 </div>
 </div>
@@ -227,13 +231,13 @@ sudo apt-get install -y ./furiosa-libnux-x.y.z-?.deb
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">list</span></code> 로 설치 가능한 버전을 확인한다.</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt list -a furiosa-libnux
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>list<span class="w"> </span>-a<span class="w"> </span>furiosa-libnux
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p><code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span></code> 명령에 옵션으로 패키지 이름과 버전을 지정한다.</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y furiosa-libnux<span class="o">=</span><span class="m">0</span>.7.0-?
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-libnux<span class="o">=</span><span class="m">0</span>.7.0-?
 </pre></div>
 </div>
 </div>

@@ -28,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
           </a>
               <div class="version">
                 0.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -99,7 +103,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">C SDK installation and user guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/software/c-sdk.rst.txt" rel="nofollow"> View page source</a>
@@ -128,14 +132,14 @@ the <a class="reference internal" href="installation.html#requiredpackages"><spa
 <p>Once you have installed the required packages, follow the instructions below to install C SDK.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Installation using APT server</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Installation using download center</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>To use FuriosaAI APT, refer to <a class="reference internal" href="installation.html#setupaptrepository"><span class="std std-ref">APT server configuration</span></a> and complete the authentication setting for server connection.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> apt-get install -y furiosa-libnux-dev
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-libnux-dev
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Log in to the download center and download the latest versions of the packages below.</p>
 <ul class="simple">
 <li><p>NPU C SDK download (furiosa-libnux-dev-x.y.z-?.deb)</p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ apt-get install -y ./furiosa-libnux-dev-x.y.z-?.deb
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./furiosa-libnux-dev-x.y.z-?.deb
 </pre></div>
 </div>
 </div></div>

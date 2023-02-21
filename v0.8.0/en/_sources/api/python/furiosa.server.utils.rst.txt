@@ -1,6 +1,8 @@
 furiosa.server.utils namespace
 ==============================
 
+.. py:module:: furiosa.server.utils
+
 Submodules
 ----------
 

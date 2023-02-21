@@ -28,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FuriosaAI NPU 및 Software 문서
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -102,7 +106,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Release Notes - 0.5.0</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/releases/0.5.0.rst.txt" rel="nofollow"> View page source</a>
@@ -196,9 +200,9 @@ sess1.run_with(outputs=[“output1”], inputs={
 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">furiosa-sdk[server]</span></code> 를 실행해 간단히 설치 할 수 있으며 아래 커맨드과 같이
 모델 경로와 함께 실행하면 모델을 NPU를 이용해 바로 서빙할 수 있다.
 더 자세한 사용법과 기능은 <a class="reference internal" href="../software/serving.html#modelserving"><span class="std std-ref">모델 서버 (서빙 프레임워크)</span></a> 에서 찾을 수 있다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa server <span class="se">\</span>
---model-path MNISTnet_uint8_quant_without_softmax.tflite <span class="se">\</span>
---model-name mnist
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa<span class="w"> </span>server<span class="w"> </span><span class="se">\</span>
+--model-path<span class="w"> </span>MNISTnet_uint8_quant_without_softmax.tflite<span class="w"> </span><span class="se">\</span>
+--model-name<span class="w"> </span>mnist
 </pre></div>
 </div>
 </div>
@@ -223,22 +227,22 @@ sess1.run_with(outputs=[“output1”], inputs={
 <p>0.5.0 부터 명령형 NPU 관리 도구인 furiosactl 이 포함된다.
 설치는 <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">furiosa-toolkit</span></code> 로 할 수 있으면 NPU 장치의 상태를 확인하거나 유휴 NPU를 확인할 수 있다.
 <code class="docutils literal notranslate"><span class="pre">apt</span></code> 서버 설정 방법은 <a class="reference internal" href="../software/installation.html#setupaptrepository"><span class="std std-ref">APT 서버 설정</span></a> 에서 찾을 수 있다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosactl info
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosactl<span class="w"> </span>info
 
 +------+------------------+-------+---------+--------------+---------+
-<span class="p">|</span> NPU  <span class="p">|</span> Name             <span class="p">|</span> Temp. <span class="p">|</span> Power   <span class="p">|</span> PCI-BDF      <span class="p">|</span> PCI-DEV <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">             </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">   </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span><span class="w"> </span>PCI-DEV<span class="w"> </span><span class="p">|</span>
 +------+------------------+-------+---------+--------------+---------+
-<span class="p">|</span> npu0 <span class="p">|</span> FuriosaAI Warboy <span class="p">|</span>  <span class="m">34</span>°C <span class="p">|</span> <span class="m">12</span>.92 W <span class="p">|</span> <span class="m">0000</span>:01:00.0 <span class="p">|</span> <span class="m">510</span>:0   <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>npu0<span class="w"> </span><span class="p">|</span><span class="w"> </span>FuriosaAI<span class="w"> </span>Warboy<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">34</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">12</span>.92<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:01:00.0<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">510</span>:0<span class="w">   </span><span class="p">|</span>
 +------+------------------+-------+---------+--------------+---------+
 
-$ furiosactl list
+$<span class="w"> </span>furiosactl<span class="w"> </span>list
 +------+-----------+-----------+--------+
-<span class="p">|</span> NPU  <span class="p">|</span> DEVNAME   <span class="p">|</span> Type      <span class="p">|</span> Status <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>DEVNAME<span class="w">   </span><span class="p">|</span><span class="w"> </span>Type<span class="w">      </span><span class="p">|</span><span class="w"> </span>Status<span class="w"> </span><span class="p">|</span>
 +------+-----------+-----------+--------+
-<span class="p">|</span> npu0 <span class="p">|</span> npu0      <span class="p">|</span> All PE<span class="o">(</span>s<span class="o">)</span> <span class="p">|</span> Ready  <span class="p">|</span>
-<span class="p">|</span>      <span class="p">|</span> npu0pe0   <span class="p">|</span> Single PE <span class="p">|</span> Ready  <span class="p">|</span>
-<span class="p">|</span>      <span class="p">|</span> npu0pe1   <span class="p">|</span> Single PE <span class="p">|</span> Ready  <span class="p">|</span>
-<span class="p">|</span>      <span class="p">|</span> npu0pe0-1 <span class="p">|</span> PE Fusion <span class="p">|</span> Ready  <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>npu0<span class="w"> </span><span class="p">|</span><span class="w"> </span>npu0<span class="w">      </span><span class="p">|</span><span class="w"> </span>All<span class="w"> </span>PE<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Ready<span class="w">  </span><span class="p">|</span>
+<span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w"> </span>npu0pe0<span class="w">   </span><span class="p">|</span><span class="w"> </span>Single<span class="w"> </span>PE<span class="w"> </span><span class="p">|</span><span class="w"> </span>Ready<span class="w">  </span><span class="p">|</span>
+<span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w"> </span>npu0pe1<span class="w">   </span><span class="p">|</span><span class="w"> </span>Single<span class="w"> </span>PE<span class="w"> </span><span class="p">|</span><span class="w"> </span>Ready<span class="w">  </span><span class="p">|</span>
+<span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w"> </span>npu0pe0-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>PE<span class="w"> </span>Fusion<span class="w"> </span><span class="p">|</span><span class="w"> </span>Ready<span class="w">  </span><span class="p">|</span>
 +------+-----------+-----------+--------+
 </pre></div>
 </div>
@@ -248,8 +252,8 @@ $ furiosactl list
 <p>0.5.0 부터 NPU의 Kubernetes 지원이 포함된다.
 아래 커맨드로 간단히 NPU 장치 플러그인과 노드 레이블러를 설치하고 Pod을 배포할 때 NPU가 함께 스케쥴 되도록 할 수 있다.
 자세한 설명은 <a class="reference internal" href="../software/kubernetes_support.html#kubernetesintegration"><span class="std std-ref">Kubernetes 지원</span></a> 에서 찾을 수 있다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/main/kubernetes/deployments/device-plugin.yaml
-kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/main/kubernetes/deployments/node-labeller.yaml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/main/kubernetes/deployments/device-plugin.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/main/kubernetes/deployments/node-labeller.yaml
 </pre></div>
 </div>
 </div>
