@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FuriosaAI NPU 및 Software 문서
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -105,7 +109,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Release Notes - 0.8.0</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/releases/0.8.0.rst.txt" rel="nofollow"> View page source</a>
@@ -165,28 +169,28 @@
 <h2>설치 또는 업그레이드 방법<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>APT 저장소를 사용하고 있다면 다음과 간단히 업그레이드할 수 있다.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> apt-get upgrade
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>upgrade
 </pre></div>
 </div>
 </div></blockquote>
 <p>특정 패키지 지정해서 업그레이드 하고 싶다면 다음과 같이 실행 한다.
 APT 저장소 설정 및 설치 방법에 대한 자세한 설명은 <a class="reference internal" href="../software/installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 에서 찾을 수 있다.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
-apt-get install -y furiosa-driver-pdma furiosa-libhal-warboy furiosa-libnux furiosactl
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-driver-pdma<span class="w"> </span>furiosa-libhal-warboy<span class="w"> </span>furiosa-libnux<span class="w"> </span>furiosactl
 </pre></div>
 </div>
 </div></blockquote>
 <p>펌웨어 업그레이드는 다음과 같이 실행한다.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
-apt-get install -y furiosa-firmware-tools furiosa-firmware-image
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-firmware-tools<span class="w"> </span>furiosa-firmware-image
 </pre></div>
 </div>
 </div></blockquote>
 <p>파이썬 패키지 업그레이드는 다음과 같이 실행한다.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install --upgrade furiosa-sdk
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>furiosa-sdk
 </pre></div>
 </div>
 </div></blockquote>

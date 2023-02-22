@@ -28,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> FuriosaAI NPU 및 Software 문서
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FuriosaAI NPU 및 Software 문서
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -107,7 +111,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Release Notes - 0.7.0</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/releases/0.7.0.rst.txt" rel="nofollow"> View page source</a>
@@ -162,10 +166,10 @@
 <p>APT 저장소를 사용하고 있다면 다음과 간단히 업그레이드할 수 있다.
 APT 저장소 설정 및 설치 방법에 대한 자세한 설명은 <a class="reference internal" href="../software/installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 에서 찾을 수 있다.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
-apt-get install -y furiosa-driver-pdma furiosa-libnux
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-driver-pdma<span class="w"> </span>furiosa-libnux
 
-pip install --upgrade furiosa-sdk
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>furiosa-sdk
 </pre></div>
 </div>
 </div></blockquote>
@@ -202,17 +206,17 @@ pip install --upgrade furiosa-sdk
 <p><code class="docutils literal notranslate"><span class="pre">session.create()</span></code> 과 같이 컴파일 과정을 수반하는 함수 실행 시
 아래와 같이 컴파일러 로그가 저장된 경로가 출력된다.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Saving the compilation log into /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Saving<span class="w"> </span>the<span class="w"> </span>compilation<span class="w"> </span>log<span class="w"> </span>into<span class="w"> </span>/home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log
 </pre></div>
 </div>
 </div></blockquote>
 <p>로그에는 기본적으로 컴파일 과정을 이해하는 유용한 정보를 담고 있는데 0.7.0 버전 부터 성능 개선에 유용한 힌트를 추가로 출력한다.
 <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&lt;log</span> <span class="pre">file&gt;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">Hint</span></code> 커맨드로 힌트만 출력해볼 수 있다. 힌트는 어떤 연산자를 왜 가속되지 않는지를 알려준다.</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cat /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log <span class="p">|</span> grep Hint
-<span class="m">2022</span>-05-24T02:44:11.399402Z  WARN nux::session: Hint <span class="o">[</span><span class="m">19</span><span class="o">]</span>: <span class="s1">&#39;LogSoftmax&#39;</span> cannot be accelerated yet
-<span class="m">2022</span>-05-24T02:44:11.399407Z  WARN nux::session: Hint <span class="o">[</span><span class="m">12</span><span class="o">]</span>: groups should be bigger than <span class="m">1</span>
-<span class="m">2022</span>-05-24T02:44:11.399408Z  WARN nux::session: Hint <span class="o">[</span><span class="m">17</span><span class="o">]</span>: Softmax with large batch <span class="o">(</span><span class="m">36</span> &gt; <span class="m">2</span><span class="o">)</span> cannot be accelerated by Warboy
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Hint
+<span class="m">2022</span>-05-24T02:44:11.399402Z<span class="w">  </span>WARN<span class="w"> </span>nux::session:<span class="w"> </span>Hint<span class="w"> </span><span class="o">[</span><span class="m">19</span><span class="o">]</span>:<span class="w"> </span><span class="s1">&#39;LogSoftmax&#39;</span><span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>accelerated<span class="w"> </span>yet
+<span class="m">2022</span>-05-24T02:44:11.399407Z<span class="w">  </span>WARN<span class="w"> </span>nux::session:<span class="w"> </span>Hint<span class="w"> </span><span class="o">[</span><span class="m">12</span><span class="o">]</span>:<span class="w"> </span>groups<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>bigger<span class="w"> </span>than<span class="w"> </span><span class="m">1</span>
+<span class="m">2022</span>-05-24T02:44:11.399408Z<span class="w">  </span>WARN<span class="w"> </span>nux::session:<span class="w"> </span>Hint<span class="w"> </span><span class="o">[</span><span class="m">17</span><span class="o">]</span>:<span class="w"> </span>Softmax<span class="w"> </span>with<span class="w"> </span>large<span class="w"> </span>batch<span class="w"> </span><span class="o">(</span><span class="m">36</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>accelerated<span class="w"> </span>by<span class="w"> </span>Warboy
 </pre></div>
 </div>
 </div></blockquote>

@@ -28,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
           </a>
               <div class="version">
                 0.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -111,7 +115,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Python SDK installation and user guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/software/python-sdk.rst.txt" rel="nofollow"> View page source</a>
@@ -223,7 +227,7 @@ Packages that have been installed do not need to be reinstalled after activation
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Installing with PIP</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Installing with the source code</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>FuriosaAI Python SDK package is uploaded on the <a class="reference external" href="https://pypi.org/">pypi</a> repository,
 so you can easily install it as shown by using the <code class="docutils literal notranslate"><span class="pre">pip</span></code> command.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install furiosa-sdk
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>furiosa-sdk
 </pre></div>
 </div>
 <p>The package contains a compiler command line interface and an inference API.
@@ -232,23 +236,23 @@ Refer to <a class="reference internal" href="compiler.html#compilercli"><span cl
 install packages as you require from <a class="reference internal" href="#pythonextrapackages"><span class="std std-ref">Extra packages</span></a>.
 For example, if you need to install <cite>server`</cite> for model serving and
 <code class="docutils literal notranslate"><span class="pre">litmus</span></code> to check the compatibility between model and SDK, specify the extension package as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;furiosa-sdk[server, litmus]&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[server, litmus]&#39;</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Download the source code from <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk">FuriosaAI Github repository</a>
 and install the packages in the following order.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/furiosa-ai/furiosa-sdk
-<span class="nb">cd</span> furiosa-sdk/python
-pip install furiosa-runtime
-pip install furiosa-tools
-pip install furiosa-sdk
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/furiosa-ai/furiosa-sdk
+<span class="nb">cd</span><span class="w"> </span>furiosa-sdk/python
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-runtime
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-tools
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-sdk
 </pre></div>
 </div>
 <p>If you wish to install extra packages, install the Python module in the subdirectory of furiosa-sdk/python.
 For example, if you want to install a model server, install it according to the order of dependencies as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> furiosa-sdk/python
-pip install furiosa-registry
-pip install furiosa-server
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>furiosa-sdk/python
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-registry
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-server
 </pre></div>
 </div>
 </div></div>
@@ -260,14 +264,14 @@ pip install furiosa-server
 <p>It can be executed directly on the NPU and provides optimized DNN model architecture, pre-trained
 model image, among others, in the form of a Python module.
 You can install them with the following command.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;furiosa-sdk[models]&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[models]&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="model-server">
 <h3>Model Server<a class="headerlink" href="#model-server" title="Permalink to this headline"></a></h3>
 <p>Provides the function of accelerating DNN model with the NPU, and serving it with GRPC or Restful API.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;furiosa-sdk[server]&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[server]&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -275,7 +279,7 @@ You can install them with the following command.</p>
 <h3>Litmus<a class="headerlink" href="#litmus" title="Permalink to this headline"></a></h3>
 <p>A tool to check whether the specified model is compatible with the Furiosa SDK.
 Here, we simulate execution of processes such as model quantization and compilation.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;furiosa-sdk[litmus]&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[litmus]&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -284,7 +288,7 @@ Here, we simulate execution of processes such as model quantization and compilat
 <p>The quantizer package provides a set of APIs for converting a model into a quantized model.
 You can find more information about the quantization function provided by the Furiosa SDK and the NPU
 at <a class="reference internal" href="quantization.html#modelquantization"><span class="std std-ref">Model Quantization</span></a>.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;furiosa-sdk[quantizer]&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[quantizer]&#39;</span>
 </pre></div>
 </div>
 </div>

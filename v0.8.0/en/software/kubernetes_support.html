@@ -27,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Furiosa SDK Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
           </a>
               <div class="version">
                 0.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -104,7 +108,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Kubernetes Support</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/software/kubernetes_support.rst.txt" rel="nofollow"> View page source</a>
@@ -145,17 +149,17 @@ Furiosa SDK provides the following components to support the Kubernetes environm
 </ul>
 <p>You also need to install NPU driver and toolkit on each node of NPU-equipped Kubernetes.
 If the APT server is set up (see <a class="reference internal" href="installation.html#setupaptrepository"><span class="std std-ref">APT server configuration</span></a>), you can easily install as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> apt install -y furiosa-driver-pdma furiosa-toolkit
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-driver-pdma<span class="w"> </span>furiosa-toolkit
 </pre></div>
 </div>
 <p>Once the required package is installed as above, you can check for NPU recognition as follows, with the
 <code class="docutils literal notranslate"><span class="pre">furiosactl</span></code> command included in furiosa-toolkit.
 If the NPU is not recognized with the command below, try again after rebooting - depending on the environment.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosactl info
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosactl<span class="w"> </span>info
 +------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span> NPU  <span class="p">|</span> Name             <span class="p">|</span> Temp. <span class="p">|</span> Power  <span class="p">|</span> PCI-BDF      <span class="p">|</span> PCI-DEV <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">             </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span><span class="w"> </span>PCI-DEV<span class="w"> </span><span class="p">|</span>
 +------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span> npu0 <span class="p">|</span> FuriosaAI Warboy <span class="p">|</span>  <span class="m">40</span>°C <span class="p">|</span> <span class="m">1</span>.37 W <span class="p">|</span> <span class="m">0000</span>:01:00.0 <span class="p">|</span> <span class="m">509</span>:0   <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>npu0<span class="w"> </span><span class="p">|</span><span class="w"> </span>FuriosaAI<span class="w"> </span>Warboy<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">40</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.37<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:01:00.0<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">509</span>:0<span class="w">   </span><span class="p">|</span>
 +------+------------------+-------+--------+--------------+---------+
 </pre></div>
 </div>
@@ -164,13 +168,13 @@ If the NPU is not recognized with the command below, try again after rebooting -
 <h2>2. Installing Node Feature Discovery<a class="headerlink" href="#installing-node-feature-discovery" title="Permalink to this headline"></a></h2>
 <p>In order to make Kubernetes to recognize NPUs, you need to install Node Feature Discovery.
 By running the command as shown in the example below, if there is a node label that begins with <code class="docutils literal notranslate"><span class="pre">feature.node.kubernetes.io/...</span></code>, Node Feature Discovery’s DaemonSet has already been installed</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl get no -o json <span class="p">|</span> jq <span class="s1">&#39;.items[].metadata.labels&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>no<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.items[].metadata.labels&#39;</span>
 <span class="o">{</span>
-  <span class="s2">&quot;beta.kubernetes.io/arch&quot;</span>: <span class="s2">&quot;amd64&quot;</span>,
-  <span class="s2">&quot;beta.kubernetes.io/os&quot;</span>: <span class="s2">&quot;linux&quot;</span>,
-  <span class="s2">&quot;feature.node.kubernetes.io/cpu-cpuid.ADX&quot;</span>: <span class="s2">&quot;true&quot;</span>,
-  <span class="s2">&quot;feature.node.kubernetes.io/cpu-cpuid.AESNI&quot;</span>: <span class="s2">&quot;true&quot;</span>,
-  ...
+<span class="w">  </span><span class="s2">&quot;beta.kubernetes.io/arch&quot;</span>:<span class="w"> </span><span class="s2">&quot;amd64&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;beta.kubernetes.io/os&quot;</span>:<span class="w"> </span><span class="s2">&quot;linux&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;feature.node.kubernetes.io/cpu-cpuid.ADX&quot;</span>:<span class="w"> </span><span class="s2">&quot;true&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;feature.node.kubernetes.io/cpu-cpuid.AESNI&quot;</span>:<span class="w"> </span><span class="s2">&quot;true&quot;</span>,
+<span class="w">  </span>...
 </pre></div>
 </div>
 <ul>
@@ -200,17 +204,17 @@ Node Feature Discovery.</p>
 <div class="section" id="installing-device-plugin-and-npu-feature-discovery">
 <span id="installingdevicepluginandnfd"></span><h2>3. Installing Device Plugin and NPU Feature Discovery<a class="headerlink" href="#installing-device-plugin-and-npu-feature-discovery" title="Permalink to this headline"></a></h2>
 <p>When the NPU node is ready, install Device Plugin and NPU Feature Discovery’s DaemonSet as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/device-plugin.yaml
-kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/npu-feature-discovery.yaml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/device-plugin.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/npu-feature-discovery.yaml
 </pre></div>
 </div>
 <p>After executing the above command, you can check whether the installed daemonset is functioning normally with the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">daemonset</span> <span class="pre">-n</span> <span class="pre">kube-system</span></code> command.
 For reference, the DaemonSet is distributed only to nodes equipped with NPUs, and uses
 <code class="docutils literal notranslate"><span class="pre">alpha.furiosa.ai/npu.family=warboy</span></code> information that the Node Feature Discovery (<code class="docutils literal notranslate"><span class="pre">feature.node.kubernetes.io/pci-1ed2.present=true</span></code>) attaches to each node.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ kubectl get daemonset -n kube-system
-NAME                           DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                                      AGE
- furiosa-device-plugin          <span class="m">3</span>         <span class="m">3</span>         <span class="m">3</span>       <span class="m">3</span>            <span class="m">3</span>           feature.node.kubernetes.io/pci-1ed2.present<span class="o">=</span><span class="nb">true</span>   128m
- furiosa-npu-feature-discovery  <span class="m">3</span>         <span class="m">3</span>         <span class="m">3</span>       <span class="m">3</span>            <span class="m">3</span>           feature.node.kubernetes.io/pci-1ed2.present<span class="o">=</span><span class="nb">true</span>   162m
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>daemonset<span class="w"> </span>-n<span class="w"> </span>kube-system
+NAME<span class="w">                           </span>DESIRED<span class="w">   </span>CURRENT<span class="w">   </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>NODE<span class="w"> </span>SELECTOR<span class="w">                                      </span>AGE
+<span class="w"> </span>furiosa-device-plugin<span class="w">          </span><span class="m">3</span><span class="w">         </span><span class="m">3</span><span class="w">         </span><span class="m">3</span><span class="w">       </span><span class="m">3</span><span class="w">            </span><span class="m">3</span><span class="w">           </span>feature.node.kubernetes.io/pci-1ed2.present<span class="o">=</span><span class="nb">true</span><span class="w">   </span>128m
+<span class="w"> </span>furiosa-npu-feature-discovery<span class="w">  </span><span class="m">3</span><span class="w">         </span><span class="m">3</span><span class="w">         </span><span class="m">3</span><span class="w">       </span><span class="m">3</span><span class="w">            </span><span class="m">3</span><span class="w">           </span>feature.node.kubernetes.io/pci-1ed2.present<span class="o">=</span><span class="nb">true</span><span class="w">   </span>162m
 </pre></div>
 </div>
 <p>The metadata attached by the Node Feature Discovery is shown in the following table.</p>
@@ -271,10 +275,10 @@ NAME                           DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABL
 </tbody>
 </table>
 <p>If you want to check node labels, then execute the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">nodes</span> <span class="pre">--show-labels</span></code> command. If you see labels which start with <code class="docutils literal notranslate"><span class="pre">beta.furiosa.ai</span></code> Node Feature Discovery is successfully installed.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl get nodes --show-labels
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>--show-labels
 
-warboy-node01     Ready   &lt;none&gt;  65d   v1.20.10   beta.furiosa.ai/npu.count<span class="o">=</span><span class="m">1</span>,beta.furiosa.ai/npu.product<span class="o">=</span>warboy...,kubernetes.io/os<span class="o">=</span>linux
-warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.count<span class="o">=</span><span class="m">1</span>,beta.furiosa.ai/npu.product<span class="o">=</span>warboy...,kubernetes.io/os<span class="o">=</span>linux
+warboy-node01<span class="w">     </span>Ready<span class="w">   </span>&lt;none&gt;<span class="w">  </span>65d<span class="w">   </span>v1.20.10<span class="w">   </span>beta.furiosa.ai/npu.count<span class="o">=</span><span class="m">1</span>,beta.furiosa.ai/npu.product<span class="o">=</span>warboy...,kubernetes.io/os<span class="o">=</span>linux
+warboy-node02<span class="w">     </span>Ready<span class="w">   </span>&lt;none&gt;<span class="w">  </span>12d<span class="w">   </span>v1.20.10<span class="w">   </span>beta.furiosa.ai/npu.count<span class="o">=</span><span class="m">1</span>,beta.furiosa.ai/npu.product<span class="o">=</span>warboy...,kubernetes.io/os<span class="o">=</span>linux
 </pre></div>
 </div>
 <div class="section" id="device-plugin-configuration">
@@ -284,22 +288,22 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.cou
 <li><p>Command Line Arguments</p></li>
 </ol>
 <p>The option can be set by the <code class="docutils literal notranslate"><span class="pre">k8s-device-plugin</span></code> command as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ k8s-device-plugin --interval <span class="m">10</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>k8s-device-plugin<span class="w"> </span>--interval<span class="w"> </span><span class="m">10</span>
 </pre></div>
 </div>
 <p>For the Pod or DaemonSet specification command line arguments can be set as follows.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span><span class="w"></span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">furiosa-device-plugin</span><span class="w"></span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span><span class="w"></span>
-<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">device-plugin</span><span class="w"></span>
-<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/furiosa-ai/k8s-device-plugin:latest</span><span class="w"></span>
-<span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/usr/bin/k8s-device-plugin&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;--interval&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;10&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="c1"># (the reset is omitted)</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">furiosa-device-plugin</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">device-plugin</span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/furiosa-ai/k8s-device-plugin:latest</span>
+<span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/usr/bin/k8s-device-plugin&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;--interval&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;10&quot;</span><span class="p p-Indicator">]</span>
+<span class="c1"># (the reset is omitted)</span>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id2">
@@ -347,19 +351,19 @@ warboy-node02     Ready   &lt;none&gt;  12d   v1.20.10   beta.furiosa.ai/npu.cou
 </ol>
 <p>You may set configuration file by executing <code class="docutils literal notranslate"><span class="pre">k8s-device-plugin</span></code> command with argument <code class="docutils literal notranslate"><span class="pre">config-file</span></code>.
 If <code class="docutils literal notranslate"><span class="pre">config-file</span></code> is set then the other arguments are not permitted.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ k8s-device-plugin --config-file /etc/furiosa/device-plugin.conf
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>k8s-device-plugin<span class="w"> </span>--config-file<span class="w"> </span>/etc/furiosa/device-plugin.conf
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">/etc/furiosa/device-plugin.conf</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="nt">defaultPe</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fusion</span><span class="w"></span>
-<span class="nt">disabledDevices</span><span class="p">:</span><span class="w">             </span><span class="c1"># device npu1 equipped in warboy-node01 will not be used</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">devName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npu1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">nodeName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warboy-node01</span><span class="w"></span>
-<span class="nt">pluginDir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/kubelet/device-plugins</span><span class="w"></span>
-<span class="nt">socketName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">furiosa-npu</span><span class="w"></span>
-<span class="nt">resourceName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta.furiosa.ai/npu</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">defaultPe</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fusion</span>
+<span class="nt">disabledDevices</span><span class="p">:</span><span class="w">             </span><span class="c1"># device npu1 equipped in warboy-node01 will not be used</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">devName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npu1</span>
+<span class="w">    </span><span class="nt">nodeName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warboy-node01</span>
+<span class="nt">pluginDir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/kubelet/device-plugins</span>
+<span class="nt">socketName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">furiosa-npu</span>
+<span class="nt">resourceName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta.furiosa.ai/npu</span>
 </pre></div>
 </div>
 </div>
@@ -367,20 +371,20 @@ If <code class="docutils literal notranslate"><span class="pre">config-file</spa
 (but, modifications on <code class="docutils literal notranslate"><span class="pre">pluginDir</span></code> , <code class="docutils literal notranslate"><span class="pre">socketName</span></code>, or <code class="docutils literal notranslate"><span class="pre">resourceName</span></code> require reboot.)</p>
 <p><a class="reference internal" href="#installingdevicepluginandnfd"><span class="std std-ref">3. Installing Device Plugin and NPU Feature Discovery</span></a> provides <code class="docutils literal notranslate"><span class="pre">device-plugin.yaml</span></code> which is default configuration file based on ConfigMap.
 If you want to modify execution options of Device Plugin, modify ConfigMap. Once modified ConfigMap is applied to Pod, Device Plugin reads the ConfigMap and then reflects modification.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl edit configmap npu-device-plugin -n kube-system
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kubectl<span class="w"> </span>edit<span class="w"> </span>configmap<span class="w"> </span>npu-device-plugin<span class="w"> </span>-n<span class="w"> </span>kube-system
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">configmap/npu-device-plugin</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
-<span class="nt">data</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">config.yaml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">    </span><span class="no">defaultPe: Fusion</span><span class="w"></span>
-<span class="w">    </span><span class="no">interval: 15</span><span class="w"></span>
-<span class="w">    </span><span class="no">disabledDevices:</span><span class="w"></span>
-<span class="w">      </span><span class="no">- devName: npu2</span><span class="w"></span>
-<span class="w">        </span><span class="no">nodeName: npu-001</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">config.yaml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">defaultPe: Fusion</span>
+<span class="w">    </span><span class="no">interval: 15</span>
+<span class="w">    </span><span class="no">disabledDevices:</span>
+<span class="w">      </span><span class="no">- devName: npu2</span>
+<span class="w">        </span><span class="no">nodeName: npu-001</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 </pre></div>
 </div>
 </div>
@@ -389,13 +393,13 @@ If you want to modify execution options of Device Plugin, modify ConfigMap. Once
 <div class="section" id="creating-a-pod-with-npus">
 <h2>4. Creating a Pod with NPUs<a class="headerlink" href="#creating-a-pod-with-npus" title="Permalink to this headline"></a></h2>
 <p>To allocate NPU to a Pod, add as shown below to <code class="docutils literal notranslate"><span class="pre">spec.containers[].resources.limits</span></code>.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">beta.furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">beta.furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.7.0/kubernetes/deployments/pod-example.yaml">Full example</a> for Pod creation is as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat &gt; npu-pod.yaml <span class="s">&lt;&lt;EOL</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>&gt;<span class="w"> </span>npu-pod.yaml<span class="w"> </span><span class="s">&lt;&lt;EOL</span>
 <span class="s">apiVersion: v1</span>
 <span class="s">kind: Pod</span>
 <span class="s">metadata:</span>
@@ -415,43 +419,43 @@ If you want to modify execution options of Device Plugin, modify ConfigMap. Once
 <span class="s">          beta.furiosa.ai/npu: &quot;1&quot;</span>
 <span class="s">EOL</span>
 
-$ kubectl apply -f npu-pod.yaml
+$<span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>npu-pod.yaml
 </pre></div>
 </div>
 <p>After Pod creation, you can check NPU allocation as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl get pods npu-pod -o yaml <span class="p">|</span> grep alpha.furiosa.ai/npu
-    beta.furiosa.ai/npu: <span class="s2">&quot;1&quot;</span>
-    beta.furiosa.ai/npu: <span class="s2">&quot;1&quot;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>npu-pod<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>alpha.furiosa.ai/npu
+<span class="w">    </span>beta.furiosa.ai/npu:<span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">    </span>beta.furiosa.ai/npu:<span class="w"> </span><span class="s2">&quot;1&quot;</span>
 </pre></div>
 </div>
 <p>The SDK application automatically recognizes the allocated NPU device.
 If there are multiple NPU devices on a node, you can check which device is allocated as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl <span class="nb">exec</span> npu-pod -it -- /bin/bash
-root@npu-pod:/# <span class="nb">echo</span> <span class="nv">$NPU_DEVNAME</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>npu-pod<span class="w"> </span>-it<span class="w"> </span>--<span class="w"> </span>/bin/bash
+root@npu-pod:/#<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$NPU_DEVNAME</span>
 npu0pe0-1
 </pre></div>
 </div>
 <p>If furiosa-toolkit is installed in the Pod, you can check for more detailed device information using the
 furiosactl command as shown below.</p>
 <p>See <a class="reference internal" href="installation.html#setupaptrepository"><span class="std std-ref">APT server configuration</span></a> for installation guide using APT.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>root@npu-pod:/# furiosactl
-furiosactl controls the FURIOSA NPU.
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>root@npu-pod:/#<span class="w"> </span>furiosactl
+furiosactl<span class="w"> </span>controls<span class="w"> </span>the<span class="w"> </span>FURIOSA<span class="w"> </span>NPU.
 
-Find more information at: https://furiosa.ai/
+Find<span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>at:<span class="w"> </span>https://furiosa.ai/
 
-Basic Commands:
-    version    Print the furiosactl version information
-    info       Show information one or many NPU<span class="o">(</span>s<span class="o">)</span>
-    config     Get/Set configuration <span class="k">for</span> NPU environment
+Basic<span class="w"> </span>Commands:
+<span class="w">    </span>version<span class="w">    </span>Print<span class="w"> </span>the<span class="w"> </span>furiosactl<span class="w"> </span>version<span class="w"> </span>information
+<span class="w">    </span>info<span class="w">       </span>Show<span class="w"> </span>information<span class="w"> </span>one<span class="w"> </span>or<span class="w"> </span>many<span class="w"> </span>NPU<span class="o">(</span>s<span class="o">)</span>
+<span class="w">    </span>config<span class="w">     </span>Get/Set<span class="w"> </span>configuration<span class="w"> </span><span class="k">for</span><span class="w"> </span>NPU<span class="w"> </span>environment
 
 Usage:
-    furiosactl COMMAND
+<span class="w">    </span>furiosactl<span class="w"> </span>COMMAND
 
-root@npu-pod:/# furiosactl info
+root@npu-pod:/#<span class="w"> </span>furiosactl<span class="w"> </span>info
 +------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span> NPU  <span class="p">|</span> Name             <span class="p">|</span> Temp. <span class="p">|</span> Power  <span class="p">|</span> PCI-BDF      <span class="p">|</span> PCI-DEV <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">             </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span><span class="w"> </span>PCI-DEV<span class="w"> </span><span class="p">|</span>
 +------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span> npu0 <span class="p">|</span> FuriosaAI Warboy <span class="p">|</span>  <span class="m">40</span>°C <span class="p">|</span> <span class="m">1</span>.37 W <span class="p">|</span> <span class="m">0000</span>:01:00.0 <span class="p">|</span> <span class="m">509</span>:0   <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>npu0<span class="w"> </span><span class="p">|</span><span class="w"> </span>FuriosaAI<span class="w"> </span>Warboy<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">40</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.37<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:01:00.0<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">509</span>:0<span class="w">   </span><span class="p">|</span>
 +------+------------------+-------+--------+--------------+---------+
 </pre></div>
 </div>

@@ -25,14 +25,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Furiosa SDK Documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
           </a>
               <div class="version">
                 0.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -92,7 +96,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">furiosa.runtime package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/python/furiosa.runtime.rst.txt" rel="nofollow"> View page source</a>
@@ -778,7 +782,7 @@ deprecated by FURIOSA_PROFILER_OUTPUT_PATH later.</p>
 <p>An asynchronous session for a given model allows to submit predictions</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.session.AsyncSession.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">2b7ab80&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.AsyncSession.close" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">22aea10&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.AsyncSession.close" title="Permalink to this definition"></a></dt>
 <dd><p>Closes this session</p>
 <p>After a session is closed, CompletionQueue will return an error
 if CompletionQueue.recv() is called.</p>
@@ -811,7 +815,7 @@ If the prediction is completed, the outputs will be sent to CompletionQueue.</p>
 <p>Receives the completion results asynchronously from AsyncSession</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.session.CompletionQueue.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">2b7ab80&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.CompletionQueue.close" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">22aea10&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.CompletionQueue.close" title="Permalink to this definition"></a></dt>
 <dd><p>Closes this completion queue.</p>
 <p>If it is closed, AsyncSession also will stop working.</p>
 <p>_LIBNUX is only for internal use and not supposed to be specified by a
@@ -851,7 +855,7 @@ exception.</p>
 <p>Provides a blocking API to run an inference task with a given model</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.session.Session.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">2b7ab80&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.Session.close" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_LIBNUX=&lt;CDLL</span> <span class="pre">'libnux.so'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span> <span class="pre">22aea10&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.session.Session.close" title="Permalink to this definition"></a></dt>
 <dd><p>Close the session and release all resources belonging to the session</p>
 <p>_LIBNUX is only for internal use and not supposed to be specified by a
 user.</p>
