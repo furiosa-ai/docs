@@ -1,0 +1,77 @@
+furiosa.optimizer.frontend.onnx.transformer package
+===================================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   furiosa.optimizer.frontend.onnx.transformer.experimental
+
+Submodules
+----------
+
+furiosa.optimizer.frontend.onnx.transformer.convert\_negative\_pads\_to\_slice module
+-------------------------------------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.transformer.convert_negative_pads_to_slice
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.optimizer.frontend.onnx.transformer.convert\_prelu\_to\_relu module
+---------------------------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.transformer.convert_prelu_to_relu
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.optimizer.frontend.onnx.transformer.fuse\_batchnorm module
+------------------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.transformer.fuse_batchnorm
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.optimizer.frontend.onnx.transformer.fuse\_gather\_matmul module
+-----------------------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.transformer.fuse_gather_matmul
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.optimizer.frontend.onnx.transformer.infer\_squeeze\_axes module
+-----------------------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.transformer.infer_squeeze_axes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.optimizer.frontend.onnx.transformer.polish\_model module
+----------------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.transformer.polish_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.optimizer.frontend.onnx.transformer.utils module
+--------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.transformer.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.transformer
+   :members:
+   :undoc-members:
+   :show-inheritance:

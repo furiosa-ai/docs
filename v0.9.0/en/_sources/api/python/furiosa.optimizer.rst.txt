@@ -1,0 +1,19 @@
+furiosa.optimizer package
+=========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   furiosa.optimizer.frontend
+   furiosa.optimizer.interfaces
+
+Module contents
+---------------
+
+.. automodule:: furiosa.optimizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

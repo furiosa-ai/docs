@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>furiosa.quantizer package &mdash; Furiosa SDK Documentation 0.9.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.9.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">furiosa.quantizer package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/furiosa.quantizer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="furiosa-quantizer-package">
+<h1>furiosa.quantizer package<a class="headerlink" href="#furiosa-quantizer-package" title="Permalink to this headline"></a></h1>
+<div class="section" id="module-furiosa.quantizer">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-furiosa.quantizer" title="Permalink to this headline"></a></h2>
+<p>A FuriosaAI qunatizer.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.</span></span><span class="sig-name descname"><span class="pre">CalibrationMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Calibration method.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.MIN_MAX_ASYM">
+<span class="sig-name descname"><span class="pre">MIN_MAX_ASYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.MIN_MAX_ASYM" title="Permalink to this definition"></a></dt>
+<dd><p>Min-max calibration (Asymmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.MIN_MAX_SYM">
+<span class="sig-name descname"><span class="pre">MIN_MAX_SYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.MIN_MAX_SYM" title="Permalink to this definition"></a></dt>
+<dd><p>Min-max calibration (Symmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.ENTROPY_ASYM">
+<span class="sig-name descname"><span class="pre">ENTROPY_ASYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.ENTROPY_ASYM" title="Permalink to this definition"></a></dt>
+<dd><p>Entropy calibration (Aymmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.ENTROPY_SYM">
+<span class="sig-name descname"><span class="pre">ENTROPY_SYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.ENTROPY_SYM" title="Permalink to this definition"></a></dt>
+<dd><p>Entropy calibration (Symmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.PERCENTILE_ASYM">
+<span class="sig-name descname"><span class="pre">PERCENTILE_ASYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.PERCENTILE_ASYM" title="Permalink to this definition"></a></dt>
+<dd><p>Percentile calibration (Asymmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.PERCENTILE_SYM">
+<span class="sig-name descname"><span class="pre">PERCENTILE_SYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.PERCENTILE_SYM" title="Permalink to this definition"></a></dt>
+<dd><p>Percentile calibration (Symmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.MSE_ASYM">
+<span class="sig-name descname"><span class="pre">MSE_ASYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.MSE_ASYM" title="Permalink to this definition"></a></dt>
+<dd><p>Mean squared error (MSE) calibration (Asymmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.MSE_SYM">
+<span class="sig-name descname"><span class="pre">MSE_SYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.MSE_SYM" title="Permalink to this definition"></a></dt>
+<dd><p>Mean squared error (MSE) calibration (Symmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.SQNR_ASYM">
+<span class="sig-name descname"><span class="pre">SQNR_ASYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.SQNR_ASYM" title="Permalink to this definition"></a></dt>
+<dd><p>Signal-to-quantization-noise ratio (SQNR) calibration
+(Asymmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="furiosa.quantizer.CalibrationMethod.SQNR_SYM">
+<span class="sig-name descname"><span class="pre">SQNR_SYM</span></span><a class="headerlink" href="#furiosa.quantizer.CalibrationMethod.SQNR_SYM" title="Permalink to this definition"></a></dt>
+<dd><p>Signal-to-quantization-noise ratio (SQNR) calibration
+(Symmetric).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod">CalibrationMethod</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">ENTROPY_ASYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">ENTROPY_SYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#id1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">MIN_MAX_ASYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">MIN_MAX_SYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#id3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">MSE_ASYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#id4" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">MSE_SYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#id5" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">PERCENTILE_ASYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#id6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">PERCENTILE_SYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#id7" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">SQNR_ASYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#id8" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">SQNR_SYM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#id9" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.Calibrator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.</span></span><span class="sig-name descname"><span class="pre">Calibrator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">onnx.onnx_ml_pb2.ModelProto</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.CalibrationMethod" title="furiosa.quantizer.CalibrationMethod"><span class="pre">furiosa.quantizer.CalibrationMethod</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">99.99</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.Calibrator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Calibrator.</p>
+<p>This collects the values of tensors in an ONNX model and computes
+their ranges.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.Calibrator.collect_data">
+<span class="sig-name descname"><span class="pre">collect_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration_dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#furiosa.quantizer.Calibrator.collect_data" title="Permalink to this definition"></a></dt>
+<dd><p>Collect the values of tensors that will be used for range
+computation.</p>
+<p>This can be called multiple times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>calibration_dataset</strong> (<em>Iterable</em><em>[</em><em>Sequence</em><em>[</em><em>numpy.ndarray</em><em>]</em><em>]</em>) – An object that provides input data for the model one at
+a time.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.Calibrator.compute_range">
+<span class="sig-name descname"><span class="pre">compute_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.Calibrator.compute_range" title="Permalink to this definition"></a></dt>
+<dd><p>Estimate the ranges of the tensors on the basis of the collected
+data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>verbose</strong> (<em>bool</em>) – Whether to show a progress bar, Defaults to
+False.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A dictionary that maps a</dt><dd><p>tensor name to a tuple of the tensor’s min and max.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, Tuple[float, float]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="furiosa.quantizer.Graph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><a class="headerlink" href="#furiosa.quantizer.Graph" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An intermediate representation (IR) of an ONNX or TFlite model.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.quantize">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.</span></span><span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">onnx.onnx_ml_pb2.ModelProto</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_name_to_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_quantize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalized_pixel_outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#furiosa.quantizer.Graph" title="furiosa.quantizer.Graph"><span class="pre">Graph</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.quantize" title="Permalink to this definition"></a></dt>
+<dd><p>Quantize an ONNX model on the basis of the range of its tensors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>onnx.ModelProto</em><em> or </em><em>bytes</em>) – An ONNX model to quantize.</p></li>
+<li><p><strong>tensor_name_to_range</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – A mapping from a tensor name to a 2-tuple (or list) of the
+tensor’s min and max.</p></li>
+<li><p><strong>with_quantize</strong> (<em>bool</em>) – Whether to put a Quantize operator at the
+beginning of the resulting model. Defaults to True.</p></li>
+<li><p><strong>normalized_pixel_outputs</strong> (<em>Optional</em><em>[</em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em>) – A sequence of indices of output tensors in the ONNX model
+that produce pixel values in a normalized format ranging
+from 0.0 to 1.0. If specified, the corresponding output
+tensors in the resulting quantized model will generate pixel
+values in an unnormalized format from 0 to 255, represented
+as unsigned 8-bit integers (uint8). Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>An intermediate representation (IR) of the quantized</dt><dd><p>model.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#furiosa.quantizer.Graph" title="furiosa.quantizer.Graph">Graph</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

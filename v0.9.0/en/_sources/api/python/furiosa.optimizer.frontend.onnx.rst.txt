@@ -1,0 +1,19 @@
+furiosa.optimizer.frontend.onnx package
+=======================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   furiosa.optimizer.frontend.onnx.transformer
+   furiosa.optimizer.frontend.onnx.utils
+
+Module contents
+---------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx
+   :members:
+   :undoc-members:
+   :show-inheritance:

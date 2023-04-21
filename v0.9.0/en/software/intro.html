@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuriosaAI SW Stack Introduction &mdash; Furiosa SDK Documentation 0.9.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Driver, Firmware, and Runtime Installation" href="installation.html" />
+    <link rel="prev" title="List of Supported Operators for NPU Acceleration" href="../npu/supported_operators.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.9.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FuriosaAI SW Stack Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kernel-driver-and-firmware">Kernel Driver and Firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compiler">Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#runtime">Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-sdk-and-c-sdk">Python SDK and C SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-quantizer-api">Model quantizer API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-server">Model Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kubernetes-support">Kubernetes Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FuriosaAI SW Stack Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/software/intro.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="furiosaai-sw-stack-introduction">
+<h1>FuriosaAI SW Stack Introduction<a class="headerlink" href="#furiosaai-sw-stack-introduction" title="Permalink to this headline"></a></h1>
+<p>FuriosaAI provides various SW components to allow the
+NPU to be used in various applications and environments.
+Here, we outline the SW stack provided by FuriosaAI, explaining
+the roles of each component, together with guidelines and tutorials.</p>
+<div class="figure align-center">
+<a class="with-shadow reference internal image-reference" href="../_images/software_stack.jpg"><img alt="FuriosaAI Software Stack" class="with-shadow" src="../_images/software_stack.jpg" style="width: 500px;" /></a>
+</div>
+<p>The above diagram demonstrates the SW stack provided by FuriosaAI, by layers.
+At the lowest level is the <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">FuriosaAI Warboy</span></a>, FuriosaAI’s first generation NPU.</p>
+<p>The following outlines the key components.</p>
+<div class="section" id="kernel-driver-and-firmware">
+<h2>Kernel Driver and Firmware<a class="headerlink" href="#kernel-driver-and-firmware" title="Permalink to this headline"></a></h2>
+<p>The kernel driver allows the Linux operating system to
+recognize the NPU device and acknowledge it as a Linux device file.
+If the NPU is not recognized by the operating system, try reinstalling the driver.
+The firmware provides a low-level API for the NPU device based on the NPU device file
+recognized by the Linux operating system. The runtime and compiler control the NPU using the
+low-level API provided by the firmware, thereby executing and scheduling tasks for inference on the NPU
+using the compiled binary.</p>
+<p>There is no need for the user to utilize kernel driver and firmware directly,
+but they must be installed for Furiosa SDK to work. Installation guide can be found in <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">Driver, Firmware, and Runtime Installation</span></a>.</p>
+</div>
+<div class="section" id="compiler">
+<h2>Compiler<a class="headerlink" href="#compiler" title="Permalink to this headline"></a></h2>
+<p>The compiler plays a key role in optimizing DNN models and generating executable code in the NPU.
+Currently, the compiler supports <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> and <a class="reference external" href="https://onnx.ai/">ONNX</a> models,
+and optimizes the models by introducing various latest research work and methods.</p>
+<p>The compiler provided with <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a> supports NPU acceleration of various operators in the vision area.
+For operators that are not supported with acceleration on NPU, the compiler compiles them such that the CPU will be utilized.</p>
+<p>Additionally, the compiler not only accelerates major vision models such as ResNet50, SSD-MobileNet, and EfficientNet, but also models designed by the users so long as supported operators are utilized - to generate code optimized for NPU.</p>
+<p>For reference, operators supported by NPU acceleration can be found in <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">List of Supported Operators for NPU Acceleration</span></a>.</p>
+<p>The compiler is embedded within runtime, so users do not need to install it separately.
+It can be used automatically in the process of creating a session through the Python/C SDK, or through <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa compile</span></a>.</p>
+</div>
+<div class="section" id="runtime">
+<h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline"></a></h2>
+<p>Runtime analyzes the executable program generated by the compiler, and actually executes the
+DNN model inference task as described in the program. During compilation, the DNN model inference is optimized,
+and split into a number of smaller tasks running on NPU and CPU. Runtime is responsible for balancing the available resources, scheduling these tasks in accordance with the workload, and controlling the NPU via firmware for tasks being executed on the NPU.</p>
+<p>Runtime functions are provided as APIs through the Python/C SDK, which will be described in the section below,
+and installation instructions can be found in <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">Driver, Firmware, and Runtime Installation</span></a>.</p>
+</div>
+<div class="section" id="python-sdk-and-c-sdk">
+<h2>Python SDK and C SDK<a class="headerlink" href="#python-sdk-and-c-sdk" title="Permalink to this headline"></a></h2>
+<p>Python and C SDK are packages that provide runtime functions as Python and C libraries as APIs, respectively.
+They provide an APIs that create objects called ‘session’, that allows the specified model to infer using the designated device, and enables high-performance inference in a blocking and asynchronous manner.
+If you need to write an application or service that utilizes the NPU, you can select and install one of the SDKs
+according to the programming language of the application you are using.
+Installation and usage of each SDK can be found in <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">Python SDK installation and user guide</span></a> and <a class="reference internal" href="c-sdk.html#csdk"><span class="std std-ref">C SDK installation and user guide</span></a>.</p>
+</div>
+<div class="section" id="model-quantizer-api">
+<h2>Model quantizer API<a class="headerlink" href="#model-quantizer-api" title="Permalink to this headline"></a></h2>
+<p>FuriosaAI SDK and <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a> support INT8 models, while models with
+floating point data as weights undergo quantization, and can be used in <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a>.
+To facilitate this quantization process, Furiosa SDK provides a Model quantizer API.
+More information about the Model quantizer API provided by the Furiosa SDK can be found in <a class="reference internal" href="quantization.html#modelquantization"><span class="std std-ref">Model Quantization</span></a>.</p>
+</div>
+<div class="section" id="model-server">
+<h2>Model Server<a class="headerlink" href="#model-server" title="Permalink to this headline"></a></h2>
+<p>The model server exposes the DNN model as a GRPC or REST API.
+Model formats such as <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> and <a class="reference external" href="https://onnx.ai/">ONNX</a> contain within them the data type and tensor shape or the input/output tensors. Using this information, the models are exposed through the commonly used <a class="reference external" href="https://github.com/kserve/kserve/blob/master/docs/predict-api/v2/required_api.md">Predict Protocol - Version 2</a>.</p>
+<p>With the model server, users do not need to directly access the NPU through the library and Python/C SDK, but can access it through a remote API.
+In addition, horizontal scaling of services can be easily implemented by using multiple model servers serving the same model and using a load balancer.</p>
+<p>The model server requires low latency and high throughput. Here, the scheduling function of the runtime is utilized.
+Installation and utilization of the model server can be found in <a class="reference internal" href="serving.html#modelserving"><span class="std std-ref">Model Server (Serving Framework)</span></a>.</p>
+</div>
+<div class="section" id="kubernetes-support">
+<h2>Kubernetes Support<a class="headerlink" href="#kubernetes-support" title="Permalink to this headline"></a></h2>
+<p>Kubernetes, a platform for managing containerized workloads and services, is popular with many enterprises.
+FuriosaAI SW stack also provides native Kubernetes support.
+Kubernetes Device Plugin enables the Kubernetes cluster to recognize FuriosaAI’s NPUs
+and schedule them for workloads/services that require the NPU.
+This feature helps the allocation of resources when multiple workloads require NPU in a multi-tenant
+environment such as Kubernetes, and enables efficient utilization of limited NPU resources.</p>
+<p>Kubernetes Node Labeller adds the information of the physical NPU mounted
+on the node, participating in Kubernetes, as metadata to the Kubernetes node object.</p>
+<p>This function allows the user to identify information of the NPU mounted on the node using Kubernetes API or command line tool, and to distribute workload to nodes that satisfy certain conditions by utilizing the Pod’s <code class="docutils literal notranslate"><span class="pre">spec.nodeSelector</span></code> or <code class="docutils literal notranslate"><span class="pre">spec.nodeAffinity</span></code>.</p>
+<p>Installation and usage instructions for NPU support in the Kubernetes environment can be found in the <a class="reference internal" href="kubernetes_support.html#kubernetesintegration"><span class="std std-ref">Kubernetes Support</span></a> page.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../npu/supported_operators.html" class="btn btn-neutral float-left" title="List of Supported Operators for NPU Acceleration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Driver, Firmware, and Runtime Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
