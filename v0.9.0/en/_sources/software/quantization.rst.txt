@@ -98,6 +98,6 @@ You can use the APU and command line tool provided in this SDK to convert an ONN
 
 Refer to the links below for further instructions.
 
-* `Python SDK example: How to use Furiosa SDK from start to finish <https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb>`_
-* `Python SDK Quantization example <https://github.com/furiosa-ai/furiosa-sdk/tree/main/examples/quantizers>`_
-* `Python reference - furiosa.quantizer <https://furiosa-ai.github.io/docs/v0.6.0/en/api/python/furiosa.quantizer.html>`_
+* `Python SDK example: How to use Furiosa SDK from start to finish <https://github.com/furiosa-ai/furiosa-sdk/blob/branch-0.9.0/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb>`_
+* `Python SDK Quantization example <https://github.com/furiosa-ai/furiosa-sdk/tree/branch-0.9.0/examples/quantizers>`_
+* `Python reference - furiosa.quantizer <https://furiosa-ai.github.io/docs/v0.9.0/en/api/python/furiosa.quantizer.html>`_
