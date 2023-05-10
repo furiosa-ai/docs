@@ -41,11 +41,11 @@ C SDK 설치를 위한 최소 요구사항은 다음과 같다.
 
     다운로드 센터에 로그인하여 아래 패키지들의 최신 버전을 선택하여 다운 받는다.
 
-    * NPU C SDK 다운로드 (furiosa-libnux-dev-x.y.z-?.deb)
+    * NPU C SDK 다운로드 (furiosa-libnux-dev-0.9.0-?.deb)
 
     .. code-block:: sh
 
-      $ apt-get install -y ./furiosa-libnux-dev-x.y.z-?.deb
+      $ apt-get install -y ./furiosa-libnux-dev-0.9.0-?.deb
 
 
 C SDK를 이용한 컴파일

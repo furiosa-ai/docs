@@ -162,7 +162,7 @@ Before installing the furiosa-sdk, you need to update Python's package installer
 
     .. code-block:: sh
 
-      pip install 'furiosa-sdk[server, litmus]'
+      pip install 'furiosa-sdk[server,litmus]'
 
   .. tab:: Installing with the source code 
 

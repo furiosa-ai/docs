@@ -69,14 +69,6 @@ The table below compares the accuracy of the original floating-point models with
      - mAP 0.3757
      - mAP 0.37373 (Symmetric Entropy)
      - 99.476%
-   * - SSD MobileNet
-     - mAP 0.23
-     - mAP 0.23215 (Symmetric Min-Max)
-     - 100.93%
-   * - SSD ResNet34
-     - mAP 0.20
-     - mAP 0.21626 (Asymmetric Min-Max)
-     - 108.13%
    * - YOLOX-l
      - mAP 0.497
      - mAP 0.48524 (Asymmetric 99.99%-Percentile)
@@ -98,6 +90,6 @@ You can use the APU and command line tool provided in this SDK to convert an ONN
 
 Refer to the links below for further instructions.
 
-* `Python SDK example: How to use Furiosa SDK from start to finish <https://github.com/furiosa-ai/furiosa-sdk/blob/branch-0.9.0/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb>`_
-* `Python SDK Quantization example <https://github.com/furiosa-ai/furiosa-sdk/tree/branch-0.9.0/examples/quantizers>`_
+* `Python SDK example: How to use Furiosa SDK from start to finish <https://github.com/furiosa-ai/furiosa-sdk/blob/v0.9.0/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb>`_
+* `Python SDK Quantization example <https://github.com/furiosa-ai/furiosa-sdk/tree/v0.9.0/examples/quantizers>`_
 * `Python reference - furiosa.quantizer <https://furiosa-ai.github.io/docs/v0.9.0/en/api/python/furiosa.quantizer.html>`_

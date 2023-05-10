@@ -37,11 +37,11 @@ Once you have installed the required packages, follow the instructions below to 
 
     Log in to the download center and download the latest versions of the packages below. 
 
-    * NPU C SDK download (furiosa-libnux-dev-x.y.z-?.deb)
+    * NPU C SDK download (furiosa-libnux-dev-0.9.0-?.deb)
 
     .. code-block:: sh
 
-      $ apt-get install -y ./furiosa-libnux-dev-x.y.z-?.deb
+      $ apt-get install -y ./furiosa-libnux-dev-0.9.0-?.deb
 
 
 Compiling with C SDK

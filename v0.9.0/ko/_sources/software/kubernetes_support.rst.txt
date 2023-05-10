@@ -44,11 +44,11 @@ APT 서버가 셋업되어 있다면 (:ref:`SetupAptRepository` 참고) 다음�
 .. code-block:: sh
 
   $ furiosactl info
-  +------+------------------+-------+--------+--------------+---------+
-  | NPU  | Name             | Temp. | Power  | PCI-BDF      | PCI-DEV |
-  +------+------------------+-------+--------+--------------+---------+
-  | npu0 | FuriosaAI Warboy |  40°C | 1.37 W | 0000:01:00.0 | 509:0   |
-  +------+------------------+-------+--------+--------------+---------+
+  +------+--------+----------------+-------+--------+--------------+
+  | NPU  | Name   | Firmware       | Temp. | Power  | PCI-BDF      |
+  +------+--------+----------------+-------+--------+--------------+
+  | npu1 | warboy | 1.6.0, 3c10fd3 |  54°C | 0.99 W | 0000:44:00.0 |
+  +------+--------+----------------+-------+--------+--------------+
 
 .. _SetupNodeFeatureDiscovery:
 
@@ -108,9 +108,9 @@ NPU 노드 준비가 완료되면, Device Plugin, NPU Feature Discovery와 NPU M
 
 .. code-block:: sh
 
-  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/device-plugin.yaml
-  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/npu-feature-discovery.yaml
-  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/npu-metrics-exporter.yaml
+  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.9.0/kubernetes/deployments/device-plugin.yaml
+  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.9.0/kubernetes/deployments/npu-feature-discovery.yaml
+  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.9.0/kubernetes/deployments/npu-metrics-exporter.yaml
   
 
 위 커맨드를 실행하고 난 뒤에 ``kubectl get daemonset -n kube-system`` 명령으로 설치한 DaemonSet이 정상 동작하는지 확인할 수 있다.
@@ -305,7 +305,7 @@ NPU를 Pod에 할당하기 위해서는 ``spec.containers[].resources.limits`` �
       beta.furiosa.ai/npu: "1" # requesting 1 NPU
 
 
-Pod 생성을 위한 `전체 예제 <https://github.com/furiosa-ai/furiosa-sdk/blob/0.8.0/kubernetes/deployments/pod-example.yaml>`_ 는 다음과 같다.
+Pod 생성을 위한 `전체 예제 <https://github.com/furiosa-ai/furiosa-sdk/blob/v0.9.0/kubernetes/deployments/pod-example.yaml>`_ 는 다음과 같다.
 
 .. code-block:: sh
 
@@ -346,7 +346,8 @@ Pod 생성 뒤에는 다음과 같이 NPU 할당을 확인해볼 수 있다.
 .. code-block:: sh
 
   $ kubectl exec npu-pod -it -- /bin/bash
-  root@npu-pod:/# echo $NPU_DEVNAME
+
+  $ echo $NPU_DEVNAME
   npu0pe0-1
 
 
@@ -355,25 +356,31 @@ Pod 안에 furiosa-toolkit을 설치하면 아래처럼 furiosactl 커맨드를 
 
 .. code-block:: sh
 
-  root@npu-pod:/# furiosactl
-  furiosactl controls the FURIOSA NPU.
+  $ furiosactl
+  furiosactl 0.11.0
+  Controls the FURIOSA NPU. Find more information at https://furiosa.ai/
 
-  Find more information at: https://furiosa.ai/
+  USAGE:
+      furiosactl <SUBCOMMAND>
 
-  Basic Commands:
-    version    Print the furiosactl version information
-    info       Show information one or many NPU(s)
-    config     Get/Set configuration for NPU environment
+  FLAGS:
+      -h, --help       Prints help information
+      -V, --version    Prints version information
 
-  Usage:
-    furiosactl COMMAND
+  SUBCOMMANDS:
+      help       Prints this message or the help of the given subcommand(s)
+      info       Shows details of NPU devices
+      list       Display NPU device list
+      ps         Prints a list of processes using the NPU device.
+      top        Periodically print the NPU utilization by process and device.
+      version    Prints the furiosactl version information
 
-  root@npu-pod:/# furiosactl info
-  +------+------------------+-------+--------+--------------+---------+
-  | NPU  | Name             | Temp. | Power  | PCI-BDF      | PCI-DEV |
-  +------+------------------+-------+--------+--------------+---------+
-  | npu0 | FuriosaAI Warboy |  40°C | 1.37 W | 0000:01:00.0 | 509:0   |
-  +------+------------------+-------+--------+--------------+---------+
+  $ furiosactl info
+  +------+--------+----------------+-------+--------+--------------+
+  | NPU  | Name   | Firmware       | Temp. | Power  | PCI-BDF      |
+  +------+--------+----------------+-------+--------+--------------+
+  | npu1 | warboy | 1.6.0, 3c10fd3 |  54°C | 0.99 W | 0000:44:00.0 |
+  +------+--------+----------------+-------+--------+--------------+
 
 5. NPU 모니터링
 ====================================

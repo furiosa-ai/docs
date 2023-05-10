@@ -171,7 +171,7 @@ furiosa-sdk를 설치하기에 앞서, Python의 패키지 설치 도구를 최�
 
     .. code-block:: sh
 
-      pip install 'furiosa-sdk[server, litmus]'
+      pip install 'furiosa-sdk[server,litmus]'
 
   .. tab:: 소스 코드를 이용한 설치
 

@@ -157,5 +157,5 @@ Kubernetes 지원
 
 .. code-block:: sh
 
-  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/main/kubernetes/deployments/device-plugin.yaml
-  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/main/kubernetes/deployments/node-labeller.yaml
+  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.5.0/kubernetes/deployments/device-plugin.yaml
+  kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.5.0/kubernetes/deployments/node-labeller.yaml

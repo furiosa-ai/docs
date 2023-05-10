@@ -70,14 +70,6 @@ FuriosaAI SDK가 지원하는 양자화 방식은  *post-training 8-bit quantiza
      - mAP 0.3757
      - mAP 0.37373 (Symmetric Entropy)
      - 99.476%
-   * - SSD MobileNet
-     - mAP 0.23
-     - mAP 0.23215 (Symmetric Min-Max)
-     - 100.93%
-   * - SSD ResNet34
-     - mAP 0.20
-     - mAP 0.21626 (Asymmetric Min-Max)
-     - 108.13%
    * - YOLOX-l
      - mAP 0.497
      - mAP 0.48524 (Asymmetric 99.99%-Percentile)
@@ -98,6 +90,6 @@ FuriosaAI SDK가 지원하는 양자화 방식은  *post-training 8-bit quantiza
 SDK가 제공하는 API와 명령행 도구를 사용하여 ONNX 모델을 8bit 양자화 모델로 변환할 수 있다.
 사용 방법은 아래에서 찾아볼 수 있다.
 
-* `Python SDK 예제: 모델 생성 부터 인퍼런스 까지 <https://github.com/furiosa-ai/furiosa-sdk/blob/branch-0.9.0/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb>`_
-* `Python SDK Quantization 예제 <https://github.com/furiosa-ai/furiosa-sdk/tree/branch-0.9.0/examples/quantizers>`_
+* `Python SDK 예제: 모델 생성 부터 인퍼런스 까지 <https://github.com/furiosa-ai/furiosa-sdk/blob/v0.9.0/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb>`_
+* `Python SDK Quantization 예제 <https://github.com/furiosa-ai/furiosa-sdk/tree/v0.9.0/examples/quantizers>`_
 * `Python 레퍼런스 - furiosa.quantizer <https://furiosa-ai.github.io/docs/v0.9.0/en/api/python/furiosa.quantizer.html>`_

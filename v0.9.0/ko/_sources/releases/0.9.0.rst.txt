@@ -128,7 +128,7 @@ APT 저장소 설정 및 설치 방법에 대한 자세한 설명은 :ref:`Requi
 
 새로운 quantizer의 설치 및 사용법에 대한 자세한 내용은 다음 예제를 참고할 수 있다.
 
-* `Python SDK 예제: 모델 생성부터 인퍼런스까지 <https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb>`_
+* `Python SDK 예제: 모델 생성부터 인퍼런스까지 <https://github.com/furiosa-ai/furiosa-sdk/blob/v0.9.0/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb>`_
 
 컴파일러 개선
 =====================

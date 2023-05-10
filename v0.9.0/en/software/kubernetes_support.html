@@ -159,11 +159,11 @@ If the APT server is set up (see <a class="reference internal" href="installatio
 <code class="docutils literal notranslate"><span class="pre">furiosactl</span></code> command included in furiosa-toolkit.
 If the NPU is not recognized with the command below, try again after rebooting - depending on the environment.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosactl<span class="w"> </span>info
-+------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">             </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span><span class="w"> </span>PCI-DEV<span class="w"> </span><span class="p">|</span>
-+------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span><span class="w"> </span>npu0<span class="w"> </span><span class="p">|</span><span class="w"> </span>FuriosaAI<span class="w"> </span>Warboy<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">40</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.37<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:01:00.0<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">509</span>:0<span class="w">   </span><span class="p">|</span>
-+------+------------------+-------+--------+--------------+---------+
++------+--------+----------------+-------+--------+--------------+
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">   </span><span class="p">|</span><span class="w"> </span>Firmware<span class="w">       </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span>
++------+--------+----------------+-------+--------+--------------+
+<span class="p">|</span><span class="w"> </span>npu1<span class="w"> </span><span class="p">|</span><span class="w"> </span>warboy<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.6.0,<span class="w"> </span>3c10fd3<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">54</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span>.99<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:44:00.0<span class="w"> </span><span class="p">|</span>
++------+--------+----------------+-------+--------+--------------+
 </pre></div>
 </div>
 </div>
@@ -207,8 +207,8 @@ Node Feature Discovery.</p>
 <div class="section" id="installing-device-plugin-and-npu-feature-discovery">
 <span id="installingdevicepluginandnfd"></span><h2>3. Installing Device Plugin and NPU Feature Discovery<a class="headerlink" href="#installing-device-plugin-and-npu-feature-discovery" title="Permalink to this headline"></a></h2>
 <p>When the NPU node is ready, install Device Plugin and NPU Feature Discovery’s DaemonSet as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/device-plugin.yaml
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/npu-feature-discovery.yaml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.9.0/kubernetes/deployments/device-plugin.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.9.0/kubernetes/deployments/npu-feature-discovery.yaml
 </pre></div>
 </div>
 <p>After executing the above command, you can check whether the installed daemonset is functioning normally with the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">daemonset</span> <span class="pre">-n</span> <span class="pre">kube-system</span></code> command.
@@ -401,7 +401,7 @@ If you want to modify execution options of Device Plugin, modify ConfigMap. Once
 <span class="w">        </span><span class="nt">beta.furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.7.0/kubernetes/deployments/pod-example.yaml">Full example</a> for Pod creation is as follows.</p>
+<p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.9.0/kubernetes/deployments/pod-example.yaml">Full example</a> for Pod creation is as follows.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>&gt;<span class="w"> </span>npu-pod.yaml<span class="w"> </span><span class="s">&lt;&lt;EOL</span>
 <span class="s">apiVersion: v1</span>
 <span class="s">kind: Pod</span>
@@ -434,32 +434,39 @@ $<span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w"> </
 <p>The SDK application automatically recognizes the allocated NPU device.
 If there are multiple NPU devices on a node, you can check which device is allocated as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>npu-pod<span class="w"> </span>-it<span class="w"> </span>--<span class="w"> </span>/bin/bash
-root@npu-pod:/#<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$NPU_DEVNAME</span>
+
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$NPU_DEVNAME</span>
 npu0pe0-1
 </pre></div>
 </div>
 <p>If furiosa-toolkit is installed in the Pod, you can check for more detailed device information using the
 furiosactl command as shown below.</p>
 <p>See <a class="reference internal" href="installation.html#setupaptrepository"><span class="std std-ref">APT server configuration</span></a> for installation guide using APT.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>root@npu-pod:/#<span class="w"> </span>furiosactl
-furiosactl<span class="w"> </span>controls<span class="w"> </span>the<span class="w"> </span>FURIOSA<span class="w"> </span>NPU.
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosactl
+furiosactl<span class="w"> </span><span class="m">0</span>.11.0
+Controls<span class="w"> </span>the<span class="w"> </span>FURIOSA<span class="w"> </span>NPU.<span class="w"> </span>Find<span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>at<span class="w"> </span>https://furiosa.ai/
 
-Find<span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>at:<span class="w"> </span>https://furiosa.ai/
+USAGE:
+<span class="w">    </span>furiosactl<span class="w"> </span>&lt;SUBCOMMAND&gt;
 
-Basic<span class="w"> </span>Commands:
-<span class="w">    </span>version<span class="w">    </span>Print<span class="w"> </span>the<span class="w"> </span>furiosactl<span class="w"> </span>version<span class="w"> </span>information
-<span class="w">    </span>info<span class="w">       </span>Show<span class="w"> </span>information<span class="w"> </span>one<span class="w"> </span>or<span class="w"> </span>many<span class="w"> </span>NPU<span class="o">(</span>s<span class="o">)</span>
-<span class="w">    </span>config<span class="w">     </span>Get/Set<span class="w"> </span>configuration<span class="w"> </span><span class="k">for</span><span class="w"> </span>NPU<span class="w"> </span>environment
+FLAGS:
+<span class="w">    </span>-h,<span class="w"> </span>--help<span class="w">       </span>Prints<span class="w"> </span><span class="nb">help</span><span class="w"> </span>information
+<span class="w">    </span>-V,<span class="w"> </span>--version<span class="w">    </span>Prints<span class="w"> </span>version<span class="w"> </span>information
 
-Usage:
-<span class="w">    </span>furiosactl<span class="w"> </span>COMMAND
+SUBCOMMANDS:
+<span class="w">    </span><span class="nb">help</span><span class="w">       </span>Prints<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>or<span class="w"> </span>the<span class="w"> </span><span class="nb">help</span><span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>subcommand<span class="o">(</span>s<span class="o">)</span>
+<span class="w">    </span>info<span class="w">       </span>Shows<span class="w"> </span>details<span class="w"> </span>of<span class="w"> </span>NPU<span class="w"> </span>devices
+<span class="w">    </span>list<span class="w">       </span>Display<span class="w"> </span>NPU<span class="w"> </span>device<span class="w"> </span>list
+<span class="w">    </span>ps<span class="w">         </span>Prints<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>processes<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>NPU<span class="w"> </span>device.
+<span class="w">    </span>top<span class="w">        </span>Periodically<span class="w"> </span>print<span class="w"> </span>the<span class="w"> </span>NPU<span class="w"> </span>utilization<span class="w"> </span>by<span class="w"> </span>process<span class="w"> </span>and<span class="w"> </span>device.
+<span class="w">    </span>version<span class="w">    </span>Prints<span class="w"> </span>the<span class="w"> </span>furiosactl<span class="w"> </span>version<span class="w"> </span>information
 
-root@npu-pod:/#<span class="w"> </span>furiosactl<span class="w"> </span>info
-+------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">             </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span><span class="w"> </span>PCI-DEV<span class="w"> </span><span class="p">|</span>
-+------+------------------+-------+--------+--------------+---------+
-<span class="p">|</span><span class="w"> </span>npu0<span class="w"> </span><span class="p">|</span><span class="w"> </span>FuriosaAI<span class="w"> </span>Warboy<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">40</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.37<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:01:00.0<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">509</span>:0<span class="w">   </span><span class="p">|</span>
-+------+------------------+-------+--------+--------------+---------+
+$<span class="w"> </span>furiosactl<span class="w"> </span>info
++------+--------+----------------+-------+--------+--------------+
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">   </span><span class="p">|</span><span class="w"> </span>Firmware<span class="w">       </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span>
++------+--------+----------------+-------+--------+--------------+
+<span class="p">|</span><span class="w"> </span>npu1<span class="w"> </span><span class="p">|</span><span class="w"> </span>warboy<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.6.0,<span class="w"> </span>3c10fd3<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">54</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span>.99<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:44:00.0<span class="w"> </span><span class="p">|</span>
++------+--------+----------------+-------+--------+--------------+
 </pre></div>
 </div>
 </div>

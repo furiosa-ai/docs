@@ -42,11 +42,11 @@ If the NPU is not recognized with the command below, try again after rebooting -
 .. code-block:: sh
 
   $ furiosactl info
-  +------+------------------+-------+--------+--------------+---------+
-  | NPU  | Name             | Temp. | Power  | PCI-BDF      | PCI-DEV |
-  +------+------------------+-------+--------+--------------+---------+
-  | npu0 | FuriosaAI Warboy |  40°C | 1.37 W | 0000:01:00.0 | 509:0   |
-  +------+------------------+-------+--------+--------------+---------+
+  +------+--------+----------------+-------+--------+--------------+
+  | NPU  | Name   | Firmware       | Temp. | Power  | PCI-BDF      |
+  +------+--------+----------------+-------+--------+--------------+
+  | npu1 | warboy | 1.6.0, 3c10fd3 |  54°C | 0.99 W | 0000:44:00.0 |
+  +------+--------+----------------+-------+--------+--------------+
 
 2. Installing Node Feature Discovery
 =========================================
@@ -92,8 +92,8 @@ When the NPU node is ready, install Device Plugin and NPU Feature Discovery's Da
 
 .. code-block:: sh
 
-    kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/device-plugin.yaml
-    kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/npu-feature-discovery.yaml
+    kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.9.0/kubernetes/deployments/device-plugin.yaml
+    kubectl apply -f https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.9.0/kubernetes/deployments/npu-feature-discovery.yaml
 
 After executing the above command, you can check whether the installed daemonset is functioning normally with the ``kubectl get daemonset -n kube-system`` command.
 For reference, the DaemonSet is distributed only to nodes equipped with NPUs, and uses
@@ -268,7 +268,7 @@ To allocate NPU to a Pod, add as shown below to ``spec.containers[].resources.li
         limits:
             beta.furiosa.ai/npu: "1" # requesting 1 NPU
 
-`Full example <https://github.com/furiosa-ai/furiosa-sdk/blob/v0.7.0/kubernetes/deployments/pod-example.yaml>`_ for Pod creation is as follows.
+`Full example <https://github.com/furiosa-ai/furiosa-sdk/blob/v0.9.0/kubernetes/deployments/pod-example.yaml>`_ for Pod creation is as follows.
 
 .. code-block:: sh
 
@@ -309,7 +309,8 @@ If there are multiple NPU devices on a node, you can check which device is alloc
 .. code-block:: sh
 
     $ kubectl exec npu-pod -it -- /bin/bash
-    root@npu-pod:/# echo $NPU_DEVNAME
+
+    $ echo $NPU_DEVNAME
     npu0pe0-1
 
 
@@ -320,25 +321,31 @@ See :ref:`SetupAptRepository` for installation guide using APT.
 
 .. code-block:: sh
 
-    root@npu-pod:/# furiosactl
-    furiosactl controls the FURIOSA NPU.
+    $ furiosactl
+    furiosactl 0.11.0
+    Controls the FURIOSA NPU. Find more information at https://furiosa.ai/
 
-    Find more information at: https://furiosa.ai/
+    USAGE:
+        furiosactl <SUBCOMMAND>
 
-    Basic Commands:
-        version    Print the furiosactl version information
-        info       Show information one or many NPU(s)
-        config     Get/Set configuration for NPU environment
+    FLAGS:
+        -h, --help       Prints help information
+        -V, --version    Prints version information
 
-    Usage:
-        furiosactl COMMAND
+    SUBCOMMANDS:
+        help       Prints this message or the help of the given subcommand(s)
+        info       Shows details of NPU devices
+        list       Display NPU device list
+        ps         Prints a list of processes using the NPU device.
+        top        Periodically print the NPU utilization by process and device.
+        version    Prints the furiosactl version information
 
-    root@npu-pod:/# furiosactl info
-    +------+------------------+-------+--------+--------------+---------+
-    | NPU  | Name             | Temp. | Power  | PCI-BDF      | PCI-DEV |
-    +------+------------------+-------+--------+--------------+---------+
-    | npu0 | FuriosaAI Warboy |  40°C | 1.37 W | 0000:01:00.0 | 509:0   |
-    +------+------------------+-------+--------+--------------+---------+
+    $ furiosactl info
+    +------+--------+----------------+-------+--------+--------------+
+    | NPU  | Name   | Firmware       | Temp. | Power  | PCI-BDF      |
+    +------+--------+----------------+-------+--------+--------------+
+    | npu1 | warboy | 1.6.0, 3c10fd3 |  54°C | 0.99 W | 0000:44:00.0 |
+    +------+--------+----------------+-------+--------+--------------+
 
 5. NPU monitoring
 ====================================

@@ -76,7 +76,7 @@ You can install using the following instructions.
 
 
 The usage example is shown below. You can find more detailed instructions at  
-`furiosa-serving Github <https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-serving>`_.
+`furiosa-serving Github <https://github.com/furiosa-ai/furiosa-sdk/tree/v0.6.0/python/furiosa-serving>`_.
 
   .. code-block:: python
 

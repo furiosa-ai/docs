@@ -4,7 +4,7 @@
 Model Server (Serving Framework)
 **********************************************************
 
-To serve DNN models through GRPC and REST API, you can use `Furiosa Model Server <https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-server>`_.
+To serve DNN models through GRPC and REST API, you can use `Furiosa Model Server <https://github.com/furiosa-ai/furiosa-sdk/tree/v0.9.0/python/furiosa-server>`_.
 Model Server provides the endpoints compatible with `KServe Predict Protocol Version 2 <https://github.com/kserve/kserve/blob/master/docs/predict-api/v2/required_api.md>`_.
 
 Its major features are:
@@ -75,31 +75,27 @@ about the command with various options.
 .. code-block:: sh
 
     $ furiosa server --help
-    Usage: furiosa server [OPTIONS]
+    libfuriosa_hal.so --- v0.11.0, built @ 43c901f
 
-        Start serving models from FuriosaAI model server
+     Usage: furiosa-server [OPTIONS]
 
-    Options:
-        --log-level [ERROR|INFO|WARN|DEBUG|TRACE]
-                                        [default: LogLevel.INFO]
-        --model-path TEXT               Path to Model file (tflite, onnx are
-                                        supported)
-        --model-name TEXT               Model name used in URL path
-        --model-version TEXT            Model version used in URL path  [default:
-                                        default]
-        --host TEXT                     IP address to bind  [default: 0.0.0.0]
-        --http-port INTEGER             HTTP port to listen to requests  [default:
-                                        8080]
-        --model-config FILENAME         Path to a config file about models with
-                                        specific configurations
-        --server-config FILENAME        Path to Model file (tflite, onnx are
-                                        supported)
-        --install-completion [bash|zsh|fish|powershell|pwsh]
-                                        Install completion for the specified shell.
-        --show-completion [bash|zsh|fish|powershell|pwsh]
-                                        Show completion for the specified shell, to
-                                        copy it or customize the installation.
-        --help                          Show this message and exit.
+     Start serving models from FuriosaAI model server
+
+    ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+    │ --log-level            [ERROR|INFO|WARN|DEBUG|TRACE]  [default: LogLevel.INFO]                   │
+    │ --model-name           TEXT                           Model name [default: None]                 │
+    │ --model-path           TEXT                           Path to a model file (tflite, onnx are     │
+    │                                                       supported)                                 │
+    │                                                       [default: None]                            │
+    │ --model-version        TEXT                           Model version [default: default]           │
+    │ --host                 TEXT                           IPv4 address to bind [default: 0.0.0.0]    │
+    │ --http-port            INTEGER                        HTTP port to bind [default: 8080]          │
+    │ --model-config         FILENAME                       Path to a model config file                │
+    │                                                       [default: None]                            │
+    │ --server-config        FILENAME                       Path to a server config file               │
+    │                                                       [default: None]                            │
+    │ --help                                                Show this message and exit.                │
+    ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
 Running a Model Server with a Configuration File
@@ -127,26 +123,25 @@ you can use a configuration file based on Yaml.
 When you run a model sever with a configuration file,
 you need to specify ``--model-config`` as following.
 You can find the model files described in the above example from
-`furiosa-models/samples <https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-server/samples>`_.
+`furiosa-models/samples <https://github.com/furiosa-ai/furiosa-sdk/tree/v0.9.0/python/furiosa-server/samples>`_.
 
 .. code-block:: sh
 
     $ cd furiosa-sdk/python/furiosa-server
     $ furiosa server --model-config samples/model_config_example.yaml
-
-    Saving the compilation log into /Users/hyunsik/.local/state/furiosa/logs/compile-20211126143917-2731kz.log
-    Using furiosa-compiler 0.5.0 (rev: 407c0c51f built at 2021-11-26 12:05:30)
-    2021-11-26T22:39:17.819518Z  INFO Npu (npu0pe0) is being initialized
-    2021-11-26T22:39:17.823511Z  INFO NuxInner create with pes: [PeId(0)]
-    ...
-    INFO:     Started server process [62087]
-    INFO:uvicorn.error:Started server process [62087]
+    libfuriosa_hal.so --- v0.11.0, built @ 43c901f
+    Saving the compilation log into /root/.local/state/furiosa/logs/compile-20230509151914-axpfej.log
+    Using furiosa-compiler 0.9.0 (rev: e626c458c built at 2023-04-19T13:49:26Z)
+    2023-05-09T06:19:14.560585Z  INFO nux::npu: Npu (npu0pe0) is being initialized
+    2023-05-09T06:19:14.565216Z  INFO nux: NuxInner create with pes: [PeId(0)]
+    Saving the compilation log into /root/.local/state/furiosa/logs/compile-20230509151914-d063sw.log
+    Using furiosa-compiler 0.9.0 (rev: e626c458c built at 2023-04-19T13:49:26Z)
+    2023-05-09T06:19:14.591795Z  INFO nux::npu: Npu (npu0pe1) is being initialized
+    2023-05-09T06:19:14.595298Z  INFO nux: NuxInner create with pes: [PeId(0)]
+    INFO:     Started server process [1184080]
     INFO:     Waiting for application startup.
-    INFO:uvicorn.error:Waiting for application startup.
     INFO:     Application startup complete.
-    INFO:uvicorn.error:Application startup complete.
     INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
-    INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
 
 Once a model server starts up, you can call the inference request through HTTP protocol.
 If the model name is ``mnist`` and its version ``1``, the endpoint of the model will be
