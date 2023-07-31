@@ -1,0 +1,29 @@
+furiosa.quantizer package
+=========================
+
+Submodules
+----------
+
+furiosa.quantizer.calibrator module
+-----------------------------------
+
+.. automodule:: furiosa.quantizer.calibrator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.quantizer.editor module
+-------------------------------
+
+.. automodule:: furiosa.quantizer.editor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.quantizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Release Notes - 0.8.0 &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release Notes - 0.7.0" href="0.7.0.html" />
+    <link rel="prev" title="Release Notes - 0.9.0" href="0.9.0.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.10.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="0.9.0.html">Release Notes - 0.9.0</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes - 0.8.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-latest-sdk">Installing the latest SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#major-changes">Major changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improvements-to-serving-framework-api">Improvements to serving framework API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiler">Profiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantization-tool">Quantization tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-toolkit">furiosa-toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-zoo-api-improvements-added-models-and-added-native-post-processing-code">Model Zoo API improvements, added models, and added native post-processing code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Release Notes - 0.8.0</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/releases/0.8.0.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="release-notes-0-8-0">
+<h1>Release Notes - 0.8.0<a class="headerlink" href="#release-notes-0-8-0" title="Permalink to this heading"></a></h1>
+<p>Furiosa SDK 0.8.0 is a major release, including many performance enhancements,
+additional functions, and bug fixes.
+0.8.0 also includes the serving framework, a core tool of user application development,
+as well as major improvements to the Model Zoo.</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Component Version Information</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package Name</p></th>
+<th class="head"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NPU Driver</p></td>
+<td><p>1.4.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>NPU Firmware Tools</p></td>
+<td><p>1.2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>NPU Firmware Image</p></td>
+<td><p>1.2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>HAL (Hardware Abstraction Layer)</p></td>
+<td><p>0.9.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Furiosa Compiler</p></td>
+<td><p>0.8.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Python SDK (furiosa-runtime, furiosa-server, furiosa-serving, furiosa-quantizer, ..)</p></td>
+<td><p>0.8.0</p></td>
+</tr>
+<tr class="row-even"><td><p>NPU Device Plugin</p></td>
+<td><p>0.10.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>NPU Feature Discovery</p></td>
+<td><p>0.2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>NPU Management CLI (furiosactl)</p></td>
+<td><p>0.10.0</p></td>
+</tr>
+</tbody>
+</table>
+<section id="installing-the-latest-sdk">
+<h2>Installing the latest SDK<a class="headerlink" href="#installing-the-latest-sdk" title="Permalink to this heading"></a></h2>
+<p>If you are using APT repository, the upgrade process is simpler.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>upgrade
+</pre></div>
+</div>
+</div></blockquote>
+<p>If you wish to designate a specific package for upgrade, execute as below:
+You can find more details about APT repository setup at
+<a class="reference internal" href="../software/installation.html#requiredpackages"><span class="std std-ref">Driver, Firmware, and Runtime Installation</span></a>.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-driver-pdma<span class="w"> </span>furiosa-libhal-warboy<span class="w"> </span>furiosa-libnux<span class="w"> </span>furiosactl
+</pre></div>
+</div>
+</div></blockquote>
+<p>You can upgrade firmware as following:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-firmware-tools<span class="w"> </span>furiosa-firmware-image
+</pre></div>
+</div>
+</div></blockquote>
+<p>You can upgrade Python package as following:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>furiosa-sdk
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="major-changes">
+<h2>Major changes<a class="headerlink" href="#major-changes" title="Permalink to this heading"></a></h2>
+<section id="improvements-to-serving-framework-api">
+<h3>Improvements to serving framework API<a class="headerlink" href="#improvements-to-serving-framework-api" title="Permalink to this heading"></a></h3>
+<p>The <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/branch-0.8.0/python/furiosa-serving">furiosa-serving</a>
+is a FastAPI-based serving framework.
+With the <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/branch-0.8.0/python/furiosa-serving">furiosa-serving</a>,
+users can quickly develop Python-based high performance web service applications that utilize NPUs.
+The 0.8.0 release includes the following major updates.</p>
+<p><strong>Session pool that enables model serving with multiple NPUs</strong></p>
+<p>Session pools improve significantly throughput of model APIs by using multiple NPUs. If large inputs can be divided
+into a number of small inputs, this improvement can be used to reduce the latency of serving applications.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="p">:</span> <span class="n">NPUServeModel</span> <span class="o">=</span> <span class="n">synchronous</span><span class="p">(</span><span class="n">serve</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">&quot;nux&quot;</span><span class="p">))(</span>
+    <span class="s2">&quot;MNIST&quot;</span><span class="p">,</span>
+    <span class="n">location</span><span class="o">=</span><span class="s2">&quot;./assets/models/MNISTnet_uint8_quant_without_softmax.tflite&quot;</span><span class="p">,</span>
+    <span class="c1"># Specify multiple devices</span>
+    <span class="n">npu_device</span><span class="o">=</span><span class="s2">&quot;npu0pe0,npu0pe1,npu1pe0&quot;</span>
+    <span class="n">worker_num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Shift from thread-based to asyncio-based NPU query processing</strong></p>
+<p>Small and frequent NPU inference queries may now be processed with lower latency.
+As shown in the example below, applications requiring multiple NPU inferences in a
+single API query can be processed with better performance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="c1"># The following code runs multiple inferences at the same time and wait until all requests are completed.</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">tensors</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Added expanded support for external device &amp; runtime</strong></p>
+<p>In complex serving scenarios, additional/external device and runtime programs may be
+required, in addition to NPU-based Furiosa Runtime. In this release, the framework
+has been expanded such that external device and runtime may be used. The first
+external runtime added is OpenVINO.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">imagenet</span><span class="p">:</span> <span class="n">ServeModel</span> <span class="o">=</span> <span class="n">synchronous</span><span class="p">(</span><span class="n">serve</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">&quot;openvino&quot;</span><span class="p">))(</span>
+    <span class="s1">&#39;imagenet&#39;</span><span class="p">,</span>
+    <span class="n">location</span><span class="o">=</span><span class="s1">&#39;./examples/assets/models/image_classification.onnx&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Support for S3 cloud storage repository</strong></p>
+<p>Set model <code class="docutils literal notranslate"><span class="pre">location</span></code> as S3 URL.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load model from S3 (Auth environment variable for aioboto library required)</span>
+<span class="n">densenet</span><span class="p">:</span> <span class="n">ServeModel</span> <span class="o">=</span> <span class="n">synchronous</span><span class="p">(</span><span class="n">serve</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">&quot;nux&quot;</span><span class="p">))(</span>
+    <span class="s1">&#39;imagenet&#39;</span><span class="p">,</span>
+ <span class="n">location</span><span class="o">=</span><span class="s1">&#39;s3://furiosa/models/93d63f654f0f192cc4ff5691be60fb9379e9d7fd&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Support for OpenTelemetry compatible tracing</strong></p>
+<p>With the <a class="reference external" href="https://opentelemetry.io/docs/collector/">OpenTelemetry Collector</a>
+function, you can now track the execution time of specific code sections of the
+serving applications.</p>
+<p>To use this function, you can activate <code class="docutils literal notranslate"><span class="pre">trace.get_tracer()</span></code>, reset the tracer,
+activate the <code class="docutils literal notranslate"><span class="pre">tracer.start_as_current_span()</span></code> function, and designate the section.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opentelemetry</span> <span class="kn">import</span> <span class="n">trace</span>
+
+<span class="n">tracer</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">get_tracer</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Application</span><span class="p">:</span>
+
+        <span class="k">async</span> <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_as_current_span</span><span class="p">(</span><span class="s2">&quot;preprocess&quot;</span><span class="p">):</span>
+                <span class="n">input_tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_as_current_span</span><span class="p">(</span><span class="s2">&quot;inference&quot;</span><span class="p">):</span>
+                <span class="n">output_tensors</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">input_tensors</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_as_current_span</span><span class="p">(</span><span class="s2">&quot;postprocess&quot;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">output_tensors</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The specification of <a class="reference external" href="https://opentelemetry.io/docs/collector/">OpenTelemetry Collector</a>
+can be done through the configuration of <code class="docutils literal notranslate"><span class="pre">FURIOSA_SERVING_OTLP_ENDPOINT</span></code>, as shown below.
+The following diagram is an example that visualizes the tracing result with Grafana.</p>
+<a class="with-shadow reference internal image-reference" href="../_images/jaeger_grafana.png"><img alt="An example of visualization with Grafana" class="with-shadow align-center" src="../_images/jaeger_grafana.png" style="width: 600px;" /></a>
+<p>Other major improvements are as follows:</p>
+<ul class="simple">
+<li><p>Several inference requests can be executed at once, with serving API now supporting compiler setting <code class="docutils literal notranslate"><span class="pre">batch_size</span></code></p></li>
+<li><p>More threads can share the NPU, with serving API now supporting session option <code class="docutils literal notranslate"><span class="pre">worker_num</span></code></p></li>
+</ul>
+</section>
+<section id="profiler">
+<h3>Profiler<a class="headerlink" href="#profiler" title="Permalink to this heading"></a></h3>
+<p>You can now analyze the profiler tracing results with <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>,
+a data analysis framework. With this function, you can analyze the tracing result data,
+allowing you to quickly identify bottlenecks and reasons for model performance changes.
+More detailed instructions can be found at <a class="reference internal" href="../software/profiler.html#pandasprofilinganalysis"><span class="std std-ref">Trace analysis using Pandas DataFrame</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
+<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
+
+<span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">RecordFormat</span><span class="o">.</span><span class="n">PandasDataFrame</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;MNISTnet_uint8_quant_without_softmax.tflite&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+        <span class="n">input_shape</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;record&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">get_pandas_dataframe</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;trace&quot;</span><span class="p">][[</span><span class="s2">&quot;trace_id&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;thread.id&quot;</span><span class="p">,</span> <span class="s2">&quot;dur&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</section>
+<section id="quantization-tool">
+<h3>Quantization tool<a class="headerlink" href="#quantization-tool" title="Permalink to this heading"></a></h3>
+<p><a class="reference internal" href="../software/quantization.html#modelquantization"><span class="std std-ref">Model Quantization</span></a> is a tool that converts pre-trained models to quantized models.
+This release includes the following major updates.</p>
+<ul class="simple">
+<li><p>Accuracy improvement when processing SiLU operator</p></li>
+<li><p>Improved usability of compiler setting <code class="docutils literal notranslate"><span class="pre">without_quantize</span></code></p></li>
+<li><p>Accuracy improvement when processing MatMul/Gemm operators</p></li>
+<li><p>Accuracy improvement when processing Add/Sub/Mul/Div operators</p></li>
+<li><p>NPU acceleration now added for more auto_pad properties, when processing Conv/ConvTranspose/MaxPool operators</p></li>
+<li><p>NPU acceleration support for PRelu operator</p></li>
+</ul>
+</section>
+<section id="furiosa-toolkit">
+<h3>furiosa-toolkit<a class="headerlink" href="#furiosa-toolkit" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">furiosactl</span></code> command line tool, which has been added to the
+furiosa-toolkit 0.10.0 release, includes the following improvements.</p>
+<p>The newly added <cite>furiosactl ps</cite> command allows you to print
+the OS processes which are occupying the NPU device.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># furiosactl ps</span>
+<span class="o">+-----------+--------+------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">NPU</span>       <span class="o">|</span> <span class="n">PID</span>    <span class="o">|</span> <span class="n">CMD</span>                                                        <span class="o">|</span>
+<span class="o">+-----------+--------+------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">npu0pe0</span><span class="o">-</span><span class="mi">1</span> <span class="o">|</span> <span class="mi">132529</span> <span class="o">|</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">uvicorn</span> <span class="n">image_classify</span><span class="p">:</span><span class="n">app</span> <span class="o">|</span>
+<span class="o">+-----------+--------+------------------------------------------------------------+</span>
+</pre></div>
+</div>
+<p>The <cite>furiosactl info</cite> command now prints the unique UUID for each device.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ furiosactl info
++------+--------+--------------------------------------+-----------------+-------+--------+--------------+---------+
+| NPU  | Name   | UUID                                 | Firmware        | Temp. | Power  | PCI-BDF      | PCI-DEV |
++------+--------+--------------------------------------+-----------------+-------+--------+--------------+---------+
+| npu0 | warboy | 72212674-61BE-4FCA-A2C9-555E4EE67AB5 | v1.1.0, 12180b0 |  49°C | 3.12 W | 0000:24:00.0 | 235:0   |
++------+--------+--------------------------------------+-----------------+-------+--------+--------------+---------+
+| npu1 | warboy | DF80FB54-8190-44BC-B9FB-664FA36C754A | v1.1.0, 12180b0 |  54°C | 2.53 W | 0000:6d:00.0 | 511:0   |
++------+--------+--------------------------------------+-----------------+-------+--------+--------------+---------+
+</pre></div>
+</div>
+<p>Detailed instructions on installation and usage for <cite>furiosactl</cite> can be found in
+<a class="reference internal" href="../software/cli.html#toolkit"><span class="std std-ref">furiosa-toolkit</span></a>.</p>
+</section>
+<section id="model-zoo-api-improvements-added-models-and-added-native-post-processing-code">
+<h3>Model Zoo API improvements, added models, and added native post-processing code<a class="headerlink" href="#model-zoo-api-improvements-added-models-and-added-native-post-processing-code" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models">furioa-models</a> is a public Model Zoo project,
+providing FuriosaAI NPU-optimized models.
+The 0.8.0 release includes the following major updates.</p>
+<p><strong>YOLOv5 Large/Medium models added</strong></p>
+<p>Support for <code class="docutils literal notranslate"><span class="pre">YOLOv5l</span></code>, <code class="docutils literal notranslate"><span class="pre">YOLOv5m</span></code>, which are SOTA object detection models, have been added.
+The total list of available models can be found in
+<a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/v0.8.0/#model_list">Model List</a>.</p>
+<p><strong>Improvements to model class and loading API</strong></p>
+<p>The model class has been improved to include pre and post-processing code, while the
+model loading API has been improved as shown below.</p>
+<p>More explanation on model class and the API can be found at
+<a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/model_object/">Model Object</a>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Blocking API</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Nonblocking API</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Before update</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+
+<span class="n">resnet50</span> <span class="o">=</span> <span class="n">MLCommonsResNet50</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Updated code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
+
+<span class="n">resnet50</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Before update</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">from</span> <span class="nn">furiosa.models.nonblocking.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+
+<span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">MLCommonsResNet50</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>0.8.0 improvements</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
+
+<span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">ResNet50</span><span class="o">.</span><span class="n">load_async</span><span class="p">())</span>
+</pre></div>
+</div>
+</div></div>
+<p>The model post-processing process converts the inference ouput tensor into structural
+data, which is more accessible for the application. Depending on the model, this
+may require a longer execution time.
+The 0.8.0 release includes native post-processing code for ResNet50, SSD-MobileNet,
+and SSD-ResNet34. Based on internal benchmarks, native post-processing code can reduce
+latency by up to 70%, depending on the model.</p>
+<p>The following is a complete example of ResNet50, utilizing native post-processing code.
+More information can be found at <a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/v0.8.0/model_object/#prepostprocessing">Pre/Postprocessing</a>.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
+<span class="kn">from</span> <span class="nn">furiosa.models.vision.resnet50</span> <span class="kn">import</span> <span class="n">NativePostProcessor</span><span class="p">,</span> <span class="n">preprocess</span>
+<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+
+<span class="n">postprocessor</span> <span class="o">=</span> <span class="n">NativePostProcessor</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="s2">&quot;tests/assets/cat.jpg&quot;</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">postprocessor</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Other changes and updates can be found at <a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/v0.8.0/changelog/">Furiosa Model - 0.8.0 Changelogs</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="0.9.0.html" class="btn btn-neutral float-left" title="Release Notes - 0.9.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="0.7.0.html" class="btn btn-neutral float-right" title="Release Notes - 0.7.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

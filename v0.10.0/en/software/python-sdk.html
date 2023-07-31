@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python SDK installation and user guide &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C SDK installation and user guide" href="c-sdk.html" />
+    <link rel="prev" title="Driver, Firmware, and Runtime Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.10.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python SDK installation and user guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-execution-environment-setup">Python execution environment setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-environment-configuration-with-conda">Python environment configuration with Conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-python-environment-using-linux-packages">Configuring Python environment using Linux packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-python-sdk-package">Installing Python SDK package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extra-packages">Extra packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#legacy-runtime-api">Legacy Runtime/API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosaai-models">FuriosaAI Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantizer">Quantizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-server">Model Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#litmus">Litmus</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python SDK installation and user guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/software/python-sdk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-sdk-installation-and-user-guide">
+<span id="pythonsdk"></span><h1>Python SDK installation and user guide<a class="headerlink" href="#python-sdk-installation-and-user-guide" title="Permalink to this heading"></a></h1>
+<p>FuriosaAI Python SDK is a software development kit for writing Python applications that use the NPU.
+With the Python SDK, you can utilize various tools, libraries, and frameworks of the Python ecosystem that are most widely used in the AI/ML field for developing NPU applications.
+Python SDK consists of various modules and provides an inference API, a quantization API, a command line tool, and a server program for serving.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Ubuntu 20.04 LTS (Debian bullseye) or higher</p></li>
+<li><p><a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">FuriosaAI SDK required packages</span></a></p></li>
+<li><p>Python 3.8 or higher (See <a class="reference internal" href="#setuppython"><span class="std std-ref">Python execution environment setup</span></a> for setup Python environment)</p></li>
+<li><p>Latest version of pip</p></li>
+</ul>
+<p>To install and use Python SDK, follow the <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">Installing required packages</span></a> guide.
+You need to install the required kernel driver, firmware, and runtime library.</p>
+</section>
+<section id="python-execution-environment-setup">
+<span id="setuppython"></span><h2>Python execution environment setup<a class="headerlink" href="#python-execution-environment-setup" title="Permalink to this heading"></a></h2>
+<p>Python SDK requires Python 3.8 or above. Here, we describe Python execution environment configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are not using the FuriosaAI Python SDK, or if you are familiar with configuring a Python execution environment, you can skip this section.</p>
+</div>
+<p>You can check the Python version currently installed in your system with the command below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Python</span> <span class="mf">3.8.10</span>
+</pre></div>
+</div>
+<p>If the Python command does not exist, or if your Python version is below 3.8, configure the Python environment
+by selecting one of the methods below.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#condainstall"><span class="std std-ref">Python environment configuration with Conda</span></a> (recommended):
+<a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">Conda</a> allows you to
+configure a separate, isolated Python environment for specific Python applications.
+Conda therefore prevents the package dependency issues or Python version issues that users
+often encounter when installing Python applications.</p></li>
+<li><p>Configure the Python execution environment directly on the <a class="reference internal" href="#setuppythononlinux"><span class="std std-ref">Configuring Python environment using Linux packages</span></a>: Linux system.
+You can select this option if you are not concerned about conflicts with other Python execution environments.</p></li>
+</ul>
+<section id="python-environment-configuration-with-conda">
+<span id="condainstall"></span><h3>Python environment configuration with Conda<a class="headerlink" href="#python-environment-configuration-with-conda" title="Permalink to this heading"></a></h3>
+<p>Conda makes it easy to configure a isolated Python environment for a specific Python application.
+To find out more about Conda, refer to readings available in <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">Conda</a>.</p>
+<p>You can get started by downloading the installer as shown below.
+Select <cite>yes</cite> to all questions when running <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">./Miniconda3-latest-Linux-x86_64.sh</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">miniconda</span><span class="o">/</span><span class="n">Miniconda3</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">sh</span> <span class="o">./</span><span class="n">Miniconda3</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">conda</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<section id="creating-and-activating-isolated-python-execution-environment">
+<h4>Creating and activating isolated Python execution environment<a class="headerlink" href="#creating-and-activating-isolated-python-execution-environment" title="Permalink to this heading"></a></h4>
+<p>After installing Anaconda, you can create an isolated Python execution environment and activate it as needed.</p>
+<ol class="arabic simple">
+<li><p>If you want to use Python 3.8, create an execution environment with the name <code class="docutils literal notranslate"><span class="pre">furiosa-3.8</span></code>, by using the following command.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">furiosa</span><span class="o">-</span><span class="mf">3.8</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The created Python 3.8 environment is activated with the <code class="docutils literal notranslate"><span class="pre">activate</span></code> command.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">furiosa</span><span class="o">-</span><span class="mf">3.8</span>
+<span class="c1"># version check</span>
+<span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Once the Python execution environment is activated, install the Python SDK as explained in <a class="reference internal" href="#installpippackages"><span class="std std-ref">Installing Python SDK package</span></a>.</p></li>
+<li><p>If you wish to terminate the Python execution environment, use the <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> command.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda deactivate
+</pre></div>
+</div>
+<p>An environment created once can be used again at any time with the <code class="docutils literal notranslate"><span class="pre">activate</span></code> command.
+Packages that have been installed do not need to be reinstalled after activation.</p>
+</section>
+</section>
+<section id="configuring-python-environment-using-linux-packages">
+<span id="setuppythononlinux"></span><h3>Configuring Python environment using Linux packages<a class="headerlink" href="#configuring-python-environment-using-linux-packages" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>If you can configure the Python environment directly on the system, install the necessary packages as shown below.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">python</span><span class="o">-</span><span class="ow">is</span><span class="o">-</span><span class="n">python3</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Check the Python version to ensure proper installation.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Python</span> <span class="mf">3.8.10</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="installing-python-sdk-package">
+<span id="installpippackages"></span><h2>Installing Python SDK package<a class="headerlink" href="#installing-python-sdk-package" title="Permalink to this heading"></a></h2>
+<p>Before installing the furiosa-sdk, you need to update Python’s package installer to the latest version.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you install the furiosa-sdk without updating to the latest version, you may encounter the following error.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>a<span class="w"> </span>version<span class="w"> </span>that<span class="w"> </span>satisfies<span class="w"> </span>the<span class="w"> </span>requirement<span class="w"> </span>furiosa-quantizer-impl<span class="o">==</span><span class="m">0</span>.9.*<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>furiosa-quantizer<span class="o">==</span><span class="m">0</span>.9.*-&gt;furiosa-sdk<span class="o">)</span><span class="w"> </span><span class="o">(</span>from<span class="w"> </span>versions:<span class="w"> </span>none<span class="o">)</span>
+ERROR:<span class="w"> </span>No<span class="w"> </span>matching<span class="w"> </span>distribution<span class="w"> </span>found<span class="w"> </span><span class="k">for</span><span class="w"> </span>furiosa-quantizer-impl<span class="o">==</span><span class="m">0</span>.9.*<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>furiosa-quantizer<span class="o">==</span><span class="m">0</span>.9.*-&gt;furiosa-sdk<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Installing with PIP</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Installing with the source code</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>FuriosaAI Python SDK package is uploaded on the <a class="reference external" href="https://pypi.org/">pypi</a> repository,
+so you can easily install it as shown by using the <code class="docutils literal notranslate"><span class="pre">pip</span></code> command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>furiosa-sdk
+</pre></div>
+</div>
+<p>The package contains a compiler command line interface and an inference API.
+Refer to <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa compile</span></a> and <a class="reference internal" href="tutorials.html#tutorial"><span class="std std-ref">Tutorial and Code Examples</span></a> for detailed usage guides.</p>
+<p>Additional functions are provided in the form of Python extra packages, and you can select and
+install packages as you require from <a class="reference internal" href="#pythonextrapackages"><span class="std std-ref">Extra packages</span></a>.
+For example, if you need to install <cite>server`</cite> for model serving and
+<code class="docutils literal notranslate"><span class="pre">litmus</span></code> to check the compatibility between model and SDK, specify the extension package as follows.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[server, litmus]&#39;</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Download the source code from <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk">FuriosaAI Github repository</a>
+and install the packages in the following order.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/furiosa-ai/furiosa-sdk
+<span class="nb">cd</span><span class="w"> </span>furiosa-sdk/python
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-runtime
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-tools
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-sdk
+</pre></div>
+</div>
+<p>If you wish to install extra packages, install the Python module in the subdirectory of furiosa-sdk/python.
+For example, if you want to install a model server, install it according to the order of dependencies as follows.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>furiosa-sdk/python
+pip<span class="w"> </span>install<span class="w"> </span>furiosa-server
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="extra-packages">
+<span id="pythonextrapackages"></span><h2>Extra packages<a class="headerlink" href="#extra-packages" title="Permalink to this heading"></a></h2>
+<section id="legacy-runtime-api">
+<h3>Legacy Runtime/API<a class="headerlink" href="#legacy-runtime-api" title="Permalink to this heading"></a></h3>
+<p>Rather than the next-generation runtime and its API newly adoted since 0.10.0,
+you can install furiosa-sdk with the legacy runtime and API as following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[legacy]&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="furiosaai-models">
+<h3>FuriosaAI Models<a class="headerlink" href="#furiosaai-models" title="Permalink to this heading"></a></h3>
+<p>It can be executed directly on the NPU and provides optimized DNN model architecture, pre-trained
+model image, among others, in the form of a Python module.
+You can install them with the following command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[models]&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="quantizer">
+<h3>Quantizer<a class="headerlink" href="#quantizer" title="Permalink to this heading"></a></h3>
+<p>The quantizer package provides a set of APIs for converting a model into a quantized model.
+You can find more information about the quantization function provided by the Furiosa SDK and the NPU
+at <a class="reference internal" href="quantization.html#modelquantization"><span class="std std-ref">Model Quantization</span></a>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[quantizer]&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="model-server">
+<h3>Model Server<a class="headerlink" href="#model-server" title="Permalink to this heading"></a></h3>
+<p>Provides the function of accelerating DNN model with the NPU, and serving it with GRPC or Restful API.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[server]&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="litmus">
+<h3>Litmus<a class="headerlink" href="#litmus" title="Permalink to this heading"></a></h3>
+<p>A tool to check whether the specified model is compatible with the Furiosa SDK.
+Here, we simulate execution of processes such as model quantization and compilation.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;furiosa-sdk[litmus]&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Driver, Firmware, and Runtime Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="c-sdk.html" class="btn btn-neutral float-right" title="C SDK installation and user guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

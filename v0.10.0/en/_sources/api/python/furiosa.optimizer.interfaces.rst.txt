@@ -1,0 +1,21 @@
+furiosa.optimizer.interfaces package
+====================================
+
+Submodules
+----------
+
+furiosa.optimizer.interfaces.transformer module
+-----------------------------------------------
+
+.. automodule:: furiosa.optimizer.interfaces.transformer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.optimizer.interfaces
+   :members:
+   :undoc-members:
+   :show-inheritance:

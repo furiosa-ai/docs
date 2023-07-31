@@ -1,0 +1,61 @@
+furiosa.common.transport package
+================================
+
+Submodules
+----------
+
+furiosa.common.transport.base module
+------------------------------------
+
+.. automodule:: furiosa.common.transport.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.common.transport.error module
+-------------------------------------
+
+.. automodule:: furiosa.common.transport.error
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.common.transport.file module
+------------------------------------
+
+.. automodule:: furiosa.common.transport.file
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.common.transport.github module
+--------------------------------------
+
+.. automodule:: furiosa.common.transport.github
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.common.transport.http module
+------------------------------------
+
+.. automodule:: furiosa.common.transport.http
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.common.transport.s3 module
+----------------------------------
+
+.. automodule:: furiosa.common.transport.s3
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.common.transport
+   :members:
+   :undoc-members:
+   :show-inheritance:

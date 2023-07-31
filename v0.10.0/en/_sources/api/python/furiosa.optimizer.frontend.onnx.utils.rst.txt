@@ -1,0 +1,37 @@
+furiosa.optimizer.frontend.onnx.utils package
+=============================================
+
+Submodules
+----------
+
+furiosa.optimizer.frontend.onnx.utils.check\_model module
+---------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.utils.check_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.optimizer.frontend.onnx.utils.inference\_shape module
+-------------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.utils.inference_shape
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+furiosa.optimizer.frontend.onnx.utils.version\_checker module
+-------------------------------------------------------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.utils.version_checker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: furiosa.optimizer.frontend.onnx.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

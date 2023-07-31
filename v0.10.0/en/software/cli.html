@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Line Tools &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compiler" href="compiler.html" />
+    <link rel="prev" title="C SDK installation and user guide" href="c-sdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.10.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#furiosa-toolkit">furiosa-toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-toolkit-installation">furiosa-toolkit installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosactl-instructions">furiosactl instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#furiosa">furiosa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-compile">furiosa compile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-litmus-checking-for-model-compatibility">furiosa litmus (Checking for model compatibility)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Command Line Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/software/cli.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-line-tools">
+<h1>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this heading"></a></h1>
+<p>Through the command line tools, Furiosa SDK provides functions such as monitoring NPU device information, compiling models, and checking compatibility between models and SDKs. This section explains how to install and use each command line tool.</p>
+<section id="furiosa-toolkit">
+<span id="toolkit"></span><h2>furiosa-toolkit<a class="headerlink" href="#furiosa-toolkit" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-toolkit</span></code> provides a command line tool that enables users to manage and check the information of NPU devices.</p>
+<section id="furiosa-toolkit-installation">
+<h3>furiosa-toolkit installation<a class="headerlink" href="#furiosa-toolkit-installation" title="Permalink to this heading"></a></h3>
+<p>To use this command line tool, you first need to install the kernel driver as shown in <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">Driver, Firmware, and Runtime Installation</span></a>.
+Subsequently, follow the instructions below to install furiosa-toolkit.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Installation using APT server</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-toolkit
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="furiosactl-instructions">
+<h3>furiosactl instructions<a class="headerlink" href="#furiosactl-instructions" title="Permalink to this heading"></a></h3>
+<p>The furiosactl command provides a variety of subcommands and has the ability to obtain information or control the device.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosactl<span class="w"> </span>&lt;sub<span class="w"> </span>command&gt;<span class="w"> </span><span class="o">[</span>option<span class="o">]</span><span class="w"> </span>..
+</pre></div>
+</div>
+<section id="furiosactl-info">
+<h4><code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">info</span></code><a class="headerlink" href="#furiosactl-info" title="Permalink to this heading"></a></h4>
+<p>After installing the kernel driver, you can use the <code class="docutils literal notranslate"><span class="pre">furiosactl</span></code> command to check whether the NPU device is recognized.
+Currently, this command provides the <code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">info</span></code> command to output temperature, power consumption and PCI information of the NPU device.
+If the device is not visible with this command after mounting it on the machine, <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">Driver, Firmware, and Runtime Installation</span></a> to install the driver.
+If you add the <code class="docutils literal notranslate"><span class="pre">--full</span></code> option to the <code class="docutils literal notranslate"><span class="pre">info</span></code> command, you can see the device’s UUID and serial number information together.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosactl<span class="w"> </span>info
++------+--------+----------------+-------+--------+--------------+
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">   </span><span class="p">|</span><span class="w"> </span>Firmware<span class="w">       </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span>
++------+--------+----------------+-------+--------+--------------+
+<span class="p">|</span><span class="w"> </span>npu1<span class="w"> </span><span class="p">|</span><span class="w"> </span>warboy<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.6.0,<span class="w"> </span>3c10fd3<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">54</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span>.99<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:44:00.0<span class="w"> </span><span class="p">|</span>
++------+--------+----------------+-------+--------+--------------+
+
+$<span class="w"> </span>furiosactl<span class="w"> </span>info<span class="w"> </span>--full
++------+--------+--------------------------------------+-------------------+----------------+-------+--------+--------------+---------+
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Name<span class="w">   </span><span class="p">|</span><span class="w"> </span>UUID<span class="w">                                 </span><span class="p">|</span><span class="w"> </span>S/N<span class="w">               </span><span class="p">|</span><span class="w"> </span>Firmware<span class="w">       </span><span class="p">|</span><span class="w"> </span>Temp.<span class="w"> </span><span class="p">|</span><span class="w"> </span>Power<span class="w">  </span><span class="p">|</span><span class="w"> </span>PCI-BDF<span class="w">      </span><span class="p">|</span><span class="w"> </span>PCI-DEV<span class="w"> </span><span class="p">|</span>
++------+--------+--------------------------------------+-------------------+----------------+-------+--------+--------------+---------+
+<span class="p">|</span><span class="w"> </span>npu1<span class="w"> </span><span class="p">|</span><span class="w"> </span>warboy<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">00000000</span>-0000-0000-0000-000000000000<span class="w"> </span><span class="p">|</span><span class="w"> </span>WBYB0000000000000<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.6.0,<span class="w"> </span>3c10fd3<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">54</span>°C<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span>.99<span class="w"> </span>W<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0000</span>:44:00.0<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">511</span>:0<span class="w">   </span><span class="p">|</span>
++------+--------+--------------------------------------+-------------------+----------------+-------+--------+--------------+---------+
+</pre></div>
+</div>
+</section>
+<section id="furiosactl-list">
+<h4><code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">list</span></code><a class="headerlink" href="#furiosactl-list" title="Permalink to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> subcommand provides information about the device files available on the NPU device.
+You can also check whether each core present in the NPU is in use or idle.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosactl<span class="w"> </span>list
++------+------------------------------+-----------------------------------+
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">  </span><span class="p">|</span><span class="w"> </span>Cores<span class="w">                        </span><span class="p">|</span><span class="w"> </span>DEVFILES<span class="w">                          </span><span class="p">|</span>
++------+------------------------------+-----------------------------------+
+<span class="p">|</span><span class="w"> </span>npu1<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>available<span class="o">)</span>,<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>available<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>npu1,<span class="w"> </span>npu1pe0,<span class="w"> </span>npu1pe1,<span class="w"> </span>npu1pe0-1<span class="w"> </span><span class="p">|</span>
++------+------------------------------+-----------------------------------+
+</pre></div>
+</div>
+</section>
+<section id="furiosactl-ps">
+<h4><code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">ps</span></code><a class="headerlink" href="#furiosactl-ps" title="Permalink to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">ps</span></code> subcommand prints information about the OS process currently occupying the NPU device.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosactl<span class="w"> </span>ps
++-----------+--------+------------------------------------------------------------+
+<span class="p">|</span><span class="w"> </span>NPU<span class="w">       </span><span class="p">|</span><span class="w"> </span>PID<span class="w">    </span><span class="p">|</span><span class="w"> </span>CMD<span class="w">                                                        </span><span class="p">|</span>
++-----------+--------+------------------------------------------------------------+
+<span class="p">|</span><span class="w"> </span>npu0pe0-1<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">132529</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>/usr/bin/python3<span class="w"> </span>/usr/local/bin/uvicorn<span class="w"> </span>image_classify:app<span class="w"> </span><span class="p">|</span>
++-----------+--------+------------------------------------------------------------+
+</pre></div>
+</div>
+</section>
+<section id="furiosactl-top-experimental">
+<h4><code class="docutils literal notranslate"><span class="pre">furiosactl</span> <span class="pre">top</span></code> (experimental)<a class="headerlink" href="#furiosactl-top-experimental" title="Permalink to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">top</span></code> subcommand is used to view utilization by NPU unit over time.
+The output has the following meaning
+By default, utilization is calculated every 1 second, but you can set the calculation interval yourself with the <code class="docutils literal notranslate"><span class="pre">--interval</span></code> option. (unit: ms)</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">furiosa top fields</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datetime</p></td>
+<td><p>Observation time</p></td>
+</tr>
+<tr class="row-odd"><td><p>PID</p></td>
+<td><p>Process ID that is using the NPU</p></td>
+</tr>
+<tr class="row-even"><td><p>Device</p></td>
+<td><p>NPU device in use</p></td>
+</tr>
+<tr class="row-odd"><td><p>NPU(%)</p></td>
+<td><p>Percentage of time the NPU was used during the observation time.</p></td>
+</tr>
+<tr class="row-even"><td><p>Comp(%)</p></td>
+<td><p>Percentage of time the NPU was used for computation during the observation time</p></td>
+</tr>
+<tr class="row-odd"><td><p>I/O (%)</p></td>
+<td><p>Percentage of time the NPU was used for I/O out of the time the NPU was used</p></td>
+</tr>
+<tr class="row-even"><td><p>Command</p></td>
+<td><p>Executed command line of the process</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosactl<span class="w"> </span>top<span class="w"> </span>--interval<span class="w"> </span><span class="m">200</span>
+NOTE:<span class="w"> </span>furiosa<span class="w"> </span>top<span class="w"> </span>is<span class="w"> </span>under<span class="w"> </span>development.<span class="w"> </span>Usage<span class="w"> </span>and<span class="w"> </span>output<span class="w"> </span>formats<span class="w"> </span>may<span class="w"> </span>change.
+Please<span class="w"> </span>enter<span class="w"> </span>Ctrl+C<span class="w"> </span>to<span class="w"> </span>stop.
+Datetime<span class="w">                        </span>PID<span class="w">       </span>Device<span class="w">        </span>NPU<span class="o">(</span>%<span class="o">)</span><span class="w">   </span>Comp<span class="o">(</span>%<span class="o">)</span><span class="w">   </span>I/O<span class="o">(</span>%<span class="o">)</span><span class="w">   </span>Command
+<span class="m">2023</span>-03-21T09:45:56.699483936Z<span class="w">  </span><span class="m">152616</span><span class="w">    </span>npu1pe0-1<span class="w">      </span><span class="m">19</span>.06<span class="w">    </span><span class="m">100</span>.00<span class="w">     </span><span class="m">0</span>.00<span class="w">   </span>./npu_runtime_test<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>results/ResNet-CTC_kor1_200_nightly3_128dpes_8batches.enf
+<span class="m">2023</span>-03-21T09:45:56.906443888Z<span class="w">  </span><span class="m">152616</span><span class="w">    </span>npu1pe0-1<span class="w">      </span><span class="m">51</span>.09<span class="w">     </span><span class="m">93</span>.05<span class="w">     </span><span class="m">6</span>.95<span class="w">   </span>./npu_runtime_test<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>results/ResNet-CTC_kor1_200_nightly3_128dpes_8batches.enf
+<span class="m">2023</span>-03-21T09:45:57.110489333Z<span class="w">  </span><span class="m">152616</span><span class="w">    </span>npu1pe0-1<span class="w">      </span><span class="m">46</span>.40<span class="w">     </span><span class="m">97</span>.98<span class="w">     </span><span class="m">2</span>.02<span class="w">   </span>./npu_runtime_test<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>results/ResNet-CTC_kor1_200_nightly3_128dpes_8batches.enf
+<span class="m">2023</span>-03-21T09:45:57.316060982Z<span class="w">  </span><span class="m">152616</span><span class="w">    </span>npu1pe0-1<span class="w">      </span><span class="m">51</span>.43<span class="w">    </span><span class="m">100</span>.00<span class="w">     </span><span class="m">0</span>.00<span class="w">   </span>./npu_runtime_test<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>results/ResNet-CTC_kor1_200_nightly3_128dpes_8batches.enf
+<span class="m">2023</span>-03-21T09:45:57.521140588Z<span class="w">  </span><span class="m">152616</span><span class="w">    </span>npu1pe0-1<span class="w">      </span><span class="m">54</span>.28<span class="w">     </span><span class="m">94</span>.10<span class="w">     </span><span class="m">5</span>.90<span class="w">   </span>./npu_runtime_test<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>results/ResNet-CTC_kor1_200_nightly3_128dpes_8batches.enf
+<span class="m">2023</span>-03-21T09:45:57.725910558Z<span class="w">  </span><span class="m">152616</span><span class="w">    </span>npu1pe0-1<span class="w">      </span><span class="m">48</span>.93<span class="w">     </span><span class="m">98</span>.93<span class="w">     </span><span class="m">1</span>.07<span class="w">   </span>./npu_runtime_test<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>results/ResNet-CTC_kor1_200_nightly3_128dpes_8batches.enf
+<span class="m">2023</span>-03-21T09:45:57.935041998Z<span class="w">  </span><span class="m">152616</span><span class="w">    </span>npu1pe0-1<span class="w">      </span><span class="m">47</span>.91<span class="w">    </span><span class="m">100</span>.00<span class="w">     </span><span class="m">0</span>.00<span class="w">   </span>./npu_runtime_test<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>results/ResNet-CTC_kor1_200_nightly3_128dpes_8batches.enf
+<span class="m">2023</span>-03-21T09:45:58.13929122Z<span class="w">   </span><span class="m">152616</span><span class="w">    </span>npu1pe0-1<span class="w">      </span><span class="m">49</span>.06<span class="w">     </span><span class="m">94</span>.94<span class="w">     </span><span class="m">5</span>.06<span class="w">   </span>./npu_runtime_test<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>results/ResNet-CTC_kor1_200_nightly3_128dpes_8batches.enf
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="furiosa">
+<h2>furiosa<a class="headerlink" href="#furiosa" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> command is a meta-command line tool that can be used by installing the <cite>Python SDK &lt;PythonSDK&gt;</cite>.
+Additional subcommands are also added when the extension package is installed.</p>
+<p>If the Python execution environment is not prepared, refer to <a class="reference internal" href="python-sdk.html#setuppython"><span class="std std-ref">Python execution environment setup</span></a>.</p>
+<p>Installing command line tool.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>furiosa-sdk
+</pre></div>
+</div>
+<p>Verifying installation.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa<span class="w"> </span>compile<span class="w"> </span>--version
+libnpu.so<span class="w"> </span>---<span class="w"> </span>v2.0,<span class="w"> </span>built<span class="w"> </span>@<span class="w"> </span>fe1fca3
+<span class="m">0</span>.5.0<span class="w"> </span><span class="o">(</span>rev:<span class="w"> </span>49b97492a<span class="w"> </span>built<span class="w"> </span>at<span class="w"> </span><span class="m">2021</span>-12-07<span class="w"> </span><span class="m">04</span>:07:08<span class="o">)</span><span class="w"> </span><span class="o">(</span>wrapper:<span class="w"> </span>None<span class="o">)</span>
+</pre></div>
+</div>
+<section id="furiosa-compile">
+<h3>furiosa compile<a class="headerlink" href="#furiosa-compile" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">compile</span></code> command compiles models such as <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> and <a class="reference external" href="https://onnx.ai/">ONNX</a>, generating programs that utilize FuriosaAI NPU.</p>
+<p>Detailed explanations and options can be found in the <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa compile</span></a> page.</p>
+</section>
+<section id="furiosa-litmus-checking-for-model-compatibility">
+<span id="litmus"></span><h3>furiosa litmus (Checking for model compatibility)<a class="headerlink" href="#furiosa-litmus-checking-for-model-compatibility" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">litmus</span></code> is a tool to check quickly if an <a class="reference external" href="https://onnx.ai/">ONNX</a> model can work normally with Furiosa SDK using NPU.
+<code class="docutils literal notranslate"><span class="pre">litmus</span></code> goes through all usage steps of Furiosa SDK, including quantization, compilation, and inferences on FuriosaAI NPU.
+<code class="docutils literal notranslate"><span class="pre">litmus</span></code> is also a useful bug reporting tool. If you specify <code class="docutils literal notranslate"><span class="pre">--dump</span></code> option, <code class="docutils literal notranslate"><span class="pre">litmus</span></code> will collect logs and environment information and dump an archive file.
+The archive file can be used to report issues.</p>
+<p>The steps executed by <code class="docutils literal notranslate"><span class="pre">litmus</span></code> command are as follows.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Step1: Load an input model and check it is a valid model.</p></li>
+<li><p>Step2: Quantize the model with random calibration.</p></li>
+<li><p>Step3: Compile the quantized model.</p></li>
+<li><p>Step4: Inference the compiled model using <code class="docutils literal notranslate"><span class="pre">furiosa-bench</span></code>. This step is skipped if <code class="docutils literal notranslate"><span class="pre">furiosa-bench</span></code> was not installed.</p></li>
+</ul>
+</div></blockquote>
+<p>Usage:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa-litmus<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--dump<span class="w"> </span>OUTPUT_PREFIX<span class="o">]</span><span class="w"> </span><span class="o">[</span>--skip-quantization<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target-npu<span class="w"> </span>TARGET_NPU<span class="o">]</span><span class="w"> </span><span class="o">[</span>-v<span class="o">]</span><span class="w"> </span>model_path
+</pre></div>
+</div>
+<p>A simple example using <code class="docutils literal notranslate"><span class="pre">litmus</span></code> command is as follows.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa<span class="w"> </span>litmus<span class="w"> </span>model.onnx
+libfuriosa_hal.so<span class="w"> </span>---<span class="w"> </span>v0.11.0,<span class="w"> </span>built<span class="w"> </span>@<span class="w"> </span>43c901f
+INFO:furiosa.common.native:loaded<span class="w"> </span>native<span class="w"> </span>library<span class="w"> </span>libfuriosa_compiler.so.0.10.0<span class="w"> </span><span class="o">(</span><span class="m">0</span>.10.0-dev<span class="w"> </span>d7548b7f6<span class="o">)</span>
+furiosa-quantizer<span class="w"> </span><span class="m">0</span>.10.0<span class="w"> </span><span class="o">(</span>rev.<span class="w"> </span>9ecebb6<span class="o">)</span><span class="w"> </span>furiosa-litmus<span class="w"> </span><span class="m">0</span>.10.0<span class="w"> </span><span class="o">(</span>rev.<span class="w"> </span>9ecebb6<span class="o">)</span>
+<span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>loaded<span class="w"> </span>and<span class="w"> </span>optimized<span class="w"> </span>...
+<span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Passed
+<span class="o">[</span>Step<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>quantized<span class="w"> </span>...
+<span class="o">[</span>Step<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Passed
+<span class="o">[</span>Step<span class="w"> </span><span class="m">3</span><span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>compiled<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>NPU<span class="w"> </span>family<span class="w"> </span><span class="o">[</span>warboy-2pe<span class="o">]</span><span class="w"> </span>...
+<span class="o">[</span><span class="m">1</span>/6<span class="o">]</span><span class="w"> </span>🔍<span class="w">   </span>Compiling<span class="w"> </span>from<span class="w"> </span>onnx<span class="w"> </span>to<span class="w"> </span>dfg
+Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.09272794s
+<span class="o">[</span><span class="m">2</span>/6<span class="o">]</span><span class="w"> </span>🔍<span class="w">   </span>Compiling<span class="w"> </span>from<span class="w"> </span>dfg<span class="w"> </span>to<span class="w"> </span>ldfg
+▪▪▪▪▪<span class="w"> </span><span class="o">[</span><span class="m">1</span>/3<span class="o">]</span><span class="w"> </span>Splitting<span class="w"> </span>graph<span class="o">(</span>LAS<span class="o">)</span>...Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">9</span>.034934s
+▪▪▪▪▪<span class="w"> </span><span class="o">[</span><span class="m">2</span>/3<span class="o">]</span><span class="w"> </span>Lowering<span class="w"> </span>graph<span class="o">(</span>LAS<span class="o">)</span>...Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">20</span>.140083s
+▪▪▪▪▪<span class="w"> </span><span class="o">[</span><span class="m">3</span>/3<span class="o">]</span><span class="w"> </span>Optimizing<span class="w"> </span>graph...Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.019548794s
+Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">29</span>.196825s
+<span class="o">[</span><span class="m">3</span>/6<span class="o">]</span><span class="w"> </span>🔍<span class="w">   </span>Compiling<span class="w"> </span>from<span class="w"> </span>ldfg<span class="w"> </span>to<span class="w"> </span>cdfg
+Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.001701888s
+<span class="o">[</span><span class="m">4</span>/6<span class="o">]</span><span class="w"> </span>🔍<span class="w">   </span>Compiling<span class="w"> </span>from<span class="w"> </span>cdfg<span class="w"> </span>to<span class="w"> </span>gir
+Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.015205072s
+<span class="o">[</span><span class="m">5</span>/6<span class="o">]</span><span class="w"> </span>🔍<span class="w">   </span>Compiling<span class="w"> </span>from<span class="w"> </span>gir<span class="w"> </span>to<span class="w"> </span>lir
+Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.0038304s
+<span class="o">[</span><span class="m">6</span>/6<span class="o">]</span><span class="w"> </span>🔍<span class="w">   </span>Compiling<span class="w"> </span>from<span class="w"> </span>lir<span class="w"> </span>to<span class="w"> </span>enf
+Done<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.020943863s
+✨<span class="w">  </span>Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">29</span>.331545s
+<span class="o">[</span>Step<span class="w"> </span><span class="m">3</span><span class="o">]</span><span class="w"> </span>Passed
+<span class="o">[</span>Step<span class="w"> </span><span class="m">4</span><span class="o">]</span><span class="w"> </span>Perform<span class="w"> </span>inference<span class="w"> </span>once<span class="w"> </span><span class="k">for</span><span class="w"> </span>data<span class="w"> </span>collection...<span class="w"> </span><span class="o">(</span>Optional<span class="o">)</span>
+✨<span class="w">  </span>Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.000001198s
+<span class="o">======================================================================</span>
+This<span class="w"> </span>benchmark<span class="w"> </span>was<span class="w"> </span>executed<span class="w"> </span>with<span class="w"> </span>latency-workload<span class="w"> </span>which<span class="w"> </span>prioritizes<span class="w"> </span>latency<span class="w"> </span>of<span class="w"> </span>individual<span class="w"> </span>queries<span class="w"> </span>over<span class="w"> </span>throughput.
+<span class="m">1</span><span class="w"> </span>queries<span class="w"> </span>executed<span class="w"> </span>with<span class="w"> </span>batch<span class="w"> </span>size<span class="w"> </span><span class="m">1</span>
+Latency<span class="w"> </span>stats<span class="w"> </span>are<span class="w"> </span>as<span class="w"> </span>follows
+QPS<span class="o">(</span>Throughput<span class="o">)</span>:<span class="w"> </span><span class="m">125</span>.00/s
+
+Per-query<span class="w"> </span>latency:
+Min<span class="w"> </span>latency<span class="w"> </span><span class="o">(</span>us<span class="o">)</span><span class="w">    </span>:<span class="w"> </span><span class="m">7448</span>
+Max<span class="w"> </span>latency<span class="w"> </span><span class="o">(</span>us<span class="o">)</span><span class="w">    </span>:<span class="w"> </span><span class="m">7448</span>
+Mean<span class="w"> </span>latency<span class="w"> </span><span class="o">(</span>us<span class="o">)</span><span class="w">   </span>:<span class="w"> </span><span class="m">7448</span>
+50th<span class="w"> </span>percentile<span class="w"> </span><span class="o">(</span>us<span class="o">)</span>:<span class="w"> </span><span class="m">7448</span>
+95th<span class="w"> </span>percentile<span class="w"> </span><span class="o">(</span>us<span class="o">)</span>:<span class="w"> </span><span class="m">7448</span>
+99th<span class="w"> </span>percentile<span class="w"> </span><span class="o">(</span>us<span class="o">)</span>:<span class="w"> </span><span class="m">7448</span>
+99th<span class="w"> </span>percentile<span class="w"> </span><span class="o">(</span>us<span class="o">)</span>:<span class="w"> </span><span class="m">7448</span>
+<span class="o">[</span>Step<span class="w"> </span><span class="m">4</span><span class="o">]</span><span class="w"> </span>Finished
+</pre></div>
+</div>
+<p>If you have quantized model already, you can skip Step1 and Step2 with <code class="docutils literal notranslate"><span class="pre">--skip-quantization</span></code> option.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa<span class="w"> </span>litmus<span class="w"> </span>--skip-quantization<span class="w"> </span>quantized-model.onnx
+libfuriosa_hal.so<span class="w"> </span>---<span class="w"> </span>v0.11.0,<span class="w"> </span>built<span class="w"> </span>@<span class="w"> </span>43c901f
+INFO:furiosa.common.native:loaded<span class="w"> </span>native<span class="w"> </span>library<span class="w"> </span>libfuriosa_compiler.so.0.10.0<span class="w"> </span><span class="o">(</span><span class="m">0</span>.10.0-dev<span class="w"> </span>d7548b7f6<span class="o">)</span>
+furiosa-quantizer<span class="w"> </span><span class="m">0</span>.10.0<span class="w"> </span><span class="o">(</span>rev.<span class="w"> </span>9ecebb6<span class="o">)</span><span class="w"> </span>furiosa-litmus<span class="w"> </span><span class="m">0</span>.10.0<span class="w"> </span><span class="o">(</span>rev.<span class="w"> </span>9ecebb6<span class="o">)</span>
+<span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Skip<span class="w"> </span>model<span class="w"> </span>loading<span class="w"> </span>and<span class="w"> </span>optimization
+<span class="o">[</span>Step<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Skip<span class="w"> </span>model<span class="w"> </span>quantization
+<span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>Step<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Load<span class="w"> </span>quantized<span class="w"> </span>model<span class="w"> </span>...
+<span class="o">[</span>Step<span class="w"> </span><span class="m">3</span><span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>compiled<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>NPU<span class="w"> </span>family<span class="w"> </span><span class="o">[</span>warboy-2pe<span class="o">]</span><span class="w"> </span>...
+...
+</pre></div>
+</div>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">--dump</span> <span class="pre">&lt;path&gt;</span></code> option to create a <cite>&lt;path&gt;-&lt;unix_epoch&gt;.zip</cite> file that contains metadata necessary for analysis, such as compilation logs, runtime logs, software versions, and execution environments.
+If you have any problems, you can get support through <a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals">FuriosaAI customer service center</a> with this zip file.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa<span class="w"> </span>litmus<span class="w"> </span>--dump<span class="w"> </span>archive<span class="w"> </span>model.onnx
+libfuriosa_hal.so<span class="w"> </span>---<span class="w"> </span>v0.11.0,<span class="w"> </span>built<span class="w"> </span>@<span class="w"> </span>43c901f
+INFO:furiosa.common.native:loaded<span class="w"> </span>native<span class="w"> </span>library<span class="w"> </span>libfuriosa_compiler.so.0.10.0<span class="w"> </span><span class="o">(</span><span class="m">0</span>.10.0-dev<span class="w"> </span>d7548b7f6<span class="o">)</span>
+furiosa-quantizer<span class="w"> </span><span class="m">0</span>.10.0<span class="w"> </span><span class="o">(</span>rev.<span class="w"> </span>9ecebb6<span class="o">)</span><span class="w"> </span>furiosa-litmus<span class="w"> </span><span class="m">0</span>.10.0<span class="w"> </span><span class="o">(</span>rev.<span class="w"> </span>9ecebb6<span class="o">)</span>
+<span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>loaded<span class="w"> </span>and<span class="w"> </span>optimized<span class="w"> </span>...
+<span class="o">[</span>Step<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Passed
+...
+
+$<span class="w"> </span>zipinfo<span class="w"> </span>-1<span class="w"> </span>archive-1690438803.zip
+archive-16904388032l4hoi3h/meta.yaml
+archive-16904388032l4hoi3h/compiler/compiler.log
+archive-16904388032l4hoi3h/compiler/memory-analysis.html
+archive-16904388032l4hoi3h/compiler/model.dot
+archive-16904388032l4hoi3h/runtime/trace.json
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="c-sdk.html" class="btn btn-neutral float-left" title="C SDK installation and user guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="compiler.html" class="btn btn-neutral float-right" title="Compiler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

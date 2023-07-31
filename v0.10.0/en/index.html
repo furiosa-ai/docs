@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuriosaAI NPU &amp; SDK 0.10.0 Documents &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FuriosaAI NPU" href="npu/intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Furiosa SDK Documentation
+          </a>
+              <div class="version">
+                0.10.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="software/intro.html">FuriosaAI SW Stack Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/installation.html">Driver, Firmware, and Runtime Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/python-sdk.html">Python SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/c-sdk.html">C SDK installation and user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/cli.html">Command Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/compiler.html">Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/serving.html">Model Server (Serving Framework)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/tutorials.html">Tutorial and Code Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="releases/0.9.0.html">Release Notes - 0.9.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Customer Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer-support/bugs.html">Bug Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/en/">v0.2.0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Furiosa SDK Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FuriosaAI NPU &amp; SDK 0.10.0 Documents</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="furiosaai-npu-sdk-release-documents">
+<h1>FuriosaAI NPU &amp; SDK 0.10.0 Documents<a class="headerlink" href="#furiosaai-npu-sdk-release-documents" title="Permalink to this heading"></a></h1>
+<p>This document explains FuriosaAI NPU and its SDKs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FuriosaAI software components include kernel driver, firmware, runtime, C SDK, Python SDK,
+and command lines tools. Currently, we offer them for only users who register <em>Early
+Access Program (EAP)</em> and agree to <em>End User Licence Agreement (EULA)</em>.
+Please contact <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a> to learn how to start the EAP.</p>
+</div>
+<section id="furiosaai-npu">
+<h2>FuriosaAI NPU<a class="headerlink" href="#furiosaai-npu" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="npu/intro.html"><span class="doc">FuriosaAI NPU</span></a></p></li>
+<li><p><a class="reference internal" href="npu/intro.html#introtowarboy"><span class="std std-ref">Introduction to FuriosaAI Warboy</span></a>: Warboy HW specification and its performance</p></li>
+<li><p><a class="reference internal" href="npu/supported_operators.html"><span class="doc">List of Supported Operators for NPU Acceleration</span></a></p></li>
+</ul>
+</section>
+<section id="furiosaai-software">
+<h2>FuriosaAI Software<a class="headerlink" href="#furiosaai-software" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="software/intro.html"><span class="doc">FuriosaAI SW Stack Introduction</span></a></p></li>
+<li><p><a class="reference internal" href="software/installation.html"><span class="doc">Driver, Firmware, and Runtime Installation</span></a></p></li>
+<li><p><a class="reference internal" href="software/python-sdk.html"><span class="doc">Python SDK installation and user guide</span></a></p></li>
+<li><p><a class="reference internal" href="software/c-sdk.html"><span class="doc">C SDK installation and user guide</span></a></p></li>
+<li><p><a class="reference internal" href="software/cli.html"><span class="doc">Command Line Tools</span></a></p></li>
+<li><p><a class="reference internal" href="software/compiler.html"><span class="doc">Compiler</span></a></p></li>
+<li><p><a class="reference internal" href="software/quantization.html"><span class="doc">Model Quantization</span></a></p></li>
+<li><p><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></p></li>
+<li><p><a class="reference internal" href="software/kubernetes_support.html"><span class="doc">Kubernetes Support</span></a></p></li>
+</ul>
+<section id="furiosaai-sdk-tutorial-and-examples">
+<h3>FuriosaAI SDK Tutorial and Examples<a class="headerlink" href="#furiosaai-sdk-tutorial-and-examples" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb">Tutorial: How to use Furiosa SDK from Start to Finish</a></p></li>
+<li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/GettingStartedWithPythonSDK.ipynb">Tutorial: Basic Inference API</a></p></li>
+<li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/AdvancedTopicsInInferenceAPIs.ipynb">Tutorial: Advanced Inference API</a></p></li>
+<li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/InferenceAccuracyCheck.ipynb">Example: Comparing Accuracy with CPU-based Inference</a></p></li>
+<li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/Image_Classification.ipynb">Example: Image Classification Inference</a></p></li>
+<li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/SSD_Object_Detection.ipynb">Example: SSD Object Detection Inference</a></p></li>
+<li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/examples/inferences">Other Python SDK Examples</a></p></li>
+</ul>
+</section>
+<section id="serving-model-deployment-mlops">
+<h3>Serving, Model Deployment, MLOps<a class="headerlink" href="#serving-model-deployment-mlops" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="software/serving.html"><span class="doc">Model Server (Serving Framework)</span></a></p></li>
+<li><p><a class="reference internal" href="software/kubernetes_support.html"><span class="doc">Kubernetes Support</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/api/c/index.html">C SDK Reference</a></p></li>
+<li><p><a class="reference internal" href="api/python/modules.html"><span class="doc">Python API Reference</span></a></p></li>
+</ul>
+</section>
+<section id="other-links">
+<h2>Other Links<a class="headerlink" href="#other-links" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://furiosa.ai">FuriosaAI Home</a></p></li>
+<li><p><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI Customer Support Center</a></p></li>
+<li><p><a class="reference internal" href="customer-support/bugs.html#bugreport"><span class="std std-ref">Bug Report</span></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="npu/intro.html" class="btn btn-neutral float-right" title="FuriosaAI NPU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
