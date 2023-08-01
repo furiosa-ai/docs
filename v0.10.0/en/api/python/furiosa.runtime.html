@@ -1613,11 +1613,7 @@ It is also called at the unspecified point after <a class="reference internal" h
 </section>
 <section id="profiler">
 <span id="id12"></span><h2>Profiler<a class="headerlink" href="#profiler" title="Permalink to this heading"></a></h2>
-<span class="target" id="module-furiosa.runtime.profiler"></span><div class="versionadded">
-<p><span class="versionmodified added">New in version 0.10.</span></p>
-</div>
-<p>The <a class="reference internal" href="#module-furiosa.runtime.profiler" title="furiosa.runtime.profiler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">furiosa.runtime.profiler</span></code></a> module provides a basic profiler facility.
-This module requires <a class="reference external" href="https://pydantic.dev">Pydantic</a>.</p>
+<span class="target" id="module-furiosa.runtime.profiler"></span><p>The <a class="reference internal" href="#module-furiosa.runtime.profiler" title="furiosa.runtime.profiler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">furiosa.runtime.profiler</span></code></a> module provides a basic <a class="reference internal" href="../../software/profiler.html#profiling"><span class="std std-ref">profiling</span></a> facility.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.RecordFormat">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">RecordFormat</span></span><a class="headerlink" href="#furiosa.runtime.profiler.RecordFormat" title="Permalink to this definition"></a></dt>
@@ -1636,19 +1632,19 @@ This module requires <a class="reference external" href="https://pydantic.dev">P
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">Resource</span></span><a class="headerlink" href="#furiosa.runtime.profiler.Resource" title="Permalink to this definition"></a></dt>
 <dd><p>Profiler target resource to be recorded.</p>
 <dl class="py property">
-<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.ALL">
-<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ALL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><span class="pre">Resource</span></a></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.ALL" title="Permalink to this definition"></a></dt>
-<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.CPU">
-<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CPU</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><span class="pre">Resource</span></a></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.CPU" title="Permalink to this definition"></a></dt>
-<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.NPU">
-<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NPU</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><span class="pre">Resource</span></a></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.NPU" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.All">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">All</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><span class="pre">Resource</span></a></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.All" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.Cpu">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Cpu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><span class="pre">Resource</span></a></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.Cpu" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.Resource.Npu">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Npu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><span class="pre">Resource</span></a></em><a class="headerlink" href="#furiosa.runtime.profiler.Resource.Npu" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Resource.ALL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">RecordFormat.ChromeTrace</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Resource.All</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">RecordFormat.ChromeTrace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile" title="Permalink to this definition"></a></dt>
 <dd><p>Profile context manager:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;profile.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1658,95 +1654,275 @@ This module requires <a class="reference external" href="https://pydantic.dev">P
             <span class="o">...</span> <span class="c1"># Profiler recorded with span named &#39;Inference&#39;</span>
 </pre></div>
 </div>
+<p>Please note that activating profiler incurs non-trivial performance overhead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>resource</strong> (<a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><em>Resource</em></a>) – Target resource to be profiled. e.g. CPU or NPU.</p></li>
+<li><p><strong>resource</strong> (<a class="reference internal" href="#furiosa.runtime.profiler.Resource" title="furiosa.runtime.profiler.Resource"><em>Resource</em></a>) – Target resource to be profiled. e.g. <a class="reference internal" href="#furiosa.runtime.profiler.Resource.Cpu" title="furiosa.runtime.profiler.Resource.Cpu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cpu</span></code></a> or <a class="reference internal" href="#furiosa.runtime.profiler.Resource.Npu" title="furiosa.runtime.profiler.Resource.Npu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Npu</span></code></a>.</p></li>
 <li><p><strong>format</strong> (<a class="reference internal" href="#furiosa.runtime.profiler.RecordFormat" title="furiosa.runtime.profiler.RecordFormat"><em>RecordFormat</em></a>) – Profiler format. e.g. ChromeTrace.</p></li>
-<li><p><strong>config</strong> – Format specific config. You need to pass valid arguments for the format.</p></li>
+<li><p><strong>file</strong> – File that traces will be written to. If the file is not given, temporary file will be used. Format of traces writter to the file depends on the record format: Chrome tracing for <a class="reference internal" href="#furiosa.runtime.profiler.RecordFormat.ChromeTrace" title="furiosa.runtime.profiler.RecordFormat.ChromeTrace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChromeTrace</span></code></a> and CSV for <a class="reference internal" href="#furiosa.runtime.profiler.RecordFormat.PandasDataFrame" title="furiosa.runtime.profiler.RecordFormat.PandasDataFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasDataFrame</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>pydantic.error_wrappers.ValidationError</strong> – Raise when config validation failed.</p>
+<dd class="field-even"><p><strong>runtime.ProfilerErorr</strong> – Raise when failed to create profiler with given configuration.</p>
 </dd>
 </dl>
-<div class="admonition-configuration-arguments admonition">
-<p class="admonition-title">Configuration arguments</p>
-<p><a class="reference internal" href="#furiosa.runtime.profiler.RecordFormat.ChromeTrace" title="furiosa.runtime.profiler.RecordFormat.ChromeTrace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecordFormat.ChromeTrace</span></code></a> supports:</p>
-<ul class="simple">
-<li><p><strong>extra</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Defaults to <code class="code docutils literal notranslate"><span class="pre">&quot;forbid&quot;</span></code></p></li>
-<li><p><strong>arbitrary_types_allowed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>) – Defaults to <code class="code docutils literal notranslate"><span class="pre">True</span></code></p></li>
-<li><p><strong>json_encoders</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">dict[type,</span> <span class="pre">callable]</span></code>) – Defaults to a single callable for <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.IOBase</span></code></a></p></li>
-</ul>
-<p><a class="reference internal" href="#furiosa.runtime.profiler.RecordFormat.PandasDataFrame" title="furiosa.runtime.profiler.RecordFormat.PandasDataFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecordFormat.PandasDataFrame</span></code></a> supports:</p>
-<ul class="simple">
-<li><p><strong>extra</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Defaults to <code class="code docutils literal notranslate"><span class="pre">&quot;allow&quot;</span></code></p></li>
-<li><p><strong>arbitrary_types_allowed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>) – Defaults to <code class="code docutils literal notranslate"><span class="pre">True</span></code></p></li>
-</ul>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.10.0: </span>Record format-dependent parameter <code class="xref py py-obj docutils literal notranslate"><span class="pre">config</span></code> is replaced by parameter <code class="xref py py-obj docutils literal notranslate"><span class="pre">file</span></code>.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.record">
-<span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warm_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.record" title="Permalink to this definition"></a></dt>
-<dd><p>Create profiler span with specified name.</p>
+<span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.record" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a profiler record context manager.</p>
+<p>At the enter of the context, profiler span trace with specified name starts, and ends at the exit of the context.
+Traces for execution within the context will be recorded as a child of the created span.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Profiler record span name.</p></li>
-<li><p><strong>warm_up</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – If true, do not record profiler result, and just warm up.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Profiler record span name.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ProfilerRecordObject</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.pause">
+<span class="sig-name descname"><span class="pre">pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.pause" title="Permalink to this definition"></a></dt>
+<dd><p>Pause profiling temporarily within the profiling context.</p>
+<p>Profiler stops recording traces and works with minimal overhead until <a class="reference internal" href="#furiosa.runtime.profiler.profile.resume" title="furiosa.runtime.profiler.profile.resume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resume</span></code></a> is called.
+If the profiler is already in a paused state, it does nothing.
+This method can be called arbitrary number of times within the profiling context.
+Note that this method doesn’t affect the time measurment of the profiler, meaning that it just acts as if no events occured during pause, creating empty interval.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.10.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.resume">
+<span class="sig-name descname"><span class="pre">resume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.resume" title="Permalink to this definition"></a></dt>
+<dd><p>Resume paused profiling.</p>
+<p>If the profiler is not in a paused state, this method does nothing.
+For more details on paused state, see <a class="reference internal" href="#furiosa.runtime.profiler.profile.pause" title="furiosa.runtime.profiler.profile.pause"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pause</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.10.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_pandas_dataframe">
 <span class="sig-name descname"><span class="pre">get_pandas_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns a <code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame</span></code> for recorded traces.</p>
+<p>The returned dataframe will look like:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w">                            </span>trace_id<span class="w">    </span>parent_span_id<span class="w">           </span>span_id<span class="w">                </span>start<span class="w">                  </span>end<span class="w">      </span>cat<span class="w">                     </span>name<span class="w">  </span>thread.id<span class="w">  </span>dram_base<span class="w">  </span>pe_index<span class="w">  </span>execution_index<span class="w">  </span>instruction_index<span class="w">  </span>operator_index<span class="w">        </span>dur
+<span class="m">0</span><span class="w">    </span>6ffe9ac3080814bc134ae4c5e58269e0<span class="w">  </span><span class="m">0000000000000000</span><span class="w">  </span>a61dd01a47ce8dee<span class="w">  </span><span class="m">1690798389820453606</span><span class="w">  </span><span class="m">1690798390204660478</span><span class="w">  </span>Runtime<span class="w">                  </span>Compile<span class="w">         </span><span class="m">35</span><span class="w">       </span>&lt;NA&gt;<span class="w">      </span>&lt;NA&gt;<span class="w">             </span>&lt;NA&gt;<span class="w">               </span>&lt;NA&gt;<span class="w">            </span>&lt;NA&gt;<span class="w">  </span><span class="m">384206872</span>
+<span class="m">1</span><span class="w">    </span>079f8437488528d5768780162ed59374<span class="w">  </span><span class="m">0000000000000000</span><span class="w">  </span>2d18b0e17e760325<span class="w">  </span><span class="m">1690798390205840825</span><span class="w">  </span><span class="m">1690798390267819096</span><span class="w">  </span>Runtime<span class="w">            </span>ProgramBinary<span class="w">         </span><span class="m">26</span><span class="w">       </span>&lt;NA&gt;<span class="w">      </span>&lt;NA&gt;<span class="w">             </span>&lt;NA&gt;<span class="w">               </span>&lt;NA&gt;<span class="w">            </span>&lt;NA&gt;<span class="w">   </span><span class="m">61978271</span>
+<span class="m">2</span><span class="w">    </span>fb4610c2fd1be67e63e01ca9169b6fef<span class="w">  </span><span class="m">0000000000000000</span><span class="w">  </span>2a092524d04a4077<span class="w">  </span><span class="m">1690798390267849007</span><span class="w">  </span><span class="m">1690798390267857471</span><span class="w">  </span>Runtime<span class="w">             </span>AllocateDram<span class="w">         </span><span class="m">26</span><span class="w">       </span>&lt;NA&gt;<span class="w">      </span>&lt;NA&gt;<span class="w">             </span>&lt;NA&gt;<span class="w">               </span>&lt;NA&gt;<span class="w">            </span>&lt;NA&gt;<span class="w">       </span><span class="m">8464</span>
+<span class="m">3</span><span class="w">    </span>009b425f06ca0065a64f0586d1a999b0<span class="w">  </span><span class="m">0000000000000000</span><span class="w">  </span>cdac229f8d8569d7<span class="w">  </span><span class="m">1690798389793627190</span><span class="w">  </span><span class="m">1690798390268011450</span><span class="w">  </span>Runtime<span class="w">                 </span>Register<span class="w">          </span><span class="m">1</span><span class="w">       </span>&lt;NA&gt;<span class="w">      </span>&lt;NA&gt;<span class="w">             </span>&lt;NA&gt;<span class="w">               </span>&lt;NA&gt;<span class="w">            </span>&lt;NA&gt;<span class="w">  </span><span class="m">474384260</span>
+<span class="m">4</span><span class="w">    </span>348ee82fdf97fad9f782cc12a58d447d<span class="w">  </span><span class="m">0000000000000000</span><span class="w">  </span>59b5a5d06439f9f1<span class="w">  </span><span class="m">1690798390270474367</span><span class="w">  </span><span class="m">1690798390270526470</span><span class="w">  </span>Runtime<span class="w">                  </span>Enqueue<span class="w">         </span><span class="m">32</span><span class="w">       </span>&lt;NA&gt;<span class="w">      </span>&lt;NA&gt;<span class="w">             </span>&lt;NA&gt;<span class="w">               </span>&lt;NA&gt;<span class="w">            </span>&lt;NA&gt;<span class="w">      </span><span class="m">52103</span>
+<span class="m">5</span><span class="w">    </span>27efb2c82a5ac93bed911142e9187c45<span class="w">  </span>174b38c90d1f7a10<span class="w">  </span>ff7c4f8798d75b63<span class="w">  </span><span class="m">1690798390270558295</span><span class="w">  </span><span class="m">1690798390270570293</span><span class="w">  </span>Runtime<span class="w">               </span>FeedInputs<span class="w">         </span><span class="m">32</span><span class="w">       </span>&lt;NA&gt;<span class="w">      </span>&lt;NA&gt;<span class="w">             </span>&lt;NA&gt;<span class="w">               </span>&lt;NA&gt;<span class="w">            </span>&lt;NA&gt;<span class="w">      </span><span class="m">11998</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_pandas_dataframe_with_filter">
-<span class="sig-name descname"><span class="pre">get_pandas_dataframe_with_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe_with_filter" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_pandas_dataframe_with_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe_with_filter" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a DataFrame only containing rows whose column <code class="docutils literal notranslate"><span class="pre">column</span></code> has a value <code class="docutils literal notranslate"><span class="pre">value</span></code> in the DataFrame returned by <a class="reference internal" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe" title="furiosa.runtime.profiler.profile.get_pandas_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_pandas_dataframe</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the column used for filtering.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – column value for target rows.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_cpu_pandas_dataframe">
 <span class="sig-name descname"><span class="pre">get_cpu_pandas_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_cpu_pandas_dataframe" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns a <code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame</span></code> for execution on CPU whose category is “Runtime”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_npu_pandas_dataframe">
 <span class="sig-name descname"><span class="pre">get_npu_pandas_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_npu_pandas_dataframe" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns a <code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame</span></code> for execution on NPU whose category is “NPU”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_npu_operators">
 <span class="sig-name descname"><span class="pre">print_npu_operators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_npu_operators" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Print npu operator report to the terminal.</p>
+<p>Each row contains information for different NPU operator.</p>
+<p>The output will look like:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────┬──────────────────────┬───────┐
+│<span class="w"> </span>name<span class="w">                    </span>┆<span class="w"> </span>average_elapsed<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w"> </span>┆<span class="w"> </span>count<span class="w"> </span>│
+╞═════════════════════════╪══════════════════════╪═══════╡
+│<span class="w"> </span>LowLevelConv2d<span class="w">          </span>┆<span class="w"> </span><span class="m">5119</span>.9375<span class="w">            </span>┆<span class="w"> </span><span class="m">64</span><span class="w">    </span>│
+│<span class="w"> </span>LowLevelDepthwiseConv2d<span class="w"> </span>┆<span class="w"> </span><span class="m">1091</span>.0<span class="w">               </span>┆<span class="w"> </span><span class="m">56</span><span class="w">    </span>│
+│<span class="w"> </span>LowLevelPad<span class="w">             </span>┆<span class="w"> </span><span class="m">561</span>.482143<span class="w">           </span>┆<span class="w"> </span><span class="m">56</span><span class="w">    </span>│
+│<span class="w"> </span>LowLevelExpand<span class="w">          </span>┆<span class="w"> </span><span class="m">2</span>.0<span class="w">                  </span>┆<span class="w"> </span><span class="m">16</span><span class="w">    </span>│
+│<span class="w"> </span>LowLevelSlice<span class="w">           </span>┆<span class="w"> </span><span class="m">2</span>.0<span class="w">                  </span>┆<span class="w"> </span><span class="m">16</span><span class="w">    </span>│
+│<span class="w"> </span>LowLevelReshape<span class="w">         </span>┆<span class="w"> </span><span class="m">2</span>.0<span class="w">                  </span>┆<span class="w"> </span><span class="m">232</span><span class="w">   </span>│
+└─────────────────────────┴──────────────────────┴───────┘
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_npu_executions">
 <span class="sig-name descname"><span class="pre">print_npu_executions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_npu_executions" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Print npu execution report to the terminal.
+Each row contains information for each NPU task execution.</p>
+<p>The output will look like:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>┌─────────────────┬─────────────────┬──────────┬────────────────┬───────────┬─────────┬────────────┐
+│<span class="w"> </span>trace_id<span class="w">        </span>┆<span class="w"> </span>span_id<span class="w">         </span>┆<span class="w"> </span>pe_index<span class="w"> </span>┆<span class="w"> </span>execution_inde<span class="w"> </span>┆<span class="w"> </span>NPU<span class="w"> </span>Total<span class="w"> </span>┆<span class="w"> </span>NPU<span class="w"> </span>Run<span class="w"> </span>┆<span class="w"> </span>NPU<span class="w"> </span>IoWait<span class="w"> </span>│
+│<span class="w">                 </span>┆<span class="w">                 </span>┆<span class="w">          </span>┆<span class="w"> </span>x<span class="w">              </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+╞═════════════════╪═════════════════╪══════════╪════════════════╪═══════════╪═════════╪════════════╡
+│<span class="w"> </span>39ffc55ef7b2177<span class="w"> </span>┆<span class="w"> </span>555899badb3f8e5<span class="w"> </span>┆<span class="w"> </span><span class="m">0</span><span class="w">        </span>┆<span class="w"> </span><span class="m">0</span><span class="w">              </span>┆<span class="w"> </span><span class="m">116971</span><span class="w">    </span>┆<span class="w"> </span><span class="m">105186</span><span class="w">  </span>┆<span class="w"> </span><span class="m">11785</span><span class="w">      </span>│
+│<span class="w"> </span>5338e9fa2d1fb70<span class="w"> </span>┆<span class="w"> </span><span class="m">8</span><span class="w">               </span>┆<span class="w">          </span>┆<span class="w">                </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+│<span class="w"> </span>f1<span class="w">              </span>┆<span class="w">                 </span>┆<span class="w">          </span>┆<span class="w">                </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+│<span class="w"> </span>9c8aa64bbb878e3<span class="w"> </span>┆<span class="w"> </span>4e9a13e698f4fa1<span class="w"> </span>┆<span class="w"> </span><span class="m">0</span><span class="w">        </span>┆<span class="w"> </span><span class="m">0</span><span class="w">              </span>┆<span class="w"> </span><span class="m">117011</span><span class="w">    </span>┆<span class="w"> </span><span class="m">105186</span><span class="w">  </span>┆<span class="w"> </span><span class="m">11825</span><span class="w">      </span>│
+│<span class="w"> </span>b62194f8dec670e<span class="w"> </span>┆<span class="w"> </span><span class="m">9</span><span class="w">               </span>┆<span class="w">          </span>┆<span class="w">                </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+│<span class="w"> </span>3c<span class="w">              </span>┆<span class="w">                 </span>┆<span class="w">          </span>┆<span class="w">                </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+│<span class="w"> </span>0ce2a8ce2c591e3<span class="w"> </span>┆<span class="w"> </span>5cd8a081758f41c<span class="w"> </span>┆<span class="w"> </span><span class="m">0</span><span class="w">        </span>┆<span class="w"> </span><span class="m">0</span><span class="w">              </span>┆<span class="w"> </span><span class="m">116961</span><span class="w">    </span>┆<span class="w"> </span><span class="m">105185</span><span class="w">  </span>┆<span class="w"> </span><span class="m">11776</span><span class="w">      </span>│
+│<span class="w"> </span>4e92e0c421f3946<span class="w"> </span>┆<span class="w"> </span><span class="m">4</span><span class="w">               </span>┆<span class="w">          </span>┆<span class="w">                </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+│<span class="w"> </span><span class="m">14</span><span class="w">              </span>┆<span class="w">                 </span>┆<span class="w">          </span>┆<span class="w">                </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+│<span class="w"> </span>a941ace17a2c5e6<span class="w"> </span>┆<span class="w"> </span>a3726d0ebb2705c<span class="w"> </span>┆<span class="w"> </span><span class="m">0</span><span class="w">        </span>┆<span class="w"> </span><span class="m">0</span><span class="w">              </span>┆<span class="w"> </span><span class="m">116909</span><span class="w">    </span>┆<span class="w"> </span><span class="m">105186</span><span class="w">  </span>┆<span class="w"> </span><span class="m">11723</span><span class="w">      </span>│
+│<span class="w"> </span>15a8f05d8872fa9<span class="w"> </span>┆<span class="w"> </span>d<span class="w">               </span>┆<span class="w">          </span>┆<span class="w">                </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+│<span class="w"> </span><span class="m">32</span><span class="w">              </span>┆<span class="w">                 </span>┆<span class="w">          </span>┆<span class="w">                </span>┆<span class="w">           </span>┆<span class="w">         </span>┆<span class="w">            </span>│
+└─────────────────┴─────────────────┴──────────┴────────────────┴───────────┴─────────┴────────────┘
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_external_operators">
 <span class="sig-name descname"><span class="pre">print_external_operators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_external_operators" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Print external operator report to the terminal.</p>
+<p>The output will look like:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>┌────────────────────────────┬──────────────────┬───────────┬────────────┬────────────────┬────────┐
+│<span class="w"> </span>trace_id<span class="w">                   </span>┆<span class="w"> </span>span_id<span class="w">          </span>┆<span class="w"> </span>thread.id<span class="w"> </span>┆<span class="w"> </span>name<span class="w">       </span>┆<span class="w"> </span>operator_index<span class="w"> </span>┆<span class="w"> </span>dur<span class="w">    </span>│
+╞════════════════════════════╪══════════════════╪═══════════╪════════════╪════════════════╪════════╡
+│<span class="w"> </span>7d65ff7ae5587d3345d5df5a77<span class="w"> </span>┆<span class="w"> </span>53e3fb9c02964361<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Quantize<span class="w">   </span>┆<span class="w"> </span><span class="m">0</span><span class="w">              </span>┆<span class="w"> </span><span class="m">175246</span><span class="w"> </span>│
+│<span class="w"> </span>ebfaad<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>33371e09f89cfa06c41286df13<span class="w"> </span>┆<span class="w"> </span>8d5a00c6e4e8c2c0<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Lower<span class="w">      </span>┆<span class="w"> </span><span class="m">1</span><span class="w">              </span>┆<span class="w"> </span><span class="m">183803</span><span class="w"> </span>│
+│<span class="w"> </span>11a30f<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>9f7df939abc20da11431c18024<span class="w"> </span>┆<span class="w"> </span>064dacd9a108c4a0<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Unlower<span class="w">    </span>┆<span class="w"> </span><span class="m">2</span><span class="w">              </span>┆<span class="w"> </span><span class="m">60459</span><span class="w">  </span>│
+│<span class="w"> </span>c41af1<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>1bda703f4ffc878a4294ec6253<span class="w"> </span>┆<span class="w"> </span>cb2f103208d2fa45<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Dequantize<span class="w"> </span>┆<span class="w"> </span><span class="m">3</span><span class="w">              </span>┆<span class="w"> </span><span class="m">19468</span><span class="w">  </span>│
+│<span class="w"> </span>3ac8d0<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>9f769c8951f39d98e6ee216e34<span class="w"> </span>┆<span class="w"> </span>91c0bdd8c5b81327<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Quantize<span class="w">   </span>┆<span class="w"> </span><span class="m">0</span><span class="w">              </span>┆<span class="w"> </span><span class="m">85724</span><span class="w">  </span>│
+│<span class="w"> </span>6bc7e5<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>048e5cab6d4d676e4e6b10e827<span class="w"> </span>┆<span class="w"> </span>714834cb8dc59f4b<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Lower<span class="w">      </span>┆<span class="w"> </span><span class="m">1</span><span class="w">              </span>┆<span class="w"> </span><span class="m">306893</span><span class="w"> </span>│
+│<span class="w"> </span>6b5489<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>6bb481ca3b1eab843b795a7865<span class="w"> </span>┆<span class="w"> </span>46d538d7b4c72d25<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Unlower<span class="w">    </span>┆<span class="w"> </span><span class="m">2</span><span class="w">              </span>┆<span class="w"> </span><span class="m">73313</span><span class="w">  </span>│
+│<span class="w"> </span>49558b<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>e0f13a5fb0bf2942ed16171844<span class="w"> </span>┆<span class="w"> </span>71a432e3e3dc55f6<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Dequantize<span class="w"> </span>┆<span class="w"> </span><span class="m">3</span><span class="w">              </span>┆<span class="w"> </span><span class="m">37079</span><span class="w">  </span>│
+│<span class="w"> </span>ccb293<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>c3b2fdba80f16f781e4b313af3<span class="w"> </span>┆<span class="w"> </span>066e3916590edf38<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Quantize<span class="w">   </span>┆<span class="w"> </span><span class="m">0</span><span class="w">              </span>┆<span class="w"> </span><span class="m">67805</span><span class="w">  </span>│
+│<span class="w"> </span>a571b6<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>4bebe5f61e84d502f5b5dc7d22<span class="w"> </span>┆<span class="w"> </span>9dfb32069b2b5a98<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Lower<span class="w">      </span>┆<span class="w"> </span><span class="m">1</span><span class="w">              </span>┆<span class="w"> </span><span class="m">310303</span><span class="w"> </span>│
+│<span class="w"> </span>1e4f5a<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>b8cabf53ae39a4ad18144af26c<span class="w"> </span>┆<span class="w"> </span>cb767fbdd718da89<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Unlower<span class="w">    </span>┆<span class="w"> </span><span class="m">2</span><span class="w">              </span>┆<span class="w"> </span><span class="m">72378</span><span class="w">  </span>│
+│<span class="w"> </span>e136c9<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>e40956dda5ecc0a1774e39377b<span class="w"> </span>┆<span class="w"> </span>090d9cbd5e60032a<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Dequantize<span class="w"> </span>┆<span class="w"> </span><span class="m">3</span><span class="w">              </span>┆<span class="w"> </span><span class="m">33951</span><span class="w">  </span>│
+│<span class="w"> </span>1ef245<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>3d13f40c0966940439adcce4c1<span class="w"> </span>┆<span class="w"> </span>4702a924e4b6d38b<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Quantize<span class="w">   </span>┆<span class="w"> </span><span class="m">0</span><span class="w">              </span>┆<span class="w"> </span><span class="m">76999</span><span class="w">  </span>│
+│<span class="w"> </span>9981a4<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>53746b998038e994a5e378f9a2<span class="w"> </span>┆<span class="w"> </span>522b7a9e354de2b3<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Lower<span class="w">      </span>┆<span class="w"> </span><span class="m">1</span><span class="w">              </span>┆<span class="w"> </span><span class="m">339339</span><span class="w"> </span>│
+│<span class="w"> </span>8caa5a<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>76a2080bc0917db26b7313e29a<span class="w"> </span>┆<span class="w"> </span>4b1b0bf55f344258<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Unlower<span class="w">    </span>┆<span class="w"> </span><span class="m">2</span><span class="w">              </span>┆<span class="w"> </span><span class="m">74708</span><span class="w">  </span>│
+│<span class="w"> </span>81def3<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+│<span class="w"> </span>4c0a04dc669b04416f18e781d6<span class="w"> </span>┆<span class="w"> </span>8eb55fb2b618933a<span class="w"> </span>┆<span class="w"> </span><span class="m">35</span><span class="w">        </span>┆<span class="w"> </span>Dequantize<span class="w"> </span>┆<span class="w"> </span><span class="m">3</span><span class="w">              </span>┆<span class="w"> </span><span class="m">33661</span><span class="w">  </span>│
+│<span class="w"> </span>afc3c6<span class="w">                     </span>┆<span class="w">                  </span>┆<span class="w">           </span>┆<span class="w">            </span>┆<span class="w">                </span>┆<span class="w">        </span>│
+└────────────────────────────┴──────────────────┴───────────┴────────────┴────────────────┴────────┘
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_inferences">
 <span class="sig-name descname"><span class="pre">print_inferences</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_inferences" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Print inference summary to the terminal.</p>
+<p>The output will look like:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>┌──────────────────────────────────┬──────────────────┬───────────┬─────────┐
+│<span class="w"> </span>trace_id<span class="w">                         </span>┆<span class="w"> </span>span_id<span class="w">          </span>┆<span class="w"> </span>thread.id<span class="w"> </span>┆<span class="w"> </span>dur<span class="w">     </span>│
+╞══════════════════════════════════╪══════════════════╪═══════════╪═════════╡
+│<span class="w"> </span>b5edc4d40493df2028d186d4073d5487<span class="w"> </span>┆<span class="w"> </span>a61af3b9ad70b956<span class="w"> </span>┆<span class="w"> </span><span class="m">1</span><span class="w">         </span>┆<span class="w"> </span><span class="m">4430749</span><span class="w"> </span>│
+│<span class="w"> </span>983e136f80e1c070dca3ad854f37cf97<span class="w"> </span>┆<span class="w"> </span>f2dd4e899d52531d<span class="w"> </span>┆<span class="w"> </span><span class="m">1</span><span class="w">         </span>┆<span class="w"> </span><span class="m">4181392</span><span class="w"> </span>│
+│<span class="w"> </span>dada8a5830272b5d255fda801568fc5e<span class="w"> </span>┆<span class="w"> </span>cda7127619be5c33<span class="w"> </span>┆<span class="w"> </span><span class="m">1</span><span class="w">         </span>┆<span class="w"> </span><span class="m">4275757</span><span class="w"> </span>│
+│<span class="w"> </span>6ad054709f76095c86fba6dcd9254ca0<span class="w"> </span>┆<span class="w"> </span>9d7f199a445003aa<span class="w"> </span>┆<span class="w"> </span><span class="m">1</span><span class="w">         </span>┆<span class="w"> </span><span class="m">4215571</span><span class="w"> </span>│
+└──────────────────────────────────┴──────────────────┴───────────┴─────────┘
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.print_summary">
 <span class="sig-name descname"><span class="pre">print_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.print_summary" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Print overall summary to the terminal.</p>
+<p>The output will look like:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">================================================</span>
+<span class="w">  </span>Inference<span class="w"> </span>Results<span class="w"> </span><span class="nv">Summary</span>
+<span class="o">================================================</span>
+Inference<span class="w"> </span>counts<span class="w">                </span>:<span class="w"> </span><span class="m">4</span>
+Min<span class="w"> </span>latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">                </span>:<span class="w"> </span><span class="m">4181392</span>
+Max<span class="w"> </span>latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">                </span>:<span class="w"> </span><span class="m">4430749</span>
+Mean<span class="w"> </span>latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">               </span>:<span class="w"> </span><span class="m">4275867</span>
+Median<span class="w"> </span>latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">             </span>:<span class="w"> </span><span class="m">4245664</span>
+<span class="m">90</span>.0<span class="w"> </span>percentile<span class="w"> </span>Latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">    </span>:<span class="w"> </span><span class="m">4384251</span>
+<span class="m">95</span>.0<span class="w"> </span>percentile<span class="w"> </span>Latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">    </span>:<span class="w"> </span><span class="m">4407500</span>
+<span class="m">97</span>.0<span class="w"> </span>percentile<span class="w"> </span>Latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">    </span>:<span class="w"> </span><span class="m">4416800</span>
+<span class="m">99</span>.0<span class="w"> </span>percentile<span class="w"> </span>Latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">    </span>:<span class="w"> </span><span class="m">4426099</span>
+<span class="m">99</span>.9<span class="w"> </span>percentile<span class="w"> </span>Latency<span class="w"> </span><span class="o">(</span>ns<span class="o">)</span><span class="w">    </span>:<span class="w"> </span><span class="m">4430284</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.export_chrome_trace">
-<span class="sig-name descname"><span class="pre">export_chrome_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.export_chrome_trace" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">export_chrome_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.export_chrome_trace" title="Permalink to this definition"></a></dt>
+<dd><p>Export profiled data to a chrome tracing file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – filename to write.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

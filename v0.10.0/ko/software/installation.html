@@ -67,6 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#installspecificversion">특정 버전 설치 방법</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#npu">NPU 펌웨어 업데이트</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK 설치 및 사용 가이드</a></li>
@@ -78,6 +79,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_support.html">가상 머신 환경 지원</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
 </ul>
@@ -134,11 +136,11 @@
 사용하기 위해 반드시 설치해야 하는 패키지들의 설치 방법을 설명한다.
 이 필수 패키지들은 커널 드라이버, 펌웨어, 런타임 라이브러리이며
 다운로드 센터에서 로그인하여 직접 다운 받거나 개발자 사이트에서
-발급한 APT 서버와 PIP 서버를 통해 다운로드 받을 수 있다.</p>
+발급한 APT 서버와 PyPI 서버를 통해 다운로드 받을 수 있다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>다운로드 센터나 개발자 사이트는 FuriosaAI의 평가 프로그램 등록하면
-제공 되며 현재는 <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa">contact<span>&#64;</span>furiosa</a>.ai로 문의하여 평가 프로그램을 요청할 수 있다.</p>
+<p>다운로드 센터나 개발자 사이트는 FuriosaAI의 평가 프로그램을 등록하면 제공되며
+현재는 <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a> 로 문의하여 평가 프로그램을 요청할 수 있다.</p>
 </div>
 <section id="sdk">
 <span id="minimumrequirements"></span><h2>SDK 설치를 위한 최소 요구사항<a class="headerlink" href="#sdk" title="이 제목에 대한 퍼머링크"></a></h2>
@@ -199,7 +201,7 @@ sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</sp
 </section>
 <section id="installlinuxpackages">
 <span id="id2"></span><h2>필수 패키지 설치<a class="headerlink" href="#installlinuxpackages" title="이 제목에 대한 퍼머링크"></a></h2>
-<p>위에 설명에 따라 APT 서버를 등록했거나 다운로드 사이트에 가입했다면 필수 패키지인
+<p>위의 설명에 따라 APT 서버를 등록했거나 다운로드 사이트에 가입했다면 필수 패키지인
 NPU 커널 드라이버, 펌웨어, 런타임을 설치할 수 있다.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">APT 서버를 이용한 설치</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>아래 패키지를 설치하면 의존된 패키지들은 자동으로 설치된다.</p>
@@ -247,10 +249,55 @@ NPU 커널 드라이버, 펌웨어, 런타임을 설치할 수 있다.</p>
 <ol class="arabic simple" start="2">
 <li><p><code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span></code> 명령에 옵션으로 패키지 이름과 버전을 지정한다.</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-libnux<span class="o">=</span><span class="m">0</span>.7.0-?
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-libnux<span class="o">=</span><span class="m">0</span>.9.1-?
 </pre></div>
 </div>
 </section>
+</section>
+<section id="npu">
+<span id="upgradefirmware"></span><h2>NPU 펌웨어 업데이트<a class="headerlink" href="#npu" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>APT 저장소를 통해 NPU 장치의 펌웨어 관리 도구를 설치하고 업데이트할 수 있다.</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">list</span></code> 로 설치 가능한 버전을 확인한다.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>list<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;furiosa-firmware-*&#39;</span>
+
+Listing...<span class="w"> </span>Done
+furiosa-firmware-image/focal<span class="w"> </span><span class="m">1</span>.7.1<span class="w"> </span>amd64
+furiosa-firmware-image/focal<span class="w"> </span><span class="m">1</span>.7.0<span class="w"> </span>amd64
+furiosa-firmware-image/focal<span class="w"> </span><span class="m">1</span>.5.0<span class="w"> </span>amd64
+furiosa-firmware-image/focal<span class="w"> </span><span class="m">1</span>.4.0<span class="w"> </span>amd64
+furiosa-firmware-image/focal<span class="w"> </span><span class="m">1</span>.2.0<span class="w"> </span>amd64
+
+furiosa-firmware-tools/focal<span class="w"> </span><span class="m">1</span>.5.0-2<span class="w"> </span>amd64
+furiosa-firmware-tools/focal<span class="w"> </span><span class="m">1</span>.4.0-2<span class="w"> </span>amd64
+furiosa-firmware-tools/focal<span class="w"> </span><span class="m">1</span>.3.0-2<span class="w"> </span>amd64
+furiosa-firmware-tools/focal<span class="w"> </span><span class="m">1</span>.2.0-2<span class="w"> </span>amd64
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span></code> 명령에 옵션으로 패키지 이름과 버전을 지정한다. 버전을 명시하지 않을 경우 최신 버전이 설치된다.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>furiosa-firmware-tools
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<blockquote>
+<div><p>또는</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>furiosa-firmware-tools<span class="w"> </span>furiosa-firmware-image<span class="o">=</span><span class="m">1</span>.7.1
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">경고</p>
+<p>컨테이너 환경에서의 펌웨어 업데이트는 정의되어 있지 않은 행동을 유발한다.
+따라서 이 작업은 반드시 호스트 머신에서 실행되어야 하므로 주의를 요한다.</p>
+</div>
 </section>
 </section>
 

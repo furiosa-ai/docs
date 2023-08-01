@@ -67,6 +67,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#trace-analysis">트레이스 분석 (Trace Analysis)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">환경 변수를 통한 트레이스 생성 활성화</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">프로파일러 컨텍스트를 이용한 트레이스 생성 활성화</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temporarilydisablingprofiler">프로파일러 컨텍스트 내 일시적 비활성화</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pandas-dataframe">Pandas DataFrame을 이용한 트레이스 분석</a></li>
 </ul>
 </li>
@@ -75,6 +76,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_support.html">가상 머신 환경 지원</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
 </ul>
@@ -150,7 +152,7 @@
 ./image_classify.py<span class="w"> </span>../assets/images/car.jpg
 
 ls<span class="w"> </span>-l<span class="w"> </span>./tracing.json
--rw-r--r--@<span class="w"> </span><span class="m">1</span><span class="w"> </span>furiosa<span class="w">  </span>furiosa<span class="w">  </span><span class="m">605054</span><span class="w"> </span>Jun<span class="w">  </span><span class="m">15</span><span class="w"> </span><span class="m">02</span>:02<span class="w"> </span>tracing.json
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>furiosa<span class="w"> </span>furiosa<span class="w"> </span><span class="m">456493</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>./tracing.json
 </pre></div>
 </div>
 <p>위와 같이 환경변수를 통해 설정하면 환경변수 값에 설정된 경로에 JSON 파일이 쓰여진다.
@@ -169,29 +171,77 @@ ls<span class="w"> </span>-l<span class="w"> </span>./tracing.json
 <li><p>실행 구간에 레이블을 붙일 수 있다.</p></li>
 <li><p>측정을 원하는 연산 카테고리의 선택적으로 측정할 수 있다.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">profile</span>
+<span class="kn">from</span> <span class="nn">furiosa.runtime.sync</span> <span class="kn">import</span> <span class="n">create_runner</span>
 
 <span class="c1"># You can find &#39;examples&#39; directory of the root of furiosa-sdk source tree</span>
-<span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;examples/assets/quantized_models/MNISTnet_uint8_quant_without_softmax.tflite&quot;</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;examples/assets/quantized_models/imagenet_224x224_mobilenet_v1_uint8_quantization-aware-trained_dm_1.0_without_softmax.tflite&quot;</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mnist_trace.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mobilenet_v1_trace.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-            <span class="n">input_shape</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">create_runner</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">runner</span><span class="p">:</span>
+            <span class="n">input_shape</span> <span class="o">=</span> <span class="n">runner</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 
             <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;warm up&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-                    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+                    <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">))])</span>
 
             <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;trace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-                    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+                    <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">))])</span>
 </pre></div>
 </div>
 <p>위는 프로파일링 컨텍스트를 활용한 코드 예제이다. 위 Python 코드가 실행되고 나면 <cite>mnist_trace.json</cite> 파일이 생성되며
 트레이스 결과는 아래 그림과 같이 ‘warm up’과 ‘trace’ 레이블이 붙는다.</p>
-<a class="with-shadow reference internal image-reference" href="../_images/mnist_trace.png"><img alt="Tracing with Profiler Context" class="with-shadow align-center" src="../_images/mnist_trace.png" style="width: 600px;" /></a>
+<a class="with-shadow reference internal image-reference" href="../_images/tracing_with_record.png"><img alt="Tracing with Profiler Context" class="with-shadow align-center" src="../_images/tracing_with_record.png" style="width: 600px;" /></a>
+<p></p>
+</section>
+<section id="temporarilydisablingprofiler">
+<span id="id4"></span><h3>프로파일러 컨텍스트 내 일시적 비활성화<a class="headerlink" href="#temporarilydisablingprofiler" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>장시간 실행되는 코드를 트레이스하는 것은 다음과 같은 문제점들을 야기할 수 있다.</p>
+<ul class="simple">
+<li><p>트레이스 결과물 저장을 위해 많은 디스크 공간이 필요해지고, 결과물 공유가 어려워진다.</p></li>
+<li><p>트레이스를 시각화했을 때 관찰하고자 하는 작업들을 식별하기 어려워지고, 별도로 데이터를 파싱 하는 등의 추가 작업이 필요하다.</p></li>
+<li><p>트레이스 결과물 생성에 많은 시간이 소요된다.</p></li>
+</ul>
+<p>이러한 문제를 해결하기 위해 컨텍스트 내에서 일시적으로 프로파일러를 비활성화할 수 있는 기능을 제공한다.
+사용자는 프로파일링하기 원치 않는 작업들을 제외함으로써 불필요한 오버헤드를 최소할 수 있다.</p>
+<p>아래는 일시적 프로파일러 비활성화 기능을 사용한 예제로 <code class="docutils literal notranslate"><span class="pre">profile.pause</span></code> 와 <code class="docutils literal notranslate"><span class="pre">profile.resume</span></code> 사이의 warmup 추론들에 대한 트레이스는 생성되지 않는다.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
+<span class="kn">from</span> <span class="nn">furiosa.runtime.sync</span> <span class="kn">import</span> <span class="n">create_runner</span>
+
+<span class="c1"># You can find &#39;examples&#39; directory of the root of furiosa-sdk source tree</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;examples/assets/quantized_models/imagenet_224x224_mobilenet_v1_uint8_quantization-aware-trained_dm_1.0_without_softmax.tflite&quot;</span>
+
+<span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">RecordFormat</span><span class="o">.</span><span class="n">PandasDataFrame</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">create_runner</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">runner</span><span class="p">:</span>
+        <span class="n">input_shape</span> <span class="o">=</span> <span class="n">runner</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="c1"># pause profiling during warmup</span>
+        <span class="n">profiler</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;warm up&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
+                <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">))])</span>
+
+        <span class="c1"># resume profiling</span>
+        <span class="n">profiler</span><span class="o">.</span><span class="n">resume</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;trace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
+            <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">))])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">get_pandas_dataframe</span><span class="p">()</span>
+
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;trace&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;warm up&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
 </section>
 <section id="pandas-dataframe">
 <span id="pandasprofilinganalysis"></span><h3>Pandas DataFrame을 이용한 트레이스 분석<a class="headerlink" href="#pandas-dataframe" title="이 제목에 대한 퍼머링크"></a></h3>
@@ -202,35 +252,38 @@ ls<span class="w"> </span>-l<span class="w"> </span>./tracing.json
 <li><p>Python Interpreter 또는 Jupyter Notebook 등의 interactive shell에서 바로 사용할 수 있다.</p></li>
 <li><p>기본적으로 제공되는 reporting 함수 외에도 사용자가 직접 DataFrame에 접근하여 분석 작업을 수행할 수 있다.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
+<span class="kn">from</span> <span class="nn">furiosa.runtime.sync</span> <span class="kn">import</span> <span class="n">create_runner</span>
 
 <span class="c1"># You can find &#39;examples&#39; directory of the root of furiosa-sdk source tree</span>
-<span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;examples/assets/quantized_models/MNISTnet_uint8_quant_without_softmax.tflite&quot;</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;examples/assets/quantized_models/imagenet_224x224_mobilenet_v1_uint8_quantization-aware-trained_dm_1.0_without_softmax.tflite&quot;</span>
 
 <span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">RecordFormat</span><span class="o">.</span><span class="n">PandasDataFrame</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-        <span class="n">input_shape</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">create_runner</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">runner</span><span class="p">:</span>
+        <span class="n">input_shape</span> <span class="o">=</span> <span class="n">runner</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 
         <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;warm up&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-                <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+                <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">))])</span>
 
         <span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="s2">&quot;trace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">record</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-                <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+                <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">))])</span>
 
-<span class="n">profiler</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span> <span class="c1"># (1)</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>  <span class="c1"># (1)</span>
 
-<span class="n">profiler</span><span class="o">.</span><span class="n">print_inferences</span><span class="p">()</span> <span class="c1"># (2)</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_inferences</span><span class="p">()</span>  <span class="c1"># (2)</span>
 
-<span class="n">profiler</span><span class="o">.</span><span class="n">print_npu_executions</span><span class="p">()</span> <span class="c1"># (3)</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_npu_executions</span><span class="p">()</span>  <span class="c1"># (3)</span>
 
-<span class="n">profiler</span><span class="o">.</span><span class="n">print_npu_operators</span><span class="p">()</span> <span class="c1"># (4)</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_npu_operators</span><span class="p">()</span>  <span class="c1"># (4)</span>
 
-<span class="n">profiler</span><span class="o">.</span><span class="n">print_external_operators</span><span class="p">()</span> <span class="c1"># (5)</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">print_external_operators</span><span class="p">()</span>  <span class="c1"># (5)</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">get_pandas_dataframe</span><span class="p">()</span> <span class="c1"># (6)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">get_pandas_dataframe</span><span class="p">()</span>  <span class="c1"># (6)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;trace&quot;</span><span class="p">][[</span><span class="s2">&quot;trace_id&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;thread.id&quot;</span><span class="p">,</span> <span class="s2">&quot;dur&quot;</span><span class="p">]])</span>
 </pre></div>
 </div>
@@ -240,68 +293,79 @@ ls<span class="w"> </span>-l<span class="w"> </span>./tracing.json
   <span class="n">Inference</span> <span class="n">Results</span> <span class="n">Summary</span>
 <span class="o">================================================</span>
 <span class="n">Inference</span> <span class="n">counts</span>                <span class="p">:</span> <span class="mi">4</span>
-<span class="n">Min</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>                <span class="p">:</span> <span class="mi">258540</span>
-<span class="n">Max</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>                <span class="p">:</span> <span class="mi">650018</span>
-<span class="n">Mean</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>               <span class="p">:</span> <span class="mi">386095</span>
-<span class="n">Median</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>             <span class="p">:</span> <span class="mi">317912</span>
-<span class="mf">90.0</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">564572</span>
-<span class="mf">95.0</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">607295</span>
-<span class="mf">97.0</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">624384</span>
-<span class="mf">99.0</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">641473</span>
-<span class="mf">99.9</span> <span class="n">percentile</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">649163</span>
+<span class="n">Min</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>                <span class="p">:</span> <span class="mi">1584494</span>
+<span class="n">Max</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>                <span class="p">:</span> <span class="mi">3027309</span>
+<span class="n">Mean</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>               <span class="p">:</span> <span class="mi">2136984</span>
+<span class="n">Median</span> <span class="n">latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>             <span class="p">:</span> <span class="mi">1968066</span>
+<span class="mf">90.0</span> <span class="n">percentile</span> <span class="n">Latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">2752525</span>
+<span class="mf">95.0</span> <span class="n">percentile</span> <span class="n">Latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">2889917</span>
+<span class="mf">97.0</span> <span class="n">percentile</span> <span class="n">Latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">2944874</span>
+<span class="mf">99.0</span> <span class="n">percentile</span> <span class="n">Latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">2999831</span>
+<span class="mf">99.9</span> <span class="n">percentile</span> <span class="n">Latency</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>    <span class="p">:</span> <span class="mi">3024561</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">(2)</span></code> 라인이 실행되면 아래와 같이 하나의 Inference 요청 단위로 소요된 시간 정보가 출력된다.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                            <span class="n">trace_id</span>           <span class="n">span_id</span>  <span class="n">thread</span><span class="o">.</span><span class="n">id</span>     <span class="n">dur</span>
-<span class="mi">40</span>   <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="n">d5ac7df24cfd0408</span>         <span class="mi">45</span>  <span class="mi">650018</span>
-<span class="mi">81</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="mi">313</span><span class="n">be2a0fb70dc4f</span>         <span class="mi">45</span>  <span class="mi">365199</span>
-<span class="mi">124</span>  <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="n">f4402ab5ea873f46</span>         <span class="mi">45</span>  <span class="mi">258540</span>
-<span class="mi">173</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="mi">4</span><span class="n">f67a754e72e2211</span>         <span class="mi">45</span>  <span class="mi">270625</span>
+<p><code class="docutils literal notranslate"><span class="pre">(2)</span></code> 라인이 실행되면 아래와 같이 하나의 추론 요청 단위로 소요된 시간 정보가 출력된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌──────────────────────────────────┬──────────────────┬───────────┬─────────┐
+│ trace_id                         ┆ span_id          ┆ thread.id ┆ dur     │
+╞══════════════════════════════════╪══════════════════╪═══════════╪═════════╡
+│ 7cf3d3b7439cf4c3fac1a47998783102 ┆ 403ada67f1d8220e ┆ 1         ┆ 3027309 │
+│ 16d65f6f8f1db256d0f39953855dea72 ┆ 78b065c19c3675ef ┆ 1         ┆ 2111363 │
+│ d0534e3a9f19edadab81954ad28ab44f ┆ 9a7addaf0f28c9fe ┆ 1         ┆ 1824769 │
+│ 70512188522f45b87cfe4f545de3cf2c ┆ c75f697f8e72d333 ┆ 1         ┆ 1584494 │
+└──────────────────────────────────┴──────────────────┴───────────┴─────────┘
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">(3)</span></code> 라인이 실행되면 아래와 같이 NPU의 Execution 단위로 소요된 시간 정보가 출력된다.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                          <span class="n">trace_id</span>           <span class="n">span_id</span>  <span class="n">pe_index</span>  <span class="n">execution_index</span>  <span class="n">NPU</span> <span class="n">Total</span>  <span class="n">NPU</span> <span class="n">Run</span>  <span class="n">NPU</span> <span class="n">IoWait</span>
-<span class="mi">0</span>  <span class="n">e3917c06e01d136ddb98299da74748d8</span>  <span class="mi">1</span><span class="n">b99d7c6574c1c29</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10902</span>     <span class="mi">8559</span>        <span class="mi">2343</span>
-<span class="mi">1</span>  <span class="n">a867049bb2db14e62cebe3dc18546923</span>  <span class="n">f5cd3ba0d885fab4</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10901</span>     <span class="mi">8557</span>        <span class="mi">2344</span>
-<span class="mi">2</span>  <span class="mi">05</span><span class="n">bfa81f1579ac8089ac75588f36a747</span>  <span class="n">e7e847b44ce11d28</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10997</span>     <span class="mi">8557</span>        <span class="mi">2440</span>
-<span class="mi">3</span>  <span class="mi">438</span><span class="n">df7d9beb7fb8c60daaeffbb2c7e76</span>  <span class="n">d2c20e3d9daf21be</span>         <span class="mi">0</span>                <span class="mi">0</span>      <span class="mi">10900</span>     <span class="mi">8555</span>        <span class="mi">2345</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌──────────────────────────────────┬──────────────────┬──────────┬─────────────────┬───────────┬─────────┬──────────────────────┐
+│ trace_id                         ┆ span_id          ┆ pe_index ┆ execution_index ┆ NPU Total ┆ NPU Run ┆ NPU IoWait           │
+╞══════════════════════════════════╪══════════════════╪══════════╪═════════════════╪═══════════╪═════════╪══════════════════════╡
+│ 8f6fce6c0e52b4735cae3379732a0943 ┆ 3e1e4a76523cbf89 ┆ 0        ┆ 0               ┆ 119145    ┆ 108134  ┆ 18446744073709540605 │
+│ 195366613b1da9b0350c0a3c2a608f42 ┆ 07dff2e92172fabd ┆ 0        ┆ 0               ┆ 119363    ┆ 108134  ┆ 18446744073709540387 │
+│ 3b65b8fa3eabfaf8f815ec9f41fcc7d9 ┆ 639a366a7f932a23 ┆ 0        ┆ 0               ┆ 119157    ┆ 108134  ┆ 18446744073709540593 │
+│ e48825df32a07e5559f7f50048c08e1f ┆ ecaab4915bfda725 ┆ 0        ┆ 0               ┆ 119219    ┆ 108134  ┆ 18446744073709540531 │
+└──────────────────────────────────┴──────────────────┴──────────┴─────────────────┴───────────┴─────────┴──────────────────────┘
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">(4)</span></code> 라인이 실행되면 아래와 같이 Operator 단위로 소요된 시간 정보가 출력된다.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                        <span class="n">average</span> <span class="n">elapsed</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>  <span class="n">count</span>
-<span class="n">name</span>
-<span class="n">LowLevelConv2d</span>                   <span class="mf">1226.187500</span>     <span class="mi">16</span>
-<span class="n">LowLevelDepthwiseConv2d</span>           <span class="mf">757.333333</span>     <span class="mi">12</span>
-<span class="n">LowLevelPad</span>                       <span class="mf">361.416667</span>     <span class="mi">12</span>
-<span class="n">LowLevelMask</span>                      <span class="mf">116.500000</span>      <span class="mi">8</span>
-<span class="n">LowLevelExpand</span>                      <span class="mf">3.000000</span>      <span class="mi">8</span>
-<span class="n">LowLevelReshape</span>                     <span class="mf">3.000000</span>     <span class="mi">68</span>
-<span class="n">LowLevelSlice</span>                       <span class="mf">3.000000</span>      <span class="mi">8</span>
+<p><code class="docutils literal notranslate"><span class="pre">(4)</span></code> 라인이 실행되면 아래와 같이 연산자(Operator) 단위로 소요된 시간 정보가 출력된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────┬──────────────────────┬───────┐
+│ name                    ┆ average_elapsed (ns) ┆ count │
+╞═════════════════════════╪══════════════════════╪═══════╡
+│ LowLevelConv2d          ┆ 5327.8               ┆ 60    │
+│ LowLevelDepthwiseConv2d ┆ 1412.285714          ┆ 56    │
+│ LowLevelPad             ┆ 575.785714           ┆ 56    │
+│ LowLevelTranspose       ┆ 250.0                ┆ 4     │
+│ LowLevelReshape         ┆ 2.0                  ┆ 240   │
+│ LowLevelSlice           ┆ 2.0                  ┆ 12    │
+│ LowLevelExpand          ┆ 2.0                  ┆ 16    │
+└─────────────────────────┴──────────────────────┴───────┘
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">(5)</span></code> 라인이 실행되면 아래와 같이 CPU에서 동작하는 Operator들에서 소요된 시간 정보가 출력된다.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                            <span class="n">trace_id</span>           <span class="n">span_id</span>  <span class="n">thread</span><span class="o">.</span><span class="n">id</span>        <span class="n">name</span>  <span class="n">operator_index</span>    <span class="n">dur</span>
-<span class="mi">2</span>    <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="mf">704e2</span><span class="n">c8ece98e29e</span>         <span class="mi">45</span>    <span class="n">Quantize</span>               <span class="mi">0</span>  <span class="mi">42929</span>
-<span class="mi">3</span>    <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="mi">4</span><span class="n">a304c8c46be707a</span>         <span class="mi">45</span>       <span class="n">Lower</span>               <span class="mi">1</span>  <span class="mi">72999</span>
-<span class="mi">34</span>   <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="n">cff0f3268f26423d</span>         <span class="mi">45</span>     <span class="n">Unlower</span>               <span class="mi">2</span>  <span class="mi">31812</span>
-<span class="mi">36</span>   <span class="n">daf4d8ed300bc4f93901a978111b44f9</span>  <span class="n">b3a90233e6eb90f8</span>         <span class="mi">45</span>  <span class="n">Dequantize</span>               <span class="mi">3</span>   <span class="mi">4895</span>
-<span class="mi">54</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="mi">920</span><span class="n">c7170893cb202</span>         <span class="mi">45</span>    <span class="n">Quantize</span>               <span class="mi">0</span>  <span class="mi">14085</span>
-<span class="mi">55</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="n">b2508624adaf01a1</span>         <span class="mi">45</span>       <span class="n">Lower</span>               <span class="mi">1</span>  <span class="mi">32360</span>
-<span class="mi">75</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="n">ed6fc23c0a7cc81e</span>         <span class="mi">45</span>     <span class="n">Unlower</span>               <span class="mi">2</span>  <span class="mi">15655</span>
-<span class="mi">78</span>   <span class="mf">02e6</span><span class="n">fb6504e6f7a1312272077a2ca480</span>  <span class="n">e2d61265a1fe0ad6</span>         <span class="mi">45</span>  <span class="n">Dequantize</span>               <span class="mi">3</span>   <span class="mi">6128</span>
-<span class="mi">96</span>   <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="mi">20473</span><span class="n">c3a26d91593</span>         <span class="mi">45</span>    <span class="n">Quantize</span>               <span class="mi">0</span>   <span class="mi">4400</span>
-<span class="mi">100</span>  <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="n">f71676c0868f1a34</span>         <span class="mi">45</span>       <span class="n">Lower</span>               <span class="mi">1</span>  <span class="mi">28714</span>
-<span class="mi">118</span>  <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="n">dff936584542ee83</span>         <span class="mi">45</span>     <span class="n">Unlower</span>               <span class="mi">2</span>  <span class="mi">12675</span>
-<span class="mi">121</span>  <span class="mf">713e7</span><span class="n">a122436acbeeafd1339499a7bed</span>  <span class="mi">9</span><span class="n">d2eaf76f1a6d156</span>         <span class="mi">45</span>  <span class="n">Dequantize</span>               <span class="mi">3</span>  <span class="mi">12227</span>
-<span class="mi">138</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="mi">0</span><span class="n">df3b383e59e5322</span>         <span class="mi">45</span>    <span class="n">Quantize</span>               <span class="mi">0</span>   <span class="mi">6631</span>
-<span class="mi">142</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="n">c15504b489f56503</span>         <span class="mi">45</span>       <span class="n">Lower</span>               <span class="mi">1</span>  <span class="mi">11694</span>
-<span class="mi">170</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="n">cb8f9199904c6065</span>         <span class="mi">45</span>     <span class="n">Unlower</span>               <span class="mi">2</span>  <span class="mi">17573</span>
-<span class="mi">171</span>  <span class="mf">7e754</span><span class="n">c14f342d3eb3f4efbc615d15d8a</span>  <span class="mi">90</span><span class="n">c1af4de00eebc2</span>         <span class="mi">45</span>  <span class="n">Dequantize</span>               <span class="mi">3</span>  <span class="mi">16021</span>
+<p><code class="docutils literal notranslate"><span class="pre">(5)</span></code> 라인이 실행되면 아래와 같이 CPU에서 실행된 연산자(Operator) 들에서 소요된 시간 정보가 출력된다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌──────────────────────────────────┬──────────────────┬───────────┬────────────┬────────────────┬────────┐
+│ trace_id                         ┆ span_id          ┆ thread.id ┆ name       ┆ operator_index ┆ dur    │
+╞══════════════════════════════════╪══════════════════╪═══════════╪════════════╪════════════════╪════════╡
+│ e7ab6656cc090a8d05992a9e4683b8b7 ┆ 206a1d6f351ca4b1 ┆ 40        ┆ Quantize   ┆ 0              ┆ 136285 │
+│ 03636fd6c7dbc42f0a9dd29a7283d3fc ┆ f636740983e095a6 ┆ 40        ┆ Lower      ┆ 1              ┆ 133350 │
+│ c9a0858f7e0885a976f51c6cb57d3e0f ┆ bb6c84f88e453055 ┆ 40        ┆ Unlower    ┆ 2              ┆ 44775  │
+│ 8777c67ad9fe597139bbd6970362c2fc ┆ 63bac982c7b98aba ┆ 40        ┆ Dequantize ┆ 3              ┆ 14682  │
+│ 98aeba2a25b0525166b6a4065ab01774 ┆ 34ccd560571d733f ┆ 40        ┆ Quantize   ┆ 0              ┆ 45465  │
+│ 420525dc13ba9624083e0a276f7ee718 ┆ 9f6d342da5eb86bc ┆ 40        ┆ Lower      ┆ 1              ┆ 152748 │
+│ cb67393f6949bbbb396053c1e00931ff ┆ 2d724fa6ab8ca024 ┆ 40        ┆ Unlower    ┆ 2              ┆ 67140  │
+│ 00424b4f02039ae0ca98388a964062b0 ┆ a5fb9fbd5bffe6a6 ┆ 40        ┆ Dequantize ┆ 3              ┆ 32388  │
+│ d7412c59d360067e8b7a2508a30d1079 ┆ 8e426d778fa95722 ┆ 40        ┆ Quantize   ┆ 0              ┆ 71736  │
+│ 6820acf9345c5b373c512f6cd5edcbc7 ┆ 2d787c2df381f010 ┆ 40        ┆ Lower      ┆ 1              ┆ 311310 │
+│ 84d24b02a95c63c3e40f7682384749e4 ┆ 1236a974a619ff1a ┆ 40        ┆ Unlower    ┆ 2              ┆ 51930  │
+│ 8d25dff1cfd6624509cbf95503e93382 ┆ 673efb3bfb8deac6 ┆ 40        ┆ Dequantize ┆ 3              ┆ 12362  │
+│ 4cc60ec1eee7d9f3cdd290d07b303a18 ┆ e7903b0a584d6388 ┆ 40        ┆ Quantize   ┆ 0              ┆ 56736  │
+│ c5f04d9fea26e5b52c6ec5e5406775fc ┆ 701118dabd065e6f ┆ 40        ┆ Lower      ┆ 1              ┆ 265447 │
+│ c5fdfb9cf454da130148e8e364eeee93 ┆ 5cf3750def19c6e8 ┆ 40        ┆ Unlower    ┆ 2              ┆ 35869  │
+│ e1e650d23061140404915f1df36daf9c ┆ ddd76ff19b5cd713 ┆ 40        ┆ Dequantize ┆ 3              ┆ 14688  │
+└──────────────────────────────────┴──────────────────┴───────────┴────────────┴────────────────┴────────┘
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">(6)</span></code> 라인을 실행하면 코드에서 DataFrame에 접근하고 사용자가 직접 분석할 수 있다.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                            <span class="n">trace_id</span>   <span class="n">name</span>  <span class="n">thread</span><span class="o">.</span><span class="n">id</span>     <span class="n">dur</span>
-<span class="mi">150</span>  <span class="n">ec3dd3d28baf03adc6a1ddd5efe319bc</span>  <span class="n">trace</span>         <span class="mi">44</span>  <span class="mi">778887</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                            <span class="n">trace_id</span>   <span class="n">name</span>  <span class="n">thread</span><span class="o">.</span><span class="n">id</span>       <span class="n">dur</span>
+<span class="mi">487</span>  <span class="n">f3b158734e3684f2e043ed41309c4c2d</span>  <span class="n">trace</span>          <span class="mi">1</span>  <span class="mi">11204385</span>
 </pre></div>
 </div>
 <p></p>

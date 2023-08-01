@@ -72,6 +72,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_support.html">가상 머신 환경 지원</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
 </ul>
@@ -131,6 +132,12 @@ C 헤더 (C header) 파일을 제공하며 이를 이용하여 C, C++ 응용 또
 <p><a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">Python SDK</span></a> 에 비해 저수준 API를 제공하여
 더 낮은 지연 시간과 더 높은 성능을 요구하는 경우나 Python 런타임을 사용할 수 없는 경우 사용할 수 있다.
 또한, C SDK는 Python SDK와 유사한 블럭킹(blocking) 및 비동기(asynchronous) API를 제공한다.</p>
+<div class="admonition warning">
+<p class="admonition-title">경고</p>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-libnux-dev</span></code> 패키지와 현재 C API는 향후 릴리즈에서 제거될 예정이다.</p>
+<p>현재 C API를 대체하는 새로운 C API가 향후 릴리즈에 제공될 예정이다. 새 C API는 0.10.0 부터 제공되는
+차세대 런타임인 FuriosaRT 를 기반으로 하며 더 많은 기능을 제공할 예정이다.</p>
+</div>
 <section id="id1">
 <h2>C SDK 설치<a class="headerlink" href="#id1" title="이 제목에 대한 퍼머링크"></a></h2>
 <p>C SDK 설치를 위한 최소 요구사항은 다음과 같다.</p>
@@ -139,30 +146,29 @@ C 헤더 (C header) 파일을 제공하며 이를 이용하여 C, C++ 응용 또
 <li><p>시스템의 관리자 권한 (root)</p></li>
 <li><p><a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">FuriosaAI SDK 필수 패키지</span></a></p></li>
 </ul>
-<p>또한, C SDK 설치 및 사용을 위해서는 <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">필수 패키지 설치</span></a>
+<p>또한, C 언어 SDK 설치 및 사용을 위해서는 <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">필수 패키지 설치</span></a>
 가이드를 따라 드라이버, 펌웨어, 런타임 라이브러리를 반드시 설치해야 한다.
 필수 패키지를 설치했다면 아래 방법으로 C SDK를 설치한다.</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">APT 서버를 이용한 설치</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">다운로드 센터를 이용한 설치</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>FuriosaAI APT를 사용하기 위해서는 <a class="reference internal" href="installation.html#setupaptrepository"><span class="std std-ref">APT 서버 설정</span></a> 을 따라
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">APT 서버를 이용한 설치</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>FuriosaAI APT를 사용하기 위해서는 <a class="reference internal" href="installation.html#setupaptrepository"><span class="std std-ref">APT 서버 설정</span></a> 을 따라
 서버 접속을 위한 인증 설정을 완료한다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-libnux-dev
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>다운로드 센터에 로그인하여 아래 패키지들의 최신 버전을 선택하여 다운 받는다.</p>
-<ul class="simple">
-<li><p>NPU C SDK 다운로드 (furiosa-libnux-dev-x.y.z-?.deb)</p></li>
-</ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./furiosa-libnux-dev-x.y.z-?.deb
 </pre></div>
 </div>
 </div></div>
 </section>
 <section id="id2">
 <h2>C SDK를 이용한 컴파일<a class="headerlink" href="#id2" title="이 제목에 대한 퍼머링크"></a></h2>
-<div class="admonition warning">
-<p class="admonition-title">경고</p>
-<p>TODO</p>
+<p>위와 같이 패키지를 설치하면 C 언어 SDK를 이용하여 컴파일할 수 있다.
+C 헤더 파일은 <code class="docutils literal notranslate"><span class="pre">/usr/include/furiosa</span></code> 디렉토리에, 정적 라이브러리는
+<code class="docutils literal notranslate"><span class="pre">/usr/lib/x86_64-linux-gnu</span></code> 디렉토리에 위치한다. 위 경로들은 시스템에서 헤더와 라이브러리를 찾는
+기본 경로에 포함되어 있으므로 헤더 파일을 포함하는 경우 <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;furiosa/nux.h&gt;</span></code> 와 같이 사용할 수 있다.
+라이브러리를 링크하기 위해서는 <code class="docutils literal notranslate"><span class="pre">-lnux</span></code> 옵션만 추가하면 된다. 예를 들어, 다음과 같이 컴파일할 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>example.c<span class="w"> </span>-lnux
+</pre></div>
 </div>
+<p>또한, <a class="reference external" href="https://furiosa-ai.github.io/docs/v0.10.0/en/api/c/index.html">C Language SDK 레퍼런스</a> 에서
+예제 코드와 API 문서를 확인할 수 있다.</p>
 </section>
 </section>
 

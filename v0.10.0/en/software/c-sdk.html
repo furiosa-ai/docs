@@ -124,6 +124,12 @@
 <p>We explain here how to write FuriosaAI NPU applications using C programming language.
 The C SDK provides a C ABI-based static library and C header file. Using these, you can write applications in C, C++, or other languages that support C ABI.</p>
 <p>The provided C SDK is relatively lower-level than <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">Python SDK</span></a>. It can be used when lower latency and higher performance are required, or when Python runtime cannot be used.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-libnux-dev</span></code> and the current C API are being deprecated in the future release.</p>
+<p>As substitute of the current API, new C API based on the next-generation runtime called FuriosaRT
+will be introduced with more features in the future release.</p>
+</div>
 <section id="c-sdk-installation">
 <h2>C SDK installation<a class="headerlink" href="#c-sdk-installation" title="Permalink to this heading"></a></h2>
 <p>The minimum requirements for C SDK are as follows.</p>
@@ -136,25 +142,24 @@ The C SDK provides a C ABI-based static library and C header file. Using these, 
 the <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">Required Package Installation</span></a> guide.</p>
 <p>Once you have installed the required packages, follow the instructions below to install C SDK.</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Installation using APT server</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Installation using download center</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>To use FuriosaAI APT, refer to <a class="reference internal" href="installation.html#setupaptrepository"><span class="std std-ref">APT server configuration</span></a> and complete the authentication setting for server connection.</p>
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Installation using APT server</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>To use FuriosaAI APT, refer to <a class="reference internal" href="installation.html#setupaptrepository"><span class="std std-ref">APT server configuration</span></a> and complete the authentication setting for server connection.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-libnux-dev
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Log in to the download center and download the latest versions of the packages below.</p>
-<ul class="simple">
-<li><p>NPU C SDK download (furiosa-libnux-dev-x.y.z-?.deb)</p></li>
-</ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./furiosa-libnux-dev-x.y.z-?.deb
 </pre></div>
 </div>
 </div></div>
 </section>
 <section id="compiling-with-c-sdk">
 <h2>Compiling with C SDK<a class="headerlink" href="#compiling-with-c-sdk" title="Permalink to this heading"></a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>TODO</p>
+<p>Once you install the package as above, you can compile using the C SDK.</p>
+<p>C header files and static libraries are located in the <code class="docutils literal notranslate"><span class="pre">/usr/include/furiosa</span></code>
+and <code class="docutils literal notranslate"><span class="pre">/usr/lib/x86_64-linux-gnu</span></code> directories respectively.
+They are the system paths that gcc looks to find C headers and libraries by default,
+so you can simply compile C applications with only <code class="docutils literal notranslate"><span class="pre">-lnux</span></code> option as the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>example.c<span class="w"> </span>-lnux
+</pre></div>
 </div>
+<p>Also, you can find C SDK examples and C API reference at
+<a class="reference external" href="https://furiosa-ai.github.io/docs/v0.10.0/en/api/c/index.html">C Language SDK Reference</a>.</p>
 </section>
 </section>
 

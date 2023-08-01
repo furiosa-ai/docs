@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>가상 머신 환경 지원 &mdash; FuriosaAI NPU 및 Software 문서  문서</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="튜토리얼 및 코드 예제" href="tutorials.html" />
+    <link rel="prev" title="Kubernetes 지원" href="kubernetes_support.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FuriosaAI NPU 및 Software 문서
+          </a>
+              <div class="version">
+                0.10.0.dev0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">NPU 가속 지원 연산자 목록</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI 소프트웨어 스택 소개</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">드라이버, 펌웨어, 런타임 설치 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">명령행 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">컴파일러</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">성능 프로파일링</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">가상 머신 환경 지원</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#npu-pci-pass-through">가상 머신에 NPU 연결 (PCI pass-through)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">예시 환경</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">선행조건</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">작업 절차</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼 및 코드 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">레퍼런스 문서</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/ko/">0.8.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.7.0/ko/">0.7.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.3/ko/">0.6.3 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/ko/">0.6.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/ko/">0.5.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">가상 머신 환경 지원</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/software/vm_support.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vmsupport">
+<span id="id1"></span><h1>가상 머신 환경 지원<a class="headerlink" href="#vmsupport" title="이 제목에 대한 퍼머링크"></a></h1>
+<p>이 장에서는 가상화를 통해 생성된 가상 머신에서 NPU를 사용하기 위해 필요한 절차를 설명한다.
+설명을 위한 예시에서는 특정 환경을 가정하고 있지만,
+여러 가상화 도구에서 제공하는 유사한 방법을 이용해
+NPU를 가상 머신 내에서 사용하도록 설정할 수 있다.</p>
+<section id="npu-pci-pass-through">
+<span id="pcipassthrough"></span><h2>가상 머신에 NPU 연결 (PCI pass-through)<a class="headerlink" href="#npu-pci-pass-through" title="이 제목에 대한 퍼머링크"></a></h2>
+<section id="id2">
+<h3>예시 환경<a class="headerlink" href="#id2" title="이 제목에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p>호스트 머신 OS: CentOS 8</p></li>
+<li><p>게스트 머신 OS: Ubuntu 20.04</p></li>
+<li><p>가상화 도구: QEMU-KVM</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>선행조건<a class="headerlink" href="#id3" title="이 제목에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p>BIOS에 IOMMU를 비롯한 가상화(VT-x 등) 설정이 활성화되어 있어야 한다.</p></li>
+<li><p>KVM과 관련 도구들이 설치되어 있어야 한다.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">qemu-kvm</span></code>, <code class="docutils literal notranslate"><span class="pre">libvirt</span></code>, <code class="docutils literal notranslate"><span class="pre">virt-install</span></code> 등</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h3>작업 절차<a class="headerlink" href="#id4" title="이 제목에 대한 퍼머링크"></a></h3>
+<ol class="arabic simple">
+<li><p>IOMMU의 활성화 여부를 확인한다.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>BIOS에서 IOMMU가 활성화되어있는지 확인한다.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-e</span> <span class="pre">DMAR</span> <span class="pre">-e</span> <span class="pre">IOMMU</span></code> 명령을 수행하여 활성화 여부를 확인할 수 있다.</p></li>
+<li><p>만약 DMAR, IOMMU와 관련된 메시지가 확인되지 않는다면 바이오스 설정을 통해 활성화 과정이 필요하다.</p>
+<ul>
+<li><p>바이오스 설정 방법은 서버 또는 메인보드의 제조사의 가이드에 따른다.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>grub에 IOMMU가 활성화되어있는지 확인한다.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">GRUB_CMDLINE_LINUX</span> <span class="pre">/etc/default/grub</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">iommu</span></code> 명령을 수행하여 IOMMU가 활성화되어있는지 확인한다.</p>
+<ul>
+<li><p>Intel CPU의 경우: <code class="docutils literal notranslate"><span class="pre">GRUB_CMDLINE_LINUX</span></code> 에 기재된 명령행에 <code class="docutils literal notranslate"><span class="pre">intel_iommu=on</span></code> 이 포함되어 있어야 한다.</p></li>
+<li><p>AMD CPU의 경우: <code class="docutils literal notranslate"><span class="pre">GRUB_CMDLINE_LINUX</span></code> 에 기재된 명령행에 <code class="docutils literal notranslate"><span class="pre">amd_iommu=on</span></code> 이 포함되어 있어야 한다.</p></li>
+</ul>
+</li>
+<li><p>만약 위의 옵션이 확인되지 않는다면 <code class="docutils literal notranslate"><span class="pre">/etc/default/grub</span></code> 파일을 수정하여 옵션을 추가하고 변경사항을 적용 후 재부팅한다.</p>
+<ul>
+<li><p>Legacy BIOS Boot Mode인 경우: <code class="docutils literal notranslate"><span class="pre">grub2-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub2/grub.cfg</span></code> 수행</p></li>
+<li><p>UEFI Boot Mode인 경우: <code class="docutils literal notranslate"><span class="pre">grub2-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/efi/EFI/{linux_distrib}/grub.cfg</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">vfio-pci</span></code> 모듈의 활성화 여부를 확인한다.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lsmod</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">vfio-pci</span></code> 명령을 수행하여 vfio 모듈이 활성화되어있는지 확인한다.</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@localhost<span class="w"> </span>~<span class="o">]</span><span class="c1"># lsmod | grep vfio_pci</span>
+vfio_pci<span class="w">               </span><span class="m">61440</span><span class="w">  </span><span class="m">0</span>
+vfio_virqfd<span class="w">            </span><span class="m">16384</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>vfio_pci
+vfio_iommu_type1<span class="w">       </span><span class="m">36864</span><span class="w">  </span><span class="m">0</span>
+vfio<span class="w">                   </span><span class="m">36864</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>vfio_iommu_type1,vfio_pci
+irqbypass<span class="w">              </span><span class="m">16384</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>vfio_pci,kvm
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>만약 위의 모듈이 확인되지 않는다면 <code class="docutils literal notranslate"><span class="pre">modprobe</span> <span class="pre">vfio-pci</span></code> 명령을 수행하여 모듈을 활성화한다.</p></li>
+<li><p>일부 OS 환경의 경우 위 모듈의 활성화를 생략할 수 있다.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>가상화 환경 준비 상태를 확인한다.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">virt-host-validate</span></code> 커맨드를 실행하여 정상적으로 동작할 수 있는 환경인지 확인한다.</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@localhost<span class="w"> </span>~<span class="o">]</span><span class="c1"># virt-host-validate</span>
+<span class="w">  </span>QEMU:<span class="w"> </span>Checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>hardware<span class="w"> </span>virtualization<span class="w">                                 </span>:<span class="w"> </span>PASS
+
+<span class="w">  </span>QEMU:<span class="w"> </span>Checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>device<span class="w"> </span>assignment<span class="w"> </span>IOMMU<span class="w"> </span>support<span class="w">                         </span>:<span class="w"> </span>PASS
+<span class="w">  </span>QEMU:<span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>IOMMU<span class="w"> </span>is<span class="w"> </span>enabled<span class="w"> </span>by<span class="w"> </span>kernel<span class="w">                               </span>:<span class="w"> </span>PASS
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>위 항목들이 PASS로 표시되면 준비 절차가 정상적으로 완료되었음을 확인할 수 있다.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>호스트 머신에서 NPU의 PCI 연결 정보를 확인한다.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@localhost<span class="w"> </span>~<span class="o">]</span><span class="c1"># lspci -nD | grep 1ed2</span>
+<span class="m">0000</span>:01:00.0<span class="w"> </span><span class="m">1200</span>:<span class="w"> </span>1ed2:0000<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">01</span><span class="o">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1ed2</span></code> 는 FursioaAI의 PCI Vendor ID이다.</p></li>
+<li><p>NPU에 부여된 PCI BDF를 확인한다. (위 예제에서는 <code class="docutils literal notranslate"><span class="pre">01:00.0</span></code> 에 해당)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">-DD</span></code> 커맨드를 통해서도 PCI BDF를 확인할 수 있으나, 해당 머신의 OS 환경에서 PCI ID가 최신화되지 않았을 경우 <code class="docutils literal notranslate"><span class="pre">FuriosaAI,</span> <span class="pre">Inc.</span> <span class="pre">Warboy</span></code> 대신 <code class="docutils literal notranslate"><span class="pre">Device</span> <span class="pre">1ed2:0000</span></code> 로 표시된다.</p>
+<ul>
+<li><p>이 경우 <code class="docutils literal notranslate"><span class="pre">update-pciids</span></code> 커맨드를 통해 PCI ID를 갱신할 수 있다.</p></li>
+</ul>
+</li>
+<li><p>위 과정은 디바이스 드라이버 설치 여부와 무관하며, 장치가 정상적으로 머신에 장착 및 인식되었다면 확인할 수 있는 정보이다.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>가상 머신에 전달할 수 있는 PCI 식별자를 확인한다.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@localhost<span class="w"> </span>~<span class="o">]</span><span class="c1"># virsh nodedev-list | grep pci</span>
+...
+
+pci_0000_01_00_0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>단계 4에서 확인한 BDF에 대응되는 식별자를 목록에서 확인할 수 있다.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>가상 머신을 생성한다. 가상 머신에서 사용할 OS는 Ubuntu를 권장한다.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virt</span><span class="o">-</span><span class="n">install</span> <span class="o">--</span><span class="n">name</span> <span class="n">ubuntu</span><span class="o">-</span><span class="n">vm</span> \
+  <span class="o">--</span><span class="n">os</span><span class="o">-</span><span class="n">variant</span> <span class="n">ubuntu20</span><span class="mf">.04</span> \
+  <span class="o">--</span><span class="n">vcpus</span> <span class="mi">2</span> \
+  <span class="o">--</span><span class="n">memory</span> <span class="mi">4096</span> \
+  <span class="o">--</span><span class="n">location</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libvirt</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">-</span><span class="mf">20.04.5</span><span class="o">-</span><span class="n">live</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">iso</span><span class="p">,</span><span class="n">kernel</span><span class="o">=</span><span class="n">casper</span><span class="o">/</span><span class="n">vmlinuz</span><span class="p">,</span><span class="n">initrd</span><span class="o">=</span><span class="n">casper</span><span class="o">/</span><span class="n">initrd</span> \
+  <span class="o">--</span><span class="n">network</span> <span class="n">bridge</span><span class="o">=</span><span class="n">br0</span><span class="p">,</span><span class="n">model</span><span class="o">=</span><span class="n">virtio</span> \
+  <span class="o">--</span><span class="n">disk</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span> \
+  <span class="o">--</span><span class="n">graphics</span> <span class="n">none</span> \
+  <span class="o">--</span><span class="n">host</span><span class="o">-</span><span class="n">device</span><span class="o">=</span><span class="n">pci_0000_01_00_0</span>
+</pre></div>
+</div>
+<p>각 옵션은 생성할 가상 머신에 필요한 값을 적절히 지정하면 된다.
+단계 5에서 확인한 NPU의 PCI 식별자를 인자 <code class="docutils literal notranslate"><span class="pre">--host-device</span></code> 의 값으로 전달한다.</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>생성된 가상 머신에 접속하여 OS를 설치하고, 사용 준비가 완료된 후 해당 환경에 접근한다.</p></li>
+<li><p>가상 머신 내에서 <code class="docutils literal notranslate"><span class="pre">lspci</span></code> 를 실행하여 NPU가 정상적으로 인식되는지 확인할 수 있다.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>furiosa@ubuntu-vm:~$ lspci
+...
+05:00.0 Processing accelerators: Device 1ed2:0000 (rev 01)
+...
+
+furiosa@ubuntu-vm:~$ sudo update-pciids
+
+furiosa@ubuntu-vm:~$ lspci | grep Furiosa
+05:00.0 Processing accelerators: FuriosaAI, Inc. Warboy (rev 01)
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li><p>이후 과정은 <a class="reference internal" href="installation.html#requiredpackages"><span class="std std-ref">설치 가이드</span></a> 문서의 지침을 따르면 된다.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kubernetes_support.html" class="btn btn-neutral float-left" title="Kubernetes 지원" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="튜토리얼 및 코드 예제" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
