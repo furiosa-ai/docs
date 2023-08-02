@@ -39,7 +39,7 @@
             FuriosaAI NPU 및 Software 문서
           </a>
               <div class="version">
-                0.10.0.dev0
+                0.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -91,6 +91,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.10.0.html">Release Notes - 0.10.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
@@ -243,8 +244,8 @@ Conda에 대해 자세히 알고 싶다면 <a class="reference external" href="h
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
 <p>최신 버전으로 업데이트하지 않은 채로 furiosa-sdk를 설치할 경우 아래와 같은 에러를 접할 수 있다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>a<span class="w"> </span>version<span class="w"> </span>that<span class="w"> </span>satisfies<span class="w"> </span>the<span class="w"> </span>requirement<span class="w"> </span>furiosa-quantizer-impl<span class="o">==</span><span class="m">0</span>.9.*<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>furiosa-quantizer<span class="o">==</span><span class="m">0</span>.9.*-&gt;furiosa-sdk<span class="o">)</span><span class="w"> </span><span class="o">(</span>from<span class="w"> </span>versions:<span class="w"> </span>none<span class="o">)</span>
-ERROR:<span class="w"> </span>No<span class="w"> </span>matching<span class="w"> </span>distribution<span class="w"> </span>found<span class="w"> </span><span class="k">for</span><span class="w"> </span>furiosa-quantizer-impl<span class="o">==</span><span class="m">0</span>.9.*<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>furiosa-quantizer<span class="o">==</span><span class="m">0</span>.9.*-&gt;furiosa-sdk<span class="o">)</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>a<span class="w"> </span>version<span class="w"> </span>that<span class="w"> </span>satisfies<span class="w"> </span>the<span class="w"> </span>requirement<span class="w"> </span>furiosa-quantizer-impl<span class="o">==</span><span class="m">0</span>.10.*<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>furiosa-quantizer<span class="o">==</span><span class="m">0</span>.10.*-&gt;furiosa-sdk<span class="o">)</span><span class="w"> </span><span class="o">(</span>from<span class="w"> </span>versions:<span class="w"> </span>none<span class="o">)</span>
+ERROR:<span class="w"> </span>No<span class="w"> </span>matching<span class="w"> </span>distribution<span class="w"> </span>found<span class="w"> </span><span class="k">for</span><span class="w"> </span>furiosa-quantizer-impl<span class="o">==</span><span class="m">0</span>.10.*<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>furiosa-quantizer<span class="o">==</span><span class="m">0</span>.10.*-&gt;furiosa-sdk<span class="o">)</span>
 </pre></div>
 </div>
 </div>
@@ -255,7 +256,7 @@ ERROR:<span class="w"> </span>No<span class="w"> </span>matching<span class="w">
 </pre></div>
 </div>
 <p>패키지는 컴파일러 명령행 도구 및 추론 API를 포함하고 있다.
-각각의 자세한 사용법은 <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa compile</span></a> 와 <a class="reference internal" href="tutorials.html#tutorial"><span class="std std-ref">튜토리얼 및 코드 예제</span></a> 를 참고하라.</p>
+각각의 자세한 사용법은 <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa-compiler</span></a> 와 <a class="reference internal" href="tutorials.html#tutorial"><span class="std std-ref">튜토리얼 및 코드 예제</span></a> 를 참고하라.</p>
 <p>추가적인 기능은 Python Extra 패키지 형태로 제공하고 있으며 <a class="reference internal" href="#pythonextrapackages"><span class="std std-ref">추가 패키지 목록</span></a> 에서
 필요한 패키지를 골라 설치할 수 있다. 예를 들어, 모델 서빙을 위해 <code class="docutils literal notranslate"><span class="pre">server</span></code> 와 모델과 SDK 간에 호환여부를 확인하기
 위해 <code class="docutils literal notranslate"><span class="pre">litmus</span></code> 를 설치해야 해야 한다면 아래와 같이 확장 패키지를 지정한다.</p>
@@ -337,7 +338,7 @@ FuriosaAI SDK와 NPU가 제공하는 양자화 기능에 대한 자세한 내용
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
+    <p>&#169; 저작권 2023, FuriosaAI, Inc..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

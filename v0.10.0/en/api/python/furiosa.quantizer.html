@@ -356,30 +356,35 @@ False.</p>
 <dt class="sig sig-object py" id="furiosa.quantizer.editor.ModelEditor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.editor.</span></span><span class="sig-name descname"><span class="pre">ModelEditor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelProto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.editor.ModelEditor" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>ModelEditor.</p>
-<p>Apply additional optimization information for
-ONNX Model.
-This will record optimization settings in ONNX
-model metadata</p>
+<p>A utility class for manipulating ONNX models.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="furiosa.quantizer.editor.ModelEditor.retype_as">
-<span class="sig-name descname"><span class="pre">retype_as</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.editor.TensorType" title="furiosa.quantizer.editor.TensorType"><span class="pre">TensorType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.editor.ModelEditor.retype_as" title="Permalink to this definition"></a></dt>
-<dd><p>Retype model input(or output) as i8(or u8) type.
-if there is a existed same key in ONNX metadata_props already,
-Remove existed ONNX metadata</p>
-<p>Args:
-tensor_name (str): Tensor name to retype
-tensor_type: TensorType: DataType to be applied in Tensor
-tensor_range (Optional[Iterable[float]]): It specifies</p>
-<blockquote>
-<div><p>the floating-point minimum and maximum values of the output tensor.
-and returns the quantized tensor.
-If it is None, it quantizes the tensor
-based on the minimum and maximum values of the original tensor
-and returns the quantized tensor.
-length of tensor_range should be 2.
-Defaults to None</p>
-</div></blockquote>
+<dt class="sig sig-object py" id="furiosa.quantizer.editor.ModelEditor.convert_input_type">
+<span class="sig-name descname"><span class="pre">convert_input_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.editor.TensorType" title="furiosa.quantizer.editor.TensorType"><span class="pre">TensorType</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.editor.ModelEditor.convert_input_type" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the element type of an input tensor named tensor_name to tensor_type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The name of an input tensor to convert.</p></li>
+<li><p><strong>tensor_type</strong> (<a class="reference internal" href="#furiosa.quantizer.editor.TensorType" title="furiosa.quantizer.editor.TensorType"><em>TensorType</em></a>) – The desired element type.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.editor.ModelEditor.convert_output_type">
+<span class="sig-name descname"><span class="pre">convert_output_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.editor.TensorType" title="furiosa.quantizer.editor.TensorType"><span class="pre">TensorType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.editor.ModelEditor.convert_output_type" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the element type of an output tensor named tensor_name to tensor_type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The name of an output tensor to convert.</p></li>
+<li><p><strong>tensor_type</strong> (<a class="reference internal" href="#furiosa.quantizer.editor.TensorType" title="furiosa.quantizer.editor.TensorType"><em>TensorType</em></a>) – The desired element type.</p></li>
+<li><p><strong>tensor_range</strong> (<em>Optional</em><em>[</em><em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em><em>]</em>) – A new min/max range of the output tensor.
+If it is None, the original range will be retained. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -388,19 +393,53 @@ Defaults to None</p>
 <dt class="sig sig-object py" id="furiosa.quantizer.editor.TensorType">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.editor.</span></span><span class="sig-name descname"><span class="pre">TensorType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.editor.TensorType" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a></p>
-<p>TensorType.</p>
-<p>TensorType which specifies type of the data.
-It is used for ModelEditor.retype_as</p>
+<p>An enumeration class representing the element type of a tensor.</p>
+<p>This class is used with the ModelEditor.convert_{input,output}_type method to specify the
+desired element type.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.quantizer.editor.TensorType.I8">
-<span class="sig-name descname"><span class="pre">I8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#furiosa.quantizer.editor.TensorType.I8" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="furiosa.quantizer.editor.TensorType.INT8">
+<span class="sig-name descname"><span class="pre">INT8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#furiosa.quantizer.editor.TensorType.INT8" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.quantizer.editor.TensorType.U8">
-<span class="sig-name descname"><span class="pre">U8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.quantizer.editor.TensorType.U8" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="furiosa.quantizer.editor.TensorType.UINT8">
+<span class="sig-name descname"><span class="pre">UINT8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.quantizer.editor.TensorType.UINT8" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.editor.get_output_names">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.editor.</span></span><span class="sig-name descname"><span class="pre">get_output_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.editor.get_output_names" title="Permalink to this definition"></a></dt>
+<dd><p>Return the names of outputs in an ONNX model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>onnx.ModelProto</em>) – An ONNX model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of the names of outputs in the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.editor.get_pure_input_names">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.editor.</span></span><span class="sig-name descname"><span class="pre">get_pure_input_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.editor.get_pure_input_names" title="Permalink to this definition"></a></dt>
+<dd><p>Return the names of inputs in an ONNX model that have no associated initializers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>onnx.ModelProto</em>) – An ONNX model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of the names of inputs in the model that have no associated initializers.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -626,30 +665,35 @@ False.</p>
 <dt class="sig sig-object py" id="furiosa.quantizer.ModelEditor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.</span></span><span class="sig-name descname"><span class="pre">ModelEditor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelProto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ModelEditor" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>ModelEditor.</p>
-<p>Apply additional optimization information for
-ONNX Model.
-This will record optimization settings in ONNX
-model metadata</p>
+<p>A utility class for manipulating ONNX models.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="furiosa.quantizer.ModelEditor.retype_as">
-<span class="sig-name descname"><span class="pre">retype_as</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.editor.TensorType" title="furiosa.quantizer.editor.TensorType"><span class="pre">TensorType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.ModelEditor.retype_as" title="Permalink to this definition"></a></dt>
-<dd><p>Retype model input(or output) as i8(or u8) type.
-if there is a existed same key in ONNX metadata_props already,
-Remove existed ONNX metadata</p>
-<p>Args:
-tensor_name (str): Tensor name to retype
-tensor_type: TensorType: DataType to be applied in Tensor
-tensor_range (Optional[Iterable[float]]): It specifies</p>
-<blockquote>
-<div><p>the floating-point minimum and maximum values of the output tensor.
-and returns the quantized tensor.
-If it is None, it quantizes the tensor
-based on the minimum and maximum values of the original tensor
-and returns the quantized tensor.
-length of tensor_range should be 2.
-Defaults to None</p>
-</div></blockquote>
+<dt class="sig sig-object py" id="furiosa.quantizer.ModelEditor.convert_input_type">
+<span class="sig-name descname"><span class="pre">convert_input_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.editor.TensorType" title="furiosa.quantizer.editor.TensorType"><span class="pre">TensorType</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.ModelEditor.convert_input_type" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the element type of an input tensor named tensor_name to tensor_type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The name of an input tensor to convert.</p></li>
+<li><p><strong>tensor_type</strong> (<a class="reference internal" href="#furiosa.quantizer.TensorType" title="furiosa.quantizer.TensorType"><em>TensorType</em></a>) – The desired element type.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="furiosa.quantizer.ModelEditor.convert_output_type">
+<span class="sig-name descname"><span class="pre">convert_output_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#furiosa.quantizer.editor.TensorType" title="furiosa.quantizer.editor.TensorType"><span class="pre">TensorType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#furiosa.quantizer.ModelEditor.convert_output_type" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the element type of an output tensor named tensor_name to tensor_type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The name of an output tensor to convert.</p></li>
+<li><p><strong>tensor_type</strong> (<a class="reference internal" href="#furiosa.quantizer.TensorType" title="furiosa.quantizer.TensorType"><em>TensorType</em></a>) – The desired element type.</p></li>
+<li><p><strong>tensor_range</strong> (<em>Optional</em><em>[</em><em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em><em>]</em>) – A new min/max range of the output tensor.
+If it is None, the original range will be retained. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -658,19 +702,53 @@ Defaults to None</p>
 <dt class="sig sig-object py" id="furiosa.quantizer.TensorType">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.</span></span><span class="sig-name descname"><span class="pre">TensorType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.quantizer.TensorType" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a></p>
-<p>TensorType.</p>
-<p>TensorType which specifies type of the data.
-It is used for ModelEditor.retype_as</p>
+<p>An enumeration class representing the element type of a tensor.</p>
+<p>This class is used with the ModelEditor.convert_{input,output}_type method to specify the
+desired element type.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.quantizer.TensorType.I8">
-<span class="sig-name descname"><span class="pre">I8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#furiosa.quantizer.TensorType.I8" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="furiosa.quantizer.TensorType.INT8">
+<span class="sig-name descname"><span class="pre">INT8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#furiosa.quantizer.TensorType.INT8" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="furiosa.quantizer.TensorType.U8">
-<span class="sig-name descname"><span class="pre">U8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.quantizer.TensorType.U8" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="furiosa.quantizer.TensorType.UINT8">
+<span class="sig-name descname"><span class="pre">UINT8</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#furiosa.quantizer.TensorType.UINT8" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.get_output_names">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.</span></span><span class="sig-name descname"><span class="pre">get_output_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.get_output_names" title="Permalink to this definition"></a></dt>
+<dd><p>Return the names of outputs in an ONNX model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>onnx.ModelProto</em>) – An ONNX model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of the names of outputs in the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="furiosa.quantizer.get_pure_input_names">
+<span class="sig-prename descclassname"><span class="pre">furiosa.quantizer.</span></span><span class="sig-name descname"><span class="pre">get_pure_input_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#furiosa.quantizer.get_pure_input_names" title="Permalink to this definition"></a></dt>
+<dd><p>Return the names of inputs in an ONNX model that have no associated initializers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>onnx.ModelProto</em>) – An ONNX model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of the names of inputs in the model that have no associated initializers.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">

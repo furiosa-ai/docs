@@ -61,7 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="c-sdk.html">C SDK installation and user guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Tools</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Compiler</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#furiosa-compile"><code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#furiosa-compiler"><code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-enf-files">Using ENF files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compiler-cache">Compiler Cache</a></li>
 </ul>
@@ -125,24 +125,74 @@
 In this process, the compiler analyses the model at the operator level, optimizes it, and generates a program so as to maximize NPU acceleration and host resources utilization. Even for models that are not well known,
 so long as supported operators are utilized well, you can design models that are optimized for the NPU .</p>
 <p>You can find the list of NPU acceleration supported operators at <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">List of Supported Operators for NPU Acceleration</span></a>.</p>
-<section id="furiosa-compile">
-<span id="compilercli"></span><h2><code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code><a class="headerlink" href="#furiosa-compile" title="Permalink to this heading"></a></h2>
+<section id="furiosa-compiler">
+<span id="compilercli"></span><h2><code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code><a class="headerlink" href="#furiosa-compiler" title="Permalink to this heading"></a></h2>
 <p>The most common ways to use a compiler would be to automatically call it
 during the process of resetting the inference API or the NPU.</p>
-<p>But you can directly compile a model and generate a program by using the command line tool <code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> in shell. You can use the <code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> command by installing <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">Python SDK installation and user guide</span></a>.</p>
-<p>The arguments of the command are as follows. <code class="docutils literal notranslate"><span class="pre">MODEL_PATH</span></code> is the file path of
-<a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> or <a class="reference external" href="https://onnx.ai/">Onnx</a>.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa<span class="w"> </span>compile<span class="w"> </span>MODEL_PATH<span class="w"> </span><span class="o">[</span>-o<span class="w"> </span>OUTPUT<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target-npu<span class="w"> </span>TARGET_NPU<span class="o">]</span><span class="w"> </span><span class="o">[</span>--batch<span class="w"> </span>BATCH_SIZE<span class="o">]</span>
+<p>But you can directly compile a model and generate a program by using the command line tool <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> in shell. You can install <code class="docutils literal notranslate"><span class="pre">furiosa-compile</span></code> command via APT package manager.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>furiosa-compiler
 </pre></div>
 </div>
+<p>The usage of <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> is as the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-compiler<span class="w"> </span>--help
+
+Furiosa<span class="w"> </span>SDK<span class="w"> </span>Compiler<span class="w"> </span>v0.10.0<span class="w"> </span><span class="o">(</span>f8f05c8ea<span class="w"> </span><span class="m">2023</span>-07-31T19:30:30Z<span class="o">)</span>
+
+Usage:<span class="w"> </span>furiosa-compiler<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>&lt;SOURCE&gt;
+
+Arguments:
+<span class="w">  </span>&lt;SOURCE&gt;
+<span class="w">          </span>Path<span class="w"> </span>to<span class="w"> </span><span class="nb">source</span><span class="w"> </span>file<span class="w"> </span><span class="o">(</span>tflite,<span class="w"> </span>onnx,<span class="w"> </span>and<span class="w"> </span>other<span class="w"> </span>IR<span class="w"> </span>formats,<span class="w"> </span>such<span class="w"> </span>as<span class="w"> </span>dfg,<span class="w"> </span>cdfg,<span class="w"> </span>gir,<span class="w"> </span>lir<span class="o">)</span>
+
+Options:
+<span class="w">  </span>-o,<span class="w"> </span>--output<span class="w"> </span>&lt;OUTPUT&gt;
+<span class="w">          </span>Writes<span class="w"> </span>output<span class="w"> </span>to<span class="w"> </span>&lt;OUTPUT&gt;
+
+<span class="w">          </span><span class="o">[</span>default:<span class="w"> </span>output.&lt;TARGET_IR&gt;<span class="o">]</span>
+
+<span class="w">  </span>-b,<span class="w"> </span>--batch-size<span class="w"> </span>&lt;BATCH_SIZE&gt;
+<span class="w">          </span>Specifies<span class="w"> </span>the<span class="w"> </span>batch<span class="w"> </span>size<span class="w"> </span>which<span class="w"> </span>is<span class="w"> </span>effective<span class="w"> </span>when<span class="w"> </span>SOURCE<span class="w"> </span>is<span class="w"> </span>TFLite,<span class="w"> </span>ONNX,<span class="w"> </span>or<span class="w"> </span>DFG
+
+<span class="w">      </span>--target-ir<span class="w"> </span>&lt;TARGET_IR&gt;
+<span class="w">          </span><span class="o">(</span>experimental<span class="o">)</span><span class="w"> </span>Target<span class="w"> </span>IR<span class="w"> </span>-<span class="w"> </span>possible<span class="w"> </span>values:<span class="w"> </span><span class="o">[</span>enf<span class="o">]</span>
+
+<span class="w">          </span><span class="o">[</span>default:<span class="w"> </span>enf<span class="o">]</span>
+
+<span class="w">      </span>--target-npu<span class="w"> </span>&lt;TARGET_NPU&gt;
+<span class="w">          </span>Target<span class="w"> </span>NPU<span class="w"> </span>family<span class="w"> </span>-<span class="w"> </span>possible<span class="w"> </span>values:<span class="w"> </span><span class="o">[</span>warboy,<span class="w"> </span>warboy-2pe<span class="o">]</span>
+
+<span class="w">          </span><span class="o">[</span>default:<span class="w"> </span>warboy-2pe<span class="o">]</span>
+
+<span class="w">      </span>--dot-graph<span class="w"> </span>&lt;DOT_GRAPH&gt;
+<span class="w">          </span>Filename<span class="w"> </span>to<span class="w"> </span>write<span class="w"> </span>DOT-formatted<span class="w"> </span>graph<span class="w"> </span>to
+
+<span class="w">      </span>--analyze-memory<span class="w"> </span>&lt;ANALYZE_MEMORY&gt;
+<span class="w">          </span>Analyzes<span class="w"> </span>the<span class="w"> </span>memory<span class="w"> </span>allocation<span class="w"> </span>and<span class="w"> </span>save<span class="w"> </span>the<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>&lt;ANALYZE_MEMORY&gt;
+
+<span class="w">  </span>-v,<span class="w"> </span>--verbose
+<span class="w">          </span>Shows<span class="w"> </span>details<span class="w"> </span>about<span class="w"> </span>the<span class="w"> </span>compilation<span class="w"> </span>process
+
+<span class="w">      </span>--no-cache
+<span class="w">          </span>Disables<span class="w"> </span>the<span class="w"> </span>compiler<span class="w"> </span>result<span class="w"> </span>cache
+
+<span class="w">  </span>-h,<span class="w"> </span>--help
+<span class="w">          </span>Print<span class="w"> </span><span class="nb">help</span><span class="w"> </span><span class="o">(</span>see<span class="w"> </span>a<span class="w"> </span>summary<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;-h&#39;</span><span class="o">)</span>
+
+<span class="w">  </span>-V,<span class="w"> </span>--version
+<span class="w">          </span>Print<span class="w"> </span>version
+</pre></div>
+</div>
+<p>The arguments of the command are as follows. <code class="docutils literal notranslate"><span class="pre">SOURCE</span></code> is the file path of
+<a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> or <a class="reference external" href="https://onnx.ai/">Onnx</a>.
+You have to use quantized models through <a class="reference internal" href="quantization.html#modelquantization"><span class="std std-ref">Model Quantization</span></a> for NPU accleration.</p>
 <p>You can omit the option <cite>-o OUTPUT</cite>, and you can also choose to designate the output file name.
 When omitted, the default output file name is <code class="docutils literal notranslate"><span class="pre">output.enf</span></code>. Here, enf stands for Executable NPU Format.
 So if you run as shown below, it will generate a <code class="docutils literal notranslate"><span class="pre">output.enf</span></code> file.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa<span class="w"> </span>compile<span class="w"> </span>foo.onnx
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>furiosa-compiler<span class="w"> </span>foo.onnx
 </pre></div>
 </div>
 <p>If you designate the output file name as below, it will generate a <code class="docutils literal notranslate"><span class="pre">foo.enf</span></code> file.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span> <span class="nb">compile</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="o">.</span><span class="n">enf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">compiler</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="o">.</span><span class="n">enf</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--target-npu</span></code> lets the generated binary to designate target NPU는.</p>
@@ -171,11 +221,11 @@ So if you run as shown below, it will generate a <code class="docutils literal n
 </tbody>
 </table>
 <p>If generated program’s target NPU is Warboy that uses one PE independently, you can run the following command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span> <span class="nb">compile</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">npu</span> <span class="n">warboy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">compiler</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">npu</span> <span class="n">warboy</span>
 </pre></div>
 </div>
 <p>When 2 PEs are fused, execute as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span> <span class="nb">compile</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">npu</span> <span class="n">warboy</span><span class="o">-</span><span class="mi">2</span><span class="n">pe</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">compiler</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">npu</span> <span class="n">warboy</span><span class="o">-</span><span class="mi">2</span><span class="n">pe</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">--batch-size</span></code> option lets you specify <cite>batch size</cite>, the number of samples
@@ -211,7 +261,7 @@ For reference, the optimal batch sizes for some models included in the
 </tbody>
 </table>
 <p>If your desired batch size is two, you can run the following command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span> <span class="nb">compile</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">batch</span><span class="o">-</span><span class="n">size</span> <span class="mi">2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">compiler</span> <span class="n">foo</span><span class="o">.</span><span class="n">onnx</span> <span class="o">--</span><span class="n">batch</span><span class="o">-</span><span class="n">size</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </section>
@@ -222,12 +272,14 @@ In general, the compilation process takes from a few seconds to several minutes 
 Once you have the ENF file, you can reuse it to omit this compilation process.</p>
 <p>This may be useful if you need to frequently create sessions or
 serve one model across several machines in an actual operation environment.</p>
-<p>For example, you can first create an ENF file by referring to <a class="reference internal" href="#compilercli"><span class="std std-ref">furiosa compile</span></a>.
+<p>For example, you can first create an ENF file by referring to <a class="reference internal" href="#compilercli"><span class="std std-ref">furiosa-compiler</span></a>.
 Then, with <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">PythonSDK</span></a> as shown below,
-you can instantly create a <code class="docutils literal notranslate"><span class="pre">Session</span></code> without the compilation process by
-delivering the ENF file as an argument to the <code class="docutils literal notranslate"><span class="pre">session.create()</span></code> function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
-<span class="n">sess</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;foo.enf&quot;</span><span class="p">)</span>
+you can instantly create a runner without the compilation process by
+passing the ENF file as an argument to the <code class="docutils literal notranslate"><span class="pre">create_runner()</span></code> function as the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">sync</span>
+
+<span class="k">with</span> <span class="n">sync</span><span class="o">.</span><span class="n">create_runner</span><span class="p">(</span><span class="s2">&quot;path/to/model.enf&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">runner</span><span class="p">:</span>
+  <span class="n">outputs</span> <span class="o">=</span> <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -258,7 +310,7 @@ you can specify some URLs starting with <code class="docutils literal notranslat
 <span class="nb">export</span><span class="w"> </span><span class="nv">FC_CACHE_STORE_URL</span><span class="o">=</span>rediss://:&lt;PASSWORD&gt;@127.0.0.1:25945
 </pre></div>
 </div>
-<p>The cache will be valid for 72 hours (3 days) by default, but you can explicitly specify the cache lifetime by setting
+<p>The cache will be valid for 30 days by default, but you can explicitly specify the cache lifetime by setting
 seconds to the environment variable <code class="docutils literal notranslate"><span class="pre">FC_CACHE_LIFETIME</span></code>.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2 hours cache lifetime</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">FC_CACHE_LIFETIME</span><span class="o">=</span><span class="m">7200</span>

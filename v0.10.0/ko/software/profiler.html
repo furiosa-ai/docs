@@ -38,7 +38,7 @@
             FuriosaAI NPU 및 Software 문서
           </a>
               <div class="version">
-                0.10.0.dev0
+                0.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">컴파일러</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">성능 프로파일링</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#trace-analysis">트레이스 분석 (Trace Analysis)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">환경 변수를 통한 트레이스 생성 활성화</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">프로파일러 컨텍스트를 이용한 트레이스 생성 활성화</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#temporarilydisablingprofiler">프로파일러 컨텍스트 내 일시적 비활성화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trace-analysis">트레이스 분석 (Trace Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profilerenabledbyenv">환경 변수를 통한 트레이스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profilerenabledbycontext">프로파일러 컨텍스트를 이용한 트레이스</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#temporarilydisablingprofiler">프로파일러 컨텍스트의 일시적 중단/재개</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pandas-dataframe">Pandas DataFrame을 이용한 트레이스 분석</a></li>
 </ul>
 </li>
@@ -82,6 +82,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.10.0.html">Release Notes - 0.10.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
@@ -140,8 +141,9 @@
 기능을 이용해 시각화 할 수 있다.</p>
 <p>트레이스 생성은 구간 별 시간을 측정하고 파일로 결과를 쓰기 때문에 작지만 실행 시간 오버헤드를 유발한다.
 따라서 기본 설정으로는 활성화 되어 있지 않으며 아래 두 가지 방법을 통해 트레이스를 생성할 수 있다.</p>
-<section id="id2">
-<h3>환경 변수를 통한 트레이스 생성 활성화<a class="headerlink" href="#id2" title="이 제목에 대한 퍼머링크"></a></h3>
+</section>
+<section id="profilerenabledbyenv">
+<span id="id2"></span><h2>환경 변수를 통한 트레이스<a class="headerlink" href="#profilerenabledbyenv" title="이 제목에 대한 퍼머링크"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">FURIOSA_PROFILER_OUTPUT_PATH</span></code> 에 트레이스 결과가 쓰여질 파일의 경로를 설정 하면
 트레이스 생성을 활성화 할 수 있다. 이 방법은 작성된 코드를 전혀 변경하지 않고
 트레이스를 활성화할 수 있다는 장점이 있다. 반면, 측정하기 윈하는 구간이나 측정 연산의 카테고리를 더 세밀하게 설정 할 수 없다는
@@ -162,8 +164,8 @@ ls<span class="w"> </span>-l<span class="w"> </span>./tracing.json
 <a class="with-shadow reference internal image-reference" href="../_images/tracing.png"><img alt="Tracing" class="with-shadow align-center" src="../_images/tracing.png" style="width: 600px;" /></a>
 <p></p>
 </section>
-<section id="id3">
-<h3>프로파일러 컨텍스트를 이용한 트레이스 생성 활성화<a class="headerlink" href="#id3" title="이 제목에 대한 퍼머링크"></a></h3>
+<section id="profilerenabledbycontext">
+<span id="id3"></span><h2>프로파일러 컨텍스트를 이용한 트레이스<a class="headerlink" href="#profilerenabledbycontext" title="이 제목에 대한 퍼머링크"></a></h2>
 <p>Python 코드에서 프로파일러 컨텍스트(Profiler Context)를 정의하는 것으로도 트레이스 생성을 활성화할 수 있다.
 이 방법은 환경 변수를 통한 트레이스 활성화 방법과 비교하여 다음과 같은 장점을 가진다.</p>
 <ul class="simple">
@@ -198,18 +200,17 @@ ls<span class="w"> </span>-l<span class="w"> </span>./tracing.json
 트레이스 결과는 아래 그림과 같이 ‘warm up’과 ‘trace’ 레이블이 붙는다.</p>
 <a class="with-shadow reference internal image-reference" href="../_images/tracing_with_record.png"><img alt="Tracing with Profiler Context" class="with-shadow align-center" src="../_images/tracing_with_record.png" style="width: 600px;" /></a>
 <p></p>
-</section>
 <section id="temporarilydisablingprofiler">
-<span id="id4"></span><h3>프로파일러 컨텍스트 내 일시적 비활성화<a class="headerlink" href="#temporarilydisablingprofiler" title="이 제목에 대한 퍼머링크"></a></h3>
+<span id="id4"></span><h3>프로파일러 컨텍스트의 일시적 중단/재개<a class="headerlink" href="#temporarilydisablingprofiler" title="이 제목에 대한 퍼머링크"></a></h3>
 <p>장시간 실행되는 코드를 트레이스하는 것은 다음과 같은 문제점들을 야기할 수 있다.</p>
 <ul class="simple">
 <li><p>트레이스 결과물 저장을 위해 많은 디스크 공간이 필요해지고, 결과물 공유가 어려워진다.</p></li>
 <li><p>트레이스를 시각화했을 때 관찰하고자 하는 작업들을 식별하기 어려워지고, 별도로 데이터를 파싱 하는 등의 추가 작업이 필요하다.</p></li>
 <li><p>트레이스 결과물 생성에 많은 시간이 소요된다.</p></li>
 </ul>
-<p>이러한 문제를 해결하기 위해 컨텍스트 내에서 일시적으로 프로파일러를 비활성화할 수 있는 기능을 제공한다.
+<p>이러한 문제를 해결하기 위해 컨텍스트 내에서 일시적으로 프로파일러를 중단/재개 할 수 있는 기능을 제공한다.
 사용자는 프로파일링하기 원치 않는 작업들을 제외함으로써 불필요한 오버헤드를 최소할 수 있다.</p>
-<p>아래는 일시적 프로파일러 비활성화 기능을 사용한 예제로 <code class="docutils literal notranslate"><span class="pre">profile.pause</span></code> 와 <code class="docutils literal notranslate"><span class="pre">profile.resume</span></code> 사이의 warmup 추론들에 대한 트레이스는 생성되지 않는다.</p>
+<p>아래는 프로파일러 중단/재개 기능을 사용한 예제로 <code class="docutils literal notranslate"><span class="pre">profile.pause</span></code> 와 <code class="docutils literal notranslate"><span class="pre">profile.resume</span></code> 사이의 <code class="docutils literal notranslate"><span class="pre">warm</span> <span class="pre">up</span></code> 추론들에 대한 트레이스는 생성되지 않는다.</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -384,7 +385,7 @@ ls<span class="w"> </span>-l<span class="w"> </span>./tracing.json
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; 저작권 2021, FuriosaAI, Inc..</p>
+    <p>&#169; 저작권 2023, FuriosaAI, Inc..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

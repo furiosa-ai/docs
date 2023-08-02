@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Release Notes - 0.10.0 &mdash; FuriosaAI NPU 및 Software 문서  문서</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Release Notes - 0.9.0" href="0.9.0.html" />
+    <link rel="prev" title="레퍼런스 문서" href="../software/references.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FuriosaAI NPU 및 Software 문서
+          </a>
+              <div class="version">
+                0.10.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">NPU 가속 지원 연산자 목록</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/intro.html">FuriosaAI 소프트웨어 스택 소개</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/installation.html">드라이버, 펌웨어, 런타임 설치 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/python-sdk.html">Python SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/c-sdk.html">C SDK 설치 및 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/cli.html">명령행 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/compiler.html">컴파일러</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/profiler.html">성능 프로파일링</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/serving.html">모델 서버 (서빙 프레임워크)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/kubernetes_support.html">Kubernetes 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/vm_support.html">가상 머신 환경 지원</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/tutorials.html">튜토리얼 및 코드 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/references.html">레퍼런스 문서</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDK 릴리즈 노트</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes - 0.10.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">설치 또는 업그레이드 방법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">주요 변경 사항</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#furiosart">차세대 런타임 엔진(FuriosaRT) 도입 및 런타임 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">서빙 프레임워크 및 모델 서버</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantization-tool">모델 양자화 도구(quantization tool) 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">컴파일러 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiler">성능 프로파일러(Profiler) 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-litmus">furiosa-litmus 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-bench">furiosa-bench 명령행 도구 추가</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#furiosa-toolkit">furiosa-toolkit 개선</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="0.9.0.html">Release Notes - 0.9.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.8.0.html">Release Notes - 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.7.0.html">Release Notes - 0.7.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.6.0.html">Release Notes - 0.6.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.5.0.html">Release Notes - 0.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">기존 버전 문서</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/ko/">0.8.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.7.0/ko/">0.7.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.3/ko/">0.6.3 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/ko/">0.6.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/ko/">0.5.0 문서</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.2.0/ko/">0.2.0 문서</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Release Notes - 0.10.0</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/releases/0.10.0.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="release-notes-0-10-0">
+<h1>Release Notes - 0.10.0<a class="headerlink" href="#release-notes-0-10-0" title="이 제목에 대한 퍼머링크"></a></h1>
+<p>Furiosa SDK 0.10.0은 메이저 릴리스(Major Release)로 멀티 디바이스를 지원하는 차세대 런타임 엔진,
+추론 시간을 크게 줄일 수 있는 최적화 옵션, NPU의 사용량과 연산,
+IO 비중을 OpenTelemetry를 통해 제공하는 기능 개선 등을 포함한다.
+또한 furiosa-litmus는 리포팅을 위한 정보 수집 기능을 포함하도록 개선 되었으며,
+furiosa-compiler 명령행 도구의 파이썬 의존성 제거, 벤치마크 커맨드 도구 추가 등의 기능 개선이 이루어졌다.
+그 외에도 다수의 기능 추가, 버그 수정, 성능 개선 등을 포함한다.</p>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">컴포넌트 버전 정보</span><a class="headerlink" href="#id5" title="이 표에 대한 퍼머링크"></a></caption>
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>패키지 이름</p></th>
+<th class="head"><p>버전</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NPU Driver</p></td>
+<td><p>1.9.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>NPU Firmware Tools</p></td>
+<td><p>1.5.1</p></td>
+</tr>
+<tr class="row-even"><td><p>NPU Firmware Image</p></td>
+<td><p>1.7.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>HAL (Hardware Abstraction Layer)</p></td>
+<td><p>0.11.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Furiosa Compiler</p></td>
+<td><p>0.10.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Furiosa Quantizer</p></td>
+<td><p>0.10.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Furiosa Runtime</p></td>
+<td><p>0.10.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Python SDK (furiosa-server, furiosa-serving, ..)</p></td>
+<td><p>0.10.0</p></td>
+</tr>
+<tr class="row-even"><td><p>NPU Toolkit (furiosactl)</p></td>
+<td><p>0.11.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>NPU Device Plugin</p></td>
+<td><p>0.10.1</p></td>
+</tr>
+<tr class="row-even"><td><p>NPU Feature Discovery</p></td>
+<td><p>0.2.0</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>설치 또는 업그레이드 방법<a class="headerlink" href="#id1" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>APT 저장소를 사용하고 있다면 다음과 같이 업그레이드할 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>upgrade
+</pre></div>
+</div>
+<p>특정 패키지 지정해서 업그레이드 하고 싶다면 다음과 같이 실행 한다.
+APT 저장소 설정 및 설치 방법에 대한 자세한 설명은 <a class="reference internal" href="../software/installation.html#requiredpackages"><span class="std std-ref">드라이버, 펌웨어, 런타임 설치 가이드</span></a> 에서 찾을 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-driver-warboy<span class="w"> </span>furiosa-libnux
+</pre></div>
+</div>
+<p>펌웨어 업그레이드는 다음과 같이 실행한다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-firmware-tools<span class="w"> </span>furiosa-firmware-image
+</pre></div>
+</div>
+<p>파이썬 패키지 업그레이드는 다음과 같이 실행한다. 새로 추가된 기능들을 사용하기 위해서는 패키지 설치와 관련된 도구들이 최신 버전으로 먼저 업데이트 되어야 한다.
+파이썬 패키지 설치와 환경 설정에 대한 자세한 설명은 <a class="reference internal" href="../software/python-sdk.html#pythonsdk"><span class="std std-ref">Python SDK 설치 및 사용 가이드</span></a> 에서 찾을 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>furiosa-sdk
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">경고</p>
+<p>pip를 업그레이드 할 때 아래 오류를 접한다면, <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pip</span></code> 커맨드를 통해 pip를 먼저 업그레이드 해야 한다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>a<span class="w"> </span>version<span class="w"> </span>that<span class="w"> </span>satisfies<span class="w"> </span>the<span class="w"> </span>requirement<span class="w"> </span>furiosa-quantizer-impl<span class="o">==</span><span class="m">0</span>.10.*<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>furiosa-quantizer<span class="o">==</span><span class="m">0</span>.10.*-&gt;furiosa-sdk<span class="o">)</span><span class="w"> </span><span class="o">(</span>from<span class="w"> </span>versions:<span class="w"> </span>none<span class="o">)</span>
+ERROR:<span class="w"> </span>No<span class="w"> </span>matching<span class="w"> </span>distribution<span class="w"> </span>found<span class="w"> </span><span class="k">for</span><span class="w"> </span>furiosa-quantizer-impl<span class="o">==</span><span class="m">0</span>.10.*<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>furiosa-quantizer<span class="o">==</span><span class="m">0</span>.10.*-&gt;furiosa-sdk<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>주요 변경 사항<a class="headerlink" href="#id2" title="이 제목에 대한 퍼머링크"></a></h2>
+<section id="furiosart">
+<h3>차세대 런타임 엔진(FuriosaRT) 도입 및 런타임 개선<a class="headerlink" href="#furiosart" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>0.10.0 릴리즈는 차세대 런타임 Furiosa Runtime (FuriosaRT)를 포함한다. FuriosaRT는 완전하게
+새로 설계된 런타임 라이브러리로 다양한 워크로드에서 고성능으로 동작하도록 설계 되었다.
+FuriosaRT는 NPU를 이용해 고성능 추론을 제공하는 핵심 라이브러리로 Python API를 제공하고 furiosa-bench,
+furiosa-litmus와 같은 명령행 도구, 그리고 서빙 프레임워크 등에서 사용된다. FuriosaRT는 기존 런타임과
+거의 호환될 뿐 아니라 다음과 같은 새로운 기능을 포함한다.</p>
+<p><strong>새 API 도입</strong></p>
+<p>FuriosaRT는 파이썬 <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">asyncio</a> 를
+사용한 비동기(async) API를 새로이 지원한다. 기존의 동기 API는 배치 작업에는 충분하였으나
+개별적 요청에 따라 추론을 해야 서빙 시나리오에서는 부족함이 있었다. 새로운 런타임에서는 비동기 API가
+기본적으로 지원되며, 기존 기능을 유지하면서도 더 간결하게 사용할 수 있도록 많은 부분이 다듬어졌다.
+새 API에 대한 상세한 설명은 <a class="reference external" href="https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.runtime.html">Furiosa SDK API Reference - furiosa.runtime</a>
+에서 찾아 볼 수 있다.</p>
+<p><strong>다수의 NPU 지원 장치 설정 방법 개선</strong></p>
+<p>FuriosaRT에서는 하나의 세션에서 다수의 장치를 지원한다. 따라서 별도 구현 없이도 다수의 장치를 이용하여 고성능 추론을 수행할 수 있다.
+또한, 개선된 장치 지정 방법을 제공한다. 기존에는 환경변수
+<code class="docutils literal notranslate"><span class="pre">NPU_DEVNAME</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">session.create(..,</span> <span class="pre">device=”..”)</span></code> 와 같은 API를 이용해서 <code class="docutils literal notranslate"><span class="pre">devfs</span></code> 의
+장치파일 이름을 직접 설정해야 했다. 이 방법은 다양한 환경에서 그대로 적용하기 어렵고 많은 장치를 사용해야 하는 경우
+설정이 복잡했다.</p>
+<p>이번 릴리스 부터 <code class="docutils literal notranslate"><span class="pre">devfs</span></code> 이름을 연상 시키는 환경 변수 <code class="docutils literal notranslate"><span class="pre">NPU_DEVNAME</span></code> 대신
+<code class="docutils literal notranslate"><span class="pre">FURIOSA_DEVICES</span></code> 라는 새로운 환경변수가 도입되었다. 또한 이 환경 변수는
+NPU 종류, 구성, 개수를 표현하는 텍스트 설정을 받아드린다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">FURIOSA_DEVICES</span><span class="o">=</span><span class="s2">&quot;warboy(2)*8&quot;</span>
+</pre></div>
+</div>
+<p>위 설정은 FuriosaRT가 시스템에서 가용한 2-PE 퓨전된 8개의 Warboy를 찾아 사용하게 한다.
+또한 특정 장치의 식별자를 지정하는 방법도 제공하며 사용 예는 다음과 같다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">FURIOSA_DEVICES</span><span class="o">=</span><span class="s2">&quot;npu:0:0-1,npu:1:0-1&quot;</span>
+</pre></div>
+</div>
+<p>하위 호환성 보장을 위해 <code class="docutils literal notranslate"><span class="pre">NPU_DEVNAME</span></code> 환경 변수도 여전히 사용 가능하며
+<code class="docutils literal notranslate"><span class="pre">npu0pe0-1</span></code> 과 기존 설정 방법도 여전히 사용 가능하다. 다만 향후 릴리즈에서 <code class="docutils literal notranslate"><span class="pre">NPU_DEVNAME</span></code> 환경변수는
+제거될 예정이다.</p>
+<p>자세한 장치 설정 방법은 <a class="reference external" href="https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.runtime.html#device-specification">Furiosa SDK API Reference - Device Specification</a> 에서 찾아볼 수 있다.</p>
+</section>
+<section id="id3">
+<h3>서빙 프레임워크 및 모델 서버<a class="headerlink" href="#id3" title="이 제목에 대한 퍼머링크"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-server</span></code>, <code class="docutils literal notranslate"><span class="pre">furioa-serving</span></code> 은 각각 모델의 서빙을 제공하는 프레임워크와
+서빙 어플리케이션을 개발하기 위한 라이브러리이다. 이번 릴리즈에서는 차세대 런타임인 FuriosaRT를
+사용하도록 개선되었으며 FuriosaRT가 제공하는 장점을 활용할 수 있도록 개선되었다.</p>
+</section>
+<section id="quantization-tool">
+<h3>모델 양자화 도구(quantization tool) 개선<a class="headerlink" href="#quantization-tool" title="이 제목에 대한 퍼머링크"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-quantizer</span></code> 는 이미 트레이닝 된 모델을 양자화된 모델로 변환해주는 라이브러리이다.</p>
+</section>
+<section id="id4">
+<h3>컴파일러 개선<a class="headerlink" href="#id4" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>0.10.0의 컴파일러는 Dequantize 연산자의 NPU 가속을 지원한다. 따라서 Dequantize 연산을 잘 활용할 수 있는
+모델의 경우 성능 개선이 된다. Dequantize 연산자 가속과 관련된 다른 최적화 관련 옵션은 최적화 가이드에서 찾아볼 수 있다.</p>
+<p>또한, 컴파일러 결과의 캐시 기능이 충분히 안정화 되었다고 판단되어 결과 캐쉬 유효기간이 기존 2일에서 30일로 변경된다.
+<a class="reference internal" href="../software/compiler.html#compilercache"><span class="std std-ref">컴파일러 캐쉬 (Compiler Cache)</span></a> 에서 자세한 설명을 찾아볼 수 있다.</p>
+<p>그 외에도 컴파일러 명령행 도구는 다음 사항이 개선되었다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> 대신 <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> 커맨드를 직접 사용하실 수 있다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> 커맨드는 Python 의존성을 필요하지 않는다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">furiosa-compiler</span></code> 명령을 통해 컴파일러를 설치할 수 있다.</p></li>
+<li><p>Python 의존성을 가지는 기존 <code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> 커맨드는 현재는 호환성을 위해 유지되며 향후 릴리즈에서 제거 될 수 있다.</p></li>
+</ul>
+</section>
+<section id="profiler">
+<h3>성능 프로파일러(Profiler) 개선<a class="headerlink" href="#profiler" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>성능 프로파일러는 추론의 실제 실행시간을 구간별로 측정하여 성능 분석을 돕는 도구로
+이번 릴리스에서는 <a class="reference internal" href="../software/profiler.html#profilerenabledbycontext"><span class="std std-ref">프로파일러 컨텍스트를 이용한 트레이스</span></a> 기능에 임시 중단/재개 기능이 추가 되었다.</p>
+<p>사용자는 프로파일링 컨텍스트 내에서 전/후처리 시간, 워밍업(warming up) 시간 등 프로파일링을 원하지 않는 구간을
+을 제외하고 프로파일링 함으로써 프로파일링에 소요되는 오버헤드 및 프로파일링 결과물의 크기를 줄일 수 있다.
+간단히 <code class="docutils literal notranslate"><span class="pre">profile.pause()</span></code> 와 <code class="docutils literal notranslate"><span class="pre">profile.resume()</span></code> 함수를 호출하여 프로파일링을 임시로 중단/재개할 수 있으며
+자세한 사용법과 예제는 <a class="reference internal" href="../software/profiler.html#temporarilydisablingprofiler"><span class="std std-ref">프로파일러 컨텍스트의 일시적 중단/재개</span></a> 에서 찾아볼 수 있다.</p>
+</section>
+<section id="furiosa-litmus">
+<h3>furiosa-litmus 개선<a class="headerlink" href="#furiosa-litmus" title="이 제목에 대한 퍼머링크"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-litmus</span></code> 는 모델에 대한 NPU와 Furiosa SDK의 호환성을 검사하는 도구이다.
+0.10.0 릴리스에서는 <code class="docutils literal notranslate"><span class="pre">furiosa-litmus</span></code> 에러 리포팅을 위한 정보 수집 기능이 추가하였다.
+또한 검사하는 단계가 3단계에서 4단계로 확장되었으며 4단계는 모델을 실제 런타임에서 모델을 실행해 보는 단계이다.</p>
+<p>다음과 같이 <code class="docutils literal notranslate"><span class="pre">--dump</span> <span class="pre">&lt;OUTPUT_SUFFIX&gt;</span></code> 옵션을 사용하여 <code class="docutils literal notranslate"><span class="pre">furiosa-litmus``가</span> <span class="pre">수집한</span>
+<span class="pre">각</span> <span class="pre">단계별</span> <span class="pre">로그와</span> <span class="pre">새로</span> <span class="pre">추가된</span> <span class="pre">4단계에서</span> <span class="pre">실행한</span> <span class="pre">추론</span> <span class="pre">실행의</span> <span class="pre">프로파일링</span> <span class="pre">결과를</span> <span class="pre">``&lt;OUTPUT_SUFFIX&gt;-&lt;unix_epoch&gt;.zip</span></code>
+파일로 저장할 수 있다.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-litmus<span class="w"> </span>&lt;MODEL_PATH&gt;<span class="w"> </span>--dump<span class="w"> </span>&lt;OUTPUT_SUFFIX&gt;
+</pre></div>
+</div>
+<p>수집된 정보에는 모델 자체를 포함하지 않으며 모델 네트워크를 그래프로 표현한 정보, 메모리 사용량,
+환경 정보 (파이썬 버전, SDK, 컴파일러의 버전 및 주요 의존 라이브러리 버전) 등을 포함한다.
+<cite>unzip</cite> 명령을 통해 직접 압축을 풀어 내용을 확인할 수 있으며 버그 리포팅시 해당 파일을 첨부하면
+버그 리포팅에 도움이 된다.</p>
+</section>
+<section id="furiosa-bench">
+<h3>furiosa-bench 명령행 도구 추가<a class="headerlink" href="#furiosa-bench" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>furiosa-bench 명령행 도구 새로 추가되었다.
+기존에는 벤치마크를 위해 사용자가 직접 프로그램을 작성해야 했다면, 새로 도입되는 furiosa-bench 커맨드는 다양한
+워크로드와 런타임 설정을 간단하게 제어할 수 있는 옵션을 제공한다. 지연 시간과 처리량 위주 워크로드를 선택 가능하며
+얼마나 많은 장치를 사용하는지, 얼마나 오래 수행할지 등을 옵션으로 설정할 수 있다. ONNX와 Tflite 모델을
+사용할 수 있으며 이미 컴파일러를 통해 컴파일된 ENF 포맷의 모델도 입력으로 받아 들인다.
+커맨드의 자세한 설명은 <a class="reference internal" href="../software/cli.html#furiosabench"><span class="std std-ref">furiosa-bench (벤치마크 도구)</span></a> 에서 찾아볼 수 있다.</p>
+<p>사용 예시</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ furiosa-bench ./model.onnx --workload throughput -n 10000 --devices &quot;warboy(1)*2&quot;
+</pre></div>
+</div>
+<p>설치는 다음과 같이 APT 패키지 매니저를 통해 설치할 수 있다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt install furiosa-bench
+</pre></div>
+</div>
+</section>
+<section id="furiosa-toolkit">
+<h3>furiosa-toolkit 개선<a class="headerlink" href="#furiosa-toolkit" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>furiosa-toolkit은 NPU 관리 및 상태 모니터링 기능을 제공하는 명령행 도구의 집합이다.
+이번 릴리스에 포함된 도구들은 다음 주요 개선 내용을 포함한다.</p>
+<p><strong>furiosactl의 출력 포맷 추가</strong></p>
+<p>이전까지는 <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code> 등의 서브 커맨드 실행 시 ascii를 이용한 표 형식으로 내용을 출력하고 있었다.
+이번 릴리스에는 <code class="docutils literal notranslate"><span class="pre">--output</span></code> 옵션을 통해 json, yaml등 structured format으로 정보를 확인할 수 있도록 기능이 추가되었다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ furiosactl info --output json
+[{&quot;dev_name&quot;:&quot;npu7&quot;,&quot;product_name&quot;:&quot;warboy&quot;,&quot;device_uuid&quot;:&quot;844972B6-8252-4A9F-8A20-142A8B9CE5DA&quot;,&quot;device_sn&quot;:&quot;WBYB0233HH178KREO&quot;,&quot;firmware&quot;:&quot;1.6.0, 7a3b908&quot;,&quot;temperature&quot;:&quot;47°C&quot;,&quot;power&quot;:&quot;0.99 W&quot;,&quot;pci_bdf&quot;:&quot;0000:d6:00.0&quot;,&quot;pci_dev&quot;:&quot;492:0&quot;}]
+
+$ furiosactl info --output yaml
+- dev_name: npu7
+  product_name: warboy
+  device_uuid: 844972B6-8252-4A9F-8A20-142A8B9CE5DA
+  device_sn: WBYB0233HH178KREO
+  firmware: 1.6.0, 7a3b908
+  temperature: 47°C
+  power: 0.98 W
+  pci_bdf: 0000:d6:00.0
+  pci_dev: 492:0
+</pre></div>
+</div>
+<p>또한 <code class="docutils literal notranslate"><span class="pre">info</span></code> 서브 커맨드가 NPU 클럭 속소(Clock Frequency)를 출력하도록 개선되었다.</p>
+<p><strong>furiosa-npu-metrics-exporter 개선</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-npu-metrics-exporter</span></code> 커맨드는 NPU의 성능 및 상태
+지표들을 <a class="reference external" href="https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md">OpenMetrics</a>
+형식으로 서빙하는 웹서버이다. 이 지표들은 Prometheus 등 OpenTelemetry의 수집 도구를 통해 수집할 수 있다.</p>
+<p>0.10.0 릴리스에 포함된 버전은 NPU의 클럭 속도(Clock Frequency)와 NPU 사용률을 출력 지표로 포함하도록 개선되었다.
+NPU 사용률 기능은 아직 실험적인 기능으로 아래와 같이 <code class="docutils literal notranslate"><span class="pre">--enable-npu-utilization</span></code> 옵션을 통해 활성화해야 한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">npu</span><span class="o">-</span><span class="n">metrics</span><span class="o">-</span><span class="n">exporter</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">npu</span><span class="o">-</span><span class="n">utilization</span>
+</pre></div>
+</div>
+<p>또한, 기존에는 도커 이미지를 통해서만 제공되었던 <code class="docutils literal notranslate"><span class="pre">furiosa-npu-metrics-exporter</span></code> 명령행 도구는
+이번 릴리스부터는 <code class="docutils literal notranslate"><span class="pre">furiosa-toolkit</span></code> 패키지에 포함되어 다음과 같이 APT 패키지 매니저로 설치할 수 있도록 개선되었다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">furiosa</span><span class="o">-</span><span class="n">toolkit</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../software/references.html" class="btn btn-neutral float-left" title="레퍼런스 문서" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="0.9.0.html" class="btn btn-neutral float-right" title="Release Notes - 0.9.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 저작권 2023, FuriosaAI, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
