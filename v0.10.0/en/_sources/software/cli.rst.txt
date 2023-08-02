@@ -137,7 +137,7 @@ By default, utilization is calculated every 1 second, but you can set the calcul
 furiosa-bench (Benchmark Tool)
 #############################################
 
-``bench`` command carries out a benchmark with a ONNX or TFLite model and a workload using furiosa-runtime. A benchmark result includes tail latency and QPS.
+``furiosa-bench`` command carries out a benchmark with a ONNX or TFLite model and a workload using furiosa-runtime. A benchmark result includes tail latency and QPS.
 
 The arguments of the command are as follows.
 

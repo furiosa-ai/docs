@@ -75,7 +75,7 @@ The usage of ``furiosa-compiler`` is as the following:
             Print version
 
 
-The arguments of the command are as follows. ``SOURCE`` is the file path of 
+``SOURCE`` is the file path of 
 `TFLite <https://www.tensorflow.org/lite>`_ or `Onnx <https://onnx.ai/>`_.
 You have to use quantized models through :ref:`ModelQuantization` for NPU accleration.
 
