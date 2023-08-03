@@ -263,7 +263,7 @@ Datetime<span class="w">                        </span>PID<span class="w">      
 </section>
 <section id="furiosa-bench">
 <span id="furiosabench"></span><h2>furiosa-bench (벤치마크 도구)<a class="headerlink" href="#furiosa-bench" title="이 제목에 대한 퍼머링크"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">furiosa-bench</span></code> 명령은 다양한 런타임 설정을 통해 주어진 모델을 실행시켜 지연시간 및 처리량을 얻을수 있다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-bench</span></code> 명령은 다양한 런타임 설정을 통해 주어진 모델을 실행시켜 지연시간 및 처리량을 얻을 수 있다.</p>
 <p>문법 개요</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-bench<span class="w"> </span>--help
 USAGE:
@@ -311,7 +311,8 @@ USAGE:
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">output</span></code> 인자에 파일 이름을 지정하면 벤치마크 실행 결과를 아래와 같이 json 형식으로 파일에 기록한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-bench<span class="w"> </span>mnist-8.onnx<span class="w"> </span>--workload<span class="w"> </span>L<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-w<span class="w"> </span><span class="m">8</span><span class="w"> </span>-t<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>mnist.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>cat<span class="w"> </span>mnist.json
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-bench<span class="w"> </span>mnist-8.onnx<span class="w"> </span>--workload<span class="w"> </span>L<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-w<span class="w"> </span><span class="m">8</span><span class="w"> </span>-t<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>mnist.json
+$<span class="w"> </span>cat<span class="w"> </span>mnist.json
 
 <span class="w">  </span><span class="o">{</span>
 <span class="w">      </span><span class="s2">&quot;model_data&quot;</span>:<span class="w"> </span><span class="o">{</span>

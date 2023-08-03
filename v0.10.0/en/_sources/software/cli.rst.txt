@@ -191,11 +191,12 @@ The following is an example usage of furiosa-bench without an output path option
     99th percentile (us): 79874
     99th percentile (us): 307568
   
-If an output path is specified, furiosa-bench will save a json document as the following:
+If an output path is specified, furiosa-bench will save a JSON document as the following:
 
 .. code-block:: sh
 
-  $ furiosa-bench mnist-8.onnx --workload L -n 1000 -w 8 -t 2 -o mnist.json | cat mnist.json
+  $ furiosa-bench mnist-8.onnx --workload L -n 1000 -w 8 -t 2 -o mnist.json
+  $ cat mnist.json
 
     {
         "model_data": {

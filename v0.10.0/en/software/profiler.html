@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Performance profiling &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+  <title>Performance Profiling &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -62,10 +62,10 @@
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Performance profiling</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Performance Profiling</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#trace-analysis">Trace Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tracing-enabled-by-environmet-variable">Tracing Enabled by Environmet Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tracing-enabled-by-profiler-context">Tracing Enabled by Profiler Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tracing-via-environment-variable">Tracing via Environment Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tracing-via-profiler-context">Tracing via Profiler Context</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pause-resume-of-profiler-context">Pause/Resume of Profiler Context</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#trace-analysis-using-pandas-dataframe">Trace analysis using Pandas DataFrame</a></li>
 </ul>
@@ -113,7 +113,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Performance profiling</li>
+      <li class="breadcrumb-item active">Performance Profiling</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/software/profiler.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -124,7 +124,7 @@
            <div itemprop="articleBody">
              
   <section id="performance-profiling">
-<span id="profiling"></span><h1>Performance profiling<a class="headerlink" href="#performance-profiling" title="Permalink to this heading"></a></h1>
+<span id="profiling"></span><h1>Performance Profiling<a class="headerlink" href="#performance-profiling" title="Permalink to this heading"></a></h1>
 <p>Low latency and high throughput performance are critical factors in many DNN applications.
 For performance optimization, model developers and ML engineers must understand the model performance and be able to analyze bottlenecks.
 To assist developers with this process, Furiosa SDK provides a profiling tool.</p>
@@ -135,8 +135,8 @@ You can also visualize the data using the <a class="reference external" href="ht
 <p>Though small, trace generation generates temporal overheads as it measures time for each step and writes the results to a file.
 It is thus not enabled by default. You can create trace by using one of the following methods.</p>
 </section>
-<section id="tracing-enabled-by-environmet-variable">
-<span id="profilerenabledbyenv"></span><h2>Tracing Enabled by Environmet Variable<a class="headerlink" href="#tracing-enabled-by-environmet-variable" title="Permalink to this heading"></a></h2>
+<section id="tracing-via-environment-variable">
+<span id="profilerenabledbyenv"></span><h2>Tracing via Environment Variable<a class="headerlink" href="#tracing-via-environment-variable" title="Permalink to this heading"></a></h2>
 <p>You can enable trace generation by setting the path of the file to which the trace result will be written in <code class="docutils literal notranslate"><span class="pre">FURIOSA_PROFILER_OUTPUT_PATH</span></code>. The advantage of this method is that the code remains unchanged. The downside is that you cannot set a specific section or category for measurement.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/furiosa-ai/furiosa-sdk
 <span class="nb">cd</span><span class="w"> </span>furiosa-sdk/examples/inferences
@@ -152,8 +152,8 @@ If you enter <code class="docutils literal notranslate"><span class="pre">chrome
 <a class="with-shadow reference internal image-reference" href="../_images/tracing.png"><img alt="Tracing" class="with-shadow align-center" src="../_images/tracing.png" style="width: 600px;" /></a>
 <p></p>
 </section>
-<section id="tracing-enabled-by-profiler-context">
-<span id="profilerenabledbycontext"></span><h2>Tracing Enabled by Profiler Context<a class="headerlink" href="#tracing-enabled-by-profiler-context" title="Permalink to this heading"></a></h2>
+<section id="tracing-via-profiler-context">
+<span id="profilerenabledbycontext"></span><h2>Tracing via Profiler Context<a class="headerlink" href="#tracing-via-profiler-context" title="Permalink to this heading"></a></h2>
 <p>You can also trace a model inference performance by using a Profiler Context in your Python code. The advantages of this method, in comparison to the tracing by environment variable, are as follows:</p>
 <ul class="simple">
 <li><p>Allow to enable trace immediately even in interactive environments, such as Python Interpreter or Jupyter Notebook</p></li>

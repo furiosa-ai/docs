@@ -76,7 +76,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance Profiling</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">Model Server (Serving Framework)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
@@ -303,8 +303,9 @@ USAGE:
 <span class="w">  </span>99th<span class="w"> </span>percentile<span class="w"> </span><span class="o">(</span>us<span class="o">)</span>:<span class="w"> </span><span class="m">307568</span>
 </pre></div>
 </div>
-<p>If an output path is specified, furiosa-bench will save a json document as the following:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-bench<span class="w"> </span>mnist-8.onnx<span class="w"> </span>--workload<span class="w"> </span>L<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-w<span class="w"> </span><span class="m">8</span><span class="w"> </span>-t<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>mnist.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>cat<span class="w"> </span>mnist.json
+<p>If an output path is specified, furiosa-bench will save a JSON document as the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-bench<span class="w"> </span>mnist-8.onnx<span class="w"> </span>--workload<span class="w"> </span>L<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-w<span class="w"> </span><span class="m">8</span><span class="w"> </span>-t<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>mnist.json
+$<span class="w"> </span>cat<span class="w"> </span>mnist.json
 
 <span class="w">  </span><span class="o">{</span>
 <span class="w">      </span><span class="s2">&quot;model_data&quot;</span>:<span class="w"> </span><span class="o">{</span>

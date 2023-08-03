@@ -1,7 +1,7 @@
 .. _Profiling:
 
 ***********************************
-Performance profiling
+Performance Profiling
 ***********************************
 
 Low latency and high throughput performance are critical factors in many DNN applications.
@@ -19,7 +19,7 @@ It is thus not enabled by default. You can create trace by using one of the foll
 
 .. _ProfilerEnabledByEnv:
 
-Tracing Enabled by Environmet Variable
+Tracing via Environment Variable
 ============================================================
 You can enable trace generation by setting the path of the file to which the trace result will be written in ``FURIOSA_PROFILER_OUTPUT_PATH``. The advantage of this method is that the code remains unchanged. The downside is that you cannot set a specific section or category for measurement.
 
@@ -51,7 +51,7 @@ If you enter ``chrome://tracing`` in Chrome's address bar, the trace viewer will
 
 .. _ProfilerEnabledByContext:
 
-Tracing Enabled by Profiler Context
+Tracing via Profiler Context
 ============================================================
 You can also trace a model inference performance by using a Profiler Context in your Python code. The advantages of this method, in comparison to the tracing by environment variable, are as follows:
 

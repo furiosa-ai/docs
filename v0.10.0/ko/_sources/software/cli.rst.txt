@@ -137,7 +137,7 @@ NPU에 존재하는 각 코어가 사용 중인지 유휴 상태인지 여부를
 furiosa-bench (벤치마크 도구)
 ####################################
 
-``furiosa-bench`` 명령은 다양한 런타임 설정을 통해 주어진 모델을 실행시켜 지연시간 및 처리량을 얻을수 있다. 
+``furiosa-bench`` 명령은 다양한 런타임 설정을 통해 주어진 모델을 실행시켜 지연시간 및 처리량을 얻을 수 있다.
 
 문법 개요
 
@@ -195,7 +195,8 @@ MODEL_PATH 는 ONNX, TFLite 혹은 furiosa-compiler를 통해 생성된 ENF를 �
 
 .. code-block:: sh
 
-  $ furiosa-bench mnist-8.onnx --workload L -n 1000 -w 8 -t 2 -o mnist.json | cat mnist.json
+  $ furiosa-bench mnist-8.onnx --workload L -n 1000 -w 8 -t 2 -o mnist.json
+  $ cat mnist.json
 
     {
         "model_data": {
