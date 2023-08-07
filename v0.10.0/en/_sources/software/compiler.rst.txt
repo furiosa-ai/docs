@@ -16,14 +16,14 @@ You can find the list of NPU acceleration supported operators at :ref:`Supported
 The most common ways to use a compiler would be to automatically call it 
 during the process of resetting the inference API or the NPU.  
 
-But you can directly compile a model and generate a program by using the command line tool ``furiosa-compiler`` in shell. You can install ``furiosa-compile`` command via APT package manager.
+But you can directly compile a model and generate a program by using the command line tool ``furiosa-compiler`` in shell. You can install ``furiosa-compiler`` command via APT package manager.
 
 .. code-block:: sh
   
   $ apt install furiosa-compiler
 
 
-The usage of ``furiosa-compiler`` is as the following:
+The usage of ``furiosa-compiler`` is as follows:
 
 .. code-block:: sh
 
@@ -163,7 +163,7 @@ serve one model across several machines in an actual operation environment.
 For example, you can first create an ENF file by referring to :ref:`CompilerCli`.
 Then, with :ref:`PythonSDK <PythonSDK>` as shown below,
 you can instantly create a runner without the compilation process by
-passing the ENF file as an argument to the ``create_runner()`` function as the following:
+passing the ENF file as an argument to the ``create_runner()`` function as follows:
 
 .. code-block:: python
   

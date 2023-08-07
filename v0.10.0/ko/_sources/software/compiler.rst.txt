@@ -27,7 +27,7 @@ FuriosaAI의 컴파일러는 `TFLite <https://www.tensorflow.org/lite>`_ 와 `On
 .. code-block:: sh
 
   $ furiosa-compiler --help
-  
+
   Furiosa SDK Compiler v0.10.0 (f8f05c8ea 2023-07-31T19:30:30Z)
 
   Usage: furiosa-compiler [OPTIONS] <SOURCE>
@@ -39,7 +39,7 @@ FuriosaAI의 컴파일러는 `TFLite <https://www.tensorflow.org/lite>`_ 와 `On
   Options:
     -o, --output <OUTPUT>
             Writes output to <OUTPUT>
-            
+
             [default: output.<TARGET_IR>]
 
     -b, --batch-size <BATCH_SIZE>
@@ -47,12 +47,12 @@ FuriosaAI의 컴파일러는 `TFLite <https://www.tensorflow.org/lite>`_ 와 `On
 
         --target-ir <TARGET_IR>
             (experimental) Target IR - possible values: [enf]
-            
+
             [default: enf]
 
         --target-npu <TARGET_NPU>
             Target NPU family - possible values: [warboy, warboy-2pe]
-            
+
             [default: warboy-2pe]
 
         --dot-graph <DOT_GRAPH>
@@ -146,7 +146,7 @@ NPU의 활용도를 높일 수 있고 추론을 실행하는 과정을 공유하
 
 .. code-block::
 
-  furiosa compile foo.onnx --batch-size 2
+  furiosa-compiler foo.onnx --batch-size 2
 
 
 ENF 파일의 활용
@@ -165,9 +165,9 @@ ENF 파일을 한번 생성하여 재사용하면 컴파일을 과정을 생략�
 
 
 .. code-block:: python
-  
+
   from furiosa.runtime import sync
-  
+
   with sync.create_runner("path/to/model.enf") as runner:
     outputs = runner.run(inputs)
 

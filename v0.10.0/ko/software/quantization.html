@@ -19,10 +19,11 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="성능 프로파일링" href="profiler.html" />
+    <link rel="next" title="성능 최적화" href="performance.html" />
     <link rel="prev" title="컴파일러" href="compiler.html" /> 
 </head>
 
@@ -50,9 +51,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">NPU 가속 지원 연산자 목록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/warboy.html">FuriosaAI Warboy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
 <ul class="current">
@@ -63,11 +62,38 @@
 <li class="toctree-l1"><a class="reference internal" href="cli.html">명령행 도구</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">컴파일러</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">모델 양자화</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">동작 방식</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">양자화 모델의 정확도</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">데이터 타입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">양자화에 대한 산술 표현</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">한계점</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">양자화 체계</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#symmetric-quantization">대칭 양자화(Symmetric Quantization)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asymmetric-quantization">비대칭 양자화(Asymmetric Quantization)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">양자화 매개변수</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">텐서별 양자화</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">채널별 양자화</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#calibration">보정 (calibration)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ptq-post-training-quantization">PTQ (Post Training Quantization)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qat-quantization-aware-training">QAT (Quantization Aware Training)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#furiosaai-sdk-calibration-method">FuriosaAI SDK의 보정 방식 (Calibration Method)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">범위</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">산출 방법</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#furiosaai-sdk">FuriosaAI SDK의 양자화 과정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">양자화 모델의 정확도</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modeleditor-api"><code class="docutils literal notranslate"><span class="pre">ModelEditor</span></code> API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#apis">모델 양자화 APIs</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">성능 최적화</a></li>
 <li class="toctree-l1"><a class="reference internal" href="profiler.html">성능 프로파일링</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
@@ -87,6 +113,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.discourse.group/">Furiosa SDK 사용자 게시판</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
 </ul>
@@ -126,16 +153,290 @@
              
   <section id="modelquantization">
 <span id="id1"></span><h1>모델 양자화<a class="headerlink" href="#modelquantization" title="이 제목에 대한 퍼머링크"></a></h1>
-<p>FuriosaAI SDK와 1세대 Warboy는 8bit 정수형 모델을 지원한다.
-실수형 데이터 타입 기반의 모델을 지원하기 위해 Furiosa SDK는 FP16, FP32 실수형 데이터 타입 기반 모델을 양자화(quantization)하여
-8bit 정수형 데이터 타입 모델로 변환하는 도구를 제공한다.
-양자화란 모델의 처리 성능을 높이거나 하드웨어를 가속하기 위해 사용되는 보편적인 기술로
-FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용하여 더욱 다양한 모델을 가속할 수 있다.</p>
+<p>모델 양자화는 모델 경량화를 위한 보편적인 방법 중 하나로,
+추론에 사용되는 weight와 activation 등을 낮은 정밀도로 표현하는 기술이다.
+양자화를 거치면 모델을 더 적은 비트로 표현할 수 있어 메모리 요구량이 줄어들고,
+하드웨어에서 더 효율적으로 처리가 가능해져 추론 속도를 향상시킬 수 있다.</p>
+<p>FuriosaAI의 1세대 NPU인 Warboy는 8bit 정수형(int8) 모델만 지원한다.
+FuriosaAI SDK는 실수형 데이터 타입 기반의 모델을 지원하기 위해
+실수형 데이터 타입인 float32 기반 모델을 양자화하여
+int8 데이터 타입 모델로 변환하는 도구를 제공한다.
+이 도구를 사용하면 NPU를 활용하여 다양한 모델을 가속할 수 있다.</p>
 <p>FuriosaAI SDK가 지원하는 양자화 방식은  <em>post-training 8-bit quantization</em> 기반이며
 <a class="reference external" href="https://www.tensorflow.org/lite/performance/quantization_spec">Tensorflow Lite 8-bit quantization specification</a>
 을 따른다.</p>
 <section id="id2">
-<h2>동작 방식<a class="headerlink" href="#id2" title="이 제목에 대한 퍼머링크"></a></h2>
+<h2>데이터 타입<a class="headerlink" href="#id2" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>일반적으로 AI 모델은 float32 타입을 기반으로 정의되고 있다. float32 타입은 표현할 수 있는 범위가 넓고 수를 정밀하게 표현할 수 있다.
+반면 int8 타입은 표현할 수 있는 범위가 좁고 표현 가짓수가 256개에 불과하다.
+그러나 추론 단계에서는 int8이 float32보다 유리한 이유가 몇 가지 있다.</p>
+<ul class="simple">
+<li><p>정수형 타입의 연산이 실수형 타입의 연산보다 빠르므로 같은 시간동안 더 많은 계산을 할 수 있다.</p></li>
+<li><p>정수형 타입의 연산이 실수형 타입의 연산보다 컴퓨팅 파워를 적게 사용한다.</p></li>
+<li><p>정수형 타입의 값이 실수형 타입의 값보다 메모리를 적게 사용한다.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>그 밖의 데이터 타입 예시 (Warboy 미지원)</p>
+<ul class="simple">
+<li><p>float16: 실수형 타입이며 부호 1비트, 지수 5비트, 가수 10비트를 사용</p></li>
+<li><p>bfloat16: 실수형 타입이며 부호 1비트, 지수 8비트, 가수 7비트를 사용</p></li>
+<li><p>int4: 정수형 타입이며 수를 표현하는데 4비트를 사용</p></li>
+</ul>
+</div>
+</section>
+<section id="id3">
+<h2>양자화에 대한 산술 표현<a class="headerlink" href="#id3" title="이 제목에 대한 퍼머링크"></a></h2>
+<ul class="simple">
+<li><p>실수형 타입에서 정수형 타입으로의 변환은 다음 수식을 통해 표현할 수 있다. 실숫값을 scale(s) 로 나누고 zero-point(z) 를 더한 후 반올림한다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[q = {\rm clip}({\rm round}(\frac{x}{s} + z), -128, 127)\]</div>
+<ul class="simple">
+<li><p>정수형 타입에서 실수형 타입으로의 변환은 다음 수식을 통해 표현할 수 있다. 정숫값에 zero-point를 빼고 scale을 곱하면 실숫값을 계산할 수 있다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\hat{x} = s \cdot (q - z)\]</div>
+<ul class="simple">
+<li><p>정수 q가 int8 타입이면 표현할 수 있는 실수 범위는 다음과 같다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[[s \cdot (-128 - z), s \cdot (127 - z)]\]</div>
+<section id="id4">
+<h3>한계점<a class="headerlink" href="#id4" title="이 제목에 대한 퍼머링크"></a></h3>
+<ul>
+<li><p>실수형 타입의 값을 정수형에 대응시키면 필연적으로 오차가 발생한다.</p></li>
+<li><p>예를 들어, scale은 10.0이고 zero-point는 0이라고 가정하자.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>실수 20.0에 대한 양자화된 정수는 2이고 실수 30.0에 대한 양자화된 정수는 3이다.</p></li>
+<li><p>이때 20.0과 30.0 사이에 있는 값들을 양자화 시 20.0이나 30.0에 해당하는 2 또는 3이 될 수밖에 없으므로 오차가 발생한다.</p></li>
+<li><p>이를 양자화 오류라고 부른다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>int8 양자화의 경우 일반적으로 다음 범위의 오차가 발생한다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[[-\frac{s}{2}, \frac{s}{2}]\]</div>
+</section>
+</section>
+<section id="id5">
+<h2>양자화 체계<a class="headerlink" href="#id5" title="이 제목에 대한 퍼머링크"></a></h2>
+<section id="symmetric-quantization">
+<h3>대칭 양자화(Symmetric Quantization)<a class="headerlink" href="#symmetric-quantization" title="이 제목에 대한 퍼머링크"></a></h3>
+<ul>
+<li><p>표현할 수 있는 실수의 범위가 0을 기준으로 대칭인 형태이다.</p></li>
+<li><p>zero-point를 0으로 고정하면 연산량이 줄어든다.</p></li>
+<li><p>0을 기준으로 대칭을 유지하기 때문에 원본 범위 양극단의 절댓값이 크게 차이 난다면, 반대 부호 쪽에서도 불필요하게 넓은 범위를 포함해야 한다.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>범위가 불필요하게 넓어짐에 따라 실수에 대한 표현력이 낮아지고 scale 값이 커져 양자화 오차도 커지게 된다.</p></li>
+<li><p>예를 들어 Relu 연산의 결과 범위는 [0, a]이다. 이때 대칭 양자화를 적용하면 범위가 [-a, a]가 되기 때문에 불필요한 음수 영역의 확장으로 인해 양자화 오차가 커지게 된다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>int8에도 대칭 양자화를 적용할 수 있다.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>int8의 범위가 [-128, 127]이기 때문에, zero-point가 0이 될 수 없다.</p></li>
+<li><p>표현 범위의 손해를 감수하고, zero-point를 0으로 사용하기 위해 int8의 범위를 [-127, 127]로 사용할 수 있다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="asymmetric-quantization">
+<h3>비대칭 양자화(Asymmetric Quantization)<a class="headerlink" href="#asymmetric-quantization" title="이 제목에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p>대칭 양자화와 달리 실수 범위의 중심이 0일 필요가 없어 더 정교한 양자화가 가능하다.</p></li>
+<li><p>비대칭 양자화는 대칭 양자화와 달리 zero-point를 계산에 포함하여 하드웨어 구현이 상대적으로 복잡하다.</p></li>
+<li><p>Warboy는 비대칭 양자화 방식을 지원한다. 그리고 다양한 보정 방식을 제공하고 있다.</p></li>
+</ul>
+</section>
+</section>
+<section id="id6">
+<h2>양자화 매개변수<a class="headerlink" href="#id6" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>텐서에 양자화 매개변수를 지정하는 방식은 두 가지로 나뉜다.
+Warboy는 activation에는 텐서별 양자화 방식을, convolution의 weight와 bias는 채널별 양자화 방식을 적용하고 있다.</p>
+<section id="id7">
+<h3>텐서별 양자화<a class="headerlink" href="#id7" title="이 제목에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p>텐서의 양자화 매개변수를 하나로 고정한다.</p></li>
+<li><p>텐서 내의 모든 원소들이 같은 양자화 매개변수를 가지게 된다.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>채널별 양자화<a class="headerlink" href="#id8" title="이 제목에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p>텐서의 한 축에 대해 여러 개의 양자화 매개변수를 가진다.</p></li>
+<li><p>텐서별 양자화 방식과 달리 각 원소 묶음마다 다양한 양자화 매개변수를 가질 수 있어 보다 정확하게 실수를 표현할 수 있다.</p></li>
+<li><p>참고: <a class="reference external" href="https://arxiv.org/pdf/1806.08342v1.pdf">https://arxiv.org/pdf/1806.08342v1.pdf</a></p></li>
+</ul>
+</section>
+</section>
+<section id="calibration">
+<h2>보정 (calibration)<a class="headerlink" href="#calibration" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>양자화 과정 중 표현하고자 하는 실수의 범위를 결정하는 것은 중요한 단계이다.
+이 실수의 범위를 계산하고 구하는 과정을 보정(calibration)이라고 한다.
+이 과정을 통해 산출된 실수 범위를 보정 범위(calibration range)라고 한다.
+보정 방식은 크게 두 가지로 분류된다.</p>
+<section id="ptq-post-training-quantization">
+<h3>PTQ (Post Training Quantization)<a class="headerlink" href="#ptq-post-training-quantization" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>학습을 마친 원본 모델을 기반으로 activation, weight의 보정 범위를 구한다.
+모델에 입력값을 넣어 실행하고 각 activation 에서 사용되는 원솟값들을 기반으로 보정 범위를 구한다.
+PTQ는 두 가지 방식으로 나누어진다.</p>
+<ul>
+<li><p>Post Training Dynamic Quantization</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>모델을 실행하는 시점에 입력으로 들어온 값을 기반으로 보정 범위를 구한다.</p></li>
+<li><p>실행 시점 이전에는 보정 범위를 계산할 필요가 없다.</p></li>
+<li><p>실행 시점에 보정 범위를 계산하기 때문에 오버헤드가 발생한다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Post Training Static Quantization</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>보정 범위를 실행 시점 이전에 미리 계산하고 모델에 기록해 둔다.</p></li>
+<li><p>모델에 이미 기록된 값을 사용하므로 실행 시점에는 오버헤드가 없다.</p></li>
+<li><p>보정 범위를 계산하기 위해 보정용 데이터 셋이 필요하다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="qat-quantization-aware-training">
+<h3>QAT (Quantization Aware Training)<a class="headerlink" href="#qat-quantization-aware-training" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>모델을 학습하는 시점에 양자화를 고려해서 보정 범위를 계산한다.</p>
+<p>(참고: <a class="reference external" href="https://arxiv.org/pdf/1712.05877.pdf">https://arxiv.org/pdf/1712.05877.pdf</a>)</p>
+</section>
+</section>
+<section id="furiosaai-sdk-calibration-method">
+<h2>FuriosaAI SDK의 보정 방식 (Calibration Method)<a class="headerlink" href="#furiosaai-sdk-calibration-method" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>FuriosaAI SDK는 기본적으로 Post Training Static Quantization을 보정 방식으로 사용하고 있다.
+현재 5개의 계산 방법을 제공하고 각 방법별로 대칭/비대칭 양자화를 지원한다.</p>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">Calibration Method</span><a class="headerlink" href="#id12" title="이 표에 대한 퍼머링크"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Asymmetric</p></th>
+<th class="head"><p>Symmetric</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MIN_MAX</p></td>
+<td><p>MIN_MAX_ASYM</p></td>
+<td><p>MIN_MAX_SYM</p></td>
+</tr>
+<tr class="row-odd"><td><p>ENTROPY</p></td>
+<td><p>ENTROPY_ASYM</p></td>
+<td><p>ENTROPY_SYM</p></td>
+</tr>
+<tr class="row-even"><td><p>PERCENTILE</p></td>
+<td><p>PERCENTILE_ASYM</p></td>
+<td><p>PERCENTILE_SYM</p></td>
+</tr>
+<tr class="row-odd"><td><p>SQNR</p></td>
+<td><p>SQNR_ASYM</p></td>
+<td><p>SQNR_SYM</p></td>
+</tr>
+<tr class="row-even"><td><p>MSE</p></td>
+<td><p>MSE_ASYM</p></td>
+<td><p>MSE_SYM</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id9">
+<h3>범위<a class="headerlink" href="#id9" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>보정 범위를 어떤 형태로 저장할지에 따라 두 가지로 나뉜다.</p>
+<ul>
+<li><p>대칭형 (<code class="docutils literal notranslate"><span class="pre">SYM</span></code>)</p>
+<blockquote>
+<div><ul>
+<li><p>Symmetric Quantization 방식으로 범위가 대칭형으로 정해진다.</p></li>
+<li><p>단, 범위 내의 값이 모두 양수일 경우 [-a, a]가 아닌 [0, a]로 산출된다.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>이를 통해 모든 원소의 값들이 양수임에도 불구하고 음수 영역으로 범위가 확장되어 실수 표현력이 저해되는 문제를 해결할 수 있다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>비대칭형 (<code class="docutils literal notranslate"><span class="pre">ASYM</span></code>)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Asymmetric Quantization 방식으로 범위가 비대칭형으로 정해진다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id10">
+<h3>산출 방법<a class="headerlink" href="#id10" title="이 제목에 대한 퍼머링크"></a></h3>
+<p>보정 범위를 계산하는 방법을 5가지 제공하고 있다.
+값 자체만 고려하여 계산하는 방식과, 값의 분포 즉 히스토그램을 바탕으로 계산하는 방식으로 나뉜다.</p>
+<ul>
+<li><p>비 히스토그램 기반</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">MIN_MAX</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>텐서의 원소 중 최솟값과 최댓값을 보정 범위로 지정한다.</p></li>
+<li><p>분포에서 크게 벗어나 존재하는 원솟값(outlier)이 있을 경우 범위가 과도하게 넓게 잡히는 단점이 있다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>히스토그램 기반</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENTROPY</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>양자화 전의 분포와 양자화 후의 분포가 가장 유사한 보정 범위를 찾는다.</p></li>
+<li><p>원솟값들이 많이 분포되어 있는 곳을 최대한 많이 표현하는 범위를 찾는다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PERCENTILE</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>어느 퍼센티지만큼 표현할지 입력으로 받아, 원솟값 분포에서 해당 퍼센티지를 포함할 수 있는 범위를 찾는다.</p></li>
+<li><p>outlier에 취약한 MIN_MAX의 단점을 보완할 수 있다.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SQNR</span></code>: Signal-to-quantization-noise Ratio</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>원솟값을 양자화 후 다시 실수로 만들었을 때 오차가 작은 보정 범위를 찾는다.</p></li>
+<li><p>참고: <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-to-quantization-noise_ratio">https://en.wikipedia.org/wiki/Signal-to-quantization-noise_ratio</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MSE</span></code>: Mean squared error</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SQNR</span></code> 과 같은 방식이나, 오차를 계산할 때 평균 제곱 오차(mean squared error)를 이용한다.</p></li>
+<li><p>참고: <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_squared_error">https://en.wikipedia.org/wiki/Mean_squared_error</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="furiosaai-sdk">
+<h2>FuriosaAI SDK의 양자화 과정<a class="headerlink" href="#furiosaai-sdk" title="이 제목에 대한 퍼머링크"></a></h2>
 <p>양자화 도구는 아래 그림에서 표현된 바와 같이 ONNX 모델을 입력으로 받아
 아래 3단계를 거쳐 양자화를 실행하고 양자화된 ONNX 모델을 출력한다.</p>
 <ol class="arabic simple">
@@ -148,19 +449,19 @@ FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용�
 </figure>
 <p>그래프 최적화 과정에서는 모델이 양자화된 데이터를 정확도 저하를 최소화하면서 처리할 수 있도록
 원본 모델 네트워크의 구조를 분석하여 모델에 연산자를 추가하거나 대체하여 그래프의 위상구조를 변경한다.</p>
-<p>보정 과정에서는 데이터를 기반으로 모델의 가중치를 보정하며 이 과정에서
+<p>보정 과정에서는 데이터를 기반으로 모델의 weight를 보정하며 이 과정에서
 모델을 학습할 때 사용했던 데이터가 필요하다.</p>
 </section>
-<section id="id3">
-<h2>양자화 모델의 정확도<a class="headerlink" href="#id3" title="이 제목에 대한 퍼머링크"></a></h2>
+<section id="id11">
+<h2>양자화 모델의 정확도<a class="headerlink" href="#id11" title="이 제목에 대한 퍼머링크"></a></h2>
 <p>아래 표는 FuriosaAI SDK에서 제공하는 Quantizer와 다양한 보정 방법을 이용해 여러 모델을 양자화하고 원본 소수점 모델과 정확도를 비교한 것이다.</p>
-<span id="quantizationaccuracytable"></span><table class="docutils align-default" id="id4">
-<caption><span class="caption-text">Quantization Accuracy</span><a class="headerlink" href="#id4" title="이 표에 대한 퍼머링크"></a></caption>
+<span id="quantizationaccuracytable"></span><table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Quantization Accuracy</span><a class="headerlink" href="#id13" title="이 표에 대한 퍼머링크"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
 <th class="head"><p>FP Accuracy</p></th>
-<th class="head"><p>INT8 Accuracy (Calibration Method)</p></th>
-<th class="head"><p>INT8 Accuracy ÷ FP Accuracy</p></th>
+<th class="head"><p>int8 Accuracy (Calibration Method)</p></th>
+<th class="head"><p>int8 Accuracy ÷ FP Accuracy</p></th>
 </tr>
 </thead>
 <tbody>
@@ -217,10 +518,29 @@ FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용�
 </tbody>
 </table>
 </section>
+<section id="modeleditor-api">
+<h2><code class="docutils literal notranslate"><span class="pre">ModelEditor</span></code> API<a class="headerlink" href="#modeleditor-api" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>모델을 양자화하면 각 연산의 입출력 텐서는 정수 자료형으로 변경되지만,
+모델 자체의 입출력 텐서는 원본의 실수 자료형이 유지된다.
+그래서 모델 추론 시작 부분에 실숫값을 정숫값으로 형 변환하는 연산과
+모델 추론 종료 부분에 정숫값을 실숫값으로 형 변환하는 연산이 덧붙는다.</p>
+<p>필요하다면 모델 자체의 입력 또는 출력 텐서도 정수 자료형으로 변경하고, 위 연산들을 제거하여 모델을 최적화할 수 있다.</p>
+<p>다음 API를 사용해 형 변환을 적용할 수 있다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">editor</span> <span class="o">=</span> <span class="n">ModelEditor</span><span class="p">(</span><span class="n">onnx_model</span><span class="p">)</span>
+
+<span class="c1"># input 텐서의 자료형을 uint8로 변환</span>
+<span class="n">editor</span><span class="o">.</span><span class="n">convert_input_type</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">TensorType</span><span class="o">.</span><span class="n">UINT8</span><span class="p">)</span>
+
+<span class="c1"># output 텐서의 자료형을 int8로 변환</span>
+<span class="n">editor</span><span class="o">.</span><span class="n">convert_output_type</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">TensorType</span><span class="o">.</span><span class="n">INT8</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>위 API에 대한 자세한 설명은 <a class="reference internal" href="performance.html#performanceoptimization"><span class="std std-ref">성능 최적화 문서</span></a> 를 참고할 수 있다.</p>
+</section>
 <section id="apis">
 <h2>모델 양자화 APIs<a class="headerlink" href="#apis" title="이 제목에 대한 퍼머링크"></a></h2>
-<p>SDK가 제공하는 API와 명령행 도구를 사용하여 ONNX 모델을 8bit 양자화 모델로 변환할 수 있다.
-사용 방법은 아래에서 찾아볼 수 있다.</p>
+<p>모델 양자화의 이해를 돕기 위한 API와 명령행 도구의 예제와 레퍼런스가 준비되어 있다.
+자세한 내용은 아래 링크를 통해 확인할 수 있다.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/main/examples/notebooks/HowToUseFuriosaSDKFromStartToFinish.ipynb">Python SDK 예제: 모델 생성 부터 인퍼런스 까지</a></p></li>
 <li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/examples/quantizers">Python SDK Quantization 예제</a></p></li>
@@ -234,7 +554,7 @@ FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용�
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="compiler.html" class="btn btn-neutral float-left" title="컴파일러" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="profiler.html" class="btn btn-neutral float-right" title="성능 프로파일링" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="performance.html" class="btn btn-neutral float-right" title="성능 최적화" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

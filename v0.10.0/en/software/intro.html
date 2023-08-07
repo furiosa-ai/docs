@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Driver, Firmware, and Runtime Installation" href="installation.html" />
-    <link rel="prev" title="List of Supported Operators for NPU Acceleration" href="../npu/supported_operators.html" /> 
+    <link rel="prev" title="FuriosaAI Warboy" href="../npu/warboy.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,9 +49,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/warboy.html">FuriosaAI Warboy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
 <ul class="current">
@@ -133,7 +131,7 @@ the roles of each component, together with guidelines and tutorials.</p>
 <a class="with-shadow reference internal image-reference" href="../_images/software_stack.jpg"><img alt="FuriosaAI Software Stack" class="with-shadow" src="../_images/software_stack.jpg" style="width: 500px;" /></a>
 </figure>
 <p>The above diagram demonstrates the SW stack provided by FuriosaAI, by layers.
-At the lowest level is the <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">FuriosaAI Warboy</span></a>, FuriosaAI’s first generation NPU.</p>
+At the lowest level is the <span class="xref std std-ref">IntroToWarboy</span>, FuriosaAI’s first generation NPU.</p>
 <p>The following outlines the key components.</p>
 <section id="kernel-driver-and-firmware">
 <h2>Kernel Driver and Firmware<a class="headerlink" href="#kernel-driver-and-firmware" title="Permalink to this heading"></a></h2>
@@ -152,10 +150,10 @@ but they must be installed for Furiosa SDK to work. Installation guide can be fo
 <p>The compiler plays a key role in optimizing DNN models and generating executable code in the NPU.
 Currently, the compiler supports <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> and <a class="reference external" href="https://onnx.ai/">ONNX</a> models,
 and optimizes the models by introducing various latest research work and methods.</p>
-<p>The compiler provided with <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a> supports NPU acceleration of various operators in the vision area.
+<p>The compiler provided with <span class="xref std std-ref">Warboy</span> supports NPU acceleration of various operators in the vision area.
 For operators that are not supported with acceleration on NPU, the compiler compiles them such that the CPU will be utilized.</p>
 <p>Additionally, the compiler not only accelerates major vision models such as ResNet50, SSD-MobileNet, and EfficientNet, but also models designed by the users so long as supported operators are utilized - to generate code optimized for NPU.</p>
-<p>For reference, operators supported by NPU acceleration can be found in <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">List of Supported Operators for NPU Acceleration</span></a>.</p>
+<p>For reference, operators supported by NPU acceleration can be found in <a class="reference internal" href="../npu/warboy.html#supportedoperators"><span class="std std-ref">List of Supported Operators for Warboy Acceleration</span></a>.</p>
 <p>The compiler is embedded within runtime, so users do not need to install it separately.
 It can be used automatically in the process of creating a session through the Python/C SDK, or through <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa-compiler</span></a>.</p>
 </section>
@@ -177,8 +175,8 @@ Installation and usage of each SDK can be found in <a class="reference internal"
 </section>
 <section id="model-quantizer-api">
 <h2>Model quantizer API<a class="headerlink" href="#model-quantizer-api" title="Permalink to this heading"></a></h2>
-<p>FuriosaAI SDK and <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a> support INT8 models, while models with
-floating point data as weights undergo quantization, and can be used in <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a>.
+<p>FuriosaAI SDK and <span class="xref std std-ref">Warboy</span> support INT8 models, while models with
+floating point data as weights undergo quantization, and can be used in <span class="xref std std-ref">Warboy</span>.
 To facilitate this quantization process, Furiosa SDK provides a Model quantizer API.
 More information about the Model quantizer API provided by the Furiosa SDK can be found in <a class="reference internal" href="quantization.html#modelquantization"><span class="std std-ref">Model Quantization</span></a>.</p>
 </section>
@@ -210,7 +208,7 @@ on the node, participating in Kubernetes, as metadata to the Kubernetes node obj
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../npu/supported_operators.html" class="btn btn-neutral float-left" title="List of Supported Operators for NPU Acceleration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../npu/warboy.html" class="btn btn-neutral float-left" title="FuriosaAI Warboy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="installation.html" class="btn btn-neutral float-right" title="Driver, Firmware, and Runtime Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

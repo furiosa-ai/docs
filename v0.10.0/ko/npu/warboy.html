@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NPU 가속 지원 연산자 목록 &mdash; FuriosaAI NPU 및 Software 문서  문서</title>
+  <title>FuriosaAI Warboy &mdash; FuriosaAI NPU 및 Software 문서  문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -23,7 +23,7 @@
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="FuriosaAI 소프트웨어 스택 소개" href="../software/intro.html" />
-    <link rel="prev" title="FuriosaAI NPU" href="intro.html" /> 
+    <link rel="prev" title="FuriosaAI NPU 및 SDK 문서" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,9 +50,15 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">FuriosaAI NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">NPU 가속 지원 연산자 목록</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FuriosaAI Warboy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">하드웨어 스펙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supportedoperators">가속 지원 연산자 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mlperf">MLPerf 성능</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">관련 문서</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
 <ul>
@@ -63,6 +69,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../software/cli.html">명령행 도구</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/compiler.html">컴파일러</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/performance.html">성능 최적화</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/profiler.html">성능 프로파일링</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/serving.html">모델 서버 (서빙 프레임워크)</a></li>
@@ -82,6 +89,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.discourse.group/">Furiosa SDK 사용자 게시판</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
 </ul>
@@ -109,9 +117,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">NPU 가속 지원 연산자 목록</li>
+      <li class="breadcrumb-item active">FuriosaAI Warboy</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/npu/supported_operators.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/npu/warboy.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -119,20 +127,94 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="npu">
-<span id="supportedoperators"></span><h1>NPU 가속 지원 연산자 목록<a class="headerlink" href="#npu" title="이 제목에 대한 퍼머링크"></a></h1>
-<p>FuriosaAI NPU와 SDK 에서는
+  <section id="furiosaai-warboy">
+<h1>FuriosaAI Warboy<a class="headerlink" href="#furiosaai-warboy" title="이 제목에 대한 퍼머링크"></a></h1>
+<p>FuriosaAI 1세대 NPU (Neural Processing Unit) Warboy는 딥러닝 추론에 최적화된 칩으로 적은 비용으로 높은 딥러닝 추론 성능을 낸다.
+FuriosaAI Warboy는 작은 배치 크기의 추론 요청에도 칩의 모든 자원을 효율적으로 활용하여 낮은 응답속도 (latency)를 달성한다.
+주요 CNN 모델들을 온칩 메모리에 최대한 저장하여 메모리 입출력에 사용하는 에너지를 최소화한다.</p>
+<p>Warboy는 Image Classification, Object Detection, OCR, Super Resolution, Pose Estimation 등
+다양한 Vision Task에 사용되는 주요 CNN 모델들을 지원한다.
+State-of-the-Art CNN 모델에서 높은 정확도와 연산효율을 가능하게 하는 Depthwise/Group Convolution 같은 연산에서 월등히 차별화된 성능을 보여준다.</p>
+<p>Warboy는 64 TOPS의 성능을 내고 32MB SRAM을 장착했다. Warboy는 2개의 PE (Processing Element)로 구성되어, 각각 32 TOPS의 성능을 갖는
+독립적인 디바이스로 사용할 수 있다. 전체 64 TOPS의 성능으로 모델의 응답속도를 극대화해야 하는 경우에는 2개의 PE를 1개의 큰 PE로 fusion 하여 사용할 수 있다.
+사용자의 모델 크기 혹은 성능 요구에 따라, fusion 하여 응답속도를 최소화 하거나 각 PE를 독립적으로 사용하여 처리량을 최대화 할 수 있다.</p>
+<p>FuriosaAI SDK는 FuriosaAI Warboy를 위한 컴파일러, 런타임 소프트웨어 및 프로파일링 도구를 제공한다.
+또한 TensorFlow, PyTorch에서 표준적으로 사용하는 INT8 Quantization Scheme을 지원하며,
+Floating Point 모델들을 Post Training Quantization을 사용하여 변환할 수 있는 도구를 제공한다.
+FuriosaAI SDK를 사용하여 추론을 위해 범용적으로 사용되고 있는 TFLite와 ONNX 포맷으로 훈련 또는
+Export된 모델들을 컴파일하여 FuriosaAI Warboy에서 가속할 수 있다.</p>
+<section id="id1">
+<h2>하드웨어 스펙<a class="headerlink" href="#id1" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>5 billion transistor로 구성되어 있고, 180mm^2에 2GHz로 동작하고 INT8 기준 64 TOPS의 Peak Performance를 갖는다.
+또한 LPDDR4x에 대해 최대 4266을 지원하며 66GB/s의 DRAM Bandwidth를 갖으며, PCIe Gen4 8x을 지원한다.</p>
+<table class="docutils align-center" id="id4">
+<caption><span class="caption-text">Warboy Hardware Specification</span><a class="headerlink" href="#id4" title="이 표에 대한 퍼머링크"></a></caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Peak Performance</p></td>
+<td><p>64 TOPS</p></td>
+</tr>
+<tr class="row-even"><td><p>On-chip SRAM</p></td>
+<td><p>32 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Host Interface</p></td>
+<td><p>PCIe Gen4 8-lane</p></td>
+</tr>
+<tr class="row-even"><td><p>Form Factor</p></td>
+<td><div class="line-block">
+<div class="line">Full-Height Half-Length (FHHL)</div>
+<div class="line">Half-Height Half-Length (HHHL)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Thermal Solution</p></td>
+<td><div class="line-block">
+<div class="line">Passive Fan</div>
+<div class="line">Active Fan</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>TDP</p></td>
+<td><p>40 - 60W (Configurable)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operating Temperature</p></td>
+<td><p>0 ~ 50℃</p></td>
+</tr>
+<tr class="row-even"><td><p>Clock Speed</p></td>
+<td><p>2.0 GHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>DDR Speed</p></td>
+<td><p>4266 Mbps</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory Type</p></td>
+<td><p>LPDDR4X</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory Size</p></td>
+<td><p>16 GB (max. 32 GB)</p></td>
+</tr>
+<tr class="row-even"><td><p>Peak Memory Bandwidth</p></td>
+<td><p>66 GB/s</p></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+</section>
+<section id="supportedoperators">
+<span id="id2"></span><h2>가속 지원 연산자 목록<a class="headerlink" href="#supportedoperators" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>FuriosaAI Warboy 및 SDK 에서는
 <a class="reference external" href="https://www.tensorflow.org/lite">Tensorflow Lite</a> 모델과 <a class="reference external" href="https://onnx.ai/">ONNX</a> 가 지원하는
 아래 연산자들을 가속할 수 있다. 연산자 이름은 <a class="reference external" href="https://onnx.ai/">ONNX</a> 를 기준으로 한다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>NPU 가속을 지원하지 않는 경우에는 CPU에서 동작하게 된다.
-또한 NPU 가속을 지원하는 일부 연산자는 특정 조건을 만족하지 않을 경우 다수의 연산자로 분할되어 동작하거나
-CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크거나 NPU의 메모리로
-특정 연산을 처리하기에 부족한 경우가 한 가지 예이다.</p>
+<p>Warboy에서 가속되지 않는 연산자는 CPU에서 수행된다.
+Warboy 가속 연산자라도 특정 조건을 만족하지 않을 경우는 다수의 연산자로 분할되어 Warboy에서 실행되거나 CPU 에서 실행될 수 있다.
+모델의 가중치가 Warboy 메모리 보다 크거나 특정 연산을 처리하기에 Warboy 메모리가 부족한 경우가 이에 해당한다.</p>
 </div>
-<table class="docutils align-default" id="id1">
-<caption><span class="caption-text">NPU 가속 지원 연산자</span><a class="headerlink" href="#id1" title="이 표에 대한 퍼머링크"></a></caption>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Warboy 가속 지원 연산자</span><a class="headerlink" href="#id5" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -266,12 +348,30 @@ CPU 에서 동작할 수 있다. 모델의 가중치가 NPU 메모리 보다 크
 </tbody>
 </table>
 </section>
+<section id="mlperf">
+<h2>MLPerf 성능<a class="headerlink" href="#mlperf" title="이 제목에 대한 퍼머링크"></a></h2>
+<p>MLPerf 에 제출된 결과는
+<a class="reference external" href="https://mlcommons.org/en/inference-edge-20/">MLPerf™ Inference Edge v2.0 Results</a> 에서
+확인할 수 있다.</p>
+<figure class="align-center">
+<a class="with-shadow reference internal image-reference" href="../_images/mlperf.png"><img alt="Warboy MLPerf Results" class="with-shadow" src="../_images/mlperf.png" style="width: 800px;" /></a>
+</figure>
+<p></p>
+<section id="id3">
+<h3>관련 문서<a class="headerlink" href="#id3" title="이 제목에 대한 퍼머링크"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mlcommons.org/en/inference-edge-11/">MLPerf™ Inference Edge v1.1 Results</a></p></li>
+<li><p><a class="reference external" href="https://mlcommons.org/en/inference-edge-05/">MLPerf™ Inference Edge v0.5 Results</a></p></li>
+</ul>
+</section>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="intro.html" class="btn btn-neutral float-left" title="FuriosaAI NPU" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="FuriosaAI NPU 및 SDK 문서" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../software/intro.html" class="btn btn-neutral float-right" title="FuriosaAI 소프트웨어 스택 소개" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -23,7 +23,7 @@
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="드라이버, 펌웨어, 런타임 설치 가이드" href="installation.html" />
-    <link rel="prev" title="NPU 가속 지원 연산자 목록" href="../npu/supported_operators.html" /> 
+    <link rel="prev" title="FuriosaAI Warboy" href="../npu/warboy.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,9 +50,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">NPU 가속 지원 연산자 목록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/warboy.html">FuriosaAI Warboy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FuriosaAI 소프트웨어</span></p>
 <ul class="current">
@@ -72,6 +70,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cli.html">명령행 도구</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">컴파일러</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">성능 최적화</a></li>
 <li class="toctree-l1"><a class="reference internal" href="profiler.html">성능 프로파일링</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">모델 서버 (서빙 프레임워크)</a></li>
@@ -91,6 +90,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">고객 지원</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.discourse.group/">Furiosa SDK 사용자 게시판</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.atlassian.net/servicedesk/customer/portals/">FuriosaAI 고객지원 센터</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../customer-support/bugs.html">버그 신고</a></li>
 </ul>
@@ -137,7 +137,7 @@
 <a class="with-shadow reference internal image-reference" href="../_images/software_stack.jpg"><img alt="FuriosaAI Software Stack" class="with-shadow" src="../_images/software_stack.jpg" style="width: 500px;" /></a>
 </figure>
 <p>위 그림은 FuriosaAI가 제공하는 소프트웨어 스택을 레이어에 따라 추상적으로 표현한 것이다.
-가장 아래는 FuriosaAI의 1세대 NPU인 <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">FuriosaAI Warboy</span></a> 가 있다.
+가장 아래는 FuriosaAI의 1세대 NPU인 <span class="xref std std-ref">IntroToWarboy</span> 가 있다.
 아래는 주요한 컴포넌트에 대해 소개한다.</p>
 <section id="kernel-driver-firmware">
 <h2>커널 장치 드라이버(Kernel Driver), 펌웨어(Firmware)<a class="headerlink" href="#kernel-driver-firmware" title="이 제목에 대한 퍼머링크"></a></h2>
@@ -157,12 +157,12 @@ FuriosaAI SDK를 사용하기 위해서는 반드시 설치해야 한다.
 <p>컴파일러(Compiler)는 DNN 모델을 최적화하고 NPU에서 실행 가능한 코드를 생성하는 핵심적인 역할을 한다.
 현재 컴파일러는 <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a>, <a class="reference external" href="https://onnx.ai/">ONNX</a> 모델을
 지원하며 다양한 최신 연구와 기법을 도입하여 모델을 최적화 하고 있다.</p>
-<p><a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a> 와 함께 제공되는 컴파일러는 Vision 분야의 다양한 연산자(Operator)의
+<p><span class="xref std std-ref">Warboy</span> 와 함께 제공되는 컴파일러는 Vision 분야의 다양한 연산자(Operator)의
 NPU 가속을 지원하며 가속을 지원하지 않는 연산자들은 CPU를 활용하도록 컴파일한다.
 또한, Resnet50, SSD-Mobilenet, EfficientNet 과 같은 Vision 분야의
 대표적인 모델을 잘 지원할 뿐만 아니라 사용자가 직접 설계하는 모델도
 가속을 지원하는 연산자를 잘 활용하는 경우 NPU에 최적화된 코드를 생성할 수 있다.
-참고로 NPU 가속을 지원하는 연산자는 <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">NPU 가속 지원 연산자 목록</span></a> 에서 찾아볼 수 있다.</p>
+참고로 NPU 가속을 지원하는 연산자는 <a class="reference internal" href="../npu/warboy.html#supportedoperators"><span class="std std-ref">가속 지원 연산자 목록</span></a> 에서 찾아볼 수 있다.</p>
 <p>컴파일러는 런타임에 내장되어 제공되므로 사용자가 직접 설치할 필요는 없으며
 Python/C SDK를 통해 세션(session)을 생성하는 과정에서 자동으로 사용되거나 <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa-compiler</span></a> 를 통해 사용할 수 있다.</p>
 </section>
@@ -186,8 +186,8 @@ API를 이용해 블럭킹, 비동기 방식으로 고성능 추론을 가능하
 </section>
 <section id="api-quantizer">
 <h2>모델 양자화 API (Quantizer)<a class="headerlink" href="#api-quantizer" title="이 제목에 대한 퍼머링크"></a></h2>
-<p>FuriosaAI SDK와 <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a> 는 8 비트 정수형 모델을 지원하며
-실수형 데이터를 가중치로 가진 모델은 양자화(quantization)를 거쳐 <a class="reference internal" href="../npu/intro.html#introtowarboy"><span class="std std-ref">Warboy</span></a> 에서 사용할 수 있다.
+<p>FuriosaAI SDK와 <span class="xref std std-ref">Warboy</span> 는 8 비트 정수형 모델을 지원하며
+실수형 데이터를 가중치로 가진 모델은 양자화(quantization)를 거쳐 <span class="xref std std-ref">Warboy</span> 에서 사용할 수 있다.
 이러한 양자화 과정을 간편하게 수행할 수 있도록 FuriosaAI SDK는 모델 양자화 API를 제공한다.
 FuriosaAI SDK가 제공하는 양자화 API 대한 더 자세한 정보는 <a class="reference internal" href="quantization.html#modelquantization"><span class="std std-ref">모델 양자화</span></a> 에서 찾을 수 있다.</p>
 </section>
@@ -224,7 +224,7 @@ Pod의 <code class="docutils literal notranslate"><span class="pre">spec.nodeSel
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../npu/supported_operators.html" class="btn btn-neutral float-left" title="NPU 가속 지원 연산자 목록" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../npu/warboy.html" class="btn btn-neutral float-left" title="FuriosaAI Warboy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="installation.html" class="btn btn-neutral float-right" title="드라이버, 펌웨어, 런타임 설치 가이드" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

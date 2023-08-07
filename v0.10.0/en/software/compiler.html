@@ -49,9 +49,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/warboy.html">FuriosaAI Warboy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
 <ul class="current">
@@ -124,16 +122,16 @@
 <p>The FuriosaAI compiler compiles models of formats <a class="reference external" href="https://www.tensorflow.org/lite">TFLite</a> and <a class="reference external" href="https://onnx.ai/">Onnx</a> model ((<a class="reference external" href="https://github.com/onnx/onnx/blob/main/docs/Changelog.md#version-13-of-the-default-onnx-operator-set">OpSet 13</a> or lower version), thereby generating programs that execute inference using FuriosaAI NPU and resources (CPU, memory, etc) of the host machine.
 In this process, the compiler analyses the model at the operator level, optimizes it, and generates a program so as to maximize NPU acceleration and host resources utilization. Even for models that are not well known,
 so long as supported operators are utilized well, you can design models that are optimized for the NPU .</p>
-<p>You can find the list of NPU acceleration supported operators at <a class="reference internal" href="../npu/supported_operators.html#supportedoperators"><span class="std std-ref">List of Supported Operators for NPU Acceleration</span></a>.</p>
+<p>You can find the list of NPU acceleration supported operators at <a class="reference internal" href="../npu/warboy.html#supportedoperators"><span class="std std-ref">List of Supported Operators for Warboy Acceleration</span></a>.</p>
 <section id="furiosa-compiler">
 <span id="compilercli"></span><h2><code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code><a class="headerlink" href="#furiosa-compiler" title="Permalink to this heading"></a></h2>
 <p>The most common ways to use a compiler would be to automatically call it
 during the process of resetting the inference API or the NPU.</p>
-<p>But you can directly compile a model and generate a program by using the command line tool <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> in shell. You can install <code class="docutils literal notranslate"><span class="pre">furiosa-compile</span></code> command via APT package manager.</p>
+<p>But you can directly compile a model and generate a program by using the command line tool <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> in shell. You can install <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> command via APT package manager.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>furiosa-compiler
 </pre></div>
 </div>
-<p>The usage of <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> is as the following:</p>
+<p>The usage of <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> is as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-compiler<span class="w"> </span>--help
 
 Furiosa<span class="w"> </span>SDK<span class="w"> </span>Compiler<span class="w"> </span>v0.10.0<span class="w"> </span><span class="o">(</span>f8f05c8ea<span class="w"> </span><span class="m">2023</span>-07-31T19:30:30Z<span class="o">)</span>
@@ -275,7 +273,7 @@ serve one model across several machines in an actual operation environment.</p>
 <p>For example, you can first create an ENF file by referring to <a class="reference internal" href="#compilercli"><span class="std std-ref">furiosa-compiler</span></a>.
 Then, with <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">PythonSDK</span></a> as shown below,
 you can instantly create a runner without the compilation process by
-passing the ENF file as an argument to the <code class="docutils literal notranslate"><span class="pre">create_runner()</span></code> function as the following:</p>
+passing the ENF file as an argument to the <code class="docutils literal notranslate"><span class="pre">create_runner()</span></code> function as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">sync</span>
 
 <span class="k">with</span> <span class="n">sync</span><span class="o">.</span><span class="n">create_runner</span><span class="p">(</span><span class="s2">&quot;path/to/model.enf&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">runner</span><span class="p">:</span>

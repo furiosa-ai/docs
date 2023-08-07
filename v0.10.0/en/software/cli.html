@@ -50,9 +50,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">FuriosaAI NPU</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html">FuriosaAI NPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/intro.html#furiosaai-warboy">FuriosaAI Warboy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../npu/supported_operators.html">List of Supported Operators for NPU Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npu/warboy.html">FuriosaAI Warboy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FuriosaAI Software</span></p>
 <ul class="current">
@@ -257,7 +255,7 @@ Datetime<span class="w">                        </span>PID<span class="w">      
 <section id="furiosa-bench-benchmark-tool">
 <span id="furiosabench"></span><h2>furiosa-bench (Benchmark Tool)<a class="headerlink" href="#furiosa-bench-benchmark-tool" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">furiosa-bench</span></code> command carries out a benchmark with a ONNX or TFLite model and a workload using furiosa-runtime. A benchmark result includes tail latency and QPS.</p>
-<p>The arguments of the command are as follows.</p>
+<p>The arguments of the command are as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-bench<span class="w"> </span>--help
 USAGE:
 <span class="w">  </span>furiosa-bench<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>&lt;model-path&gt;
@@ -283,7 +281,7 @@ USAGE:
 <span class="w">      </span>&lt;model-path&gt;
 </pre></div>
 </div>
-<p>MODEL_PATH is the file path of ONNX, TFLite or ENF(format produced by using <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa-compiler</span></a>).</p>
+<p>MODEL_PATH is the file path of ONNX, TFLite or ENF (format produced by <a class="reference internal" href="compiler.html#compilercli"><span class="std std-ref">furiosa-compiler</span></a>).</p>
 <p>The following is an example usage of furiosa-bench without an output path option (i.e., <code class="docutils literal notranslate"><span class="pre">--output</span></code> ):</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-bench<span class="w"> </span>mnist-8.onnx<span class="w"> </span>--workload<span class="w"> </span>L<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-w<span class="w"> </span><span class="m">8</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">2</span>
 
@@ -303,7 +301,7 @@ USAGE:
 <span class="w">  </span>99th<span class="w"> </span>percentile<span class="w"> </span><span class="o">(</span>us<span class="o">)</span>:<span class="w"> </span><span class="m">307568</span>
 </pre></div>
 </div>
-<p>If an output path is specified, furiosa-bench will save a JSON document as the following:</p>
+<p>If an output path is specified, furiosa-bench will save a JSON document as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>furiosa-bench<span class="w"> </span>mnist-8.onnx<span class="w"> </span>--workload<span class="w"> </span>L<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-w<span class="w"> </span><span class="m">8</span><span class="w"> </span>-t<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>mnist.json
 $<span class="w"> </span>cat<span class="w"> </span>mnist.json
 

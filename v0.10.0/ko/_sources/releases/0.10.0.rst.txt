@@ -137,9 +137,14 @@ NPU 종류, 구성, 개수를 표현하는 텍스트 설정을 받아 들인다.
 자세한 장치 설정 방법은 `Furiosa SDK API Reference - Device Specification <https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.runtime.html#device-specification>`_ 에서 찾아볼 수 있다.
 
 
-처리량 향상
+처리량(throughput) 향상
 ---------------------------------------------
-(TODO) - 데이터 추가 후 작성 완료
+기존 런타임보다 처리량(throughput)이 크게 향상되었다. 또한, `worker_num <https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.runtime.html#runner-api>`_
+설정을 통해 제어되는 워커(worker 또는 NPU 스레드)가 기존에는 2를 초과하면 성능이 크게 향상 되지 않았으나
+FuriosaRT에서는 모델에 따라 8이나 모델에 따라 10 이상에서도 성능이 향상되는 것이 관찰되었다.
+이번 릴리즈 부터 포함된 ``furiosa-bench`` 를 이용해
+Resnet50, YOLOv5m, YOLOv5L, SSD ResNet34, SSD MobileNet 등 모델을 가지고 처리량 벤치마크를 실행했을 때
+``worker_num >= 4`` 에서 모델에 따라 수 퍼센트에서 수십 퍼센트까지 성능이 향상되는 것을 관찰할 수 있었다.
 
 모델 서버와 서빙 프레임워크 개선
 ================================================================
@@ -150,7 +155,7 @@ NPU 종류, 구성, 개수를 표현하는 텍스트 설정을 받아 들인다.
 
 * :ref:`RELEASE_0_10_0_DeviceSelector` 이 그대로 적용되어 다수의 장치를 쉽게 설정할 수 있다.
 * FuriosaRT가 제공하는 `asyncio <https://docs.python.org/3/library/asyncio.html>`_ 기반의 새 API를 사용하도록 내부가 개선되어 더 적은 리소스로 더 높은 성능을 낼 수 있다.
-* FuriosaRT의 성능 향상 혜택을 그대로 볼 수 있다 (특히 더 높은 워커 수를 이용할 수 있다).
+* FuriosaRT의 성능 향상 혜택을 그대로 볼 수 있다. 즉, 더 성능 높은 워커 수를 이용할 수 있다.
 
 모델 서버에 대한 자세한 설명은 :ref:`ModelServing` 을 참고한다.
 
@@ -158,14 +163,14 @@ NPU 종류, 구성, 개수를 표현하는 텍스트 설정을 받아 들인다.
 ================================================================
 ``furiosa-quantizer`` 는 트레이닝 된 모델을 양자화된 모델로 변환(post-training quantization) 해주는
 라이브러리이다. 이번 0.10.0 릴리스에는 양자화 도구의 사용성을 크게 개선 하였으며 이를 위해
-``furiosa.quantizer.quantize()`` 함수의 일부 파라메터가 변경되었다.
+``furiosa.quantizer.quantize()`` 함수의 일부 파라미터가 변경되었다.
 
 기존 문제점
 -----------------------------------------------------------------
 ``furiosa.quantizer.quantize()`` 함수는 모델 양자화 도구의 핵심 함수로
 ONNX 모델을 양자화된 모델(quantized model)로 변환하여 반환한다.
 입력 타입을 ``float32`` 대신 ``uint8`` 로 직접 사용할 수 있도록 하는 ``with_quantize``
-파라메터를 제공하는데, 이미지와 같이 원본 데이터(픽셀 값)이 ``uint8`` 로 표현되는 경우에 실행 중 양자화 과정을 생략할 수 있어
+파라미터를 제공하는데, 이미지와 같이 원본 데이터(픽셀 값)이 ``uint8`` 로 표현되는 경우에 실행 중 양자화 과정을 생략할 수 있어
 큰 성능 향상을 기대할 수 있다.
 예를 들면, YOLOv5 Large 같은 모델의 경우 이 옵션을 사용하면 60.639 ms 에서 0.277 ms 로 실행 시간이 크게 개선된다.
 
@@ -176,7 +181,7 @@ ONNX 모델을 양자화된 모델(quantized model)로 변환하여 반환한다
 응용에 따라 두 옵션이 사용 가능한 경우 수배에서 수백배까지도 실행 시간을 단축시킬 수 있다.
 그러나 다음과 같은 한계와 피드백이 있었다.
 
-* 모델의 출력이 이미지가 아닌 경우 파라메터 이름 ``normalized_pixel_outputs`` 가 의미를 잘 표현하지 못한다.
+* 모델의 출력이 이미지가 아닌 경우 파라미터 이름 ``normalized_pixel_outputs`` 가 의미를 잘 표현하지 못한다.
 * ``normalized_pixel_outputs`` 옵션은 지정된 출력 텐서의 범위를 0과 1 사이 실수로 전제하는데 다양한 응용에 적용하는데 한계가 있다.
 * ``with_quantize``, ``normalized_pixel_outputs`` 옵션 모두 ``uint8`` 타입만 지원했으며 ``int8`` 타입을 지원하지 못했다.
 
