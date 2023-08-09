@@ -140,12 +140,11 @@ NPU 종류, 구성, 개수를 표현하는 텍스트 설정을 받아 들인다.
 처리량(throughput) 향상
 ---------------------------------------------
 기존 런타임보다 처리량(throughput)이 크게 향상되었다. 또한, `worker_num <https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.runtime.html#runner-api>`_
-설정을 통해 제어되는 워커(worker 또는 NPU 스레드)가 기존에는 2를 초과하면 성능이 크게 향상 되지 않았으나
-FuriosaRT에서는 모델에 따라 8이나 모델에 따라 10 이상에서도 성능이 향상되는 것이 관찰되었다.
-이번 릴리즈 부터 포함된 ``furiosa-bench`` 를 이용해
+설정을 통해 제어되는 워커(worker 또는 NPU 스레드)가 기존에는 2를 초과하면 성능이 크게 향상되지 않았으나
+FuriosaRT에서는 모델에 따라 10 이상에서도 성능이 향상되는 것을 관찰하였다.
+이번 릴리스부터 포함된 ``furiosa-bench`` 를 이용해
 Resnet50, YOLOv5m, YOLOv5L, SSD ResNet34, SSD MobileNet 모델의 처리량 벤치마크를 수행하였고
 ``worker_num >= 4`` 조건에서 모델에 따라 수 퍼센트에서 수십 퍼센트까지 성능이 향상되는 것을 관찰할 수 있었다.
-
 모델 서버와 서빙 프레임워크 개선
 ================================================================
 ``furiosa-server``, ``furioa-serving`` 은 각각 모델의 서빙을 제공하는 웹 서버와
@@ -189,10 +188,10 @@ ONNX 모델을 양자화된 모델(quantized model)로 변환하여 반환한다
 -----------------------------------------------------------------
 * ``furiosa.quantizer.quantize()`` 에서 ``with_quantize``, ``normalized_pixel_outputs`` 가 파라미터에서 제거 된다.
 * 대신 `ModelEditor <https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.quantizer.html#furiosa.quantizer.ModelEditor>`_ 추가되어 모델의 입력/출력 타입에 대한 상세한 최적화 옵션을 설정할 수 있으며 다음 기능을 제공한다.
-  * ``convert_input_type(tensor_name, TensorType)`` 메소드는 텐서 이름을 받아 해당 입력 텐서에 해당되는
-  ``quantize`` 연산자를 제거하고 입력 타입을 ``TensorType`` 으로 변경한다.
-  * ``convert_output_type(tensor_name, TensorType, tensor_range)`` 메소드는 텐서 이름을 받아 해당 출력 텐서에 해당되는
-  ``dequantize`` 연산자를 제거하고 입력 타입을 ``TensorType`` 으로 변경하고 주어진 ``tensor_range`` 범위에 맞게 스케일하도록 모델을 수정한다.
+
+  * ``convert_input_type(tensor_name, TensorType)`` 메소드는 텐서 이름을 받아 해당 입력 텐서에 해당되는 ``quantize`` 연산자를 제거하고 입력 타입을 ``TensorType`` 으로 변경한다.
+  * ``convert_output_type(tensor_name, TensorType, tensor_range)`` 메소드는 텐서 이름을 받아 해당 출력 텐서에 해당되는 ``dequantize`` 연산자를 제거하고 입력 타입을 ``TensorType`` 으로 변경하고 주어진 ``tensor_range`` 범위에 맞게 스케일하도록 모델을 수정한다.
+
 * ``convert_{output,input}_type`` 함수는 텐서 이름을 사용하기 때문에 ``furiosa.quantizer`` 모듈 아래 ``get_pure_input_names(ModelProto)`` ``get_output_names(ModelProto)`` 같은 헬퍼 함수를 사용하여 텐서 이름을 얻어야 한다.
 
 .. note::
