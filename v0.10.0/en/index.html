@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FuriosaAI NPU &amp; SDK 0.10.0 Documents &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+  <title>FuriosaAI NPU &amp; SDK 0.11.0.dev0 Documents &mdash; Furiosa SDK Documentation 0.11.0.dev0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
@@ -36,7 +36,7 @@
             Furiosa SDK Documentation
           </a>
               <div class="version">
-                0.10.0
+                0.11.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -59,15 +59,18 @@
 <li class="toctree-l1"><a class="reference internal" href="software/cli.html">Command Line Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software/compiler.html">Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/performance.html">Performance Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software/profiler.html">Performance Profiling</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software/serving.html">Model Server (Serving Framework)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/vm_support.html">Configuring Warboy Pass-through for Virtual Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software/tutorials.html">Tutorial and Code Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software/references.html">References</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="releases/0.10.0.html">Release Notes - 0.10.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releases/0.9.0.html">Release Notes - 0.9.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releases/0.8.0.html">Release Notes - 0.8.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releases/0.7.0.html">Release Notes - 0.7.0</a></li>
@@ -81,6 +84,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.9.0/en/">v0.9.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
@@ -101,7 +105,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">FuriosaAI NPU &amp; SDK 0.10.0 Documents</li>
+      <li class="breadcrumb-item active">FuriosaAI NPU &amp; SDK 0.11.0.dev0 Documents</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -112,7 +116,7 @@
            <div itemprop="articleBody">
              
   <section id="furiosaai-npu-sdk-release-documents">
-<h1>FuriosaAI NPU &amp; SDK 0.10.0 Documents<a class="headerlink" href="#furiosaai-npu-sdk-release-documents" title="Permalink to this heading"></a></h1>
+<h1>FuriosaAI NPU &amp; SDK 0.11.0.dev0 Documents<a class="headerlink" href="#furiosaai-npu-sdk-release-documents" title="Permalink to this heading"></a></h1>
 <p>This document explains FuriosaAI NPU and its SDKs.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -139,6 +143,7 @@ Please contact <a class="reference external" href="mailto:contact&#37;&#52;&#48;
 <li><p><a class="reference internal" href="software/quantization.html"><span class="doc">Model Quantization</span></a></p></li>
 <li><p><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></p></li>
 <li><p><a class="reference internal" href="software/kubernetes_support.html"><span class="doc">Kubernetes Support</span></a></p></li>
+<li><p><a class="reference internal" href="software/vm_support.html"><span class="doc">Configuring Warboy Pass-through for Virtual Machine</span></a></p></li>
 </ul>
 <section id="furiosaai-sdk-tutorial-and-examples">
 <h3>FuriosaAI SDK Tutorial and Examples<a class="headerlink" href="#furiosaai-sdk-tutorial-and-examples" title="Permalink to this heading"></a></h3>
@@ -163,8 +168,8 @@ Please contact <a class="reference external" href="mailto:contact&#37;&#52;&#48;
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/api/c/index.html">C SDK Reference</a></p></li>
-<li><p><a class="reference internal" href="api/python/modules.html"><span class="doc">Python API Reference</span></a></p></li>
+<li><p><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.9.0/en/api/c/index.html">C Language SDK Reference</a></p></li>
+<li><p><a class="reference internal" href="api/python/modules.html"><span class="doc">Python SDK Reference</span></a></p></li>
 </ul>
 </section>
 <section id="other-links">

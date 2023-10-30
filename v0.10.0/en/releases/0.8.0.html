@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes - 0.8.0 &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+  <title>Release Notes - 0.8.0 &mdash; Furiosa SDK Documentation 0.11.0.dev0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -38,7 +38,7 @@
             Furiosa SDK Documentation
           </a>
               <div class="version">
-                0.10.0
+                0.11.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -61,15 +61,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../software/cli.html">Command Line Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/compiler.html">Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/performance.html">Performance Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/profiler.html">Performance Profiling</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/serving.html">Model Server (Serving Framework)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/vm_support.html">Configuring Warboy Pass-through for Virtual Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/tutorials.html">Tutorial and Code Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/references.html">References</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="0.10.0.html">Release Notes - 0.10.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="0.9.0.html">Release Notes - 0.9.0</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes - 0.8.0</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installing-the-latest-sdk">Installing the latest SDK</a></li>
@@ -94,6 +97,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.9.0/en/">v0.9.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
@@ -188,14 +192,14 @@ apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w">
 </pre></div>
 </div>
 </div></blockquote>
-<p>You can upgrade firmware as following:</p>
+<p>You can upgrade firmware as follows:</p>
 <blockquote>
 <div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>furiosa-firmware-tools<span class="w"> </span>furiosa-firmware-image
 </pre></div>
 </div>
 </div></blockquote>
-<p>You can upgrade Python package as following:</p>
+<p>You can upgrade Python package as follows:</p>
 <blockquote>
 <div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>furiosa-sdk
 </pre></div>

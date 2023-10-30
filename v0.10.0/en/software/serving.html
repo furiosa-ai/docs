@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Model Server (Serving Framework) &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+  <title>Model Server (Serving Framework) &mdash; Furiosa SDK Documentation 0.11.0.dev0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -38,7 +38,7 @@
             Furiosa SDK Documentation
           </a>
               <div class="version">
-                0.10.0
+                0.11.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -61,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance Profiling</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Model Server (Serving Framework)</a><ul>
@@ -71,11 +72,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_support.html">Configuring Warboy Pass-through for Virtual Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial and Code Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.10.0.html">Release Notes - 0.10.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
@@ -89,6 +92,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.9.0/en/">v0.9.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
@@ -156,7 +160,7 @@ $<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </sp
 <h2>Running a Model Server<a class="headerlink" href="#running-a-model-server" title="Permalink to this heading"></a></h2>
 <p>You can run model sever command by running <code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">server</span></code> in your shell.</p>
 <p>To run simply a model server with <code class="docutils literal notranslate"><span class="pre">tflite</span></code> or <code class="docutils literal notranslate"><span class="pre">onnx</span></code>, you need to specify
-just the model path and its name as following:</p>
+just the model path and its name as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>furiosa-sdk
 $<span class="w"> </span>furiosa<span class="w"> </span>server<span class="w"> </span><span class="se">\</span>
 --model-path<span class="w"> </span>examples/assets/quantized_models/MNISTnet_uint8_quant_without_softmax.tflite<span class="w"> </span><span class="se">\</span>
@@ -218,7 +222,7 @@ you can use a configuration file based on Yaml.</p>
 </pre></div>
 </div>
 <p>When you run a model sever with a configuration file,
-you need to specify <code class="docutils literal notranslate"><span class="pre">--model-config</span></code> as following.
+you need to specify <code class="docutils literal notranslate"><span class="pre">--model-config</span></code> as follows.
 You can find the model files described in the above example from
 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/python/furiosa-server/samples">furiosa-models/samples</a>.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>furiosa-sdk/python/furiosa-server

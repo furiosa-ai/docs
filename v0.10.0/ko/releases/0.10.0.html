@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes - 0.10.0 &mdash; FuriosaAI NPU 및 Software 문서  문서</title>
+  <title>Release Notes - 0.10.0 &mdash; FuriosaAI NPU 및 Software 문서 0.11.0.dev0 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -38,7 +38,7 @@
             FuriosaAI NPU 및 Software 문서
           </a>
               <div class="version">
-                0.10.0
+                0.11.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,8 +76,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#id1">설치 또는 업그레이드 방법</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">주요 변경 사항</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#furiosart">차세대 런타임 엔진(FuriosaRT) 도입 및 런타임 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">모델 서버와 서빙 프레임워크 개선</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#quantization-tool">모델 양자화 도구(quantization tool) 개선</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">컴파일러 개선</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">컴파일러 개선</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#profiler">성능 프로파일러(Profiler) 개선</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#furiosa-litmus">furiosa-litmus 개선</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#furiosa-bench">furiosa-bench 명령행 도구 추가</a></li>
@@ -142,8 +143,8 @@ NPU 사용률 등의 여러 지표를 OpenMetrics 형식으로 제공하는 기�
 furiosa-litmus는 리포팅 목적의 정보 수집이 가능하도록 개선 되었으며,
 furiosa-compiler 명령행 도구의 파이썬 의존성 제거, 벤치마크 명령행 도구 추가 등의 기능 개선이 이루어졌다.
 그 외에도 다수의 기능 추가, 버그 수정, 성능 개선 등을 포함한다.</p>
-<table class="docutils align-default" id="id8">
-<caption><span class="caption-text">컴포넌트 버전 정보</span><a class="headerlink" href="#id8" title="이 표에 대한 퍼머링크"></a></caption>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">컴포넌트 버전 정보</span><a class="headerlink" href="#id9" title="이 표에 대한 퍼머링크"></a></caption>
 <colgroup>
 <col style="width: 80%" />
 <col style="width: 20%" />
@@ -234,7 +235,7 @@ FuriosaRT는 추론을 제공하는 핵심 라이브러리로 Python API를 제�
 <h4>새 API 도입<a class="headerlink" href="#api" title="이 제목에 대한 퍼머링크"></a></h4>
 <p>FuriosaRT는 파이썬 <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">asyncio</a> 를
 사용한 비동기(async) API를 새로이 지원한다. 기존의 동기 API는 배치 작업에는 충분하였으나
-개별적 요청에 따라 추론을 해야 서빙 시나리오에서는 부족함이 있었다. 새로운 런타임에서는 비동기 API가
+개별적 요청에 따라 추론을 해야 하기에 서빙 시나리오에서는 부족함이 있었다. 새로운 런타임에서는 비동기 API가
 기본적으로 지원되며, 기존 기능을 유지하면서도 더 간결하게 사용할 수 있도록 많은 부분이 다듬어졌다.
 새 API에 대한 상세한 설명은 <a class="reference external" href="https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.runtime.html">Furiosa SDK API Reference - furiosa.runtime</a>
 에서 찾아 볼 수 있다.</p>
@@ -269,10 +270,12 @@ NPU 종류, 구성, 개수를 표현하는 텍스트 설정을 받아 들인다.
 FuriosaRT에서는 모델에 따라 10 이상에서도 성능이 향상되는 것을 관찰하였다.
 이번 릴리스부터 포함된 <code class="docutils literal notranslate"><span class="pre">furiosa-bench</span></code> 를 이용해
 Resnet50, YOLOv5m, YOLOv5L, SSD ResNet34, SSD MobileNet 모델의 처리량 벤치마크를 수행하였고
-<code class="docutils literal notranslate"><span class="pre">worker_num</span> <span class="pre">&gt;=</span> <span class="pre">4</span></code> 조건에서 모델에 따라 수 퍼센트에서 수십 퍼센트까지 성능이 향상되는 것을 관찰할 수 있었다.
-모델 서버와 서빙 프레임워크 개선
-================================================================
-<code class="docutils literal notranslate"><span class="pre">furiosa-server</span></code>, <code class="docutils literal notranslate"><span class="pre">furioa-serving</span></code> 은 각각 모델의 서빙을 제공하는 웹 서버와
+<code class="docutils literal notranslate"><span class="pre">worker_num</span> <span class="pre">&gt;=</span> <span class="pre">4</span></code> 조건에서 모델에 따라 수 퍼센트에서 수십 퍼센트까지 성능이 향상되는 것을 관찰할 수 있었다.</p>
+</section>
+</section>
+<section id="id3">
+<h3>모델 서버와 서빙 프레임워크 개선<a class="headerlink" href="#id3" title="이 제목에 대한 퍼머링크"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">furiosa-server</span></code>, <code class="docutils literal notranslate"><span class="pre">furioa-serving</span></code> 은 각각 모델의 서빙을 제공하는 웹 서버와
 서빙 애플리케이션을 개발하기 위한 라이브러리이다.</p>
 <p>이번 릴리스에서는 차세대 런타임인 FuriosaRT를 사용하도록 개선되었으며 구체적인 개선 사항은 다음과 같다.</p>
 <ul class="simple">
@@ -282,14 +285,13 @@ Resnet50, YOLOv5m, YOLOv5L, SSD ResNet34, SSD MobileNet 모델의 처리량 벤�
 </ul>
 <p>모델 서버에 대한 자세한 설명은 <a class="reference internal" href="../software/serving.html#modelserving"><span class="std std-ref">모델 서버 (서빙 프레임워크)</span></a> 을 참고한다.</p>
 </section>
-</section>
 <section id="quantization-tool">
 <h3>모델 양자화 도구(quantization tool) 개선<a class="headerlink" href="#quantization-tool" title="이 제목에 대한 퍼머링크"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">furiosa-quantizer</span></code> 는 트레이닝 된 모델을 양자화된 모델로 변환(post-training quantization) 해주는
 라이브러리이다. 이번 0.10.0 릴리스에는 양자화 도구의 사용성을 크게 개선 하였으며 이를 위해
 <code class="docutils literal notranslate"><span class="pre">furiosa.quantizer.quantize()</span></code> 함수의 일부 파라미터가 변경되었다.</p>
-<section id="id4">
-<h4>기존 문제점<a class="headerlink" href="#id4" title="이 제목에 대한 퍼머링크"></a></h4>
+<section id="id5">
+<h4>기존 문제점<a class="headerlink" href="#id5" title="이 제목에 대한 퍼머링크"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">furiosa.quantizer.quantize()</span></code> 함수는 모델 양자화 도구의 핵심 함수로
 ONNX 모델을 양자화된 모델(quantized model)로 변환하여 반환한다.
 입력 타입을 <code class="docutils literal notranslate"><span class="pre">float32</span></code> 대신 <code class="docutils literal notranslate"><span class="pre">uint8</span></code> 로 직접 사용할 수 있도록 하는 <code class="docutils literal notranslate"><span class="pre">with_quantize</span></code>
@@ -307,15 +309,17 @@ ONNX 모델을 양자화된 모델(quantized model)로 변환하여 반환한다
 <li><p><code class="docutils literal notranslate"><span class="pre">with_quantize</span></code>, <code class="docutils literal notranslate"><span class="pre">normalized_pixel_outputs</span></code> 옵션 모두 <code class="docutils literal notranslate"><span class="pre">uint8</span></code> 타입만 지원했으며 <code class="docutils literal notranslate"><span class="pre">int8</span></code> 타입을 지원하지 못했다.</p></li>
 </ul>
 </section>
-<section id="id5">
-<h4>개선 사항<a class="headerlink" href="#id5" title="이 제목에 대한 퍼머링크"></a></h4>
+<section id="id6">
+<h4>개선 사항<a class="headerlink" href="#id6" title="이 제목에 대한 퍼머링크"></a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">furiosa.quantizer.quantize()</span></code> 에서 <code class="docutils literal notranslate"><span class="pre">with_quantize</span></code>, <code class="docutils literal notranslate"><span class="pre">normalized_pixel_outputs</span></code> 가 파라미터에서 제거 된다.</p></li>
-<li><p>대신 <a class="reference external" href="https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.quantizer.html#furiosa.quantizer.ModelEditor">ModelEditor</a> 추가되어 모델의 입력/출력 타입에 대한 상세한 최적화 옵션을 설정할 수 있으며 다음 기능을 제공한다.</p>
-<ul>
+<li><dl class="simple">
+<dt>대신 <a class="reference external" href="https://furiosa-ai.github.io/docs/v0.10.0/en/api/python/furiosa.quantizer.html#furiosa.quantizer.ModelEditor">ModelEditor</a> 추가되어 모델의 입력/출력 타입에 대한 상세한 최적화 옵션을 설정할 수 있으며 다음 기능을 제공한다.</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">convert_input_type(tensor_name,</span> <span class="pre">TensorType)</span></code> 메소드는 텐서 이름을 받아 해당 입력 텐서에 해당되는 <code class="docutils literal notranslate"><span class="pre">quantize</span></code> 연산자를 제거하고 입력 타입을 <code class="docutils literal notranslate"><span class="pre">TensorType</span></code> 으로 변경한다.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">convert_output_type(tensor_name,</span> <span class="pre">TensorType,</span> <span class="pre">tensor_range)</span></code> 메소드는 텐서 이름을 받아 해당 출력 텐서에 해당되는 <code class="docutils literal notranslate"><span class="pre">dequantize</span></code> 연산자를 제거하고 입력 타입을 <code class="docutils literal notranslate"><span class="pre">TensorType</span></code> 으로 변경하고 주어진 <code class="docutils literal notranslate"><span class="pre">tensor_range</span></code> 범위에 맞게 스케일하도록 모델을 수정한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convert_output_type(tensor_name,</span> <span class="pre">TensorType,</span> <span class="pre">tensor_range)</span></code> 메소드는 텐서 이름을 받아 해당 출력 텐서에 해당되는 <code class="docutils literal notranslate"><span class="pre">dequantize</span></code> 연산자를 제거하고 출력 타입을 <code class="docutils literal notranslate"><span class="pre">TensorType</span></code> 으로 변경하고 주어진 <code class="docutils literal notranslate"><span class="pre">tensor_range</span></code> 범위에 맞게 스케일하도록 모델을 수정한다.</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">convert_{output,input}_type</span></code> 함수는 텐서 이름을 사용하기 때문에 <code class="docutils literal notranslate"><span class="pre">furiosa.quantizer</span></code> 모듈 아래 <code class="docutils literal notranslate"><span class="pre">get_pure_input_names(ModelProto)</span></code> <code class="docutils literal notranslate"><span class="pre">get_output_names(ModelProto)</span></code> 같은 헬퍼 함수를 사용하여 텐서 이름을 얻어야 한다.</p></li>
 </ul>
@@ -328,8 +332,8 @@ ONNX 모델을 양자화된 모델(quantized model)로 변환하여 반환한다
 API 레퍼런스를 참고할 수 있으며 실제 적용 예는 <a class="reference internal" href="../software/tutorials.html#tutorial"><span class="std std-ref">튜토리얼 및 코드 예제</span></a> 의 예제 코드에서 찾아볼 수 있다.</p>
 </section>
 </section>
-<section id="id7">
-<h3>컴파일러 개선<a class="headerlink" href="#id7" title="이 제목에 대한 퍼머링크"></a></h3>
+<section id="id8">
+<h3>컴파일러 개선<a class="headerlink" href="#id8" title="이 제목에 대한 퍼머링크"></a></h3>
 <p>0.10.0의 컴파일러는 <cite>Dequantize</cite> 연산자의 NPU 가속을 지원한다. 따라서 <cite>Dequantize</cite> 연산을 잘 활용할 수 있는
 모델은 성능이 개선될 수 있다. <cite>Dequantize</cite> 연산자 가속과 관련된 다른 최적화 관련 옵션은 최적화 가이드에서 찾아볼 수 있다.</p>
 <p>또한, 컴파일러 결과 캐시 기능이 충분히 안정화 되었다고 판단되어 결과 캐쉬 유효기간이 기존 2일에서 30일로 변경된다.
@@ -339,7 +343,7 @@ API 레퍼런스를 참고할 수 있으며 실제 적용 예는 <a class="refer
 <li><p><code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> 대신 <code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> 명령을 직접 사용할 수 있다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">furiosa-compiler</span></code> 명령은 네이티브 실행 파일(native executable)이 되어 Python 실행 환경을 요구하지 않는다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">furiosa-compiler</span></code> 명령을 통해 컴파일러를 설치할 수 있다.</p></li>
-<li><p>Python 의존성을 가지는 기존 <code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> 명령는 현재는 호환성을 위해 유지되며 향후 릴리스에서 제거 될 수 있다.</p></li>
+<li><p>Python 의존성을 가지는 기존 <code class="docutils literal notranslate"><span class="pre">furiosa</span> <span class="pre">compile</span></code> 명령은 현재는 호환성을 위해 유지되며 향후 릴리스에서 제거 될 수 있다.</p></li>
 </ul>
 <p>컴파일러 명령행 도구의 자세한 사용법은 <a class="reference internal" href="../software/compiler.html#compilercli"><span class="std std-ref">furiosa-compiler</span></a> 에서 찾아볼 수 있다.</p>
 </section>

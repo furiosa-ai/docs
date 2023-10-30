@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>성능 최적화 &mdash; FuriosaAI NPU 및 Software 문서  문서</title>
+  <title>성능 최적화 &mdash; FuriosaAI NPU 및 Software 문서 0.11.0.dev0 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -38,7 +38,7 @@
             FuriosaAI NPU 및 Software 문서
           </a>
               <div class="version">
-                0.10.0
+                0.11.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -297,7 +297,7 @@ uint8 타입의 값을 모델의 입력에서 바로 사용할 때의 값이 서
 <span class="n">editor</span> <span class="o">=</span> <span class="n">ModelEditor</span><span class="p">(</span><span class="n">onnx_model</span><span class="p">)</span>
 <span class="n">input_tensor_name</span> <span class="o">=</span> <span class="n">get_pure_input_names</span><span class="p">(</span><span class="n">onnx_model</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="c1"># input 텐서의 자료형을 uint8로 변환</span>
+<span class="c1"># Convert the input type to uint8</span>
 <span class="n">editor</span><span class="o">.</span><span class="n">convert_input_type</span><span class="p">(</span><span class="n">input_tensor_name</span><span class="p">,</span> <span class="n">TensorType</span><span class="o">.</span><span class="n">UINT8</span><span class="p">)</span>
 
 <span class="n">graph</span> <span class="o">=</span> <span class="n">quantize</span><span class="p">(</span><span class="n">onnx_model</span><span class="p">,</span> <span class="n">ranges</span><span class="p">)</span>
@@ -569,6 +569,7 @@ CPU 연산과 I/O 등을 감추고 NPU 연산이 전체 성능을 좌우할 수 
 <figure class="align-center">
 <img alt="Single Worker" class="with-shadow" src="../_images/worker_single.png" />
 </figure>
+<p></p>
 <p>만약 worker가 둘 이상이면, 여러 요청들을 각각의 worker가 나눠받고 동시에 작업을 수행할 수 있다.
 각 worker는 각자 CPU 연산을 수행하고 NPU 연산이 필요할 때 NPU의 작업 대기열에 연산 요청을 추가한다.
 NPU는 대기열에 들어온 요청을 순차적으로 처리하는데, 대기열이 비어있을 때까지 NPU는 계속 작업을 수행한다.
@@ -576,6 +577,7 @@ NPU는 대기열에 들어온 요청을 순차적으로 처리하는데, 대기�
 <figure class="align-center">
 <img alt="Multiple Workers" class="with-shadow" src="../_images/worker_multiple.png" />
 </figure>
+<p></p>
 <p>worker의 수는 단순히 많을수록 좋은 것은 아니다. worker는 동시 실행을 위한 컨텍스트 정보를 유지하기 위해 더 많은 메모리 자원을 필요로 한다.
 또한 NPU에서 연산하는 시간이 CPU에서 연산하는 시간보다 더 큰 경우,
 적은 수의 worker로도 충분히 NPU 사용률을 최대한으로 끌어올릴 수 있다.

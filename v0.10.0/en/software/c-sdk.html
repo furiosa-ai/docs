@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C SDK installation and user guide &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+  <title>C SDK installation and user guide &mdash; Furiosa SDK Documentation 0.11.0.dev0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -38,7 +38,7 @@
             Furiosa SDK Documentation
           </a>
               <div class="version">
-                0.10.0
+                0.11.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -65,15 +65,18 @@
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance Profiling</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">Model Server (Serving Framework)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_support.html">Configuring Warboy Pass-through for Virtual Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial and Code Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.10.0.html">Release Notes - 0.10.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
@@ -87,6 +90,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.9.0/en/">v0.9.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
@@ -152,7 +156,7 @@ the <a class="reference internal" href="installation.html#requiredpackages"><spa
 <p>C header files and static libraries are located in the <code class="docutils literal notranslate"><span class="pre">/usr/include/furiosa</span></code>
 and <code class="docutils literal notranslate"><span class="pre">/usr/lib/x86_64-linux-gnu</span></code> directories respectively.
 They are the system paths that gcc looks to find C headers and libraries by default,
-so you can simply compile C applications with only <code class="docutils literal notranslate"><span class="pre">-lnux</span></code> option as the following:</p>
+so you can simply compile C applications with only <code class="docutils literal notranslate"><span class="pre">-lnux</span></code> option as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>example.c<span class="w"> </span>-lnux
 </pre></div>
 </div>

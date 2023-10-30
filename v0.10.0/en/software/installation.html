@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Driver, Firmware, and Runtime Installation &mdash; Furiosa SDK Documentation 0.10.0 documentation</title>
+  <title>Driver, Firmware, and Runtime Installation &mdash; Furiosa SDK Documentation 0.11.0.dev0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -38,7 +38,7 @@
             Furiosa SDK Documentation
           </a>
               <div class="version">
-                0.10.0
+                0.11.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -72,15 +72,18 @@
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Compiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">Model Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="profiler.html">Performance Profiling</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/">FuriosaAI Model Zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serving.html">Model Server (Serving Framework)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes_support.html">Kubernetes Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_support.html">Configuring Warboy Pass-through for Virtual Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorial and Code Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/0.10.0.html">Release Notes - 0.10.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.9.0.html">Release Notes - 0.9.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.8.0.html">Release Notes - 0.8.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases/0.7.0.html">Release Notes - 0.7.0</a></li>
@@ -94,6 +97,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Previous Documents</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.9.0/en/">v0.9.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.8.0/en/">v0.8.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.6.0/en/">v0.6.0</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://furiosa-ai.github.io/docs/v0.5.0/en/">v0.5.0</a></li>
@@ -207,12 +211,12 @@ you will be able to install the required packages - NPU kernel driver, firmware,
 <span id="addusertofuriosagroup"></span><h3>Adding a user to the <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> Group<a class="headerlink" href="#adding-a-user-to-the-furiosa-group" title="Permalink to this heading"></a></h3>
 <p>Linux is a multi-user operating system that enables file and device access for both the owner and users within a specific group.
 The NPU device driver creates a group called <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> and restricts access to NPU devices exclusively to users who are members of the <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> group.
-To add a user to a member of <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> group, please run as following:</p>
+To add a user to a member of <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> group, please run as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>furiosa<span class="w"> </span>&lt;username&gt;
 </pre></div>
 </div>
 <p>Replace &lt;username&gt; with the name of the user you want to add to the <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> group.
-For example, in order to add the current user (i.e., <code class="docutils literal notranslate"><span class="pre">$USER</span></code>) to the <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> group, you can run as the following:</p>
+For example, in order to add the current user (i.e., <code class="docutils literal notranslate"><span class="pre">$USER</span></code>) to the <code class="docutils literal notranslate"><span class="pre">furiosa</span></code> group, you can run as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>furiosa<span class="w"> </span><span class="nv">$USER</span>
 </pre></div>
 </div>
