@@ -1148,9 +1148,10 @@ so submitting inputs too quickly or failing to receive outputs in time will bloc
 <p>It is also possible to call this function directly as an asynchronous context manager:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">with</span> <span class="n">runtime</span><span class="o">.</span><span class="n">create_queue</span><span class="p">(</span><span class="s2">&quot;path/to/model.onnx&quot;</span><span class="p">,</span>
                                 <span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">submitter</span><span class="p">,</span> <span class="n">receiver</span><span class="p">):</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TaskGroup</span><span class="p">()</span> <span class="k">as</span> <span class="n">tg</span><span class="p">:</span>
-        <span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">submit_task</span><span class="p">(</span><span class="n">submitter</span><span class="p">))</span>
-        <span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">recv_task</span><span class="p">(</span><span class="n">receiver</span><span class="p">))</span>
+    <span class="n">submit_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">submit_with</span><span class="p">(</span><span class="n">submitter</span><span class="p">))</span>
+    <span class="n">recv_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">recv_with</span><span class="p">(</span><span class="n">receiver</span><span class="p">))</span>
+    <span class="k">await</span> <span class="n">submit_task</span>
+    <span class="k">await</span> <span class="n">recv_task</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1311,10 +1312,13 @@ the <a class="reference internal" href="#term-Output-queue"><span class="xref st
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method does not support <code class="docutils literal notranslate"><span class="pre">timeout</span></code> unlike others,
-because <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.timeout" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asyncio.timeout</span></code></a> provides an idiomatic way to do that:</p>
+because <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.wait_for" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asyncio.wait_for</span></code></a> provides an idiomatic way to do that:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">recv</span><span class="p">():</span>
         <span class="n">context</span><span class="p">,</span> <span class="n">outputs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receiver</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+
+    <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">recv</span><span class="p">())</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">:</span>  <span class="c1"># Not the built-in `TimeoutError`!</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Timed out!&#39;</span><span class="p">)</span>
 </pre></div>
