@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>드라이버, 펌웨어, 런타임 설치 가이드 &mdash; FuriosaAI NPU 및 Software 문서 0.10.0 문서</title>
+  <title>드라이버, 펌웨어, 런타임 설치 가이드 &mdash; FuriosaAI NPU 및 Software 문서 0.10.1 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -39,7 +39,7 @@
             FuriosaAI NPU 및 Software 문서
           </a>
               <div class="version">
-                0.10.0
+                0.10.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -137,12 +137,12 @@
 <p>이 장에서는 FuriosaAI가 제공하는 다양한 소프트웨어 컴포넌트를
 사용하기 위해 반드시 설치해야 하는 패키지들의 설치 방법을 설명한다.
 이 필수 패키지들은 커널 드라이버, 펌웨어, 런타임 라이브러리이며
-다운로드 센터에서 로그인하여 직접 다운 받거나 개발자 사이트에서
-발급한 APT 서버와 PyPI 서버를 통해 다운로드 받을 수 있다.</p>
+APT 패키지 관리자를 통해 쉽게 설치할 수 있다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>다운로드 센터나 개발자 사이트는 FuriosaAI의 평가 프로그램을 등록하면 제공되며
-현재는 <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a> 로 문의하여 평가 프로그램을 요청할 수 있다.</p>
+<p>FuriosaAI 평가 프로그램을 등록하고 나면 <a class="reference external" href="https://iam.furiosa.ai">FuriosaAI IAM</a> 에
+로그인하여 API 키를 발급받고 APT 서버를 이용할 수 있다.
+FuriosaAI 평가 프로그램을 등록은 <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a> 로 요청할 수 있다.</p>
 </div>
 <section id="sdk">
 <span id="minimumrequirements"></span><h2>SDK 설치를 위한 최소 요구사항<a class="headerlink" href="#sdk" title="이 제목에 대한 퍼머링크"></a></h2>
@@ -156,19 +156,21 @@
 <section id="apt">
 <span id="setupaptrepository"></span><h2>APT 서버 설정<a class="headerlink" href="#apt" title="이 제목에 대한 퍼머링크"></a></h2>
 <p>FuriosaAI에서 제공하는 APT 서버를 사용하려면 아래 설명에 따라 APT 서버를
-Ubuntu 또는 Debian 리눅스에 설정한다. APT를 사용하지 않고 다운로드 센터를 사용한다면
-이 섹션을 건너뛰어도 좋다.</p>
+Ubuntu 또는 Debian 리눅스에 설정한다.</p>
 <ol class="arabic simple">
 <li><p>HTTPS 기반의 APT 서버 접근을 위해 필요 패키지를 설치 한다.</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ca-certificates<span class="w"> </span>apt-transport-https<span class="w"> </span>gnupg
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ca-certificates<span class="w"> </span>apt-transport-https<span class="w"> </span>gnupg<span class="w"> </span>wget
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>FuriosaAI의 공개 Signing 키를 등록 한다.</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-key<span class="w"> </span>adv<span class="w"> </span>--keyserver<span class="w"> </span>keyserver.ubuntu.com<span class="w"> </span>--recv-key<span class="w"> </span>5F03AFA423A751913F249259814F888B20B09A7E
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/apt/keyrings<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+wget<span class="w"> </span>-q<span class="w"> </span>-O-<span class="w"> </span>https://archive.furiosa.ai/furiosa-apt-key.gpg<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/keyrings/furiosa-apt-key.gpg<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -176,8 +178,8 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/auth.conf.d/furiosa.conf<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
 <span class="s">  machine archive.furiosa.ai</span>
-<span class="s">  login [ACCESS KEY]</span>
-<span class="s">  password [SECRET ACCESS KEY]</span>
+<span class="s">  login [KEY (ID)]</span>
+<span class="s">  password [PASSWORD]</span>
 <span class="s">EOT</span>
 
 sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>/etc/apt/auth.conf.d/furiosa.conf
@@ -189,13 +191,13 @@ sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</sp
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ubuntu 20.04 (Debian Bullseye)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu 22.04 (Debian Bookworm)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>아래 커맨드를 통해 APT 서버를 등록합니다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/furiosa.list<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
-<span class="s">deb [arch=amd64] https://archive.furiosa.ai/ubuntu focal restricted</span>
+<span class="s">deb [arch=amd64 signed-by=/etc/apt/keyrings/furiosa-apt-key.gpg] https://archive.furiosa.ai/ubuntu focal restricted</span>
 <span class="s">EOT</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>아래 커맨드를 통해 APT 서버를 등록합니다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/furiosa.list<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
-<span class="s">deb [arch=amd64] https://archive.furiosa.ai/ubuntu jammy restricted</span>
+<span class="s">deb [arch=amd64 signed-by=/etc/apt/keyrings/furiosa-apt-key.gpg] https://archive.furiosa.ai/ubuntu jammy restricted</span>
 <span class="s">EOT</span>
 </pre></div>
 </div>
