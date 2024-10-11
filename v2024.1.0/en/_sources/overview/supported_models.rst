@@ -44,12 +44,3 @@ Encoder-only Models
      - ``google-bert/bert-large-uncased``, ``google-bert/bert-base-uncased``, ..
 
 
-Model Support Roadmap
-====================================
-
-FuriosaAI is actively expanding the support for various models.
-The following is the roadmap for the model support:
-
-* 2024.2 (beta 0)
-    *
-
