@@ -40,3 +40,4 @@ Future Releases
 * (Furiosa LLM) Tensor Parallelism support Phase 2: Inter-chip
 * ``torch.compile()`` backend
 * Huggingface Optimum integration
+

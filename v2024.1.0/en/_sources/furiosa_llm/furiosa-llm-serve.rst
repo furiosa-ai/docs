@@ -4,68 +4,62 @@
 OpenAI Compatible Server
 ****************************************************
 
-The ``furiosa-llm`` package includes an OpenAI-compatible server
-that can interact with OpenAI clients (and, of course, HTTP clients as well),
-supporting the ``/v1/chat/completions`` and ``/v1/completions`` APIs.
-In this section, we will explain how to launch the OpenAI-compatible `furiosa-llm` server.
+In addition to Python API, ``furiosa-llm`` also offers an OpenAI-compatible server
+which hosts a single model and provides two OpenAP-compatible APIs:
+`Completions API <https://platform.openai.com/docs/api-reference/completions>`_ and
+`Chat API <https://platform.openai.com/docs/api-reference/chat>`_.
 
-.. tip::
+You can simply launch the server using the ``furiosa-llm serve`` command with an artifact path
+as the following.
 
-    You can learn more about the OpenAI API at `Completions API <https://platform.openai.com/docs/api-reference/completions>`_
-    and `Chat API <https://platform.openai.com/docs/api-reference/chat>`_.
+.. code-block::
 
-To launch the server, you must prepare: (1) the FuriosaAI LLM Engine artifact and
-(2) a chat template for the model. To download the FuriosaAI LLM Engine artifact,
-follow the instructions provided through our distribution channels or contact our sales team.
-To prepare the chat template, follow the instructions in the following section.
+    furiosa-llm serve --model [ARTIFACT_PATH]
+
+The following sections describe how to launch and configure the server
+and interact with the server using OpenAI API clients.
 
 .. warning::
 
    This document is based on Furiosa SDK 2024.1.0 (alpha) version,
    and the features and APIs described in this document may change in the future.
 
+Prerequisites
+==================================================
+To use the OpenAI-Compatible server, you need the following prerequisites:
 
-Preparing Chat Templates
+* :ref:`AptSetup` and :ref:`InstallingPrerequisites`
+* :ref:`Furiosa LLM Installation <InstallingFuriosaLLM>`
+* :ref:`HuggingFace Access Token <AuthorizingHuggingFaceHub>`
+* LLM Engine Artifact
+* Chat template for chat application (Optional)
+
+
+Chat Templates
 ================================================
+To use the language models for chat application, we need a structured string instead of a single string.
+It's necessary because the model should be able to understand the context of the conversation,
+including the role of the speaker (e.g., "user" and "assistant") and the content of the message.
+Similar to tokenization, different models require very different input formats for chat.
+That's why we need a chat template.
 
-Furiosa SDK 2024.1.0 (alpha) uses Transformers v4.31.0, which does not support a chat template.
-Therefore, to support ``/v1/chat/completions``,
-you need to specify your own chat template based on jinja2 template format.
+Furiosa LLM supports chat templates based on Jina2 template engine in the same way as HuggingFace Transformers.
+`Chat Templates <https://huggingface.co/docs/transformers/en/chat_templating>`_ offers
+a comprehensive guide on what chat templates are and how to write your chat templates.
+You can also find one good example of chat template at `Llama 3.1 Model Card <https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_1/>`_.
 
-The chat template is a text file that contains the template for the chat prompt.
-`Llama-3.1-Instruct.tpl <https://gist.githubusercontent.com/hyunsik/16f1906af7ac2b4db41af9957a66e168/raw/62935b0c24c03669208cf90f3f87b1694521053d/Llama-3.1-Instruct.tpl>`_
-is an chat template example for Llama 3.1 Instruct model.
-
-.. note::
-
-    In 2024.2 release, Furiosa LLM will support the chat template and ``chat()`` API
-    to support the chat models seamlessly.
-
-
-Launching the Server
-================================================
-You can launch the server using the ``furiosa-llm serve`` command
-with an artifact path. The following is the command to launch the server:
+The following command launches the server with the chat template:
 
 .. code-block::
 
-    furiosa-llm serve \
-    --model {artifact path}
-
-Also, you can specify the chat template path as follows:
-
-.. code-block::
-
-    furiosa-llm serve \
-    --model {artifact path}
-    --chat-template {chat template path}
+    furiosa-llm serve --model [ARTIFACT_PATH] --chat-template [CHAT_TEMPLATE_PATH]
 
 
+Arguments of ``furiosa-llm serve`` command
+================================================
 By default, the server binds to ``localhost:8000``, and
 you can change the host and port using the ``--host`` and ``--port`` options.
-
 The following is the list of options and arguments for the serve command:
-
 
 .. code-block::
 
@@ -74,8 +68,8 @@ The following is the list of options and arguments for the serve command:
     options:
     -h, --help            show this help message and exit
     --model MODEL         The Hugging Face model id, or path to Furiosa model artifact. Currently only one model is supported per server.
-    --host HOST           Host to bind the server to
-    --port PORT           Port to bind the server to
+    --host HOST           Host to bind the server to (default: '0.0.0.0')
+    --port PORT           Port to bind the server to (default: 8000)
     --chat-template CHAT_TEMPLATE
                             Path to chat template file (must be a jinja2 template)
     --response-role RESPONSE_ROLE
@@ -91,10 +85,8 @@ The following is the list of options and arguments for the serve command:
 
 Using OpenAI API with Furiosa LLM
 =====================================================
-Once the server is launched, you can interact with the server using HTTP clients and
-OpenAI API clients.
-
-You can simply test the server using the following curl command:
+Once the server is launched, you can interact with the server using HTTP clients
+as the following ``CURL`` command example.
 
 .. code-block:: sh
 
@@ -106,17 +98,17 @@ You can simply test the server using the following curl command:
         }' | python -m json.tool
 
 
-You can also openai client to interact with the server.
-To use openai client, you need to install the openai package.
+You can use OpenAI client to interact with the server.
+To use OpenAI client, you need to install the ``openai`` package first.
 
 .. code-block:: sh
 
     pip install openai
 
 
-OpenAI provides two APIs: ``client.chat.completions`` and ``client.completions``.
-If you want to receive a streaming response, you can use the ``client.chat.completions``
-API with ``stream=True``. The example is as following:
+OpenAI client provides two APIs: ``client.chat.completions`` and ``client.completions``.
+You can use the ``client.chat.completions``
+API with ``stream=True`` for streaming responses, as following:
 
 .. code-block::
 

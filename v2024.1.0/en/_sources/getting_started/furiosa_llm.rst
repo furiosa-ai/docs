@@ -14,6 +14,8 @@ This document explains how to install and use Furiosa LLM.
    and the features and APIs described in this document may change in the future.
 
 
+.. _InstallingFuriosaLLM:
+
 Installing Furiosa LLM
 =========================================
 
@@ -35,6 +37,7 @@ You need to install ``furiosa-compiler`` and the Furiosa LLM with the following 
   pip install furiosa-llm
 
 
+.. _AuthorizingHuggingFaceHub:
 Authorizing HuggingFace Hub (Optional)
 -----------------------------------------
 Some models, such as meta-llama/Meta-Llama-3.1-8B require you to accept their license,

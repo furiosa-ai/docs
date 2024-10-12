@@ -354,8 +354,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-chat-templates">Preparing Chat Templates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-server">Launching the Server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chat-templates">Chat Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments-of-furiosa-llm-serve-command">Arguments of <code class="docutils literal notranslate"><span class="pre">furiosa-llm</span> <span class="pre">serve</span></code> command</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-openai-api-with-furiosa-llm">Using OpenAI API with Furiosa LLM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-compatibility-with-openai-api">The compatibility with OpenAI API</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-openai-compatible-server-container">Launching the OpenAI-Compatible Server Container</a></li>
@@ -372,62 +373,61 @@ document.write(`
                   
   <section id="openai-compatible-server">
 <span id="openaiserver"></span><h1>OpenAI Compatible Server<a class="headerlink" href="#openai-compatible-server" title="Link to this heading">#</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">furiosa-llm</span></code> package includes an OpenAI-compatible server
-that can interact with OpenAI clients (and, of course, HTTP clients as well),
-supporting the <code class="docutils literal notranslate"><span class="pre">/v1/chat/completions</span></code> and <code class="docutils literal notranslate"><span class="pre">/v1/completions</span></code> APIs.
-In this section, we will explain how to launch the OpenAI-compatible <cite>furiosa-llm</cite> server.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can learn more about the OpenAI API at <a class="reference external" href="https://platform.openai.com/docs/api-reference/completions">Completions API</a>
-and <a class="reference external" href="https://platform.openai.com/docs/api-reference/chat">Chat API</a>.</p>
+<p>In addition to Python API, <code class="docutils literal notranslate"><span class="pre">furiosa-llm</span></code> also offers an OpenAI-compatible server
+which hosts a single model and provides two OpenAP-compatible APIs:
+<a class="reference external" href="https://platform.openai.com/docs/api-reference/completions">Completions API</a> and
+<a class="reference external" href="https://platform.openai.com/docs/api-reference/chat">Chat API</a>.</p>
+<p>You can simply launch the server using the <code class="docutils literal notranslate"><span class="pre">furiosa-llm</span> <span class="pre">serve</span></code> command with an artifact path
+as the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">llm</span> <span class="n">serve</span> <span class="o">--</span><span class="n">model</span> <span class="p">[</span><span class="n">ARTIFACT_PATH</span><span class="p">]</span>
+</pre></div>
 </div>
-<p>To launch the server, you must prepare: (1) the FuriosaAI LLM Engine artifact and
-(2) a chat template for the model. To download the FuriosaAI LLM Engine artifact,
-follow the instructions provided through our distribution channels or contact our sales team.
-To prepare the chat template, follow the instructions in the following section.</p>
+<p>The following sections describe how to launch and configure the server
+and interact with the server using OpenAI API clients.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This document is based on Furiosa SDK 2024.1.0 (alpha) version,
 and the features and APIs described in this document may change in the future.</p>
 </div>
-<section id="preparing-chat-templates">
-<h2>Preparing Chat Templates<a class="headerlink" href="#preparing-chat-templates" title="Link to this heading">#</a></h2>
-<p>Furiosa SDK 2024.1.0 (alpha) uses Transformers v4.31.0, which does not support a chat template.
-Therefore, to support <code class="docutils literal notranslate"><span class="pre">/v1/chat/completions</span></code>,
-you need to specify your own chat template based on jinja2 template format.</p>
-<p>The chat template is a text file that contains the template for the chat prompt.
-<a class="reference external" href="https://gist.githubusercontent.com/hyunsik/16f1906af7ac2b4db41af9957a66e168/raw/62935b0c24c03669208cf90f3f87b1694521053d/Llama-3.1-Instruct.tpl">Llama-3.1-Instruct.tpl</a>
-is an chat template example for Llama 3.1 Instruct model.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In 2024.2 release, Furiosa LLM will support the chat template and <code class="docutils literal notranslate"><span class="pre">chat()</span></code> API
-to support the chat models seamlessly.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<p>To use the OpenAI-Compatible server, you need the following prerequisites:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../getting_started/prerequisites.html#aptsetup"><span class="std std-ref">Setting up APT server</span></a> and <a class="reference internal" href="../getting_started/prerequisites.html#installingprerequisites"><span class="std std-ref">Installing Prerequisites</span></a></p></li>
+<li><p><a class="reference internal" href="../getting_started/furiosa_llm.html#installingfuriosallm"><span class="std std-ref">Furiosa LLM Installation</span></a></p></li>
+<li><p><a class="reference internal" href="../getting_started/furiosa_llm.html#authorizinghuggingfacehub"><span class="std std-ref">HuggingFace Access Token</span></a></p></li>
+<li><p>LLM Engine Artifact</p></li>
+<li><p>Chat template for chat application (Optional)</p></li>
+</ul>
+</section>
+<section id="chat-templates">
+<h2>Chat Templates<a class="headerlink" href="#chat-templates" title="Link to this heading">#</a></h2>
+<p>To use the language models for chat application, we need a structured string instead of a single string.
+It’s necessary because the model should be able to understand the context of the conversation,
+including the role of the speaker (e.g., “user” and “assistant”) and the content of the message.
+Similar to tokenization, different models require very different input formats for chat.
+That’s why we need a chat template.</p>
+<p>Furiosa LLM supports chat templates based on Jina2 template engine in the same way as HuggingFace Transformers.
+<a class="reference external" href="https://huggingface.co/docs/transformers/en/chat_templating">Chat Templates</a> offers
+a comprehensive guide on what chat templates are and how to write your chat templates.
+You can also find one good example of chat template at <a class="reference external" href="https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_1/">Llama 3.1 Model Card</a>.</p>
+<p>The following command launches the server with the chat template:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">llm</span> <span class="n">serve</span> <span class="o">--</span><span class="n">model</span> <span class="p">[</span><span class="n">ARTIFACT_PATH</span><span class="p">]</span> <span class="o">--</span><span class="n">chat</span><span class="o">-</span><span class="n">template</span> <span class="p">[</span><span class="n">CHAT_TEMPLATE_PATH</span><span class="p">]</span>
+</pre></div>
 </div>
 </section>
-<section id="launching-the-server">
-<h2>Launching the Server<a class="headerlink" href="#launching-the-server" title="Link to this heading">#</a></h2>
-<p>You can launch the server using the <code class="docutils literal notranslate"><span class="pre">furiosa-llm</span> <span class="pre">serve</span></code> command
-with an artifact path. The following is the command to launch the server:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">llm</span> <span class="n">serve</span> \
-<span class="o">--</span><span class="n">model</span> <span class="p">{</span><span class="n">artifact</span> <span class="n">path</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Also, you can specify the chat template path as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">furiosa</span><span class="o">-</span><span class="n">llm</span> <span class="n">serve</span> \
-<span class="o">--</span><span class="n">model</span> <span class="p">{</span><span class="n">artifact</span> <span class="n">path</span><span class="p">}</span>
-<span class="o">--</span><span class="n">chat</span><span class="o">-</span><span class="n">template</span> <span class="p">{</span><span class="n">chat</span> <span class="n">template</span> <span class="n">path</span><span class="p">}</span>
-</pre></div>
-</div>
+<section id="arguments-of-furiosa-llm-serve-command">
+<h2>Arguments of <code class="docutils literal notranslate"><span class="pre">furiosa-llm</span> <span class="pre">serve</span></code> command<a class="headerlink" href="#arguments-of-furiosa-llm-serve-command" title="Link to this heading">#</a></h2>
 <p>By default, the server binds to <code class="docutils literal notranslate"><span class="pre">localhost:8000</span></code>, and
-you can change the host and port using the <code class="docutils literal notranslate"><span class="pre">--host</span></code> and <code class="docutils literal notranslate"><span class="pre">--port</span></code> options.</p>
-<p>The following is the list of options and arguments for the serve command:</p>
+you can change the host and port using the <code class="docutils literal notranslate"><span class="pre">--host</span></code> and <code class="docutils literal notranslate"><span class="pre">--port</span></code> options.
+The following is the list of options and arguments for the serve command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">furiosa</span><span class="o">-</span><span class="n">llm</span> <span class="n">serve</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="o">--</span><span class="n">model</span> <span class="n">MODEL</span> <span class="p">[</span><span class="o">--</span><span class="n">host</span> <span class="n">HOST</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">port</span> <span class="n">PORT</span><span class="p">]</span> <span class="o">--</span><span class="n">chat</span><span class="o">-</span><span class="n">template</span> <span class="n">CHAT_TEMPLATE</span> <span class="p">[</span><span class="o">--</span><span class="n">response</span><span class="o">-</span><span class="n">role</span> <span class="n">RESPONSE_ROLE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">tp</span> <span class="n">TENSOR_PARALLEL_SIZE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pp</span> <span class="n">PIPELINE_PARALLEL_SIZE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">dp</span> <span class="n">DATA_PARALLEL_SIZE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">devices</span> <span class="n">DEVICES</span><span class="p">]</span>
 
 <span class="n">options</span><span class="p">:</span>
 <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
 <span class="o">--</span><span class="n">model</span> <span class="n">MODEL</span>         <span class="n">The</span> <span class="n">Hugging</span> <span class="n">Face</span> <span class="n">model</span> <span class="nb">id</span><span class="p">,</span> <span class="ow">or</span> <span class="n">path</span> <span class="n">to</span> <span class="n">Furiosa</span> <span class="n">model</span> <span class="n">artifact</span><span class="o">.</span> <span class="n">Currently</span> <span class="n">only</span> <span class="n">one</span> <span class="n">model</span> <span class="ow">is</span> <span class="n">supported</span> <span class="n">per</span> <span class="n">server</span><span class="o">.</span>
-<span class="o">--</span><span class="n">host</span> <span class="n">HOST</span>           <span class="n">Host</span> <span class="n">to</span> <span class="n">bind</span> <span class="n">the</span> <span class="n">server</span> <span class="n">to</span>
-<span class="o">--</span><span class="n">port</span> <span class="n">PORT</span>           <span class="n">Port</span> <span class="n">to</span> <span class="n">bind</span> <span class="n">the</span> <span class="n">server</span> <span class="n">to</span>
+<span class="o">--</span><span class="n">host</span> <span class="n">HOST</span>           <span class="n">Host</span> <span class="n">to</span> <span class="n">bind</span> <span class="n">the</span> <span class="n">server</span> <span class="n">to</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="p">)</span>
+<span class="o">--</span><span class="n">port</span> <span class="n">PORT</span>           <span class="n">Port</span> <span class="n">to</span> <span class="n">bind</span> <span class="n">the</span> <span class="n">server</span> <span class="n">to</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="mi">8000</span><span class="p">)</span>
 <span class="o">--</span><span class="n">chat</span><span class="o">-</span><span class="n">template</span> <span class="n">CHAT_TEMPLATE</span>
                         <span class="n">Path</span> <span class="n">to</span> <span class="n">chat</span> <span class="n">template</span> <span class="n">file</span> <span class="p">(</span><span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="n">jinja2</span> <span class="n">template</span><span class="p">)</span>
 <span class="o">--</span><span class="n">response</span><span class="o">-</span><span class="n">role</span> <span class="n">RESPONSE_ROLE</span>
@@ -444,9 +444,8 @@ you can change the host and port using the <code class="docutils literal notrans
 </section>
 <section id="using-openai-api-with-furiosa-llm">
 <h2>Using OpenAI API with Furiosa LLM<a class="headerlink" href="#using-openai-api-with-furiosa-llm" title="Link to this heading">#</a></h2>
-<p>Once the server is launched, you can interact with the server using HTTP clients and
-OpenAI API clients.</p>
-<p>You can simply test the server using the following curl command:</p>
+<p>Once the server is launched, you can interact with the server using HTTP clients
+as the following <code class="docutils literal notranslate"><span class="pre">CURL</span></code> command example.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>http://localhost:8000/v1/chat/completions<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
@@ -455,14 +454,14 @@ OpenAI API clients.</p>
 <span class="s1">    }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>json.tool
 </pre></div>
 </div>
-<p>You can also openai client to interact with the server.
-To use openai client, you need to install the openai package.</p>
+<p>You can use OpenAI client to interact with the server.
+To use OpenAI client, you need to install the <code class="docutils literal notranslate"><span class="pre">openai</span></code> package first.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>openai
 </pre></div>
 </div>
-<p>OpenAI provides two APIs: <code class="docutils literal notranslate"><span class="pre">client.chat.completions</span></code> and <code class="docutils literal notranslate"><span class="pre">client.completions</span></code>.
-If you want to receive a streaming response, you can use the <code class="docutils literal notranslate"><span class="pre">client.chat.completions</span></code>
-API with <code class="docutils literal notranslate"><span class="pre">stream=True</span></code>. The example is as following:</p>
+<p>OpenAI client provides two APIs: <code class="docutils literal notranslate"><span class="pre">client.chat.completions</span></code> and <code class="docutils literal notranslate"><span class="pre">client.completions</span></code>.
+You can use the <code class="docutils literal notranslate"><span class="pre">client.chat.completions</span></code>
+API with <code class="docutils literal notranslate"><span class="pre">stream=True</span></code> for streaming responses, as following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
 
 <span class="c1"># Replace the following with your base URL</span>
@@ -570,8 +569,9 @@ docker run -it --rm --privileged \
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-chat-templates">Preparing Chat Templates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-server">Launching the Server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chat-templates">Chat Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments-of-furiosa-llm-serve-command">Arguments of <code class="docutils literal notranslate"><span class="pre">furiosa-llm</span> <span class="pre">serve</span></code> command</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-openai-api-with-furiosa-llm">Using OpenAI API with Furiosa LLM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-compatibility-with-openai-api">The compatibility with OpenAI API</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-openai-compatible-server-container">Launching the OpenAI-Compatible Server Container</a></li>

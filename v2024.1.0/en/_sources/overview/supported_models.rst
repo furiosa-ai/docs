@@ -44,3 +44,27 @@ Encoder-only Models
      - ``google-bert/bert-large-uncased``, ``google-bert/bert-base-uncased``, ..
 
 
+Planned Models for Future Releases
+===============================================
+
+* 2024.2 (October 31, 2024)
+    * Language Models
+        * SOLAR-10.7B-v1.0, SOLAR-10.7B-Instruct-v1.0
+        * EXAONE-3.0-7.8B-Instruct
+        * vicuna-7b-v1.5
+        * CodeLlama-7b-Instruct-hf
+        * RoBERTa-base, RoBERTa-large
+    * Vision Models
+        * MobileNetV1, MobileNetV2
+        * YOLOv8m
+* TDB:
+    * Falcon
+    * Mistral-7B-v0.1, Mistral-7B-Instruct-v0.1
+    * Mixtral-8x7B-v0.1, Mixtral-8x7B-Instruct-v0.1
+    * Phi-3, Phi-3.5,
+    * Phi-3.5-MoE
+    * Qwen2
+    * gemma-2
+    * DeepSeek-Coder-V2-Instruct
+    * Stable Diffusion XL
+    * Llama 3.2
