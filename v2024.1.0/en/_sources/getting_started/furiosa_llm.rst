@@ -25,6 +25,7 @@ The minimum requirements for Furiosa LLM are as follows:
 * Administrator privileges on system (root)
 * :ref:`AptSetup` and :ref:`InstallingPrerequisites`
 * Python 3.8, 3.9, or 3.10
+* PyTorch 2.1.0
 * Enough storage space for model weights; e.g., about 100GB for Llama 3.1 70B model
 
 You need to install ``furiosa-compiler`` and the Furiosa LLM with the following command:

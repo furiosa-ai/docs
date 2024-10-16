@@ -12,6 +12,35 @@ from starting with PyTorch model to model quantization, serving, and production 
    This document is based on Furiosa SDK 2024.1.0 (alpha) version,
    and the features and APIs described in this document may change in the future.
 
+.. grid:: 3
+
+    .. grid-item-card:: 📢 Latest Release 2024.1.0
+      :link: /whatsnew/index
+      :link-type: doc
+
+      2024.1.0 is the first SDK release for RNGD.
+      This document provides an overview of the new features and changes in the latest release.
+      +++
+      :ref:`Learn more <Release2024_1_0>`
+
+    .. grid-item-card:: 🚀 Quick Start with Furiosa LLM
+      :link: /getting_started/furiosa_llm
+      :link-type: doc
+
+      Furiosa LLM is a high-performance inference engine for LLM models.
+      This document explains how to install and use Furiosa LLM.
+      +++
+      :ref:`Learn more <GettingStartedFuriosaLLM>`
+
+    .. grid-item-card:: 📊 Running MLPerf Benchmark
+      :link: getting_started/furiosa_mlperf
+      :link-type: doc
+
+      This document describes how to reproduce the MLPerf™ Inference Benchmark
+      using the FuriosaAI Software Stack.
+      +++
+      :ref:`Learn more <GettingStartedFuriosaMLPerf>`
+
 
 Overview
 -------------------------------------------------

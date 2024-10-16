@@ -14,6 +14,7 @@ Requirements
 The minimum requirements are as follows:
 
 * Ubuntu 20.04 LTS (or Debian bullseye) or later
+* Linux Kernel 6.3 or later
 * Administrator privileges on system (root)
 
 
@@ -56,9 +57,9 @@ To use the APT server provided by FuriosaAI, you must configure it on Ubuntu or 
 
 2. Configure the APT server according to the instructions provided for the Linux distribution versions.
 
-  .. code-block:: sh
+.. code-block:: sh
 
-    echo "deb [arch=$(dpkg --print-architecture)] http://asia-northeast3-apt.pkg.dev/projects/furiosa-ai $(. /etc/os-release && echo "$VERSION_CODENAME") main" | sudo tee /etc/apt/sources.list.d/furiosa.list
+  echo "deb [arch=$(dpkg --print-architecture)] http://asia-northeast3-apt.pkg.dev/projects/furiosa-ai $(. /etc/os-release && echo "$VERSION_CODENAME") main" | sudo tee /etc/apt/sources.list.d/furiosa.list
 
 Installing Pre-requisite Packages
 ====================================

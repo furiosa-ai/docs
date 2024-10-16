@@ -35,7 +35,7 @@ The Basic Greedy Search method generates a sequence of tokens, ensuring that at 
 --------
 
 2. Random Sampling with ``top_p`` / ``top_k`` Parameters
-------------------------------------------------------
+-----------------------------------------------------------------------
 
 .. code-block:: python
 

@@ -4,7 +4,7 @@
 Furiosa LLM
 ****************************************************
 
-Furiosa LLM provides a high-performance inference engine for LLM models and Multi-Modal LLM models,
+Furiosa LLM is a high-performance inference engine for LLM models and Multi-Modal LLM models,
 Furiosa LLM is designed to provide the state-of-the-art serving optimization.
 The features of Furiosa LLM includes:
 

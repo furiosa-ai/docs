@@ -7,6 +7,7 @@ What's New
 This page describes the changes and functionality available in
 in the latest releases of Furiosa SDK 2024.1.0.
 
+.. _Release2024_1_0:
 *****************************************************************
 Furiosa SDK 2024.1.0 (2024-10-11)
 *****************************************************************
