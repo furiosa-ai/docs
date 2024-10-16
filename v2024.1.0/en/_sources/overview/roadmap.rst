@@ -29,15 +29,16 @@ Future Releases
 * Model support:
    * Language Models: CodeLLaaMA2, Vicuna, Solar, EXAONE-3.0
    * Vision Models: MobileNetV1, MobileNetV2, ResNet152, ResNet50, EfficientNet, YOLOv8m, ..
-* (Furiosa LLM) Tensor Parallelism support Phase 1: Intra-chip
+* Tensor Parallelism support Phase 1: Intra-chip
 * Torch 2.4.1 support
-* CPU memory swapping in Furiosa LLM
+* CPU memory swapping of KV cache in Furiosa LLM
+* Speculating with a draft model
 
 
 2024.3.0 (beta 1) - December, 2024
 ==========================================
 * Model support: TBD
-* (Furiosa LLM) Tensor Parallelism support Phase 2: Inter-chip
+* Tensor Parallelism support Phase 2: Inter-chip
 * ``torch.compile()`` backend
 * Huggingface Optimum integration
 
