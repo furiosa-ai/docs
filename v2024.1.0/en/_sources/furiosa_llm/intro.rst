@@ -18,3 +18,10 @@ The features of Furiosa LLM includes:
 * Various decoding algorithms, greedy search, beam search, top-k/top-p, speculative decoding (planned)
 * HuggingFace model integration and hub support
 * HuggingFace PEFT support (planned)
+
+
+Documentation
+--------------------------------------------
+* :ref:`GettingStartedFuriosaLLM`
+* :ref:`OpenAIServer`
+* :ref:`FuriosaLLMReference`
