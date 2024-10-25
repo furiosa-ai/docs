@@ -8,15 +8,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HTTHGM3MD"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-0HTTHGM3MD');
-    </script>
-    
     <title>Quick Start with Furiosa LLM &#8212; FuriosaAI Developer Center 2024.1.dev0 documentation</title>
   
   
@@ -347,6 +338,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-furiosa-llm">Installing Furiosa LLM</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorizing-huggingface-hub-optional">Authorizing HuggingFace Hub (Optional)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offline-batch-inference-with-furiosa-llm">Offline Batch Inference with Furiosa LLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-inference-with-furiosa-llm">Streaming Inference with Furiosa LLM</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workaround-for-chat-template">Workaround for Chat Template</a></li>
 </ul>
 </li>
@@ -421,6 +413,33 @@ First, import the <code class="docutils literal notranslate"><span class="pre">L
 
 <span class="c1"># Print outputs</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="streaming-inference-with-furiosa-llm">
+<h3>Streaming Inference with Furiosa LLM<a class="headerlink" href="#streaming-inference-with-furiosa-llm" title="Link to this heading">#</a></h3>
+<p>In addition to batch inference, Furiosa LLM also supports streaming inference.
+The key difference of streaming inference is that tokens are returned as soon as tokens are generated, allowing you to start printing or processing partial tokens before the full completion is finished.
+To perform streaming inference, the <code class="docutils literal notranslate"><span class="pre">stream_generate</span></code> method is used instead of <code class="docutils literal notranslate"><span class="pre">generate</span></code>. This method is asynchronous and returns a stream of tokens as they are generated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">furiosa_llm</span> <span class="kn">import</span> <span class="n">LLM</span><span class="p">,</span> <span class="n">SamplingParams</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Loading an artifact of Llama 3.1 8B Instruct model</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;./Llama-3.1-8B-Instruct&quot;</span>
+    <span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="o">.</span><span class="n">from_artifacts</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="c1"># You can specify various parameters for text generation</span>
+    <span class="n">sampling_params</span> <span class="o">=</span> <span class="n">SamplingParams</span><span class="p">(</span><span class="n">min_tokens</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="c1"># Generate text and print outputs</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Say this is test&quot;</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">output_txt</span> <span class="ow">in</span> <span class="n">llm</span><span class="o">.</span><span class="n">stream_generate</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">sampling_params</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">output_txt</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Run the async main function</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>
@@ -571,6 +590,7 @@ You can find more details at <a class="reference internal" href="../furiosa_llm/
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-furiosa-llm">Installing Furiosa LLM</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorizing-huggingface-hub-optional">Authorizing HuggingFace Hub (Optional)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offline-batch-inference-with-furiosa-llm">Offline Batch Inference with Furiosa LLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-inference-with-furiosa-llm">Streaming Inference with Furiosa LLM</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workaround-for-chat-template">Workaround for Chat Template</a></li>
 </ul>
 </li>

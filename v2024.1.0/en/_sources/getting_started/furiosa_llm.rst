@@ -77,6 +77,34 @@ First, import the ``LLM`` class and ``SamplingParams`` from the furiosa_llm modu
   print(response[0].outputs[0].text)
 
 
+Streaming Inference with Furiosa LLM
+------------------------------------------------------
+In addition to batch inference, Furiosa LLM also supports streaming inference.
+The key difference of streaming inference is that tokens are returned as soon as tokens are generated, allowing you to start printing or processing partial tokens before the full completion is finished.
+To perform streaming inference, the ``stream_generate`` method is used instead of ``generate``. This method is asynchronous and returns a stream of tokens as they are generated.
+
+.. code-block:: python
+
+  import asyncio
+  from furiosa_llm import LLM, SamplingParams
+
+  async def main():
+      # Loading an artifact of Llama 3.1 8B Instruct model
+      path = "./Llama-3.1-8B-Instruct"
+      llm = LLM.from_artifacts(path)
+
+      # You can specify various parameters for text generation
+      sampling_params = SamplingParams(min_tokens=10, top_p=0.3, top_k=100)
+
+      # Generate text and print outputs
+      prompt = "Say this is test"
+      async for output_txt in llm.stream_generate(prompt, sampling_params):
+          print(output_txt, end="", flush=True)
+
+  # Run the async main function
+  if __name__ == "__main__":
+      asyncio.run(main())
+
 Workaround for Chat Template
 ------------------------------------------
 Chat models have been trained with very different prompt formats.
