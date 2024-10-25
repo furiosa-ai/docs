@@ -14,8 +14,9 @@ To install the ``furiosa-smi`` command, you need to install ``furiosa-smi`` as f
 
 The minimum requirements for ``furiosa-smi`` are as follows:
 
-* Ubuntu 20.04 LTS (Debian bullseye) or later
-* Root permission or sudo permission
+* Ubuntu 22.04 LTS (Debian Bookworm) or later
+* Linux Kernel 6.3 or later
+* Administrator privileges on system (root)
 * Configuring the APT server and installing device drivers (:ref:`AptSetup`)
 
 Then, please install the ``furiosa-smi`` package as follows:

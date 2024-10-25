@@ -8,6 +8,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HTTHGM3MD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0HTTHGM3MD');
+    </script>
+    
     <title>Quick Start with Furiosa LLM &#8212; FuriosaAI Developer Center 2024.1.dev0 documentation</title>
   
   
@@ -368,7 +377,8 @@ and the features and APIs described in this document may change in the future.</
 <span id="installingfuriosallm"></span><h2>Installing Furiosa LLM<a class="headerlink" href="#installing-furiosa-llm" title="Link to this heading">#</a></h2>
 <p>The minimum requirements for Furiosa LLM are as follows:</p>
 <ul class="simple">
-<li><p>Ubuntu 20.04 LTS (Debian bullseye) or later</p></li>
+<li><p>Ubuntu 22.04 LTS (Debian Bookworm) or later</p></li>
+<li><p>Linux Kernel 6.3 or later</p></li>
 <li><p>Administrator privileges on system (root)</p></li>
 <li><p><a class="reference internal" href="prerequisites.html#aptsetup"><span class="std std-ref">Setting up APT server</span></a> and <a class="reference internal" href="prerequisites.html#installingprerequisites"><span class="std std-ref">Installing Prerequisites</span></a></p></li>
 <li><p>Python 3.8, 3.9, or 3.10</p></li>

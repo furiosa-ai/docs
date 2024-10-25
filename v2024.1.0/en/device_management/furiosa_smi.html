@@ -8,6 +8,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HTTHGM3MD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0HTTHGM3MD');
+    </script>
+    
     <title>furiosa-smi &#8212; FuriosaAI Developer Center 2024.1.dev0 documentation</title>
   
   
@@ -361,8 +370,9 @@
 <p>To install the <code class="docutils literal notranslate"><span class="pre">furiosa-smi</span></code> command, you need to install <code class="docutils literal notranslate"><span class="pre">furiosa-smi</span></code> as following:</p>
 <p>The minimum requirements for <code class="docutils literal notranslate"><span class="pre">furiosa-smi</span></code> are as follows:</p>
 <ul class="simple">
-<li><p>Ubuntu 20.04 LTS (Debian bullseye) or later</p></li>
-<li><p>Root permission or sudo permission</p></li>
+<li><p>Ubuntu 22.04 LTS (Debian Bookworm) or later</p></li>
+<li><p>Linux Kernel 6.3 or later</p></li>
+<li><p>Administrator privileges on system (root)</p></li>
 <li><p>Configuring the APT server and installing device drivers (<a class="reference internal" href="../getting_started/prerequisites.html#aptsetup"><span class="std std-ref">Setting up APT server</span></a>)</p></li>
 </ul>
 <p>Then, please install the <code class="docutils literal notranslate"><span class="pre">furiosa-smi</span></code> package as follows:</p>

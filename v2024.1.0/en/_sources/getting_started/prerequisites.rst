@@ -13,7 +13,7 @@ Requirements
 
 The minimum requirements are as follows:
 
-* Ubuntu 20.04 LTS (or Debian bullseye) or later
+* Ubuntu 22.04 LTS (or Debian Bookworm) or later
 * Linux Kernel 6.3 or later
 * Administrator privileges on system (root)
 

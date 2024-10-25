@@ -25,8 +25,9 @@ To install the ``furiosa-mlperf`` command, you need to install ``furiosa-mlperf`
 
 The minimum requirements for ``furiosa-mlperf`` are as follows:
 
-* Ubuntu 20.04 LTS (Debian bullseye) or later
-* Root permission or sudo permission
+* Ubuntu 22.04 LTS (Debian Bookworm) or later
+* Linux Kernel 6.3 or later
+* Administrator privileges on system (root)
 * Configuring the APT server and installing device drivers (:ref:`AptSetup`)
 * About 100GB storage space (only for the Llama 3.1 70B)
 

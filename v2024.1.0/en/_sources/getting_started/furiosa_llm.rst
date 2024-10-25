@@ -21,7 +21,8 @@ Installing Furiosa LLM
 
 The minimum requirements for Furiosa LLM are as follows:
 
-* Ubuntu 20.04 LTS (Debian bullseye) or later
+* Ubuntu 22.04 LTS (Debian Bookworm) or later
+* Linux Kernel 6.3 or later
 * Administrator privileges on system (root)
 * :ref:`AptSetup` and :ref:`InstallingPrerequisites`
 * Python 3.8, 3.9, or 3.10
