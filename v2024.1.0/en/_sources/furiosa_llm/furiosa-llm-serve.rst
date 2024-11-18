@@ -5,7 +5,7 @@ OpenAI Compatible Server
 ****************************************************
 
 In addition to Python API, ``furiosa-llm`` also offers an OpenAI-compatible server
-which hosts a single model and provides two OpenAP-compatible APIs:
+which hosts a single model and provides two OpenAI-compatible APIs:
 `Completions API <https://platform.openai.com/docs/api-reference/completions>`_ and
 `Chat API <https://platform.openai.com/docs/api-reference/chat>`_.
 

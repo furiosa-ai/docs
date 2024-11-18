@@ -235,7 +235,7 @@ Then, you can run the following command with ``--user-conf`` option:
 
 .. tip::
 
-  You can experience RNGD cards if you specify more device devices as the following.
+  You can experience RNGD cards if you specify more device as the following.
 
   .. code-block:: sh
 

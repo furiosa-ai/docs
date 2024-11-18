@@ -8,7 +8,7 @@ FuriosaAI provides the streamlined software stack to allow
 FuriosaAI NPU to be used in various applications and environments.
 Here, we outline the SW stack provided by FuriosaAI, explaining
 the roles of each component, together with guidelines and tutorials.
-The above diagram demonstrates the SW stack provided by FuriosaAI, by layers.
+The below diagram demonstrates the SW stack provided by FuriosaAI, by layers.
 
 .. figure:: ../_static/imgs/sw_stack.svg
   :alt: FuriosaAI Software Stack

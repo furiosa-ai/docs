@@ -5,14 +5,14 @@ Installing Furiosa Feature Discovery
 ####################################
 
 
-Furiosa Feature discovery and NFD
+Furiosa Feature Discovery and NFD
 ================================================================
 
-The Furiosa feature discovery automatically labels Kubernetes nodes with information
+The Furiosa Feature Discovery automatically labels Kubernetes nodes with information
 about FuriosaAI NPU properties, such as the NPU family, count, and driver versions.
 Using these labels, you can schedule your Kubernetes workloads based on specific NPU requirements.
 
-The Furiosa feature Discovery leverage NFD(Node Feature Discovery) which is a tool that detects
+The Furiosa Feature Discovery leverage NFD(Node Feature Discovery) which is a tool that detects
 hardware features and labels Kubernetes nodes. It is recommended to use NFD and
 Furiosa Feature Discovery to ensure that the Cloud Native Toolkit is deployed only on nodes
 equipped with FuriosaAI NPUs.

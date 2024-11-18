@@ -10,9 +10,9 @@ Furiosa Device Plugin
 The Furiosa device plugin implements the `Kubernetes Device Plugin <https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/>`_
 interface for FuriosaAI NPU devices, and its features are as follows:
 
-* discovering the Furiosa NPU devices and register to a Kubernetes cluster.
-* tracking the health of the devices and report to a Kubernetes cluster.
-* running AI workload on the top of the Furiosa NPU devices within a Kubernetes cluster.
+* Discovering the Furiosa NPU devices and registeriing to a Kubernetes cluster.
+* Tracking the health of the devices and reporting to a Kubernetes cluster.
+* Running AI workload on the top of the Furiosa NPU devices within a Kubernetes cluster.
 
 Configuration
 ----------------------------------------------

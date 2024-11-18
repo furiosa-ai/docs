@@ -343,6 +343,7 @@
 <span class="kn">import</span> <span class="nn">transformers</span>
 <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">MODEL_FOR_CAUSAL_LM_MAPPING</span><span class="p">,</span>
+    <span class="n">BatchEncoding</span><span class="p">,</span>
     <span class="n">PretrainedConfig</span><span class="p">,</span>
     <span class="n">PreTrainedModel</span><span class="p">,</span>
     <span class="n">PreTrainedTokenizer</span><span class="p">,</span>
@@ -2452,7 +2453,7 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">prompts</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
         <span class="n">sampling_params</span><span class="p">:</span> <span class="n">SamplingParams</span> <span class="o">=</span> <span class="n">SamplingParams</span><span class="p">(),</span>
-        <span class="n">prompt_token_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">prompt_token_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BatchEncoding</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">tokenizer_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">RequestOutput</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">RequestOutput</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate texts from given prompts and sampling parameters.</span>
@@ -2460,8 +2461,10 @@
 <span class="sd">        Args:</span>
 <span class="sd">            prompts: The prompts to generate texts.</span>
 <span class="sd">            sampling_params: The sampling parameters for generating texts.</span>
-<span class="sd">            prompt_token_ids: The token ids of the prompts. If not given, the token ids are</span>
-<span class="sd">                generated from the prompts using the tokenizer.</span>
+<span class="sd">            prompt_token_ids: Pre-tokenized prompt input as a `BatchEncoding` object.</span>
+<span class="sd">                If not provided, the prompt will be tokenized internally using the tokenizer.</span>
+<span class="sd">            tokenizer_kwargs: Additional keyword arguments passed to the tokenizer&#39;s</span>
+<span class="sd">                `encode` method, such as `{&quot;use_special_tokens&quot;: True}`.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            A list of `RequestOutput` objects containing the generated</span>
@@ -2481,14 +2484,30 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_postprocess</span><span class="p">(</span><span class="n">native_outputs</span><span class="p">,</span> <span class="n">prompts</span><span class="p">,</span> <span class="n">prompt_token_ids</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="LLM.stream_generate">
+<a class="viewcode-back" href="../../furiosa_llm/references/llm.html#furiosa_llm.LLM.stream_generate">[docs]</a>
     <span class="k">async</span> <span class="k">def</span> <span class="nf">stream_generate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">sampling_params</span><span class="p">:</span> <span class="n">SamplingParams</span> <span class="o">=</span> <span class="n">SamplingParams</span><span class="p">(),</span>
-        <span class="n">prompt_token_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">prompt_token_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BatchEncoding</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">tokenizer_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">is_demo</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AsyncGenerator</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate texts from given prompt and sampling parameters.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            prompt: The prompt to generate texts. Note that unlike `generate`,</span>
+<span class="sd">                this API supports only a single prompt.</span>
+<span class="sd">            sampling_params: The sampling parameters for generating texts.</span>
+<span class="sd">            prompt_token_ids: Pre-tokenized prompt input as a `BatchEncoding` object.</span>
+<span class="sd">                If not provided, the prompt will be tokenized internally using the tokenizer.</span>
+<span class="sd">            tokenizer_kwargs: Additional keyword arguments passed to the tokenizer&#39;s</span>
+<span class="sd">                `encode` method, such as `{&quot;use_special_tokens&quot;: True}`.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A stream of generated output tokens.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_generative_model</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;generate API can only be used for generative models.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -2531,7 +2550,8 @@
             <span class="k">yield</span> <span class="n">new_text</span>
 
         <span class="k">if</span> <span class="n">token_buffer</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token_buffer</span><span class="p">,</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token_buffer</span><span class="p">,</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
 
     <span class="k">def</span> <span class="nf">_instantiate_and_save_model</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
