@@ -21,12 +21,14 @@ and the features and APIs described in this document may change in the future.
 
 Highlights
 =======================================
-* New Model support: Solar, EXAONE-3.0, CodeLLaaMA2, Vicuna, ...
+* New Model support: Solar, EXAONE-3.0, CodeLLaMA2, Vicuna, ...
 * Tensor Parallelism support (``tensor_parallel_size <= 8``)
 * Torch 2.4.1 support
 * Transformers 4.44.2 support
 * Furiosa LLM
-    * Transformers compa
+    * Huggingface Transformers compatible API support (`furiosa_llm.optimum`)
+        * AutoModel, AutoModelForCausalLM, AutoModelForQuestionAnswering API
+        * QuantizerForCausalLM API support for calibration and quantization
     * ArtifactBuilder API and CLI tools (refer to :ref:`ArtifactBuilder`)
     * LLMEngine, AsyncLLMEngine API support compatiable with vLLM
 * Up to 8k context length support in LLaMA 3.1 models

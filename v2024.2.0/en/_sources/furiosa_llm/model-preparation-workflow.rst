@@ -165,4 +165,4 @@ Deploying the model
 ==================================================
 Once you have a model artifact, you can just copy the model artifact directory.
 You can use your preferred compression tool to compress the model artifact directory and copy it to the target host.
-Then, you can uncompress the model artifact directory and run the model through :ref:`FuriosaLLMReference` or :ref:`OpenAIServer`.
+Then, you can uncompress the model artifact directory and run the model through :ref:`LLMClass` or :ref:`OpenAIServer`.

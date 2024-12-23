@@ -1,4 +1,4 @@
-.. _/furiosa_llm/references:
+.. _ArtifactBuilderClass:
 
 **********************************
 ArtifactBuilder
