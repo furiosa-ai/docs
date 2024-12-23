@@ -62,7 +62,6 @@ Furiosa LLM
 * :ref:`OpenAIServer`: More details about the OpenAI-compatible server and its features
 * :ref:`ModelPreparationWorkflow`: How to quantize and compile Huggingface models
 * :ref:`ModelParallelism`: Tensor/Pipeline/Data parallelism in Furiosa LLM
-* :ref:`BuildingModelArtifact`: More details about how to build model artifacts
 * :ref:`FuriosaLLMReference`: The Python API reference for Furiosa LLM
 
 Cloud Native Toolkit
