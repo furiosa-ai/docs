@@ -98,6 +98,7 @@ Highlights
     * LLMEngine, AsyncLLMEngine API support compatiable with vLLM
 * About 20% performance improvements in LLaMA 3.1 models
     * e.g., 3580 tokens/sec in LLaMA 3.1 8B model with a single RNGD card
+* (Breaking Change) ``LLM.from_artifacts()`` API has been deprecated. Please use ``LLM.load_artifacts()`` instead.
 
 .. list-table:: Component version
    :widths: 200 50
