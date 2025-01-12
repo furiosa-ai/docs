@@ -144,5 +144,5 @@ Furiosa LLM can be launched immedaitely as a containerized server.
         --env HF_TOKEN=$HF_TOKEN \
         -v ./Llama-3.1-8B-Instruct:/model \
         -p 8000:8000 \
-        furiosaai/furiosa-llm:2024.2.1-py310 \
+        furiosaai/furiosa-llm:latest \
         serve --model /model --devices "npu:0:*"

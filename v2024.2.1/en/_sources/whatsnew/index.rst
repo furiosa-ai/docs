@@ -96,7 +96,7 @@ Highlights
         * AutoModel, AutoModelForCausalLM, AutoModelForQuestionAnswering API
         * QuantizerForCausalLM API support for calibration and quantization
     * LLMEngine, AsyncLLMEngine API support compatiable with vLLM
-* About 20% performance improvements in LLaMA 3.1 models
+* About 20% performance improvements in models based on LlamaForCausalLM
     * e.g., 3580 tokens/sec in LLaMA 3.1 8B model with a single RNGD card
 * (Breaking Change) ``LLM.from_artifacts()`` API has been deprecated. Please use ``LLM.load_artifacts()`` instead.
 

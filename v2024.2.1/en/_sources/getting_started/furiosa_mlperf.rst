@@ -185,7 +185,7 @@ you can use the following command:
   docker run -it --rm --privileged \
     -v $ARTFIACTS_DIR/:/model \
     -v `pwd`/gptj-result:/result \
-    furiosaai/furiosa-mlperf:2024.2.1 \
+    furiosaai/furiosa-mlperf:latest \
     gpt-j-offline --test-mode accuracy-only /model /result
 
 
