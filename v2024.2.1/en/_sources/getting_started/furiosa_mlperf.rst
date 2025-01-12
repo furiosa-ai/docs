@@ -131,6 +131,12 @@ You can configure the MLPerf benchmark by specifying ``--user-conf`` option with
   furiosa-mlperf bert-server ./mlperf-bert-large ./bert-server-result --user-conf ./user.conf
 
 
+.. tip::
+
+  You can find more information about the MLPerf configuration and examples at
+  `mlcommons/inference/mlperf.conf <https://github.com/mlcommons/inference/blob/v4.1/mlperf.conf>`_.
+
+
 Monitoring a running benchmark
 -------------------------------------------------
 
@@ -186,7 +192,7 @@ you can use the following command:
     -v $ARTFIACTS_DIR/:/model \
     -v `pwd`/gptj-result:/result \
     furiosaai/furiosa-mlperf:latest \
-    gpt-j-offline --test-mode accuracy-only /model /result
+    gpt-j-offline --test-mode performance-only /model /result
 
 
 
