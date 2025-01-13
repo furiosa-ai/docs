@@ -172,6 +172,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Installing Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="furiosa_llm.html">Quick Start with Furiosa LLM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="furiosa_mlperf.html">Running MLPerf™ Inference Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_guide.html">Upgrading Furiosa Software Stack</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Furiosa LLM</span></p>
 <ul class="nav bd-sidenav">
@@ -383,7 +384,7 @@
                   
   <section id="installing-prerequisites">
 <span id="installingprerequisites"></span><h1>Installing Prerequisites<a class="headerlink" href="#installing-prerequisites" title="Link to this heading">#</a></h1>
-<p>We will explain how to install the prerequisite packages necessary for FuriosaAI software stack.
+<p>This article describes how to install the prerequisite packages necessary for FuriosaAI software stack.
 The prerequisite packages include device driver, firmware, and PE Runtime.
 These packages are available in package format for installation on Debian and Ubuntu systems.</p>
 <section id="requirements">
@@ -457,15 +458,20 @@ you can check the list of NPU devices as following command:</p>
 <p>Please refer to <a class="reference internal" href="../device_management/system_management_interface/furiosa_smi_cli.html#furiosasmicli"><span class="std std-ref">Furiosa SMI CLI</span></a> to learn more about <code class="docutils literal notranslate"><span class="pre">furiosa-smi</span></code> command.</p>
 </section>
 <section id="upgrading-device-firmware">
-<h2>Upgrading Device Firmware<a class="headerlink" href="#upgrading-device-firmware" title="Link to this heading">#</a></h2>
+<span id="upgradingdevicefirmware"></span><h2>Upgrading Device Firmware<a class="headerlink" href="#upgrading-device-firmware" title="Link to this heading">#</a></h2>
 <p>Upgrading firmware versions can improve the performance and stability of the devices.
 If there is newer firmware in the latest release, you can upgrade them using the following methods:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>furiosa-firmware-tools-rngd
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>furiosa-firmware-image-rngd
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>furiosa-firmware-tools-rngd<span class="w"> </span>furiosa-firmware-image-rngd
 </pre></div>
 </div>
 <p>Installing the <code class="docutils literal notranslate"><span class="pre">furiosa-firmware-image-rngd</span></code> package will automatically upgrade the firmware.
 The process takes approximately 3 to 5 minutes per device to complete.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The firmware upgrade process may require a reboot to complete the installation.
+If the firmware upgrade process is interrupted, the device may become unusable.
+In this case, please contact FuriosaAI support for assistance.</p>
+</div>
 </section>
 </section>
 

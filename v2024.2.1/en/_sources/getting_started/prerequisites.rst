@@ -1,10 +1,10 @@
 .. _InstallingPrerequisites:
 
-**********************************
+*****************************************
 Installing Prerequisites
-**********************************
+*****************************************
 
-We will explain how to install the prerequisite packages necessary for FuriosaAI software stack.
+This article describes how to install the prerequisite packages necessary for FuriosaAI software stack.
 The prerequisite packages include device driver, firmware, and PE Runtime.
 These packages are available in package format for installation on Debian and Ubuntu systems.
 
@@ -62,7 +62,7 @@ To use the APT server provided by FuriosaAI, you must configure it on Ubuntu or 
   echo "deb [arch=$(dpkg --print-architecture)] http://asia-northeast3-apt.pkg.dev/projects/furiosa-ai $(. /etc/os-release && echo "$VERSION_CODENAME") main" | sudo tee /etc/apt/sources.list.d/furiosa.list
 
 Installing Pre-requisite Packages
-====================================
+=====================================
 
 If you have registered the APT server as described above, you will be able to install the required packages: the device driver and PE Runtime.
 
@@ -100,6 +100,8 @@ Output:
 Please refer to :ref:`FuriosaSMICLI` to learn more about ``furiosa-smi`` command.
 
 
+.. _UpgradingDeviceFirmware:
+
 Upgrading Device Firmware
 ====================================
 
@@ -108,8 +110,13 @@ If there is newer firmware in the latest release, you can upgrade them using the
 
 .. code-block:: sh
 
-  sudo apt install furiosa-firmware-tools-rngd
-  sudo apt install furiosa-firmware-image-rngd
+  sudo apt install furiosa-firmware-tools-rngd furiosa-firmware-image-rngd
 
 Installing the ``furiosa-firmware-image-rngd`` package will automatically upgrade the firmware.
 The process takes approximately 3 to 5 minutes per device to complete.
+
+.. note::
+
+  The firmware upgrade process may require a reboot to complete the installation.
+  If the firmware upgrade process is interrupted, the device may become unusable.
+  In this case, please contact FuriosaAI support for assistance.

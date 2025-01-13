@@ -17,7 +17,7 @@ Furiosa SDK 2024.2.1 Beta0 (2024-01-10)
 
 2024.2.1 is the minor release based on 2024.2.0 major release.
 This release includes a couple of feature improvements, and 32k context length support in models,
-such as LLaMA 3.1, EXAONE.
+such as LLaMA 3.1, EXAONE. You can find the upgrade guide for this release in :ref:`UpgradeGuide`.
 
 .. _Release2024_2_1_Highlights:
 
@@ -77,8 +77,12 @@ Highlights
 Furiosa SDK 2024.2.0 Beta0 (2024-12-23)
 ==============================================
 
-2024.2.0 is the second major SDK release for RNGD. This release is beta 0 release,
-and the features and APIs described in this document may change in the future.
+2024.2.0 is the second major SDK release for RNGD.
+This release includes a lot of new features and significant improvements,
+including new model support, 8k context length support in models, Tensor Parallelism support,
+Pytorch upgrade, Optimum API, and performance improvements. You can find more details the below highlights.
+Please refer to :ref:`UpgradeGuide` to upgrade the Furiosa software stack.
+
 
 .. _Release2024_2_0_Highlights:
 
@@ -99,6 +103,7 @@ Highlights
 * About 20% performance improvements in models based on LlamaForCausalLM
     * e.g., 3580 tokens/sec in LLaMA 3.1 8B model with a single RNGD card
 * (Breaking Change) ``LLM.from_artifacts()`` API has been deprecated. Please use ``LLM.load_artifacts()`` instead.
+
 
 .. list-table:: Component version
    :widths: 200 50
