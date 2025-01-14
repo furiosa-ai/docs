@@ -36,13 +36,11 @@ Highlights
    * - furiosa-compiler
      - 2024.2.0
    * - furiosa-driver-rngd
-     - 2024.2.0
-   * - furiosa-driver-rngd
-     - 2024.2.0
+     - 2024.2.1
    * - furiosa-firmware-tools-rngd
-     - 2024.2.0
+     - 2024.2.1
    * - furiosa-firmware-image-rngd
-     - 2024.2.0
+     - 2024.2.1
    * - furiosa-pert-rngd
      - 2024.2.1
    * - furiosa-model-compressor
