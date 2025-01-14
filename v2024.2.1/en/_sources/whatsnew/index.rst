@@ -24,7 +24,7 @@ such as LLaMA 3.1, EXAONE. You can find the upgrade guide for this release in :r
 Highlights
 ----------------------
 * 32k context length support in furiosa-llm for various models, such as LLaMA 3.1, EXAONE
-* Artifacts with the same ``tensor_parallelism_size`` is compatible even with any ``pipeline_parallel_size``
+* Artifacts with the same ``tensor_parallel_size`` is compatible even with any ``pipeline_parallel_size``
 
 
 .. list-table:: Component version
@@ -102,8 +102,11 @@ Highlights
     * LLMEngine, AsyncLLMEngine API support compatiable with vLLM
 * About 20% performance improvements in models based on LlamaForCausalLM
     * e.g., 3580 tokens/sec in LLaMA 3.1 8B model with a single RNGD card
-* (Breaking Change) ``LLM.from_artifacts()`` API has been deprecated. Please use ``LLM.load_artifacts()`` instead.
 
+Breaking Changes
+----------------------------------
+* LLM.from_artifacts() API has been deprecated. Please use LLM.load_artifacts() instead.
+* The artifacts built from 2024.1.x is not compatible with 2024.2.x. Please use the artifact built from 2024.2.x.
 
 .. list-table:: Component version
    :widths: 200 50
