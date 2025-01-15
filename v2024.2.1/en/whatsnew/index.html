@@ -409,12 +409,13 @@ Please checkout <a href="https://furiosa-ai.github.io/docs/v2024.2.1/en/whatsnew
 <section id="furiosa-sdk-2024-2-1-beta0-2024-01-10">
 <span id="release2024-2-1"></span><h2>Furiosa SDK 2024.2.1 Beta0 (2024-01-10)<a class="headerlink" href="#furiosa-sdk-2024-2-1-beta0-2024-01-10" title="Link to this heading">#</a></h2>
 <p>2024.2.1 is the minor release based on 2024.2.0 major release.
-This release includes a couple of feature improvements, and 32k context length support in models,
+Even though this release is minor, but the improvement is significant.
+This release includes up to 32k context length support in models,
 such as LLaMA 3.1, EXAONE. You can find the upgrade guide for this release in <a class="reference internal" href="../getting_started/upgrade_guide.html#upgradeguide"><span class="std std-ref">Upgrading Furiosa Software Stack</span></a>.</p>
 <section id="highlights">
 <span id="release2024-2-1-highlights"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>32k context length support in furiosa-llm for various models, such as LLaMA 3.1, EXAONE</p></li>
+<li><p>&lt;= 32k context length support in furiosa-llm for various models, such as LLaMA 3.1, and EXAONE</p></li>
 <li><p>Artifacts with the same <code class="docutils literal notranslate"><span class="pre">tensor_parallel_size</span></code> is compatible even with any <code class="docutils literal notranslate"><span class="pre">pipeline_parallel_size</span></code></p></li>
 </ul>
 <div class="pst-scrollable-table-container"><table class="table" id="id3">
@@ -493,7 +494,7 @@ Please refer to <a class="reference internal" href="../getting_started/upgrade_g
 <span id="id1"></span><h3>Highlights<a class="headerlink" href="#release2024-2-0-highlights" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>New Model support: Solar, EXAONE-3.0, CodeLLaMA2, Vicuna, …</p></li>
-<li><p>8k context length support in models, such as LLaMA 3.1</p></li>
+<li><p>&lt;= 8k context length support in models, such as LLaMA 3.1</p></li>
 <li><p>Tensor Parallelism support (<code class="docutils literal notranslate"><span class="pre">tensor_parallel_size</span> <span class="pre">&lt;=</span> <span class="pre">8</span></code>)</p></li>
 <li><p>Torch 2.4.1 support</p></li>
 <li><p>Transformers 4.44.2 support</p></li>
