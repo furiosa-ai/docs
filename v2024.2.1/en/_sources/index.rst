@@ -77,7 +77,7 @@ Device Management
 
 Customer Support
 --------------------------------------------------
-* `FuriosaAI Forum <https://furiosa-ai.discourse.group/>`_
+* `FuriosaAI Forum <https://forums.furiosa.ai>`_
 * `FuriosaAI Customer Portal <https://furiosa-ai.atlassian.net/servicedesk/customer/portals/>`_
 
 Other Links
@@ -142,7 +142,7 @@ Other Links
    :hidden:
    :caption: Customer Support
 
-   FuriosaAI Forum <https://furiosa-ai.discourse.group/>
+   FuriosaAI Forum <https://forums.furiosa.ai>
    FuriosaAI Customer Portal <https://furiosa-ai.atlassian.net/servicedesk/customer/portals/>
 
 
