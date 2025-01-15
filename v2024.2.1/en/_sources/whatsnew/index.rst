@@ -12,7 +12,7 @@ What's New
 
 .. _Release2024_2_1:
 
-Furiosa SDK 2024.2.1 Beta0 (2024-01-10)
+Furiosa SDK 2024.2.1 Beta0 (2025-01-10)
 ==============================================
 
 2024.2.1 is the minor release based on 2024.2.0 major release.
