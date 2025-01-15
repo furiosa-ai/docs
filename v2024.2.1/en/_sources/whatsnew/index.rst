@@ -24,7 +24,7 @@ such as LLaMA 3.1, EXAONE. You can find the upgrade guide for this release in :r
 
 Highlights
 ----------------------
-* <= 32k context length support in furiosa-llm for various models, such as LLaMA 3.1, and EXAONE
+* Up to 32k context length (``<= 32768``) support in furiosa-llm for various models, such as LLaMA 3.1, and EXAONE
 * Artifacts with the same ``tensor_parallel_size`` is compatible even with any ``pipeline_parallel_size``
 
 
@@ -88,7 +88,7 @@ Please refer to :ref:`UpgradeGuide` to upgrade the Furiosa software stack.
 Highlights
 ----------------------
 * New Model support: Solar, EXAONE-3.0, CodeLLaMA2, Vicuna, ...
-* <= 8k context length support in models, such as LLaMA 3.1
+* Up to 8k context length (<= 8192) support in models, such as LLaMA 3.1
 * Tensor Parallelism support (``tensor_parallel_size <= 8``)
 * Torch 2.4.1 support
 * Transformers 4.44.2 support
