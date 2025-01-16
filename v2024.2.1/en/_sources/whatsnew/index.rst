@@ -41,7 +41,7 @@ Highlights
    * - furiosa-firmware-tools-rngd
      - 2024.2.1
    * - furiosa-firmware-image-rngd
-     - 2024.2.1
+     - 2024.2.0
    * - furiosa-pert-rngd
      - 2024.2.1
    * - furiosa-model-compressor
