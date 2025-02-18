@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Performance Profiling &mdash; Furiosa SDK Documentation 0.10.1 documentation</title>
+  <title>Performance Profiling &mdash; FuriosaAI Warboy &amp; SDK Documents 0.10.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -34,10 +34,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Furiosa SDK Documentation
+            FuriosaAI Warboy & SDK Documents
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -107,7 +107,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Furiosa SDK Documentation</a>
+          <a href="../index.html">FuriosaAI Warboy & SDK Documents</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -164,9 +164,9 @@ If you enter <code class="docutils literal notranslate"><span class="pre">chrome
 </ul>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">profile</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.sync</span> <span class="kn">import</span> <span class="n">create_runner</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">profile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.sync</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_runner</span>
 
 <span class="c1"># You can find &#39;examples&#39; directory of the root of furiosa-sdk source tree</span>
 <span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;examples/assets/quantized_models/imagenet_224x224_mobilenet_v1_uint8_quantization-aware-trained_dm_1.0_without_softmax.tflite&quot;</span>
@@ -201,9 +201,9 @@ Users can exclude execution they do not want to profile, thereby reducing profil
 <p>The below is an example of pausing profiler not to trace <code class="docutils literal notranslate"><span class="pre">warm</span> <span class="pre">up</span></code> phase between <code class="docutils literal notranslate"><span class="pre">profile.pause</span></code> and <code class="docutils literal notranslate"><span class="pre">profile.resume</span></code>.</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.sync</span> <span class="kn">import</span> <span class="n">create_runner</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.sync</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_runner</span>
 
 <span class="c1"># You can find &#39;examples&#39; directory of the root of furiosa-sdk source tree</span>
 <span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;examples/assets/quantized_models/imagenet_224x224_mobilenet_v1_uint8_quantization-aware-trained_dm_1.0_without_softmax.tflite&quot;</span>
@@ -241,9 +241,9 @@ Users can exclude execution they do not want to profile, thereby reducing profil
 </ul>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.sync</span> <span class="kn">import</span> <span class="n">create_runner</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.sync</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_runner</span>
 
 <span class="c1"># You can find &#39;examples&#39; directory of the root of furiosa-sdk source tree</span>
 <span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;examples/assets/quantized_models/imagenet_224x224_mobilenet_v1_uint8_quantization-aware-trained_dm_1.0_without_softmax.tflite&quot;</span>

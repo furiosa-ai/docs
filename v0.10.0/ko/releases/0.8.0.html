@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes - 0.8.0 &mdash; FuriosaAI NPU 및 Software 문서 0.10.1 문서</title>
+  <title>Release Notes - 0.8.0 &mdash; FuriosaAI Warboy 및 Software 문서 0.10.2 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -36,10 +36,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            FuriosaAI NPU 및 Software 문서
+            FuriosaAI Warboy 및 Software 문서
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -114,7 +114,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+          <a href="../index.html">FuriosaAI Warboy 및 Software 문서</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -231,7 +231,7 @@ FastAPI 기반의 서빙 프레임워크이다. <a class="reference external" hr
 <p>따라서 작고 빈번한 NPU 추론 요청도 더 낮은 지연시간으로 처리할 수 있다.
 다음 예제와 같이 한번의 API 요청에 의해 다수의 NPU 추론을 처리하는 응용도
 더 고성능으로 처리할 수 있게 되었다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
     <span class="c1"># The following code runs multiple inferences at the same time and wait until all requests are completed.</span>
     <span class="k">return</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">tensors</span><span class="p">))</span>
 </pre></div>
@@ -260,13 +260,13 @@ FastAPI 기반의 서빙 프레임워크이다. <a class="reference external" hr
 서빙 어플리케이션의 특정 코드 구간의 실행 시간을 추적할 수 있는 기능이 추가되었다.</p>
 <p>이 기능 활용을 위해서는 아래와 같이 <code class="docutils literal notranslate"><span class="pre">trace.get_tracer()</span></code> 호출해 tracer를 초기화 하고
 <code class="docutils literal notranslate"><span class="pre">tracer.start_as_current_span()</span></code> 함수를 호출하여 구간을 지정해주면 된다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opentelemetry</span> <span class="kn">import</span> <span class="n">trace</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">opentelemetry</span><span class="w"> </span><span class="kn">import</span> <span class="n">trace</span>
 
 <span class="n">tracer</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">get_tracer</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">Application</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Application</span><span class="p">:</span>
 
-        <span class="k">async</span> <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
             <span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_as_current_span</span><span class="p">(</span><span class="s2">&quot;preprocess&quot;</span><span class="p">):</span>
                 <span class="n">input_tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
             <span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_as_current_span</span><span class="p">(</span><span class="s2">&quot;inference&quot;</span><span class="p">):</span>
@@ -290,8 +290,8 @@ FastAPI 기반의 서빙 프레임워크이다. <a class="reference external" hr
 <p>프로파일러 트레이싱 결과를 데이터 분석 프레임워크인 <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> 를 이용해
 분석할 수 있는 기능이 추가되었다. 이 기능을 이용하면 트레이싱한 결과 데이터를 분석하여 병목지점 식별 및
 모델성능 원인을 빠르게 파악할 수 있다. 자세한 사용법은 <a class="reference internal" href="../software/profiler.html#pandasprofilinganalysis"><span class="std std-ref">Pandas DataFrame을 이용한 트레이스 분석</span></a> 에서 찾을 수 있다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
 
 <span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">RecordFormat</span><span class="o">.</span><span class="n">PandasDataFrame</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;MNISTnet_uint8_quant_without_softmax.tflite&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
@@ -361,29 +361,29 @@ FastAPI 기반의 서빙 프레임워크이다. <a class="reference external" hr
 찾아볼 수 있다.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Blocking API</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Nonblocking API</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>기존 코드</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
 
 <span class="n">resnet50</span> <span class="o">=</span> <span class="n">MLCommonsResNet50</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>변경된 코드</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResNet50</span>
 
 <span class="n">resnet50</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>기존 코드</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.models.nonblocking.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.nonblocking.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">MLCommonsResNet50</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>0.8.0 개선 사항</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResNet50</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">ResNet50</span><span class="o">.</span><span class="n">load_async</span><span class="p">())</span>
 </pre></div>
@@ -396,9 +396,9 @@ FastAPI 기반의 서빙 프레임워크이다. <a class="reference external" hr
 더 자세한 내용은 <a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/v0.8.0/model_object/#prepostprocessing">Pre/Postprocessing</a>
 에서 찾아 볼 수 있다.</p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
-<span class="kn">from</span> <span class="nn">furiosa.models.vision.resnet50</span> <span class="kn">import</span> <span class="n">NativePostProcessor</span><span class="p">,</span> <span class="n">preprocess</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision.resnet50</span><span class="w"> </span><span class="kn">import</span> <span class="n">NativePostProcessor</span><span class="p">,</span> <span class="n">preprocess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 

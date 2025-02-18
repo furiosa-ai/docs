@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>furiosa.runtime package &mdash; Furiosa SDK Documentation 0.10.1 documentation</title>
+  <title>furiosa.runtime package &mdash; FuriosaAI Warboy &amp; SDK Documents 0.10.2 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
@@ -34,10 +34,10 @@
           
           
           <a href="../../index.html" class="icon icon-home">
-            Furiosa SDK Documentation
+            FuriosaAI Warboy & SDK Documents
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -109,7 +109,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Furiosa SDK Documentation</a>
+          <a href="../../index.html">FuriosaAI Warboy & SDK Documents</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -118,7 +118,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../software/references.html">References</a></li>
-          <li class="breadcrumb-item"><a href="modules.html">Furiosa SDK 0.10.1 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Furiosa SDK 0.10.2 API Documentation</a></li>
       <li class="breadcrumb-item active">furiosa.runtime package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/python/furiosa.runtime.rst.txt" rel="nofollow"> View page source</a>
@@ -231,7 +231,7 @@ For example:</p>
 <dd><p>Represents a value that specifies how to load the model.
 This is <em>not</em> a real class, but a type alias for either:</p>
 <ol class="arabic simple">
-<li><p>Any <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Path</span></code></a>-like type or a string, representing a path to the model file.</p></li>
+<li><p>Any <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Path</span></code></a>-like type or a string, representing a path to the model file.</p></li>
 <li><p>Bytes, byte array or any class with <code class="docutils literal notranslate"><span class="pre">__bytes__</span></code> method, representing a raw model data.</p></li>
 </ol>
 <p>Future versions may allow additional types.</p>
@@ -244,7 +244,7 @@ This is <em>not</em> a real class, but a type alias for either:</p>
 </section>
 <section id="tensor-inputs-and-outputs">
 <span id="id4"></span><h2>Tensor Inputs and Outputs<a class="headerlink" href="#tensor-inputs-and-outputs" title="Permalink to this heading"></a></h2>
-<p>Tensors use a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> type from <a class="reference external" href="https://numpy.org/">Numpy</a> as a primary representation,
+<p>Tensors use a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> type from <a class="reference external" href="https://numpy.org/">Numpy</a> as a primary representation,
 but the following type aliases exist for documentation and typing purposes.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="furiosa.runtime.TensorArray">
@@ -252,10 +252,10 @@ but the following type aliases exist for documentation and typing purposes.</p>
 <dd><p>A type alias for a list of input tensors.
 This is <em>not</em> a real class, but can be either:</p>
 <ul class="simple">
-<li><p>Any iterable of <a class="reference internal" href="#furiosa.runtime.Tensor" title="furiosa.runtime.Tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></a>s (but the iterable itself shouldn’t be an <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>)</p></li>
+<li><p>Any iterable of <a class="reference internal" href="#furiosa.runtime.Tensor" title="furiosa.runtime.Tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></a>s (but the iterable itself shouldn’t be an <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>)</p></li>
 <li><p>A single <a class="reference internal" href="#furiosa.runtime.Tensor" title="furiosa.runtime.Tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></a>, if only one tensor is required</p></li>
 </ul>
-<p>The corresponding output type is always a list of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>s.</p>
+<p>The corresponding output type is always a list of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>s.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.10.</span></p>
 </div>
@@ -267,11 +267,11 @@ This is <em>not</em> a real class, but can be either:</p>
 <dd><p>A type alias for a single input tensor.
 This is <em>not</em> a real class, but can be either:</p>
 <ul class="simple">
-<li><p>A single <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p></li>
-<li><p>A single scalar value or <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.generic" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.generic</span></code></a>, if the tensor was zero-dimensional</p></li>
+<li><p>A single <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p></li>
+<li><p>A single scalar value or <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.generic" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.generic</span></code></a>, if the tensor was zero-dimensional</p></li>
 <li><p>Any other value that implements the NumPy <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.interface.html">array interface</a></p></li>
 </ul>
-<p>The corresponding output type is always a single <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>.</p>
+<p>The corresponding output type is always a single <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.10.</span></p>
 </div>
@@ -284,9 +284,9 @@ but due to the technical reasons, following concrete types are used for tensor o
 <dl class="py class">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorArray">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">TensorArray</span></span><a class="headerlink" href="#furiosa.runtime.tensor.TensorArray" title="Permalink to this definition"></a></dt>
-<dd><p>A subclass of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, so that all items should be <a class="reference internal" href="#furiosa.runtime.tensor.Tensor" title="furiosa.runtime.tensor.Tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></a> and additional methods are provided.</p>
+<dd><p>A subclass of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, so that all items should be <a class="reference internal" href="#furiosa.runtime.tensor.Tensor" title="furiosa.runtime.tensor.Tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></a> and additional methods are provided.</p>
 <p><a class="reference internal" href="#use-of-legacy-modules"><span class="std std-ref">Legacy only</span></a>:
-This class used to be not subclassed from <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> and
+This class used to be not subclassed from <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> and
 supported only <code class="docutils literal notranslate"><span class="pre">len(array)</span></code>, <code class="docutils literal notranslate"><span class="pre">array[i]</span></code> and <code class="docutils literal notranslate"><span class="pre">array[i]</span> <span class="pre">=</span> <span class="pre">tensor</span></code>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorArray.is_empty">
@@ -294,7 +294,7 @@ supported only <code class="docutils literal notranslate"><span class="pre">len(
 <dd><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> if the array is empty.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -302,10 +302,10 @@ supported only <code class="docutils literal notranslate"><span class="pre">len(
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorArray.view">
 <span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.TensorArray.view" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a list of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> views to all tensors, as in <a class="reference internal" href="#furiosa.runtime.tensor.Tensor.view" title="furiosa.runtime.tensor.Tensor.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor.view</span></code></a>.</p>
+<dd><p>Returns a list of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> views to all tensors, as in <a class="reference internal" href="#furiosa.runtime.tensor.Tensor.view" title="furiosa.runtime.tensor.Tensor.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor.view</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)">numpy.ndarray</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -313,10 +313,10 @@ supported only <code class="docutils literal notranslate"><span class="pre">len(
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.TensorArray.numpy">
 <span class="sig-name descname"><span class="pre">numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.TensorArray.numpy" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a list of <em>copies</em> of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> from all tensors, as in <a class="reference internal" href="#furiosa.runtime.tensor.Tensor.numpy" title="furiosa.runtime.tensor.Tensor.numpy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor.numpy</span></code></a>.</p>
+<dd><p>Returns a list of <em>copies</em> of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> from all tensors, as in <a class="reference internal" href="#furiosa.runtime.tensor.Tensor.numpy" title="furiosa.runtime.tensor.Tensor.numpy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor.numpy</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)">numpy.ndarray</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -334,24 +334,24 @@ supported only <code class="docutils literal notranslate"><span class="pre">len(
 <dl class="py class">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.tensor.</span></span><span class="sig-name descname"><span class="pre">Tensor</span></span><a class="headerlink" href="#furiosa.runtime.tensor.Tensor" title="Permalink to this definition"></a></dt>
-<dd><p>A subclass of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> providing additional methods.</p>
+<dd><p>A subclass of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> providing additional methods.</p>
 <p><a class="reference internal" href="#use-of-legacy-modules"><span class="std std-ref">Legacy only</span></a>:
-This class used to be not subclassed from <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> and
+This class used to be not subclassed from <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> and
 no methods were available except documented here.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.shape">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.shape" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.shape" title="Permalink to this definition"></a></dt>
 <dd><p>Same as <code class="docutils literal notranslate"><span class="pre">tensor.view().shape</span></code>.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.numpy_dtype">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><span class="pre">type</span></a></em><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.numpy_dtype" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><span class="pre">type</span></a></em><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.numpy_dtype" title="Permalink to this definition"></a></dt>
 <dd><p>Same as <code class="docutils literal notranslate"><span class="pre">tensor.view().dtype.type</span></code>.
-Returns a Numpy <em>type object</em> like <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int8" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.int8</span></code></a>.</p>
+Returns a Numpy <em>type object</em> like <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int8" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.int8</span></code></a>.</p>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.10: </span>Contrary to its name, it didn’t return <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.dtype</span></code></a> which was misleading and thus deprecated.
-Use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html#numpy.ndarray.dtype" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor.view().dtype</span></code></a> instead.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 0.10: </span>Contrary to its name, it didn’t return <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.dtype</span></code></a> which was misleading and thus deprecated.
+Use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html#numpy.ndarray.dtype" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor.view().dtype</span></code></a> instead.</p>
 </div>
 </dd></dl>
 
@@ -361,7 +361,7 @@ Use <a class="reference external" href="https://numpy.org/doc/stable/reference/g
 <dd><p>Replaces the entire tensor with given data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.generic" title="(in NumPy v1.26)"><em>numpy.generic</em></a>) – What to replace this tensor</p>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.generic" title="(in NumPy v2.2)"><em>numpy.generic</em></a>) – What to replace this tensor</p>
 </dd>
 </dl>
 </dd></dl>
@@ -369,11 +369,11 @@ Use <a class="reference external" href="https://numpy.org/doc/stable/reference/g
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.view">
 <span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.view" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> view to this tensor.
+<dd><p>Returns a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> view to this tensor.
 Multiple views to the same tensor refer to the same memory region.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -381,11 +381,11 @@ Multiple views to the same tensor refer to the same memory region.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.tensor.Tensor.numpy">
 <span class="sig-name descname"><span class="pre">numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.tensor.Tensor.numpy" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a <em>copy</em> of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> from this tensor.
+<dd><p>Returns a <em>copy</em> of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a> from this tensor.
 Multiple copies to the same tensor are independent from each other and the original tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -394,8 +394,8 @@ Multiple copies to the same tensor are independent from each other and the origi
 <p class="topic-title">When used as an input type</p>
 <p>This type can be also internally converted from other types:</p>
 <ul class="simple">
-<li><p>A single <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p></li>
-<li><p>A single <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.generic" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.generic</span></code></a>, if the tensor was zero-dimensional</p></li>
+<li><p>A single <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p></li>
+<li><p>A single <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.generic" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.generic</span></code></a>, if the tensor was zero-dimensional</p></li>
 </ul>
 </aside>
 </dd></dl>
@@ -415,7 +415,7 @@ Multiple copies to the same tensor are independent from each other and the origi
 <dd><p>Asynchronous runtime object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> or </em><em>None</em>) – A textual <a class="reference internal" href="#device-specification">device specification</a>, see the section for defaults</p>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em> or </em><em>None</em>) – A textual <a class="reference internal" href="#device-specification">device specification</a>, see the section for defaults</p>
 </dd>
 </dl>
 <p>This type is mainly used as a context manager:</p>
@@ -590,11 +590,11 @@ Their names and meanings are not stable and can change at any time.</p>
 <dd><p>Represents a data type for each item in the tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>v</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – A value to determine its data type</p>
+<dd class="field-odd"><p><strong>v</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – A value to determine its data type</p>
 </dd>
 </dl>
 <p>The constructor can be also used to determine an NPU-supported data type from other objects:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">DataType</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>                       <span class="c1"># =&gt; DataType.FLOAT32</span>
 <span class="n">DataType</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int8&#39;</span><span class="p">))</span>   <span class="c1"># =&gt; DataType.INT8</span>
 </pre></div>
@@ -656,26 +656,26 @@ Their representations are not stable and can change at any time.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.DataType.numpy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v1.26)"><span class="pre">numpy.dtype</span></a></em><a class="headerlink" href="#furiosa.runtime.DataType.numpy" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.2)"><span class="pre">numpy.dtype</span></a></em><a class="headerlink" href="#furiosa.runtime.DataType.numpy" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a corresponding Numpy data type object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><strong>ValueError</strong></a> – if this type has no Numpy equivalent</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – if this type has no Numpy equivalent</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.DataType.numpy_dtype">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><span class="pre">type</span></a></em><a class="headerlink" href="#furiosa.runtime.DataType.numpy_dtype" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a Numpy <em>type object</em> corresponding to this data type, like <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int8" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.int8</span></code></a>.</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><span class="pre">type</span></a></em><a class="headerlink" href="#furiosa.runtime.DataType.numpy_dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a Numpy <em>type object</em> corresponding to this data type, like <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int8" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.int8</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><strong>ValueError</strong></a> – if this type has no Numpy equivalent</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – if this type has no Numpy equivalent</p>
 </dd>
 </dl>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.10: </span>Contrary to its name, it didn’t return <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.dtype</span></code></a> which was misleading and thus deprecated.
+<p><span class="versionmodified deprecated">Deprecated since version 0.10: </span>Contrary to its name, it didn’t return <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.dtype</span></code></a> which was misleading and thus deprecated.
 Use the <a class="reference internal" href="#furiosa.runtime.DataType.numpy" title="furiosa.runtime.DataType.numpy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy</span></code></a> property instead.</p>
 </div>
 </dd></dl>
@@ -694,7 +694,7 @@ Use the <a class="reference internal" href="#furiosa.runtime.DataType.numpy" tit
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.TensorDesc.ndim">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ndim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.ndim" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ndim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.ndim" title="Permalink to this definition"></a></dt>
 <dd><p>The number of dimensions.</p>
 </dd></dl>
 
@@ -704,17 +704,17 @@ Use the <a class="reference internal" href="#furiosa.runtime.DataType.numpy" tit
 <dd><p>The size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">idx</span></code>-th dimension.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – 0-based dimension index</p>
+<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – 0-based dimension index</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.TensorDesc.shape">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.shape" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.shape" title="Permalink to this definition"></a></dt>
 <dd><p>The shape of given tensor.</p>
 <p><code class="code docutils literal notranslate"><span class="pre">desc.shape</span></code> is conceptually same as <code class="code docutils literal notranslate"><span class="pre">(desc.dim(0),</span> <span class="pre">...,</span> <span class="pre">desc.dim(desc.ndim</span> <span class="pre">-</span> <span class="pre">1))</span></code>.</p>
 </dd></dl>
@@ -725,7 +725,7 @@ Use the <a class="reference internal" href="#furiosa.runtime.DataType.numpy" tit
 <dd><p>The compiler-inferred axis for <code class="xref py py-obj docutils literal notranslate"><span class="pre">idx</span></code>-th dimension. Defaults to <a class="reference internal" href="#furiosa.runtime.Axis.UNKNOWN" title="furiosa.runtime.Axis.UNKNOWN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axis.UNKNOWN</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – 0-based dimension index</p>
+<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – 0-based dimension index</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#furiosa.runtime.Axis" title="furiosa.runtime.Axis">Axis</a></p>
@@ -735,7 +735,7 @@ Use the <a class="reference internal" href="#furiosa.runtime.DataType.numpy" tit
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.TensorDesc.size">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.size" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.size" title="Permalink to this definition"></a></dt>
 <dd><p>The byte size of given tensor.</p>
 </dd></dl>
 
@@ -747,23 +747,23 @@ It’s a distance between two adjacent elements in given dimension;
 this convention notably differs from <code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.strides</span></code> which is in bytes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – 0-based dimension index</p>
+<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – 0-based dimension index</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.TensorDesc.length">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.length" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.length" title="Permalink to this definition"></a></dt>
 <dd><p>The number of total elements in given tensor.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.TensorDesc.format">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.format" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.format" title="Permalink to this definition"></a></dt>
 <dd><p>A concatenation of abbreviated axes in given tensor, e.g. <code class="docutils literal notranslate"><span class="pre">NCHW</span></code>.</p>
 </dd></dl>
 
@@ -775,7 +775,7 @@ this convention notably differs from <code class="xref py py-obj docutils litera
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.TensorDesc.numpy_dtype">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v1.26)"><span class="pre">numpy.dtype</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.numpy_dtype" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numpy_dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.2)"><span class="pre">numpy.dtype</span></a></em><a class="headerlink" href="#furiosa.runtime.TensorDesc.numpy_dtype" title="Permalink to this definition"></a></dt>
 <dd><p>A <a class="reference external" href="https://numpy.org/">Numpy</a> data type for each element. Same as <code class="xref py py-obj docutils literal notranslate"><span class="pre">desc.dtype.numpy</span></code>.</p>
 </dd></dl>
 
@@ -787,13 +787,13 @@ this convention notably differs from <code class="xref py py-obj docutils litera
 <dd><p>Describes a single model with possibly multiple input and output tensors.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.Model.input_num">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.Model.input_num" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.Model.input_num" title="Permalink to this definition"></a></dt>
 <dd><p>The number of input tensors.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="furiosa.runtime.Model.output_num">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.Model.output_num" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#furiosa.runtime.Model.output_num" title="Permalink to this definition"></a></dt>
 <dd><p>The number of output tensors.</p>
 </dd></dl>
 
@@ -803,7 +803,7 @@ this convention notably differs from <code class="xref py py-obj docutils litera
 <dd><p>A description for <code class="xref py py-obj docutils literal notranslate"><span class="pre">idx</span></code>-th input tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – 0-based tensor index</p>
+<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – 0-based tensor index</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#furiosa.runtime.TensorDesc" title="furiosa.runtime.TensorDesc">TensorDesc</a></p>
@@ -817,7 +817,7 @@ this convention notably differs from <code class="xref py py-obj docutils litera
 <dd><p>A description for <code class="xref py py-obj docutils literal notranslate"><span class="pre">idx</span></code>-th output tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – 0-based tensor index</p>
+<dd class="field-odd"><p><strong>idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – 0-based tensor index</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#furiosa.runtime.TensorDesc" title="furiosa.runtime.TensorDesc">TensorDesc</a></p>
@@ -831,7 +831,7 @@ this convention notably differs from <code class="xref py py-obj docutils litera
 <dd><p>A list of descriptions for each input tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference internal" href="#furiosa.runtime.TensorDesc" title="furiosa.runtime.TensorDesc">TensorDesc</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a>[<a class="reference internal" href="#furiosa.runtime.TensorDesc" title="furiosa.runtime.TensorDesc">TensorDesc</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -842,7 +842,7 @@ this convention notably differs from <code class="xref py py-obj docutils litera
 <dd><p>A list of descriptions for each output tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference internal" href="#furiosa.runtime.TensorDesc" title="furiosa.runtime.TensorDesc">TensorDesc</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a>[<a class="reference internal" href="#furiosa.runtime.TensorDesc" title="furiosa.runtime.TensorDesc">TensorDesc</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -860,7 +860,7 @@ this convention notably differs from <code class="xref py py-obj docutils litera
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -888,8 +888,8 @@ this convention notably differs from <code class="xref py py-obj docutils litera
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<a class="reference internal" href="#furiosa.runtime.ModelSource" title="furiosa.runtime.ModelSource"><em>ModelSource</em></a>) – Model path or data</p></li>
-<li><p><strong>worker_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The number of worker threads</p></li>
-<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The number of batches per each run</p></li>
+<li><p><strong>worker_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The number of worker threads</p></li>
+<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The number of batches per each run</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -940,7 +940,7 @@ This dimension generally corresponds to the <a class="reference internal" href="
 <dd class="field-odd"><p><strong>inputs</strong> (<a class="reference internal" href="#furiosa.runtime.TensorArray" title="furiosa.runtime.TensorArray"><em>TensorArray</em></a>) – Input tensors</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a>]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)">numpy.ndarray</a>]</p>
 </dd>
 </dl>
 <p>Input tensors are <strong>not</strong> copied to a new buffer.
@@ -997,10 +997,10 @@ It is also called at the unspecified point after <a class="reference internal" h
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<a class="reference internal" href="#furiosa.runtime.ModelSource" title="furiosa.runtime.ModelSource"><em>ModelSource</em></a>) – Model path or data</p></li>
-<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> or </em><em>None</em>) – A textual <a class="reference internal" href="#device-specification">device specification</a>, see the section for defaults</p></li>
-<li><p><strong>worker_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The number of worker threads</p></li>
-<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The number of batches per each run</p></li>
-<li><p><strong>compiler_hints</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em> or </em><em>None</em>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code>, compiler prints additional hint messages</p></li>
+<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em> or </em><em>None</em>) – A textual <a class="reference internal" href="#device-specification">device specification</a>, see the section for defaults</p></li>
+<li><p><strong>worker_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The number of worker threads</p></li>
+<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The number of batches per each run</p></li>
+<li><p><strong>compiler_hints</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em> or </em><em>None</em>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code>, compiler prints additional hint messages</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -1080,8 +1080,8 @@ in which case it should not be altered after it was sent to <a class="reference 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>outputs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – Output tensor names</p></li>
-<li><p><strong>inputs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>ndarray</em></a><em>]</em>) – Input tensors and their names</p></li>
+<li><p><strong>outputs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>) – Output tensor names</p></li>
+<li><p><strong>inputs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>ndarray</em></a><em>]</em>) – Input tensors and their names</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1135,14 +1135,14 @@ so submitting inputs too quickly or failing to receive outputs in time will bloc
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<a class="reference internal" href="#furiosa.runtime.ModelSource" title="furiosa.runtime.ModelSource"><em>ModelSource</em></a>) – Model path or data</p></li>
-<li><p><strong>worker_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The number of worker threads</p></li>
-<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The number of batches per each run</p></li>
-<li><p><strong>input_queue_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The <a class="reference internal" href="#term-Input-queue"><span class="xref std std-term">input queue</span></a> size</p></li>
-<li><p><strong>output_queue_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The <a class="reference internal" href="#term-Output-queue"><span class="xref std std-term">output queue</span></a> size</p></li>
+<li><p><strong>worker_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The number of worker threads</p></li>
+<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The number of batches per each run</p></li>
+<li><p><strong>input_queue_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The <a class="reference internal" href="#term-Input-queue"><span class="xref std std-term">input queue</span></a> size</p></li>
+<li><p><strong>output_queue_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The <a class="reference internal" href="#term-Output-queue"><span class="xref std std-term">output queue</span></a> size</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)">tuple</a>[<a class="reference internal" href="#furiosa.runtime.Submitter" title="furiosa.runtime.Submitter">Submitter</a>, <a class="reference internal" href="#furiosa.runtime.Receiver" title="furiosa.runtime.Receiver">Receiver</a>], but see below</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)">tuple</a>[<a class="reference internal" href="#furiosa.runtime.Submitter" title="furiosa.runtime.Submitter">Submitter</a>, <a class="reference internal" href="#furiosa.runtime.Receiver" title="furiosa.runtime.Receiver">Receiver</a>], but see below</p>
 </dd>
 </dl>
 <p>It is also possible to call this function directly as an asynchronous context manager:</p>
@@ -1200,7 +1200,7 @@ This dimension generally corresponds to the <a class="reference internal" href="
 Their initial contents are not specified (but probably zeroed).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)">numpy.ndarray</a>]</p>
 </dd>
 </dl>
 <p>While this is no different than creating tensors yourself,
@@ -1228,7 +1228,7 @@ Modifications during the inference may result in an unexpected output;
 the runtime only ensures that such modifications do not cause a crash.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Associated values should be simple values like an integer or a <a class="reference external" href="https://docs.python.org/3/library/uuid.html#uuid.uuid4" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UUID</span></code></a>,
+<p>Associated values should be simple values like an integer or a <a class="reference external" href="https://docs.python.org/3/library/uuid.html#uuid.uuid4" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UUID</span></code></a>,
 as they are retained as long as a progress can be made and can cause logical memory leaks.</p>
 </div>
 </dd></dl>
@@ -1300,7 +1300,7 @@ as <a class="reference internal" href="#furiosa.runtime.Submitter" title="furios
 <dd class="field-odd"><p>A tuple of the associated value and output tensors, in this order</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)">tuple</a>[any, <a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><em>TensorArray</em></a>]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)">tuple</a>[any, <a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><em>TensorArray</em></a>]</p>
 </dd>
 </dl>
 <p>The runtime guarantees that each inference result is received at most once,
@@ -1312,9 +1312,9 @@ the <a class="reference internal" href="#term-Output-queue"><span class="xref st
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method does not support <code class="docutils literal notranslate"><span class="pre">timeout</span></code> unlike others,
-because <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.wait_for" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asyncio.wait_for</span></code></a> provides an idiomatic way to do that:</p>
+because <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.wait_for" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asyncio.wait_for</span></code></a> provides an idiomatic way to do that:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">recv</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">recv</span><span class="p">():</span>
         <span class="n">context</span><span class="p">,</span> <span class="n">outputs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receiver</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
 
     <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">recv</span><span class="p">())</span>
@@ -1376,10 +1376,10 @@ It is also called at the unspecified point after <a class="reference internal" h
 this method <em>does</em> accept the timeout because it is otherwise impossible to specify the timeout in a synchronous context.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em> or </em><em>None</em>) – The timeout in <em>seconds</em></p>
+<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em> or </em><em>None</em>) – The timeout in <em>seconds</em></p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TimeoutError" title="(in Python v3.12)"><strong>TimeoutError</strong></a> – When <code class="docutils literal notranslate"><span class="pre">timeout</span></code> is given and the timeout has been reached</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TimeoutError" title="(in Python v3.13)"><strong>TimeoutError</strong></a> – When <code class="docutils literal notranslate"><span class="pre">timeout</span></code> is given and the timeout has been reached</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -1400,16 +1400,16 @@ this method <em>does</em> accept the timeout because it is otherwise impossible 
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<a class="reference internal" href="#furiosa.runtime.ModelSource" title="furiosa.runtime.ModelSource"><em>ModelSource</em></a>) – Model path or data</p></li>
-<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> or </em><em>None</em>) – A textual <a class="reference internal" href="#device-specification">device specification</a>, see the section for defaults</p></li>
-<li><p><strong>worker_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The number of worker threads</p></li>
-<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The number of batches per each run</p></li>
-<li><p><strong>compiler_hints</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em> or </em><em>None</em>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code>, compiler prints additional hint messages</p></li>
-<li><p><strong>input_queue_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The <a class="reference internal" href="#term-Input-queue"><span class="xref std std-term">input queue</span></a> size</p></li>
-<li><p><strong>output_queue_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The <a class="reference internal" href="#term-Output-queue"><span class="xref std std-term">output queue</span></a> size</p></li>
+<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em> or </em><em>None</em>) – A textual <a class="reference internal" href="#device-specification">device specification</a>, see the section for defaults</p></li>
+<li><p><strong>worker_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The number of worker threads</p></li>
+<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The number of batches per each run</p></li>
+<li><p><strong>compiler_hints</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em> or </em><em>None</em>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code>, compiler prints additional hint messages</p></li>
+<li><p><strong>input_queue_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The <a class="reference internal" href="#term-Input-queue"><span class="xref std std-term">input queue</span></a> size</p></li>
+<li><p><strong>output_queue_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The <a class="reference internal" href="#term-Output-queue"><span class="xref std std-term">output queue</span></a> size</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)">tuple</a>[<a class="reference internal" href="#furiosa.runtime.session.AsyncSession" title="furiosa.runtime.session.AsyncSession">AsyncSession</a>, <a class="reference internal" href="#furiosa.runtime.session.CompletionQueue" title="furiosa.runtime.session.CompletionQueue">CompletionQueue</a>]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)">tuple</a>[<a class="reference internal" href="#furiosa.runtime.session.AsyncSession" title="furiosa.runtime.session.AsyncSession">AsyncSession</a>, <a class="reference internal" href="#furiosa.runtime.session.CompletionQueue" title="furiosa.runtime.session.CompletionQueue">CompletionQueue</a>]</p>
 </dd>
 </dl>
 <div class="versionchanged">
@@ -1491,7 +1491,7 @@ input tensors are copied to a new buffer unless it’s a <a class="reference int
 in which case it should not be altered after it was sent to <a class="reference internal" href="#furiosa.runtime.session.AsyncSession.submit" title="furiosa.runtime.session.AsyncSession.submit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit</span></code></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Associated values should be simple values like an integer or a <a class="reference external" href="https://docs.python.org/3/library/uuid.html#uuid.uuid4" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UUID</span></code></a>,
+<p>Associated values should be simple values like an integer or a <a class="reference external" href="https://docs.python.org/3/library/uuid.html#uuid.uuid4" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UUID</span></code></a>,
 as they are retained as long as a progress can be made and cause logical memory leaks.</p>
 </div>
 </dd></dl>
@@ -1575,13 +1575,13 @@ as <a class="reference internal" href="#furiosa.runtime.session.AsyncSession" ti
 <dd><p>Waits for a single inference result, and returns it with the associated value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><em>None</em>) – The timeout in <em>milliseconds</em></p>
+<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em>) – The timeout in <em>milliseconds</em></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A tuple of the associated value and output tensors, in this order</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)">tuple</a>[any, <a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><em>TensorArray</em></a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)">tuple</a>[any, <a class="reference internal" href="#furiosa.runtime.tensor.TensorArray" title="furiosa.runtime.tensor.TensorArray"><em>TensorArray</em></a>]</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#furiosa.runtime.errors.QueueWaitTimeout" title="furiosa.runtime.errors.QueueWaitTimeout"><strong>QueueWaitTimeout</strong></a> – When <code class="docutils literal notranslate"><span class="pre">timeout</span></code> is given and the timeout has been reached</p>
@@ -1652,7 +1652,7 @@ It is also called at the unspecified point after <a class="reference internal" h
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.profiler.</span></span><span class="sig-name descname"><span class="pre">profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Resource.All</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">RecordFormat.ChromeTrace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile" title="Permalink to this definition"></a></dt>
 <dd><p>Profile context manager:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordFormat</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;profile.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">RecordFormat</span><span class="o">.</span><span class="n">ChromeTrace</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
         <span class="c1"># Profiler enabled from here</span>
@@ -1678,13 +1678,13 @@ It is also called at the unspecified point after <a class="reference internal" h
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.record">
-<span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.record" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.record" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a profiler record context manager.</p>
 <p>At the enter of the context, profiler span trace with specified name starts, and ends at the exit of the context.
 Traces for execution within the context will be recorded as a child of the created span.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Profiler record span name.</p>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Profiler record span name.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>ProfilerRecordObject</p>
@@ -1741,13 +1741,13 @@ For more details on paused state, see <a class="reference internal" href="#furio
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.get_pandas_dataframe_with_filter">
-<span class="sig-name descname"><span class="pre">get_pandas_dataframe_with_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe_with_filter" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_pandas_dataframe_with_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe_with_filter" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a DataFrame only containing rows whose column <code class="docutils literal notranslate"><span class="pre">column</span></code> has a value <code class="docutils literal notranslate"><span class="pre">value</span></code> in the DataFrame returned by <a class="reference internal" href="#furiosa.runtime.profiler.profile.get_pandas_dataframe" title="furiosa.runtime.profiler.profile.get_pandas_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_pandas_dataframe</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>column</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – name of the column used for filtering.</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – column value for target rows.</p></li>
+<li><p><strong>column</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – name of the column used for filtering.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – column value for target rows.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -1921,11 +1921,11 @@ Median<span class="w"> </span>latency<span class="w"> </span><span class="o">(</
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.runtime.profiler.profile.export_chrome_trace">
-<span class="sig-name descname"><span class="pre">export_chrome_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.export_chrome_trace" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">export_chrome_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.runtime.profiler.profile.export_chrome_trace" title="Permalink to this definition"></a></dt>
 <dd><p>Export profiled data to a chrome tracing file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – filename to write.</p>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – filename to write.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2017,7 +2017,7 @@ at the expense of the lack of the current APIs.</p>
 <dd class="field-odd"><p>NPU device name</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
 </dd>
 </dl>
 <p>This function is <a class="reference internal" href="#use-of-legacy-modules"><span class="std std-ref">legacy only</span></a>.</p>
@@ -2032,7 +2032,7 @@ at the expense of the lack of the current APIs.</p>
 <dd class="field-odd"><p>True if the compile log is enabled, or False.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
 </dd>
 </dl>
 <p>This function is <a class="reference internal" href="#use-of-legacy-modules"><span class="std std-ref">legacy only</span></a>.</p>
@@ -2047,7 +2047,7 @@ at the expense of the lack of the current APIs.</p>
 <dd class="field-odd"><p>The log directory of Furiosa SDK</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
 </dd>
 </dl>
 <p>This function is <a class="reference internal" href="#use-of-legacy-modules"><span class="std std-ref">legacy only</span></a>.</p>
@@ -2064,7 +2064,7 @@ but it will be deprecated by FURIOSA_PROFILER_OUTPUT_PATH later.</p>
 <dd class="field-odd"><p>The file path of profiler output if specified, or None.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a> or None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a> or None</p>
 </dd>
 </dl>
 <p>This function is <a class="reference internal" href="#use-of-legacy-modules"><span class="std std-ref">legacy only</span></a>.</p>
@@ -2112,7 +2112,7 @@ but it will be deprecated by FURIOSA_PROFILER_OUTPUT_PATH later.</p>
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.runtime.errors.</span></span><span class="sig-name descname"><span class="pre">SessionClosed</span></span><a class="headerlink" href="#furiosa.runtime.errors.SessionClosed" title="Permalink to this definition"></a></dt>
 <dd><p>Specific subclasses of <code class="xref py py-obj docutils literal notranslate"><span class="pre">FuriosaRuntimeError</span></code>.</p>
 <p>They are <a class="reference internal" href="#use-of-legacy-modules"><span class="std std-ref">legacy only</span></a> and
-have been mostly replaced with standard Python exceptions like <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeError</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a>,
+have been mostly replaced with standard Python exceptions like <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeError</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a>,
 except for the following:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#furiosa.runtime.errors.DeviceBusy" title="furiosa.runtime.errors.DeviceBusy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeviceBusy</span></code></a></p></li>

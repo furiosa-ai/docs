@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Performance Optimization &mdash; Furiosa SDK Documentation 0.10.1 documentation</title>
+  <title>Performance Optimization &mdash; FuriosaAI Warboy &amp; SDK Documents 0.10.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -34,10 +34,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Furiosa SDK Documentation
+            FuriosaAI Warboy & SDK Documents
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -120,7 +120,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Furiosa SDK Documentation</a>
+          <a href="../index.html">FuriosaAI Warboy & SDK Documents</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -277,18 +277,18 @@ it is recommended to validate the accuracy of the model.</p>
 <p>The following is a real example code to use <code class="docutils literal notranslate"><span class="pre">ModelEditor</span></code> API with <code class="docutils literal notranslate"><span class="pre">convert_input_type()</span></code>.</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">onnx</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">torchvision</span>
-<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
-<span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">onnx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">transforms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tqdm</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.optimizer</span> <span class="kn">import</span> <span class="n">optimize_model</span>
-<span class="kn">from</span> <span class="nn">furiosa.quantizer</span> <span class="kn">import</span> <span class="n">get_pure_input_names</span><span class="p">,</span> <span class="n">quantize</span><span class="p">,</span> <span class="n">Calibrator</span><span class="p">,</span> <span class="n">CalibrationMethod</span><span class="p">,</span> <span class="n">ModelEditor</span><span class="p">,</span> <span class="n">TensorType</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">profile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimize_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.quantizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_pure_input_names</span><span class="p">,</span> <span class="n">quantize</span><span class="p">,</span> <span class="n">Calibrator</span><span class="p">,</span> <span class="n">CalibrationMethod</span><span class="p">,</span> <span class="n">ModelEditor</span><span class="p">,</span> <span class="n">TensorType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">profile</span>
 
 
 <span class="n">torch_model</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">resnet50</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s1">&#39;DEFAULT&#39;</span><span class="p">)</span>
@@ -374,18 +374,18 @@ it is recommended to validate the accuracy of the model.</p>
 <p>The following is an real example code to use <code class="docutils literal notranslate"><span class="pre">convert_output_type</span></code> option.</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">onnx</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">torchvision</span>
-<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
-<span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">onnx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">transforms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tqdm</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.optimizer</span> <span class="kn">import</span> <span class="n">optimize_model</span>
-<span class="kn">from</span> <span class="nn">furiosa.quantizer</span> <span class="kn">import</span> <span class="n">get_output_names</span><span class="p">,</span> <span class="n">quantize</span><span class="p">,</span> <span class="n">Calibrator</span><span class="p">,</span> <span class="n">CalibrationMethod</span><span class="p">,</span> <span class="n">ModelEditor</span><span class="p">,</span> <span class="n">TensorType</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">profile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimize_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.quantizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_output_names</span><span class="p">,</span> <span class="n">quantize</span><span class="p">,</span> <span class="n">Calibrator</span><span class="p">,</span> <span class="n">CalibrationMethod</span><span class="p">,</span> <span class="n">ModelEditor</span><span class="p">,</span> <span class="n">TensorType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">profile</span>
 
 
 <span class="n">torch_model</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">resnet50</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s1">&#39;DEFAULT&#39;</span><span class="p">)</span>
@@ -486,17 +486,17 @@ to specify the new order of the input tensor axes as follows:</p>
 <p>The following is a real example code to use <code class="docutils literal notranslate"><span class="pre">permute_input</span></code> option.</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">onnx</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">onnx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tqdm</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.optimizer</span> <span class="kn">import</span> <span class="n">optimize_model</span>
-<span class="kn">from</span> <span class="nn">furiosa.quantizer</span> <span class="kn">import</span> <span class="n">quantize</span><span class="p">,</span> <span class="n">Calibrator</span><span class="p">,</span> <span class="n">CalibrationMethod</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">profile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimize_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.quantizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">quantize</span><span class="p">,</span> <span class="n">Calibrator</span><span class="p">,</span> <span class="n">CalibrationMethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">profile</span>
 
 
 <span class="n">onnx_model</span> <span class="o">=</span> <span class="n">onnx</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model_nhwc.onnx&quot;</span><span class="p">)</span>
@@ -643,7 +643,7 @@ Async APIs allow to request multiple inferences simultaneously and wait for the 
 As the below example, <code class="docutils literal notranslate"><span class="pre">session.run()</span></code> is blocked until the result is returned.
 It generally is enough for batch workloads with large batch sizes,
 but it’s not sufficient for serving workloads that handle multiple current requests simultaneously.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 
 <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
     <span class="nb">input</span> <span class="o">=</span> <span class="o">...</span>
@@ -659,10 +659,10 @@ They are also useful to hide I/O and CPU computation by overlapping them with NP
 <p><code class="docutils literal notranslate"><span class="pre">create_async()</span></code> creates a pair of a submitter and a queue.
 With both, we can submit inference requests without waiting for completion and
 wait for the inference results asynchronously.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 
 <span class="n">submitter</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create_async</span><span class="p">(</span><span class="s2">&quot;mnist.onnx&quot;</span><span class="p">,</span>
                                         <span class="n">worker_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -691,13 +691,13 @@ wait for the inference results asynchronously.</p>
 <h4>Using Async/Await syntax<a class="headerlink" href="#using-async-await-syntax" title="Permalink to this heading"></a></h4>
 <p>In the the example below, <code class="docutils literal notranslate"><span class="pre">NPUModel</span></code> of furiosa-server provide an easier way to implement
 a serving application using async/await API.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.server.model</span> <span class="kn">import</span> <span class="n">NPUModel</span><span class="p">,</span> <span class="n">NPUModelConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.server.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">NPUModel</span><span class="p">,</span> <span class="n">NPUModelConfig</span>
 
-<span class="k">class</span> <span class="nc">SimpleApplication</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleApplication</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">NPUModel</span><span class="p">(</span>
             <span class="n">NPUModelConfig</span><span class="p">(</span>
                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MNIST&quot;</span><span class="p">,</span>
@@ -705,30 +705,30 @@ a serving application using async/await API.</p>
             <span class="p">)</span>
         <span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
         <span class="nb">input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
         <span class="n">tensor</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
         <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">output</span>
 
-    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
         <span class="c1"># do preprocess</span>
         <span class="k">return</span> <span class="n">image</span>
 
-    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
         <span class="c1"># do postprocess</span>
         <span class="k">return</span> <span class="n">tensor</span>
 
 
 <span class="n">APP</span> <span class="o">=</span> <span class="n">SimpleApplication</span><span class="p">()</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">startup</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">startup</span><span class="p">():</span>
     <span class="k">await</span> <span class="n">APP</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">APP</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span>
 

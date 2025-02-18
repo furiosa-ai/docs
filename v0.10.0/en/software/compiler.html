@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Compiler &mdash; Furiosa SDK Documentation 0.10.1 documentation</title>
+  <title>Compiler &mdash; FuriosaAI Warboy &amp; SDK Documents 0.10.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -34,10 +34,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Furiosa SDK Documentation
+            FuriosaAI Warboy & SDK Documents
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -103,7 +103,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Furiosa SDK Documentation</a>
+          <a href="../index.html">FuriosaAI Warboy & SDK Documents</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -278,7 +278,7 @@ serve one model across several machines in an actual operation environment.</p>
 Then, with <a class="reference internal" href="python-sdk.html#pythonsdk"><span class="std std-ref">PythonSDK</span></a> as shown below,
 you can instantly create a runner without the compilation process by
 passing the ENF file as an argument to the <code class="docutils literal notranslate"><span class="pre">create_runner()</span></code> function as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">sync</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sync</span>
 
 <span class="k">with</span> <span class="n">sync</span><span class="o">.</span><span class="n">create_runner</span><span class="p">(</span><span class="s2">&quot;path/to/model.enf&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">runner</span><span class="p">:</span>
   <span class="n">outputs</span> <span class="o">=</span> <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>

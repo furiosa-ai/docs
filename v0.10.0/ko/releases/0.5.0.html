@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes - 0.5.0 &mdash; FuriosaAI NPU 및 Software 문서 0.10.1 문서</title>
+  <title>Release Notes - 0.5.0 &mdash; FuriosaAI Warboy 및 Software 문서 0.10.2 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -35,10 +35,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            FuriosaAI NPU 및 Software 문서
+            FuriosaAI Warboy 및 Software 문서
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -111,7 +111,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+          <a href="../index.html">FuriosaAI Warboy 및 Software 문서</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -180,7 +180,7 @@ sess1.run_with(outputs=[“output1”], inputs={
 <h2>에러 진단 메시지 및 에러 핸들링 개선<a class="headerlink" href="#id2" title="이 제목에 대한 퍼머링크"></a></h2>
 <p>에러가 발생하면 디버깅을 위한 버전 정보와 컴파일러 로그가 독립적으로 출력 되어 간편한
 버그 신고를 가능하게 한다. <a class="reference internal" href="../customer-support/bugs.html#bugreport"><span class="std std-ref">버그 신고</span></a> 에서 문제 보고와 고객 지원의 더 많은 정보를 찾을 수 있다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;mnist-8.onnx)</span>
 <span class="go">Saving the compilation log into /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log</span>
 <span class="go">...</span>
@@ -223,11 +223,11 @@ sess1.run_with(outputs=[“output1”], inputs={
 <p>0.5.0 부터 FuriosaAI NPU에 최적화된 모델을 Python 패키지로 바로 사용할 수 있다.
 설치는 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">furiosa-sdk[models]</span></code> 명령으로 간단히 할 수 있으며
 설치 후에는 예제와 같이 바로 Session API에서 사용 가능하다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.registry</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">MLCommonsResNet50</span><span class="p">())</span>
 <span class="n">sess</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">resnet50</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;npu0pe0&#39;</span><span class="p">)</span>

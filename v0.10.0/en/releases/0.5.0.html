@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes - 0.5.0 &mdash; Furiosa SDK Documentation 0.10.1 documentation</title>
+  <title>Release Notes - 0.5.0 &mdash; FuriosaAI Warboy &amp; SDK Documents 0.10.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -34,10 +34,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Furiosa SDK Documentation
+            FuriosaAI Warboy & SDK Documents
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -107,7 +107,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Furiosa SDK Documentation</a>
+          <a href="../index.html">FuriosaAI Warboy & SDK Documents</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -151,7 +151,7 @@ in Session API.
 With 0.5.0, you can designate NPU device when generating a session, whereas previously you could only designate
 device to be used through the environment variable <code class="docutils literal notranslate"><span class="pre">NPU_DEVNAME</span></code>.
 If not explicitly stated, designated device in the environment variable <code class="docutils literal notranslate"><span class="pre">NPU_DEVNAME</span></code> will be used, as was done before.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 
 <span class="n">sess1</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;model1.onnx&quot;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;npu0pe0&quot;</span><span class="p">)</span>
 <span class="n">sess2</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;model2.onnx&quot;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;npu0pe1&quot;</span><span class="p">)</span>
@@ -176,7 +176,7 @@ From 0.5.0, you can explicitly designate name of input and output tensors as sho
 <h2>Error Diagnosis Message &amp; Error Handling Improvements<a class="headerlink" href="#error-diagnosis-message-error-handling-improvements" title="Permalink to this heading"></a></h2>
 <p>In case of an error, version information for debugging and compiler log are output independently. This enables easier bug reporting.
 You can find more information about reporting issues and customer service at <a class="reference internal" href="../customer-support/bugs.html#bugreport"><span class="std std-ref">Bug Report</span></a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;mnist-8.onnx&quot;</span><span class="p">)</span>
 <span class="go">Saving the compilation log into /home/furiosa/.local/state/furiosa/logs/compile-20211121223028-l5w4g6.log</span>
 <span class="go">...</span>
@@ -219,11 +219,11 @@ You can find more detailed instructions and functions at <a class="reference int
 <p>From 0.5.0, the optimized model for the FuriosaAI NPU can be used directly as a Python package.
 You can easily install it with the command <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">furiosa-sdk[models]</span></code>,
 and can immediately be used in Session API as shown in the following example.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.registry</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">MLCommonsResNet50</span><span class="p">())</span>
 <span class="n">sess</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">resnet50</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;npu0pe0&#39;</span><span class="p">)</span>

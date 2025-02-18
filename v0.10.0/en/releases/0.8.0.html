@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes - 0.8.0 &mdash; Furiosa SDK Documentation 0.10.1 documentation</title>
+  <title>Release Notes - 0.8.0 &mdash; FuriosaAI Warboy &amp; SDK Documents 0.10.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -35,10 +35,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Furiosa SDK Documentation
+            FuriosaAI Warboy & SDK Documents
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -110,7 +110,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Furiosa SDK Documentation</a>
+          <a href="../index.html">FuriosaAI Warboy & SDK Documents</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -231,7 +231,7 @@ into a number of small inputs, this improvement can be used to reduce the latenc
 <p>Small and frequent NPU inference queries may now be processed with lower latency.
 As shown in the example below, applications requiring multiple NPU inferences in a
 single API query can be processed with better performance.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
     <span class="c1"># The following code runs multiple inferences at the same time and wait until all requests are completed.</span>
     <span class="k">return</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">tensors</span><span class="p">))</span>
 </pre></div>
@@ -262,13 +262,13 @@ function, you can now track the execution time of specific code sections of the
 serving applications.</p>
 <p>To use this function, you can activate <code class="docutils literal notranslate"><span class="pre">trace.get_tracer()</span></code>, reset the tracer,
 activate the <code class="docutils literal notranslate"><span class="pre">tracer.start_as_current_span()</span></code> function, and designate the section.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opentelemetry</span> <span class="kn">import</span> <span class="n">trace</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">opentelemetry</span><span class="w"> </span><span class="kn">import</span> <span class="n">trace</span>
 
 <span class="n">tracer</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">get_tracer</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">Application</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Application</span><span class="p">:</span>
 
-        <span class="k">async</span> <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
             <span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_as_current_span</span><span class="p">(</span><span class="s2">&quot;preprocess&quot;</span><span class="p">):</span>
                 <span class="n">input_tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
             <span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_as_current_span</span><span class="p">(</span><span class="s2">&quot;inference&quot;</span><span class="p">):</span>
@@ -293,8 +293,8 @@ The following diagram is an example that visualizes the tracing result with Graf
 a data analysis framework. With this function, you can analyze the tracing result data,
 allowing you to quickly identify bottlenecks and reasons for model performance changes.
 More detailed instructions can be found at <a class="reference internal" href="../software/profiler.html#pandasprofilinganalysis"><span class="std std-ref">Trace analysis using Pandas DataFrame</span></a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime.profiler</span> <span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordFormat</span><span class="p">,</span> <span class="n">profile</span>
 
 <span class="k">with</span> <span class="n">profile</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">RecordFormat</span><span class="o">.</span><span class="n">PandasDataFrame</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;MNISTnet_uint8_quant_without_softmax.tflite&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
@@ -366,29 +366,29 @@ model loading API has been improved as shown below.</p>
 <a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/latest/model_object/">Model Object</a>.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Blocking API</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Nonblocking API</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Before update</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
 
 <span class="n">resnet50</span> <span class="o">=</span> <span class="n">MLCommonsResNet50</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Updated code</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResNet50</span>
 
 <span class="n">resnet50</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Before update</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.models.nonblocking.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.nonblocking.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">MLCommonsResNet50</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>0.8.0 improvements</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResNet50</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">ResNet50</span><span class="o">.</span><span class="n">load_async</span><span class="p">())</span>
 </pre></div>
@@ -403,9 +403,9 @@ latency by up to 70%, depending on the model.</p>
 <p>The following is a complete example of ResNet50, utilizing native post-processing code.
 More information can be found at <a class="reference external" href="https://furiosa-ai.github.io/furiosa-models/v0.8.0/model_object/#prepostprocessing">Pre/Postprocessing</a>.</p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">ResNet50</span>
-<span class="kn">from</span> <span class="nn">furiosa.models.vision.resnet50</span> <span class="kn">import</span> <span class="n">NativePostProcessor</span><span class="p">,</span> <span class="n">preprocess</span>
-<span class="kn">from</span> <span class="nn">furiosa.runtime</span> <span class="kn">import</span> <span class="n">session</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision.resnet50</span><span class="w"> </span><span class="kn">import</span> <span class="n">NativePostProcessor</span><span class="p">,</span> <span class="n">preprocess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">session</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>furiosa.optimizer.frontend.onnx.transformer.experimental package &mdash; Furiosa SDK Documentation 0.10.1 documentation</title>
+  <title>furiosa.optimizer.frontend.onnx.transformer.experimental package &mdash; FuriosaAI Warboy &amp; SDK Documents 0.10.2 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
@@ -34,10 +34,10 @@
           
           
           <a href="../../index.html" class="icon icon-home">
-            Furiosa SDK Documentation
+            FuriosaAI Warboy & SDK Documents
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -109,7 +109,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Furiosa SDK Documentation</a>
+          <a href="../../index.html">FuriosaAI Warboy & SDK Documents</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -118,7 +118,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../software/references.html">References</a></li>
-          <li class="breadcrumb-item"><a href="modules.html">Furiosa SDK 0.10.1 API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Furiosa SDK 0.10.2 API Documentation</a></li>
           <li class="breadcrumb-item"><a href="furiosa.optimizer.html">furiosa.optimizer package</a></li>
           <li class="breadcrumb-item"><a href="furiosa.optimizer.frontend.html">furiosa.optimizer.frontend package</a></li>
           <li class="breadcrumb-item"><a href="furiosa.optimizer.frontend.onnx.html">furiosa.optimizer.frontend.onnx package</a></li>
@@ -142,7 +142,7 @@
 <span id="furiosa-optimizer-frontend-onnx-transformer-experimental-eliminate-detection-postprocess-module"></span><h2>furiosa.optimizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess module<a class="headerlink" href="#module-furiosa.optimizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="furiosa.optimizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess.EliminateSSDDetectionPostprocess">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.optimizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess.</span></span><span class="sig-name descname"><span class="pre">EliminateSSDDetectionPostprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssd_outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.optimizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess.EliminateSSDDetectionPostprocess" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.optimizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess.</span></span><span class="sig-name descname"><span class="pre">EliminateSSDDetectionPostprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssd_outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.optimizer.frontend.onnx.transformer.experimental.eliminate_detection_postprocess.EliminateSSDDetectionPostprocess" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="furiosa.optimizer.interfaces.html#furiosa.optimizer.interfaces.transformer.Transformer" title="furiosa.optimizer.interfaces.transformer.Transformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transformer</span></code></a></p>
 <p>from: Softmax -&gt; graph_output
 to: graph_output</p>
@@ -168,12 +168,12 @@ can’t handle empty bag.</p>
 <p><a class="reference external" href="https://github.com/pytorch/pytorch/blob/55d479aca5e959c5f2fe3089e162db710bb7632d/torch/onnx/symbolic_opset11.py#L836-L902">https://github.com/pytorch/pytorch/blob/55d479aca5e959c5f2fe3089e162db710bb7632d/torch/onnx/symbolic_opset11.py#L836-L902</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPattern.check_condition_3">
-<span class="sig-name descname"><span class="pre">check_condition_3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPattern.check_condition_3" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">check_condition_3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NodeProto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPattern.check_condition_3" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPattern.pattern_condition_checker">
-<span class="sig-name descname"><span class="pre">pattern_condition_checker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes_to_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.12)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NodeProto</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPattern.pattern_condition_checker" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pattern_condition_checker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes_to_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.13)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">NodeProto</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPattern.pattern_condition_checker" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -185,7 +185,7 @@ can’t handle empty bag.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPorting">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.</span></span><span class="sig-name descname"><span class="pre">EmbeddingBagPorting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPorting" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.</span></span><span class="sig-name descname"><span class="pre">EmbeddingBagPorting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPorting" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="furiosa.optimizer.interfaces.html#furiosa.optimizer.interfaces.transformer.Transformer" title="furiosa.optimizer.interfaces.transformer.Transformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transformer</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="furiosa.optimizer.frontend.onnx.transformer.experimental.embedding_bag_porting.EmbeddingBagPorting.transform">

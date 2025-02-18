@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes - 0.7.0 &mdash; FuriosaAI NPU 및 Software 문서 0.10.1 문서</title>
+  <title>Release Notes - 0.7.0 &mdash; FuriosaAI Warboy 및 Software 문서 0.10.2 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -35,10 +35,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            FuriosaAI NPU 및 Software 문서
+            FuriosaAI Warboy 및 Software 문서
           </a>
               <div class="version">
-                0.10.1
+                0.10.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -116,7 +116,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">FuriosaAI NPU 및 Software 문서</a>
+          <a href="../index.html">FuriosaAI Warboy 및 Software 문서</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -296,26 +296,26 @@ pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="
 non-blocking API로 작성되었지만, 0.7.0 부터 개발 편의성을 위해 blocking API를 기본으로 노출한다.
 기존의 non-blocking API는 <code class="docutils literal notranslate"><span class="pre">furiosa.models.nonblocking</span></code> 의 하위 모듈을 통해 접근할 수 있다.</p>
 <dl>
-<dt>기존 코드</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<dt>기존 코드</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.registry</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">MLCommonsResNet50</span><span class="p">())</span>
 </pre></div>
 </div>
 </dd>
-<dt>동일한 기능을 하는 0.7.0 코드 (blocking API 사용)</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">furiosa.registry</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">furiosa.models.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<dt>동일한 기능을 하는 0.7.0 코드 (blocking API 사용)</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">MLCommonsResNet50</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd>
-<dt>동일한 기능을 하는 0.7.0 코드 (non-blocking API 사용)</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<dt>동일한 기능을 하는 0.7.0 코드 (non-blocking API 사용)</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">from</span> <span class="nn">furiosa.registry</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">furiosa.models.nonblocking.vision</span> <span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">furiosa.models.nonblocking.vision</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLCommonsResNet50</span>
 
 <span class="n">resnet50</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">MLCommonsResNet50</span><span class="p">())</span>
 </pre></div>
