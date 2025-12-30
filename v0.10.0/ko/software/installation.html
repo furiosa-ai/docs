@@ -158,46 +158,27 @@ FuriosaAI 평가 프로그램을 등록은 <a class="reference external" href="m
 <p>FuriosaAI에서 제공하는 APT 서버를 사용하려면 아래 설명에 따라 APT 서버를
 Ubuntu 또는 Debian 리눅스에 설정한다.</p>
 <ol class="arabic simple">
-<li><p>HTTPS 기반의 APT 서버 접근을 위해 필요 패키지를 설치 한다.</p></li>
+<li><p>HTTPS 기반의 APT 서버 접근을 위해 필요 패키지를 설치하고, Signing 키를 등록한다.</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ca-certificates<span class="w"> </span>apt-transport-https<span class="w"> </span>gnupg<span class="w"> </span>wget
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>gnupg
+curl<span class="w"> </span>https://packages.cloud.google.com/apt/doc/apt-key.gpg<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/trusted.gpg.d/cloud.google.gpg
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>FuriosaAI의 공개 Signing 키를 등록 한다.</p></li>
-</ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/apt/keyrings<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-wget<span class="w"> </span>-q<span class="w"> </span>-O-<span class="w"> </span>https://archive.furiosa.ai/furiosa-apt-key.gpg<span class="w"> </span><span class="se">\</span>
-<span class="p">|</span><span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span><span class="se">\</span>
-<span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/keyrings/furiosa-apt-key.gpg<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
-</pre></div>
-</div>
-<ol class="arabic simple" start="3">
-<li><p>FuriosaAI 개발자 센터에서 API 키를 발급하고 발급한 API 키를 아래와 같이 설정한다.</p></li>
-</ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/auth.conf.d/furiosa.conf<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
-<span class="s">  machine archive.furiosa.ai</span>
-<span class="s">  login [KEY (ID)]</span>
-<span class="s">  password [PASSWORD]</span>
-<span class="s">EOT</span>
-
-sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>/etc/apt/auth.conf.d/furiosa.conf
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
 <li><p>리눅스 배포판 버전에 따른 탭을 선택하여 설명을 따라 APT 서버를 설정한다.</p></li>
 </ol>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ubuntu 20.04 (Debian Bullseye)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu 22.04 (Debian Bookworm)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>아래 커맨드를 통해 APT 서버를 등록합니다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/furiosa.list<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
-<span class="s">deb [arch=amd64 signed-by=/etc/apt/keyrings/furiosa-apt-key.gpg] https://archive.furiosa.ai/ubuntu focal restricted</span>
+<span class="s">deb [arch=amd64] http://asia-northeast3-apt.pkg.dev/projects/furiosa-ai warboy-focal main</span>
 <span class="s">EOT</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>아래 커맨드를 통해 APT 서버를 등록합니다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/furiosa.list<span class="w"> </span><span class="s">&lt;&lt;EOT</span>
-<span class="s">deb [arch=amd64 signed-by=/etc/apt/keyrings/furiosa-apt-key.gpg] https://archive.furiosa.ai/ubuntu jammy restricted</span>
+<span class="s">deb [arch=amd64] http://asia-northeast3-apt.pkg.dev/projects/furiosa-ai warboy-jammy main</span>
 <span class="s">EOT</span>
 </pre></div>
 </div>
