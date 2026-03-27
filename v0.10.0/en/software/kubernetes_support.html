@@ -211,8 +211,9 @@ Node Feature Discovery.</p>
 <section id="installing-device-plugin-and-npu-feature-discovery">
 <span id="installingdevicepluginandnfd"></span><h2>3. Installing Device Plugin and NPU Feature Discovery<a class="headerlink" href="#installing-device-plugin-and-npu-feature-discovery" title="Permalink to this heading"></a></h2>
 <p>When the NPU node is ready, install Device Plugin and NPU Feature Discovery’s DaemonSet as follows.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/device-plugin.yaml
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.7.0/kubernetes/deployments/npu-feature-discovery.yaml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.10.2/kubernetes/deployments/device-plugin.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.10.2/kubernetes/deployments/npu-feature-discovery.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.10.2/kubernetes/deployments/npu-metrics-exporter.yaml
 </pre></div>
 </div>
 <p>After executing the above command, you can check whether the installed daemonset is functioning normally with the <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">daemonset</span> <span class="pre">-n</span> <span class="pre">kube-system</span></code> command.
@@ -405,7 +406,7 @@ If you want to modify execution options of Device Plugin, modify ConfigMap. Once
 <span class="w">        </span><span class="nt">beta.furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.7.0/kubernetes/deployments/pod-example.yaml">Full example</a> for Pod creation is as follows.</p>
+<p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.10.2/kubernetes/deployments/pod-example.yaml">Full example</a> for Pod creation is as follows.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>&gt;<span class="w"> </span>npu-pod.yaml<span class="w"> </span><span class="s">&lt;&lt;EOL</span>
 <span class="s">apiVersion: v1</span>
 <span class="s">kind: Pod</span>
