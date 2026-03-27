@@ -229,9 +229,9 @@ APT 서버가 셋업되어 있다면 (<a class="reference internal" href="instal
 <section id="device-plugin-npu-feature-discovery-npu-metrics-exporter">
 <span id="installingdevicepluginandnfd"></span><h2>3. Device Plugin, NPU Feature Discovery, NPU Metrics Exporter 설치<a class="headerlink" href="#device-plugin-npu-feature-discovery-npu-metrics-exporter" title="이 제목에 대한 퍼머링크"></a></h2>
 <p>NPU 노드 준비가 완료되면, Device Plugin, NPU Feature Discovery와 NPU Metrics Exporter의 DaemonSet을 다음과 같이 설치한다.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/device-plugin.yaml
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/npu-feature-discovery.yaml
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/0.8.0/kubernetes/deployments/npu-metrics-exporter.yaml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.10.2/kubernetes/deployments/device-plugin.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.10.2/kubernetes/deployments/npu-feature-discovery.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/furiosa-ai/furiosa-sdk/v0.10.2/kubernetes/deployments/npu-metrics-exporter.yaml
 </pre></div>
 </div>
 <p>위 커맨드를 실행하고 난 뒤에 <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">daemonset</span> <span class="pre">-n</span> <span class="pre">kube-system</span></code> 명령으로 설치한 DaemonSet이 정상 동작하는지 확인할 수 있다.
@@ -443,7 +443,7 @@ warboy-node02<span class="w">     </span>Ready<span class="w">   </span>&lt;none
 <span class="w">    </span><span class="nt">beta.furiosa.ai/npu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># requesting 1 NPU</span>
 </pre></div>
 </div>
-<p>Pod 생성을 위한 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/0.8.0/kubernetes/deployments/pod-example.yaml">전체 예제</a> 는 다음과 같다.</p>
+<p>Pod 생성을 위한 <a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/blob/v0.10.2/kubernetes/deployments/pod-example.yaml">전체 예제</a> 는 다음과 같다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>&gt;<span class="w"> </span>npu-pod.yaml<span class="w"> </span><span class="s">&lt;&lt;EOL</span>
 <span class="s">apiVersion: v1</span>
 <span class="s">kind: Pod</span>
